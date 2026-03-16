@@ -1,42 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aerovania | Engineering Tomorrow's Infrastructure</title>
-    <meta name="description" content="AI-powered monitoring, drone intelligence, and geospatial analytics for critical infrastructure.">
-    
+    <meta name="description"
+        content="AI-powered monitoring, drone intelligence, and geospatial analytics for critical infrastructure.">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <!-- Header -->
-    <header id="header" class="glass-header">
+    <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <span class="logo-text">AEROVANIA</span>
+                <a href="#"><img src="aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
             </div>
-            
+
             <nav class="desktop-nav">
                 <ul>
-                    <li><a href="#solutions">Solutions</a></li>
-                    <li><a href="#industries">Industries</a></li>
-                    <li><a href="#technology">Technology</a></li>
-                    <li><a href="#company">Our Company</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li class="has-dropdown">
+                        <a href="#solutions">Solutions <i class="ph ph-caret-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="geospatial-ai.html">Geospatial AI</a></li>
+                            <li><a href="artificial-intelligence.html">Artificial intelligence</a></li>
+                            <li><a href="embedded-intelligence.html">Embedded intelligence</a></li>
+                            <li><a href="composite-engineering.html">Composite engineering</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#industries">Industries <i class="ph ph-caret-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="mining.html">Mining</a></li>
+                            <li><a href="highways.html">Highways</a></li>
+                            <li><a href="railway.html">Railway</a></li>
+                            <li><a href="power-energy.html">Power & Energy</a></li>
+                            <li><a href="smart-cities.html">Smart cities & urban planning</a></li>
+                            <li><a href="oil-gas.html">Oil & Gas</a></li>
+                            <li><a href="environmental-forestry.html">Environmental & Forestry</a></li>
+                            <li><a href="defence-security.html">Defence & Border Security</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#platform">Platform <i class="ph ph-caret-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="ai-aerial-monitoring.html">AI Driven Aerial Monitoring & Analytics System For Mine Operations</a></li>
+                            <li><a href="iwlars.html">IWLARS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#technology">Technology <i class="ph ph-caret-down"></i></a></li>
+                    <li class="has-dropdown">
+                        <a href="#company">Our Company <i class="ph ph-caret-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="insights.html">Insights</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="aerovania-foundation.html">Aerovania Foundation</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
-            
+
             <div class="header-actions">
-                <a href="#demo" class="btn btn-primary">Request Demo</a>
+                <a href="contact-us.html" class="btn btn-dark-solid">Contact Us</a>
                 <button class="mobile-menu-btn">
                     <i class="ph ph-list"></i>
                 </button>
@@ -52,8 +91,10 @@
                 <div class="slide-bg" style="background-image: url('hero_drone_survey.png');"></div>
                 <div class="slide-overlay"></div>
                 <div class="container slide-content">
-                    <h1 class="animate-up">Engineering Tomorrow's<br><span class="text-gradient">Infrastructure</span></h1>
-                    <p class="subtitle animate-up delay-1">AI-powered monitoring, drone intelligence, and geospatial analytics for critical infrastructure.</p>
+                    <h1 class="animate-up">Engineering Tomorrow's<br><span class="text-gradient">Infrastructure</span>
+                    </h1>
+                    <p class="subtitle animate-up delay-1">AI-powered monitoring, drone intelligence, and geospatial
+                        analytics for critical infrastructure.</p>
                     <div class="hero-cta animate-up delay-2">
                         <a href="#solutions" class="btn btn-primary btn-lg">Explore Solutions</a>
                     </div>
@@ -65,8 +106,10 @@
                 <div class="slide-bg" style="background-image: url('hero_ai_monitoring.png');"></div>
                 <div class="slide-overlay"></div>
                 <div class="container slide-content">
-                    <h1 class="animate-up">AI Monitoring for<br><span class="text-gradient">Industrial Safety</span></h1>
-                    <p class="subtitle animate-up delay-1">Real-time hazard detection and automated alerts for mining, railways, and infrastructure.</p>
+                    <h1 class="animate-up">AI Monitoring for<br><span class="text-gradient">Industrial Safety</span>
+                    </h1>
+                    <p class="subtitle animate-up delay-1">Real-time hazard detection and automated alerts for mining,
+                        railways, and infrastructure.</p>
                 </div>
             </div>
 
@@ -76,7 +119,8 @@
                 <div class="slide-overlay"></div>
                 <div class="container slide-content">
                     <h1 class="animate-up">Precision Drone &<br><span class="text-gradient">LiDAR Surveys</span></h1>
-                    <p class="subtitle animate-up delay-1">High-resolution mapping and terrain intelligence for large-scale infrastructure projects.</p>
+                    <p class="subtitle animate-up delay-1">High-resolution mapping and terrain intelligence for
+                        large-scale infrastructure projects.</p>
                 </div>
             </div>
 
@@ -86,358 +130,240 @@
                 <div class="slide-overlay"></div>
                 <div class="container slide-content">
                     <h1 class="animate-up">From Data to<br><span class="text-gradient">Intelligence</span></h1>
-                    <p class="subtitle animate-up delay-1">Transforming aerial data into actionable insights with advanced AI analytics.</p>
+                    <p class="subtitle animate-up delay-1">Transforming aerial data into actionable insights with
+                        advanced AI analytics.</p>
                     <div class="hero-cta animate-up delay-2">
-                        <a href="#contact" class="btn btn-primary btn-lg">Contact Us</a>
+                        <a href="contact-us.html" class="btn btn-primary btn-lg">Contact Us</a>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="slide-controls">
             <div class="slide-indicators">
-                <div class="indicator active" data-index="0"><div class="progress"></div></div>
-                <div class="indicator" data-index="1"><div class="progress"></div></div>
-                <div class="indicator" data-index="2"><div class="progress"></div></div>
-                <div class="indicator" data-index="3"><div class="progress"></div></div>
+                <div class="indicator active" data-index="0">
+                    <div class="progress"></div>
+                </div>
+                <div class="indicator" data-index="1">
+                    <div class="progress"></div>
+                </div>
+                <div class="indicator" data-index="2">
+                    <div class="progress"></div>
+                </div>
+                <div class="indicator" data-index="3">
+                    <div class="progress"></div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- What We Do -->
-    <section id="solutions" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">What We Do</h2>
-                <div class="title-line"></div>
+    <section class="what-we-do">
+        <div class="container wwd-inner">
+            <div class="wwd-grid reveal">
+                <div class="wwd-box stagger-1"></div>
+                <div class="wwd-box stagger-2"></div>
+                <div class="wwd-box stagger-3"></div>
+                <div class="wwd-box stagger-4"></div>
             </div>
-            
-            <div class="grid grid-4 feature-grid">
-                <!-- Card 1 -->
-                <div class="glass-card feature-card reveal stagger-1">
-                    <div class="icon-wrapper">
-                        <i class="ph ph-airplane-tilt"></i>
-                    </div>
-                    <h3>Drone Survey & Geospatial Mapping</h3>
-                    <p>High precision aerial mapping for infrastructure planning, corridor surveys, and volumetric analysis.</p>
+            <div class="wwd-text reveal stagger-2">
+                <h2>What <span class="text-cyan">we Do</span></h2>
+                <h3>Giving Machines a Mind That Lives,<br>Learns, and Evolves</h3>
+                <p>We build deep-tech AI and hardware platforms designed for industrial intelligence. Our proprietary
+                    state-of-the-art computer vision systems constantly monitor your most critical infrastructure,
+                    making sense of heavy data pipelines seamlessly and automating compliance across the board.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Boost Your Bottom Line -->
+    <section class="boost-section">
+        <div class="container boost-inner reveal">
+            <h2 class="boost-title"><span class="text-purple">BOOST</span> Your Bottom Line</h2>
+            <p class="boost-subtitle">A proven track record with some of the largest enterprises and Govt entities.</p>
+            <a href="#" class="btn btn-white-box">Learn More</a>
+
+            <div class="metrics-row">
+                <div class="metric-box stagger-1 reveal">
+                    <div class="metric-value">25 <span class="text-cyan">+</span></div>
+                    <div class="metric-label">Cities Deployed In</div>
                 </div>
-                <!-- Card 2 -->
-                <div class="glass-card feature-card reveal stagger-2">
-                    <div class="icon-wrapper">
-                        <i class="ph ph-waves"></i>
-                    </div>
-                    <h3>LiDAR Scanning & Analytics</h3>
-                    <p>Advanced LiDAR technology delivering detailed 3D mapping and engineering-grade point cloud data.</p>
+                <div class="metric-box stagger-2 reveal">
+                    <div class="metric-value">1100 <span class="text-purple">+</span></div>
+                    <div class="metric-label">Sites Secured</div>
                 </div>
-                <!-- Card 3 -->
-                <div class="glass-card feature-card reveal stagger-3">
-                    <div class="icon-wrapper">
-                        <i class="ph ph-eye"></i>
-                    </div>
-                    <h3>AI Monitoring Systems</h3>
-                    <p>Computer vision systems that detect hazards, safety violations, and infrastructure anomalies in real time.</p>
+                <div class="metric-box stagger-3 reveal">
+                    <div class="metric-value">120 <span class="text-purple">+</span></div>
+                    <div class="metric-label">AI Models</div>
                 </div>
-                <!-- Card 4 -->
-                <div class="glass-card feature-card reveal stagger-4">
-                    <div class="icon-wrapper">
-                        <i class="ph ph-cpu"></i>
-                    </div>
-                    <h3>Engineering & UAV Development</h3>
-                    <p>Custom drone platforms, embedded systems, and advanced prototyping for industrial applications.</p>
+                <div class="metric-box purple-bg stagger-4 reveal">
+                    <div class="metric-value text-white">500M<span class="text-white">+</span></div>
+                    <div class="metric-label text-white">SqFt Area Scanned Annually</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Aerovania -->
-    <section id="company" class="section bg-secondary">
+    <!-- Service Platforms -->
+    <section class="service-platforms">
         <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Why Aerovania</h2>
-                <div class="title-line"></div>
-            </div>
-            
-            <div class="grid grid-3 why-grid">
-                <div class="modern-card reveal stagger-1">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <h3>End-to-End Engineering</h3>
-                        <p>Complete lifecycle support from hardware acquisition to ai analytics.</p>
-                    </div>
+            <h2 class="section-title text-left reveal"><span class="text-purple">Service</span> Platforms</h2>
+            <p class="service-subtitle text-left reveal">Automated AI solutions and direct data for site surveys,
+                alerting -
+                all in one powerful dashboard.</p>
+
+            <div class="service-split">
+                <div class="service-info reveal stagger-1">
+                    <h3>Kepler Platform</h3>
+                    <p>Real-Time Tracking. Site Mapping. AI Alerting. Our fully integrated cloud dashboard.</p>
+                    <a href="#" class="btn btn-purple">Learn More</a>
                 </div>
-                <div class="modern-card reveal stagger-2">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <h3>AI + Drone Integration</h3>
-                        <p>Seamless synergy between aerial platforms and advanced computer vision.</p>
-                    </div>
-                </div>
-                <div class="modern-card reveal stagger-3">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <h3>Govt Deployments</h3>
-                        <p>Trusted track record with state and central government infrastructure agencies.</p>
-                    </div>
-                </div>
-                <div class="modern-card reveal stagger-4">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <h3>High Precision Tech</h3>
-                        <p>Engineering-grade accuracy using PPK/RTK and high-density LiDAR.</p>
-                    </div>
-                </div>
-                <div class="modern-card reveal stagger-5">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <h3>Indigenous R&D</h3>
-                        <p>Dedicated to "Make in India" with proprietary software and custom UAVs.</p>
-                    </div>
-                </div>
-                <div class="modern-card reveal stagger-6">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <h3>Pan-India Operations</h3>
-                        <p>Capable of rapid deployment and scaling across the entire subcontinent.</p>
-                    </div>
+                <div class="service-visual reveal stagger-2">
+                    <div class="cyan-box"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Impact Metrics -->
-    <section class="section metrics-section">
-        <div class="metrics-bg"></div>
-        <div class="container">
-            <div class="grid grid-5 metrics-grid">
-                <div class="metric-item reveal stagger-1">
-                    <div class="metric-number"><span class="counter" data-target="150">0</span>+</div>
-                    <div class="metric-label">Projects Delivered</div>
-                </div>
-                <div class="metric-item reveal stagger-2">
-                    <div class="metric-number"><span class="counter" data-target="75">0</span>+</div>
-                    <div class="metric-label">Clients Served</div>
-                </div>
-                <div class="metric-item reveal stagger-3">
-                    <div class="metric-number"><span class="counter" data-target="40">0</span>+</div>
-                    <div class="metric-label">Tech Specialists</div>
-                </div>
-                <div class="metric-item reveal stagger-4">
-                    <div class="metric-number"><span class="counter" data-target="50">0</span>+</div>
-                    <div class="metric-label">AI Models Trained</div>
-                </div>
-                <div class="metric-item reveal stagger-5">
-                    <div class="metric-number"><span class="counter" data-target="0">0</span></div>
-                    <div class="metric-label">Safety Incidents</div>
-                </div>
+    <!-- Trusted By Industry Leader -->
+    <section class="trusted-section">
+        <div class="container trusted-inner">
+            <h2 class="section-title text-white text-center reveal">Trusted By Industry Leader</h2>
+            <div class="trusted-logos reveal stagger-1">
+                <span>Indian Railways</span>
+                <span>Coal India</span>
+                <span>NHAI</span>
+                <span>Survey of India</span>
+                <span>State Forests</span>
+            </div>
+
+            <div class="testimonial-box reveal stagger-2">
+                <i class="ph-fill ph-quotes text-cyan"></i>
+                <p>"Aerovania's drone and AI monitoring solutions have significantly<br>improved infrastructure
+                    monitoring and operational efficiency."</p>
+                <div class="author text-cyan">Infrastructure Development Authority</div>
             </div>
         </div>
     </section>
-
     <!-- Industries We Serve -->
-    <section id="industries" class="section">
+    <section id="industries" class="industries-section">
         <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Industries We Serve</h2>
-                <div class="title-line"></div>
-            </div>
-            
-            <div class="grid grid-3 industry-grid">
-                <div class="industry-card reveal stagger-1">
-                    <div class="industry-img" style="background-image: url('industry_railways.png');"></div>
-                    <div class="industry-content">
+            <h2 class="section-title text-purple text-center reveal">Industries We Serve</h2>
+            <div class="title-underline margin-auto reveal"></div>
+
+            <div class="industries-grid">
+                <div class="industry-item reveal stagger-1" style="background-image: url('industry_railways.png');">
+                    <div class="industry-overlay">
                         <i class="ph ph-train"></i>
-                        <h3>Railways Infrastructure</h3>
+                        <span>Railways Infrastructure</span>
                     </div>
                 </div>
-                <div class="industry-card reveal stagger-2">
-                    <div class="industry-img" style="background-image: url('industry_mining.png');"></div>
-                    <div class="industry-content">
+                <div class="industry-item reveal stagger-1" style="background-image: url('industry_mining.png');">
+                    <div class="industry-overlay">
                         <i class="ph ph-mountains"></i>
-                        <h3>Mining & Resources</h3>
+                        <span>Mining & Resources</span>
                     </div>
                 </div>
-                <div class="industry-card reveal stagger-3">
-                    <div class="industry-img" style="background-image: url('https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&q=80&w=600');"></div>
-                    <div class="industry-content">
+                <div class="industry-item reveal stagger-2" style="background-image: url('industry_highways.png');">
+                    <div class="industry-overlay">
                         <i class="ph ph-road-horizon"></i>
-                        <h3>Highways & Transportation</h3>
+                        <span>Highways & Transportation</span>
                     </div>
                 </div>
-                <div class="industry-card reveal stagger-4">
-                    <div class="industry-img" style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=600');"></div>
-                    <div class="industry-content">
+                <div class="industry-item reveal stagger-2" style="background-image: url('industry_highways.png');">
+                    <div class="industry-overlay">
+                        <i class="ph ph-road-horizon"></i>
+                        <span>Highways & Transportation</span>
+                    </div>
+                </div>
+                <div class="industry-item reveal stagger-3" style="background-image: url('industry_energy.png');">
+                    <div class="industry-overlay">
                         <i class="ph ph-lightning"></i>
-                        <h3>Energy & Power</h3>
+                        <span>Energy & Power</span>
                     </div>
                 </div>
-                <div class="industry-card reveal stagger-5">
-                    <div class="industry-img" style="background-image: url('https://images.unsplash.com/photo-1523952578875-e6bb18b26645?auto=format&fit=crop&q=80&w=600');"></div>
-                    <div class="industry-content">
+                <div class="industry-item reveal stagger-3" style="background-image: url('industry_government.png');">
+                    <div class="industry-overlay">
                         <i class="ph ph-bank"></i>
-                        <h3>Government & Defence</h3>
+                        <span>Government & Defence</span>
                     </div>
                 </div>
-                <div class="industry-card reveal stagger-6">
-                    <div class="industry-img" style="background-image: url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&q=80&w=600');"></div>
-                    <div class="industry-content">
+                <div class="industry-item reveal stagger-4" style="background-image: url('industry_environment.png');">
+                    <div class="industry-overlay">
                         <i class="ph ph-tree"></i>
-                        <h3>Environmental & Forestry</h3>
+                        <span>Environmental & Forestry</span>
+                    </div>
+                </div>
+                <div class="industry-item reveal stagger-4" style="background-image: url('industry_environment.png');">
+                    <div class="industry-overlay">
+                        <i class="ph ph-tree"></i>
+                        <span>Environmental & Forestry</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trusted By -->
-    <section class="section bg-secondary">
-        <div class="container">
-            <h2 class="text-center section-title reveal">Trusted By Industry Leaders</h2>
-            
-            <div class="logo-carousel reveal">
-                <div class="logo-track">
-                    <div class="logo-item">Indian Railways</div>
-                    <div class="logo-item">Coal India</div>
-                    <div class="logo-item">NHAI</div>
-                    <div class="logo-item">Survey of India</div>
-                    <div class="logo-item">State Forests</div>
-                    <!-- Duplicated for infinite scroll -->
-                    <div class="logo-item">Indian Railways</div>
-                    <div class="logo-item">Coal India</div>
-                    <div class="logo-item">NHAI</div>
-                    <div class="logo-item">Survey of India</div>
-                    <div class="logo-item">State Forests</div>
-                </div>
-            </div>
-            
-            <div class="testimonial-box glass-card reveal">
-                <i class="ph-fill ph-quotes"></i>
-                <p>"Aerovania's drone and AI monitoring solutions have significantly improved infrastructure monitoring and operational efficiency."</p>
-                <div class="testimonial-author">- Infrastructure Development Authority</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology Platform Architecture -->
-    <section id="technology" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Technology Architecture</h2>
-                <div class="title-line"></div>
-            </div>
-            
-            <div class="architecture-diagram reveal">
-                <div class="arch-node">
-                    <div class="arch-icon"><i class="ph ph-drone"></i></div>
-                    <h4>Data Acquisition</h4>
-                    <p>Drones & IoT Sensors</p>
-                </div>
-                
-                <div class="arch-connector">
-                    <div class="dot line-anim"></div>
-                    <div class="dot line-anim delay-1"></div>
-                    <div class="dot line-anim delay-2"></div>
-                </div>
-                
-                <div class="arch-node highlight">
-                    <div class="arch-icon"><i class="ph ph-brain"></i></div>
-                    <h4>AI Processing</h4>
-                    <p>Computer Vision & NLP</p>
-                </div>
-                
-                <div class="arch-connector">
-                    <div class="dot line-anim"></div>
-                    <div class="dot line-anim delay-1"></div>
-                    <div class="dot line-anim delay-2"></div>
-                </div>
-                
-                <div class="arch-node">
-                    <div class="arch-icon"><i class="ph ph-chart-line-up"></i></div>
-                    <h4>Industrial Dashboard</h4>
-                    <p>Visualization & Insights</p>
-                </div>
-                
-                <div class="arch-connector">
-                    <div class="dot line-anim"></div>
-                    <div class="dot line-anim delay-1"></div>
-                    <div class="dot line-anim delay-2"></div>
-                </div>
-                
-                <div class="arch-node success">
-                    <div class="arch-icon"><i class="ph ph-bell-ringing"></i></div>
-                    <h4>Real-Time Alerts</h4>
-                    <p>Predictive Analytics</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="contact" class="cta-section">
-        <div class="cta-bg"></div>
-        <div class="container cta-container reveal">
-            <h2 class="cta-title">Let's Build the Future of Infrastructure Intelligence</h2>
-            <p class="cta-subtitle">Discover how Aerovania's AI-powered monitoring and drone technologies can transform your operations.</p>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container cta-inner text-center reveal">
+            <h2 class="cta-title">Let's Build the Future of<br>Infrastructure Intelligence</h2>
+            <p class="cta-desc">Discover how Aerovania's AI-powered monitoring and drones can transform your operations.
+            </p>
             <div class="cta-buttons">
-                <a href="#contact-us" class="btn btn-primary btn-lg">Contact Us</a>
-                <a href="#demo" class="btn btn-outline btn-lg">Request Demo</a>
+                <a href="contact-us.html" class="btn btn-cyan">Contact Us</a>
+                <a href="#" class="btn btn-transparent">Request Demo</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-text">AEROVANIA</span>
-                    </div>
-                    <p class="tagline">Turning Vision into Verified Reality</p>
-                    <div class="social-links">
-                        <a href="#"><i class="ph ph-linkedin-logo"></i></a>
-                        <a href="#"><i class="ph ph-twitter-logo"></i></a>
-                        <a href="#"><i class="ph ph-youtube-logo"></i></a>
-                    </div>
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <div class="logo">
+                    <a href="#"><img src="aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a>
+                    <div style="font-size: 0.8rem; letter-spacing: 0; color: #64748b; margin-top: 0.5rem;">Turning
+                        Vision into Verified Reality</div>
                 </div>
-                
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#solutions">Solutions</a></li>
-                        <li><a href="#industries">Industries</a></li>
-                        <li><a href="#technology">Technology</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#company">Our Company</a></li>
-                        <li><a href="#careers">Careers</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3>Contact Us</h3>
-                    <ul>
-                        <li><i class="ph ph-phone"></i> +91 9834491075</li>
-                        <li><i class="ph ph-envelope"></i> info@aerovania.com</li>
-                        <li><i class="ph ph-globe"></i> www.aerovania.com</li>
-                        <li class="address-li">
-                            <i class="ph ph-map-pin"></i>
-                            <span>Plot No. D1/A & D4/2, Wadi Road, MIDC,<br>Wadi, Nagpur, Maharashtra 440016, India</span>
-                        </li>
-                    </ul>
+                <div class="socials">
+                    <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                    <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph ph-youtube-logo"></i></a>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Industries</a></li>
+                    <li><a href="#">Technology</a></li>
+                </ul>
             </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">Our Vision</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="ph ph-phone"></i> +91 9834491075</li>
+                    <li><i class="ph ph-envelope"></i> info@aerovania.com</li>
+                    <li><i class="ph ph-globe"></i> www.aerovania.com</li>
+                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A & D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>

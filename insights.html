@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | Aerovania</title>
+    <meta name="description" content="Latest insights, case studies, and thought leadership from Aerovania on AI, drones, and infrastructure intelligence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .insights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem}
+        .insight-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;transition:all 0.3s ease}
+        .insight-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);border-color:var(--primary-cyan)}
+        .insight-thumb{height:180px;background:linear-gradient(135deg,#0a0e20,#1a2040);display:flex;align-items:center;justify-content:center;position:relative}
+        .insight-thumb i{font-size:4rem;color:rgba(52,192,197,0.4)}
+        .insight-cat{position:absolute;top:1rem;left:1rem;background:rgba(52,192,197,0.15);color:var(--primary-cyan);border:1px solid rgba(52,192,197,0.3);padding:0.25rem 0.75rem;border-radius:50px;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+        .insight-body{padding:1.75rem}
+        .insight-body h3{font-size:1.05rem;font-weight:700;color:var(--text-dark);margin-bottom:0.6rem;line-height:1.4}
+        .insight-body p{font-size:0.9rem;color:#64748b;line-height:1.6;margin-bottom:1.25rem}
+        .insight-meta{display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#94a3b8}
+        .insight-meta i{color:var(--primary-cyan)}
+        .topics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2.5rem}
+        .topic-pill{background:#0f1535;border:1px solid rgba(52,192,197,0.15);border-radius:12px;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:0.75rem;transition:0.3s;cursor:pointer}
+        .topic-pill:hover{border-color:rgba(52,192,197,0.4)}
+        .topic-pill i{font-size:1.4rem;color:var(--primary-cyan)}
+        .topic-pill span{color:#f1f5f9;font-size:0.9rem;font-weight:600}
+    </style>
+</head>
+<body>
+    <header id="header" class="glass-header white-header">
+        <div class="container header-container">
+            <div class="logo"><a href="index.html"><img src="aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a></div>
+            <nav class="desktop-nav"><ul>
+                <li class="has-dropdown"><a href="#">Solutions <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="geospatial-ai.html">Geospatial AI</a></li><li><a href="artificial-intelligence.html">Artificial Intelligence</a></li><li><a href="embedded-intelligence.html">Embedded Intelligence</a></li><li><a href="composite-engineering.html">Composite Engineering</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Industries <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="mining.html">Mining</a></li><li><a href="highways.html">Highways</a></li><li><a href="railway.html">Railway</a></li><li><a href="power-energy.html">Power &amp; Energy</a></li><li><a href="smart-cities.html">Smart Cities &amp; Urban Planning</a></li><li><a href="oil-gas.html">Oil &amp; Gas</a></li><li><a href="environmental-forestry.html">Environmental &amp; Forestry</a></li><li><a href="defence-security.html">Defence &amp; Border Security</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Platform <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="ai-aerial-monitoring.html">AI Driven Aerial Monitoring &amp; Analytics</a></li><li><a href="iwlars.html">IWLARS</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Our Company <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="insights.html">Insights</a></li><li><a href="careers.html">Careers</a></li><li><a href="aerovania-foundation.html">Aerovania Foundation</a></li><li><a href="about-us.html">About Us</a></li></ul></li>
+            </ul></nav>
+            <div class="header-actions"><a href="index.html#contact" class="btn btn-dark-solid">Contact Us</a><button class="mobile-menu-btn"><i class="ph ph-list"></i></button></div>
+        </div>
+    </header>
+
+    <!-- DARK: Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="tag">Insights</div>
+            <h1>Ideas &amp; <span class="text-cyan">Intelligence</span></h1>
+            <p>Case studies, technical deep-dives, and thought leadership on AI, drone technology, and the future of infrastructure intelligence.</p>
+        </div>
+    </section>
+
+    <!-- LIGHT: Featured Articles -->
+    <section class="section-light">
+        <div class="container">
+            <span class="section-label reveal">Latest</span>
+            <h2 class="section-title-lg reveal">Featured Insights</h2>
+            <div class="insights-grid">
+                <div class="insight-card reveal stagger-1">
+                    <div class="insight-thumb"><i class="ph ph-mountains"></i><span class="insight-cat">Case Study</span></div>
+                    <div class="insight-body"><h3>How Coal India Reduced Survey Costs by 80% with Drone Volumetrics</h3><p>A deep-dive into how Aerovania's AI-powered stockpile measurement system transformed operations at one of India's largest coal mines.</p><div class="insight-meta"><i class="ph ph-calendar"></i> March 2026 &nbsp;·&nbsp; <i class="ph ph-clock"></i> 8 min read</div></div>
+                </div>
+                <div class="insight-card reveal stagger-2">
+                    <div class="insight-thumb"><i class="ph ph-train"></i><span class="insight-cat">Technical</span></div>
+                    <div class="insight-body"><h3>LiDAR vs Photogrammetry: Choosing the Right Technology for Railway Inspection</h3><p>A technical comparison of LiDAR and photogrammetry for railway track geometry surveys, with real-world accuracy benchmarks.</p><div class="insight-meta"><i class="ph ph-calendar"></i> February 2026 &nbsp;·&nbsp; <i class="ph ph-clock"></i> 12 min read</div></div>
+                </div>
+                <div class="insight-card reveal stagger-3">
+                    <div class="insight-thumb"><i class="ph ph-city"></i><span class="insight-cat">Thought Leadership</span></div>
+                    <div class="insight-body"><h3>The Future of Smart Cities: Why Aerial Intelligence is the Missing Layer</h3><p>How persistent aerial monitoring and AI analytics are becoming essential infrastructure for India's smart city programme.</p><div class="insight-meta"><i class="ph ph-calendar"></i> January 2026 &nbsp;·&nbsp; <i class="ph ph-clock"></i> 6 min read</div></div>
+                </div>
+                <div class="insight-card reveal stagger-1">
+                    <div class="insight-thumb"><i class="ph ph-lightning"></i><span class="insight-cat">Case Study</span></div>
+                    <div class="insight-body"><h3>Thermal Drone Inspection Cuts Transmission Line Maintenance Costs by 40%</h3><p>How a state electricity board used Aerovania's thermal drone surveys to identify faults across 2,000km of HV transmission lines.</p><div class="insight-meta"><i class="ph ph-calendar"></i> December 2025 &nbsp;·&nbsp; <i class="ph ph-clock"></i> 7 min read</div></div>
+                </div>
+                <div class="insight-card reveal stagger-2">
+                    <div class="insight-thumb"><i class="ph ph-tree"></i><span class="insight-cat">Research</span></div>
+                    <div class="insight-body"><h3>Mapping India's Forest Cover: Accuracy Benchmarks for Aerial LiDAR</h3><p>Results from a multi-state study comparing aerial LiDAR biomass estimates against ground truth measurements in Indian forest types.</p><div class="insight-meta"><i class="ph ph-calendar"></i> November 2025 &nbsp;·&nbsp; <i class="ph ph-clock"></i> 15 min read</div></div>
+                </div>
+                <div class="insight-card reveal stagger-3">
+                    <div class="insight-thumb"><i class="ph ph-road-horizon"></i><span class="insight-cat">Technical</span></div>
+                    <div class="insight-body"><h3>Automating Pavement Condition Index Scoring with Computer Vision</h3><p>How Aerovania's AI models classify pavement distress from drone imagery to generate PCI scores at scale for NHAI projects.</p><div class="insight-meta"><i class="ph ph-calendar"></i> October 2025 &nbsp;·&nbsp; <i class="ph ph-clock"></i> 10 min read</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DARK: Topics -->
+    <section class="section-dark">
+        <div class="container">
+            <span class="section-label reveal">Browse by Topic</span>
+            <h2 class="section-title-lg light reveal">Explore Our Knowledge Base</h2>
+            <div class="topics-grid">
+                <div class="topic-pill reveal stagger-1"><i class="ph ph-drone"></i><span>Drone Technology</span></div>
+                <div class="topic-pill reveal stagger-2"><i class="ph ph-brain"></i><span>Artificial Intelligence</span></div>
+                <div class="topic-pill reveal stagger-3"><i class="ph ph-map-trifold"></i><span>Geospatial Analytics</span></div>
+                <div class="topic-pill reveal stagger-1"><i class="ph ph-mountains"></i><span>Mining</span></div>
+                <div class="topic-pill reveal stagger-2"><i class="ph ph-train"></i><span>Railways</span></div>
+                <div class="topic-pill reveal stagger-3"><i class="ph ph-tree"></i><span>Environment</span></div>
+                <div class="topic-pill reveal stagger-1"><i class="ph ph-buildings"></i><span>Smart Cities</span></div>
+                <div class="topic-pill reveal stagger-2"><i class="ph ph-lightning"></i><span>Energy</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHT: CTA -->
+    <section class="section-cta">
+        <div class="container reveal">
+            <h2>Stay Ahead of the Curve</h2>
+            <p>Get the latest insights on AI, drones, and infrastructure intelligence delivered to your inbox.</p>
+            <a href="index.html#contact" class="btn btn-cyan">Subscribe to Updates</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col"><div class="logo"><a href="index.html"><img src="aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a><div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div></div><div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="about-us.html">About Us</a></li><li><a href="mining.html">Industries</a></li><li><a href="geospatial-ai.html">Technology</a></li></ul></div>
+            <div class="footer-col"><h4>Company</h4><ul><li><a href="about-us.html">Our Vision</a></li><li><a href="careers.html">Careers</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+            <div class="footer-col contact-col"><h4>Contact Us</h4><ul><li><i class="ph ph-phone"></i> +91 9834491075</li><li><i class="ph ph-envelope"></i> info@aerovania.com</li><li><i class="ph ph-globe"></i> www.aerovania.com</li><li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li></ul></div>
+        </div>
+        <div class="footer-bottom text-center"><p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p></div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
