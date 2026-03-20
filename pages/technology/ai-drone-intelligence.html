@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI + Drone Intelligence | Aerovania</title>
+    <meta name="description" content="How Aerovania combines AI and drone technology for real-time aerial intelligence, autonomous operations, and actionable insights.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <style>
+        :root { --cyan:#34C0C5; --navy:#0a0e20; --navy2:#0d1226; }
+        .page-hero { background:linear-gradient(135deg,var(--navy) 0%,#0d1a35 60%,#0a1a2e 100%); position:relative; overflow:hidden; }
+        .page-hero::before { content:''; position:absolute; width:600px; height:600px; background:radial-gradient(circle,rgba(52,192,197,.18) 0%,transparent 70%); top:-150px; right:-100px; pointer-events:none; }
+        .page-hero::after  { content:''; position:absolute; width:350px; height:350px; background:radial-gradient(circle,rgba(52,192,197,.10) 0%,transparent 70%); bottom:-80px; left:5%; pointer-events:none; }
+        .split-section { padding:5rem 0; position:relative; overflow:hidden; }
+        .split-section.dark  { background:var(--navy2); }
+        .split-section.light { background:#f4f7fb; }
+        .split-section.white { background:#ffffff; }
+        .split-wrap { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+        .split-wrap.reverse { direction:rtl; }
+        .split-wrap.reverse > * { direction:ltr; }
+        .split-img-wrap { position:relative; border-radius:24px; overflow:hidden; aspect-ratio:4/3; box-shadow:0 24px 64px rgba(0,0,0,.25); }
+        .split-img-wrap img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
+        .split-img-wrap:hover img { transform:scale(1.04); }
+        .split-img-wrap::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(52,192,197,.12) 0%,transparent 60%); pointer-events:none; }
+        .img-badge { position:absolute; bottom:1.25rem; left:1.25rem; background:rgba(10,14,32,.85); backdrop-filter:blur(12px); border:1px solid rgba(52,192,197,.3); border-radius:12px; padding:.6rem 1rem; display:flex; align-items:center; gap:.6rem; z-index:2; }
+        .img-badge i { color:var(--cyan); font-size:1.1rem; }
+        .img-badge span { font-size:.8rem; color:#e2e8f0; font-weight:500; }
+        .split-info { display:flex; flex-direction:column; gap:1.5rem; }
+        .split-label { font-size:.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); }
+        .split-title { font-size:2rem; font-weight:800; line-height:1.2; margin:0; }
+        .split-title.light-text { color:#f1f5f9; }
+        .split-title.dark-text  { color:#0a0e20; }
+        .split-desc { font-size:1rem; line-height:1.75; margin:0; }
+        .split-desc.light-text { color:#94a3b8; }
+        .split-desc.dark-text  { color:#475569; }
+        .feat-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:.85rem; }
+        .feat-list li { display:flex; align-items:flex-start; gap:.75rem; font-size:.95rem; }
+        .feat-list li i { color:var(--cyan); font-size:1.1rem; margin-top:.15rem; flex-shrink:0; }
+        .feat-list.light-text li { color:#cbd5e1; }
+        .feat-list.dark-text  li { color:#334155; }
+        .stat-strip { display:flex; gap:2rem; flex-wrap:wrap; padding:1.25rem 1.5rem; border-radius:14px; margin-top:.5rem; }
+        .stat-strip.dark-bg  { background:rgba(255,255,255,.04); border:1px solid rgba(52,192,197,.18); }
+        .stat-strip.light-bg { background:rgba(52,192,197,.07); border:1px solid rgba(52,192,197,.2); }
+        .stat-strip .s-num { font-size:1.6rem; font-weight:800; color:var(--cyan); line-height:1; }
+        .stat-strip .s-lbl { font-size:.75rem; color:#94a3b8; margin-top:.2rem; }
+        .stat-strip.light-bg .s-lbl { color:#475569; }
+        .stats-row-section { background:linear-gradient(135deg,#060c1a 0%,#0a1628 100%); padding:4rem 0; position:relative; overflow:hidden; }
+        .stats-row-section::before { content:''; position:absolute; width:600px; height:300px; background:radial-gradient(ellipse,rgba(52,192,197,.12) 0%,transparent 70%); top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
+        .stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:2.5rem; }
+        .stat-tile { background:rgba(255,255,255,.04); border:1px solid rgba(52,192,197,.2); border-radius:18px; padding:2rem 1.5rem; text-align:center; backdrop-filter:blur(12px); transition:transform .3s,box-shadow .3s; }
+        .stat-tile:hover { transform:translateY(-4px); box-shadow:0 8px 32px rgba(52,192,197,.18); }
+        .stat-tile .num { font-size:2.4rem; font-weight:800; color:var(--cyan); text-shadow:0 0 20px rgba(52,192,197,.4); }
+        .stat-tile .lbl { font-size:.82rem; color:#94a3b8; margin-top:.4rem; }
+        .section-cta { background:linear-gradient(135deg,#f0f9ff 0%,#e0f7f8 100%); position:relative; overflow:hidden; }
+        .section-cta::before { content:''; position:absolute; width:400px; height:400px; background:radial-gradient(circle,rgba(52,192,197,.15) 0%,transparent 70%); top:-100px; right:-50px; pointer-events:none; }
+        .section-cta > .container { position:relative; z-index:1; }
+        @media(max-width:860px) {
+            .split-wrap, .split-wrap.reverse { grid-template-columns:1fr; direction:ltr; gap:2rem; }
+            .stats-row { grid-template-columns:repeat(2,1fr); }
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="glass-header white-header">
+        <div class="container header-container">
+            <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a></div>
+            <nav class="desktop-nav"><ul>
+                <li class="has-dropdown"><a href="#">Solutions <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/solutions/geospatial-ai.html">Geospatial AI</a></li><li><a href="../../pages/solutions/artificial-intelligence.html">Artificial Intelligence</a></li><li><a href="../../pages/solutions/embedded-intelligence.html">Embedded Intelligence</a></li><li><a href="../../pages/solutions/composite-engineering.html">Composite Engineering</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Industries <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/industries/mining.html">Mining</a></li><li><a href="../../pages/industries/highways.html">Highways</a></li><li><a href="../../pages/industries/railway.html">Railway</a></li><li><a href="../../pages/industries/power-energy.html">Power &amp; Energy</a></li><li><a href="../../pages/industries/smart-cities.html">Smart Cities &amp; Urban Planning</a></li><li><a href="../../pages/industries/oil-gas.html">Oil &amp; Gas</a></li><li><a href="../../pages/industries/environmental-forestry.html">Environmental &amp; Forestry</a></li><li><a href="../../pages/industries/defence-security.html">Defence &amp; Border Security</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Platform <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/platform/ai-aerial-monitoring.html">AI Driven Aerial Monitoring &amp; Analytics</a></li><li><a href="../../pages/platform/iwlars.html">IWLARS</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Technology <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/technology/ai-aerial-intelligence-stack.html">AI-Powered Aerial Intelligence Stack</a></li><li><a href="../../pages/technology/ai-drone-intelligence.html">AI + Drone Intelligence</a></li><li><a href="../../pages/technology/multi-sensor-data-systems.html">Multi-Sensor Data Systems</a></li><li><a href="../../pages/technology/ai-analytics-platform.html">AI &amp; Analytics Platform</a></li><li><a href="../../pages/technology/geospatial-intelligence.html">Geospatial Intelligence</a></li><li><a href="../../pages/technology/engineering-design.html">Engineering &amp; Design</a></li><li><a href="../../pages/technology/composite-manufacturing.html">Composite Manufacturing</a></li><li><a href="../../pages/technology/tech-stack.html">Tech Stack</a></li><li><a href="../../pages/technology/future-roadmap.html">Future Roadmap</a></li><li><a href="../../pages/technology/system-architecture.html">System Architecture</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Our Company <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/company/insights.html">Insights</a></li><li><a href="../../pages/company/careers.html">Careers</a></li><li><a href="../../pages/company/aerovania-foundation.html">Aerovania Foundation</a></li><li><a href="../../pages/company/about-us.html">About Us</a></li></ul></li>
+            </ul></nav>
+            <div class="header-actions"><a href="../../pages/company/contact-us.html" class="btn btn-dark-solid">Contact Us</a><button class="mobile-menu-btn"><i class="ph ph-list"></i></button></div>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="tag">Technology</div>
+            <h1>AI + Drone <span class="text-cyan">Intelligence</span></h1>
+            <p>Aerovania fuses autonomous drone operations with deep learning AI — enabling real-time detection, classification, and decision support directly from the sky.</p>
+            <div class="hero-cta-row">
+                <a href="../../pages/company/contact-us.html" class="btn btn-primary btn-lg">Talk to an Expert</a>
+                <a href="#ai" class="btn btn-outline-cyan">How It Works</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai" class="split-section light">
+        <div class="container">
+            <div class="split-wrap">
+                <div class="split-img-wrap reveal stagger-1">
+                    <img src="../../assets/images/hero_drone_survey.png" alt="Autonomous drone operations">
+                    <div class="img-badge"><i class="ph ph-drone"></i><span>Autonomous Mission Active</span></div>
+                </div>
+                <div class="split-info reveal stagger-2">
+                    <span class="split-label">Autonomous Operations</span>
+                    <h2 class="split-title dark-text">Fully Autonomous Drone Missions</h2>
+                    <p class="split-desc dark-text">Aerovania's drones execute pre-planned missions autonomously — takeoff, survey, return, and data upload — without manual piloting. AI-driven flight path optimisation adapts to terrain, wind, and mission objectives in real time.</p>
+                    <ul class="feat-list dark-text">
+                        <li><i class="ph ph-check-circle"></i>Automated mission planning and flight path optimisation</li>
+                        <li><i class="ph ph-check-circle"></i>Obstacle avoidance and terrain-following flight modes</li>
+                        <li><i class="ph ph-check-circle"></i>Automated takeoff, survey, and return-to-home</li>
+                        <li><i class="ph ph-check-circle"></i>Real-time telemetry and mission monitoring</li>
+                    </ul>
+                    <div class="stat-strip light-bg">
+                        <div><div class="s-num">100%</div><div class="s-lbl">Autonomous Capable</div></div>
+                        <div><div class="s-num">24/7</div><div class="s-lbl">Operational</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="split-section dark">
+        <div class="container">
+            <div class="split-wrap reverse">
+                <div class="split-img-wrap reveal stagger-1">
+                    <img src="../../assets/images/hero_ai_monitoring.png" alt="Real-time AI detection">
+                    <div class="img-badge"><i class="ph ph-brain"></i><span>AI Detection Active</span></div>
+                </div>
+                <div class="split-info reveal stagger-2">
+                    <span class="split-label">Real-Time AI</span>
+                    <h2 class="split-title light-text">Onboard Real-Time AI Detection</h2>
+                    <p class="split-desc light-text">Deep learning models run onboard the drone — detecting intrusions, anomalies, objects, and changes in real time, without waiting for data to reach the cloud. Alerts are sent to command centres in under 30 seconds of detection.</p>
+                    <ul class="feat-list light-text">
+                        <li><i class="ph ph-check-circle"></i>Object detection and classification at 30fps</li>
+                        <li><i class="ph ph-check-circle"></i>Human, vehicle, and aerial intrusion detection</li>
+                        <li><i class="ph ph-check-circle"></i>Thermal anomaly and fire hotspot detection</li>
+                        <li><i class="ph ph-check-circle"></i>Alert to command centre in under 30 seconds</li>
+                    </ul>
+                    <div class="stat-strip dark-bg">
+                        <div><div class="s-num">&lt;30s</div><div class="s-lbl">Alert Response Time</div></div>
+                        <div><div class="s-num">30fps</div><div class="s-lbl">Detection Rate</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="split-section white">
+        <div class="container">
+            <div class="split-wrap">
+                <div class="split-img-wrap reveal stagger-1">
+                    <img src="../../assets/images/hero_lidar_terrain.png" alt="AI change detection and analytics">
+                    <div class="img-badge"><i class="ph ph-chart-line-up"></i><span>Change Detection</span></div>
+                </div>
+                <div class="split-info reveal stagger-2">
+                    <span class="split-label">Change Detection &amp; Analytics</span>
+                    <h2 class="split-title dark-text">AI-Powered Change Detection</h2>
+                    <p class="split-desc dark-text">Comparing survey data across time, Aerovania's AI automatically identifies what has changed — new structures, vegetation growth, erosion, encroachments, or asset degradation — and flags it for review with geo-tagged evidence.</p>
+                    <ul class="feat-list dark-text">
+                        <li><i class="ph ph-check-circle"></i>Automated comparison between survey epochs</li>
+                        <li><i class="ph ph-check-circle"></i>Pixel-level change classification and severity scoring</li>
+                        <li><i class="ph ph-check-circle"></i>Geo-tagged evidence with before/after imagery</li>
+                        <li><i class="ph ph-check-circle"></i>Trend analysis and predictive maintenance alerts</li>
+                    </ul>
+                    <div class="stat-strip light-bg">
+                        <div><div class="s-num">±2cm</div><div class="s-lbl">Detection Accuracy</div></div>
+                        <div><div class="s-num">Auto</div><div class="s-lbl">Change Flagging</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-row-section">
+        <div class="container text-center">
+            <span class="section-label reveal" style="color:var(--cyan);">Performance</span>
+            <h2 class="section-title-lg light reveal">AI That Works in the Field</h2>
+            <div class="stats-row">
+                <div class="stat-tile reveal stagger-1"><div class="num">&lt;30s</div><div class="lbl">Alert Response Time</div></div>
+                <div class="stat-tile reveal stagger-2"><div class="num">30fps</div><div class="lbl">Onboard Detection</div></div>
+                <div class="stat-tile reveal stagger-3"><div class="num">±2cm</div><div class="lbl">Spatial Accuracy</div></div>
+                <div class="stat-tile reveal stagger-4"><div class="num">100%</div><div class="lbl">Offline Capable</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-cta">
+        <div class="container reveal">
+            <h2>Intelligence from the Sky, Delivered to Your Screen</h2>
+            <p>See how Aerovania's AI and drone intelligence platform can work for your operations.</p>
+            <a href="../../pages/company/contact-us.html" class="btn btn-cyan">Request a Demo</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col"><div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a><div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div></div><div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="../../pages/company/about-us.html">About Us</a></li><li><a href="../../pages/industries/mining.html">Industries</a></li><li><a href="../../pages/technology/system-architecture.html">Technology</a></li></ul></div>
+            <div class="footer-col"><h4>Company</h4><ul><li><a href="../../pages/company/about-us.html">Our Vision</a></li><li><a href="../../pages/company/careers.html">Careers</a></li><li><a href="../../pages/company/contact-us.html">Contact</a></li></ul></div>
+            <div class="footer-col contact-col"><h4>Contact Us</h4><ul><li><i class="ph ph-phone"></i> +91 9834491075</li><li><i class="ph ph-envelope"></i> info@aerovania.com</li><li><i class="ph ph-globe"></i> www.aerovania.com</li><li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li></ul></div>
+        </div>
+        <div class="footer-bottom text-center"><p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p></div>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+</html>

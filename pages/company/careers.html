@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Aerovania</title>
+    <meta name="description" content="Join Aerovania — build the future of aerial intelligence. Open roles, culture, and why engineers choose us.">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <style>
+        :root{--neu-bg:#e8edf5;--neu-dark:#c5cad6;--neu-light:#ffffff;--neu-text:#2d3748;--neu-muted:#718096;--neu-accent:#34C0C5;--neu-accent-dark:#2a9a9e;--neu-shadow-dark:rgba(163,177,198,0.7);--neu-shadow-light:rgba(255,255,255,0.9)}
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{background:var(--neu-bg);color:var(--neu-text);font-family:'Inter',sans-serif}
+        #header.glass-header{background:var(--neu-bg)!important;box-shadow:0 4px 16px var(--neu-shadow-dark),0 -2px 8px var(--neu-shadow-light);border-bottom:none}
+        .neu-hero{background:var(--neu-bg);padding:11rem 0 7rem;position:relative;overflow:hidden}
+        .neu-hero::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(52,192,197,0.08) 0%,transparent 70%);top:-200px;right:-200px;pointer-events:none}
+        .neu-hero::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(52,192,197,0.06) 0%,transparent 70%);bottom:-150px;left:-100px;pointer-events:none}
+        .neu-hero .container{position:relative;z-index:2}
+        .neu-tag{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem 1.2rem;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--neu-accent);box-shadow:4px 4px 10px var(--neu-shadow-dark),-4px -4px 10px var(--neu-shadow-light);margin-bottom:2rem}
+        .neu-hero h1{font-family:'Sora',sans-serif;font-size:clamp(2.8rem,5.5vw,4.5rem);font-weight:800;line-height:1.08;color:var(--neu-text);margin-bottom:1.5rem}
+        .neu-hero h1 .n-accent{color:var(--neu-accent)}
+        .neu-hero p{color:var(--neu-muted);font-size:1.1rem;line-height:1.8;max-width:580px;margin-bottom:3rem}
+        .neu-btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--neu-bg);color:var(--neu-accent);font-family:'Sora',sans-serif;font-weight:700;font-size:.95rem;padding:.9rem 2rem;border-radius:14px;border:none;text-decoration:none;transition:.2s;box-shadow:6px 6px 14px var(--neu-shadow-dark),-6px -6px 14px var(--neu-shadow-light)}
+        .neu-btn-primary:hover{box-shadow:inset 4px 4px 10px var(--neu-shadow-dark),inset -4px -4px 10px var(--neu-shadow-light);color:var(--neu-accent-dark)}
+        .neu-btn-accent{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,var(--neu-accent),var(--neu-accent-dark));color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:.95rem;padding:.9rem 2rem;border-radius:14px;border:none;text-decoration:none;transition:.2s;box-shadow:6px 6px 14px var(--neu-shadow-dark),-6px -6px 14px var(--neu-shadow-light)}
+        .neu-btn-accent:hover{transform:translateY(-2px);color:#fff}
+        .neu-section{padding:7rem 0;background:var(--neu-bg)}
+        .neu-section-alt{padding:7rem 0;background:linear-gradient(145deg,#dde3ef,#eef2f8)}
+        .n-label{display:inline-block;color:var(--neu-accent);font-size:.78rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.75rem}
+        .n-title{font-family:'Sora',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:var(--neu-text);line-height:1.2;margin-bottom:1rem}
+        .n-desc{color:var(--neu-muted);font-size:1rem;line-height:1.75;max-width:580px}
+        .n-split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+        .n-visual{border-radius:24px;padding:3rem;display:flex;align-items:center;justify-content:center;min-height:320px;box-shadow:12px 12px 28px var(--neu-shadow-dark),-12px -12px 28px var(--neu-shadow-light);background:var(--neu-bg)}
+        .n-visual i{font-size:6rem;color:var(--neu-accent);opacity:.7}
+        .n-check-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
+        .n-check-list li{display:flex;align-items:flex-start;gap:.85rem;color:var(--neu-muted);font-size:.95rem;line-height:1.5}
+        .n-check-list li i{color:var(--neu-accent);font-size:1.2rem;flex-shrink:0;margin-top:1px}
+        .n-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:2rem;margin-top:3.5rem}
+        .n-card{padding:2.25rem;border-radius:20px;background:var(--neu-bg);box-shadow:8px 8px 20px var(--neu-shadow-dark),-8px -8px 20px var(--neu-shadow-light);transition:.25s}
+        .n-card:hover{box-shadow:12px 12px 28px var(--neu-shadow-dark),-6px -6px 16px var(--neu-shadow-light);transform:translateY(-4px)}
+        .n-card-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;box-shadow:inset 4px 4px 10px var(--neu-shadow-dark),inset -4px -4px 10px var(--neu-shadow-light)}
+        .n-card-icon i{font-size:1.7rem;color:var(--neu-accent)}
+        .n-card h3{font-size:1.05rem;font-weight:700;color:var(--neu-text);margin-bottom:.6rem}
+        .n-card p{font-size:.9rem;color:var(--neu-muted);line-height:1.6}
+        /* Job listings */
+        .job-list{display:flex;flex-direction:column;gap:1.25rem;margin-top:3rem}
+        .job-card{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:1.75rem 2rem;border-radius:18px;background:var(--neu-bg);box-shadow:6px 6px 16px var(--neu-shadow-dark),-6px -6px 16px var(--neu-shadow-light);transition:.25s;flex-wrap:wrap}
+        .job-card:hover{box-shadow:10px 10px 24px var(--neu-shadow-dark),-4px -4px 12px var(--neu-shadow-light);transform:translateY(-2px)}
+        .job-info h4{font-size:1rem;font-weight:700;color:var(--neu-text);margin-bottom:.35rem}
+        .job-meta{display:flex;gap:1rem;flex-wrap:wrap}
+        .job-tag{font-size:.75rem;font-weight:600;color:var(--neu-accent);background:rgba(52,192,197,.1);padding:.25rem .75rem;border-radius:50px}
+        .n-stats-section{padding:6rem 0;background:var(--neu-bg)}
+        .n-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;margin-top:3rem}
+        .n-stat{padding:2.5rem 1.5rem;text-align:center;border-radius:20px;background:var(--neu-bg);box-shadow:8px 8px 20px var(--neu-shadow-dark),-8px -8px 20px var(--neu-shadow-light);transition:.25s}
+        .n-stat:hover{box-shadow:inset 6px 6px 14px var(--neu-shadow-dark),inset -6px -6px 14px var(--neu-shadow-light)}
+        .n-stat .num{font-size:2.6rem;font-weight:800;font-family:'Sora',sans-serif;color:var(--neu-accent);line-height:1}
+        .n-stat .lbl{font-size:.78rem;color:var(--neu-muted);margin-top:.6rem;text-transform:uppercase;letter-spacing:1px}
+        .n-cta{padding:7rem 0;background:linear-gradient(145deg,#dde3ef,#eef2f8);text-align:center}
+        .n-cta-card{max-width:680px;margin:0 auto;padding:4rem 3rem;border-radius:28px;background:var(--neu-bg);box-shadow:16px 16px 36px var(--neu-shadow-dark),-16px -16px 36px var(--neu-shadow-light)}
+        .n-cta-card h2{font-family:'Sora',sans-serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--neu-text);margin-bottom:1rem}
+        .n-cta-card p{color:var(--neu-muted);font-size:1.05rem;line-height:1.7;margin-bottom:2.5rem}
+        .n-divider{height:1px;background:linear-gradient(90deg,transparent,var(--neu-dark),transparent);margin:0}
+        .footer{background:var(--neu-bg)!important;border-top:1px solid var(--neu-dark)}
+        .footer h4{color:var(--neu-text)!important}
+        .footer p,.footer li,.footer a{color:var(--neu-muted)!important}
+        .footer a:hover{color:var(--neu-accent)!important}
+        .footer-bottom{border-top:1px solid var(--neu-dark)!important}
+        @media(max-width:768px){.n-split{grid-template-columns:1fr;gap:3rem}.job-card{flex-direction:column;align-items:flex-start}}
+    </style>
+</head>
+<body>
+    <header id="header" class="glass-header white-header">
+        <div class="container header-container">
+            <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a></div>
+            <nav class="desktop-nav"><ul>
+                <li class="has-dropdown"><a href="#">Solutions <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/solutions/geospatial-ai.html">Geospatial AI</a></li><li><a href="../../pages/solutions/artificial-intelligence.html">Artificial Intelligence</a></li><li><a href="../../pages/solutions/embedded-intelligence.html">Embedded Intelligence</a></li><li><a href="../../pages/solutions/composite-engineering.html">Composite Engineering</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Industries <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/industries/mining.html">Mining</a></li><li><a href="../../pages/industries/highways.html">Highways</a></li><li><a href="../../pages/industries/railway.html">Railway</a></li><li><a href="../../pages/industries/power-energy.html">Power &amp; Energy</a></li><li><a href="../../pages/industries/smart-cities.html">Smart Cities &amp; Urban Planning</a></li><li><a href="../../pages/industries/oil-gas.html">Oil &amp; Gas</a></li><li><a href="../../pages/industries/environmental-forestry.html">Environmental &amp; Forestry</a></li><li><a href="../../pages/industries/defence-security.html">Defence &amp; Border Security</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Platform <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/platform/ai-aerial-monitoring.html">AI Driven Aerial Monitoring &amp; Analytics</a></li><li><a href="../../pages/platform/iwlars.html">IWLARS</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Technology <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/technology/ai-aerial-intelligence-stack.html">AI-Powered Aerial Intelligence Stack</a></li><li><a href="../../pages/technology/ai-drone-intelligence.html">AI + Drone Intelligence</a></li><li><a href="../../pages/technology/multi-sensor-data-systems.html">Multi-Sensor Data Systems</a></li><li><a href="../../pages/technology/ai-analytics-platform.html">AI &amp; Analytics Platform</a></li><li><a href="../../pages/technology/geospatial-intelligence.html">Geospatial Intelligence</a></li><li><a href="../../pages/technology/engineering-design.html">Engineering &amp; Design</a></li><li><a href="../../pages/technology/composite-manufacturing.html">Composite Manufacturing</a></li><li><a href="../../pages/technology/tech-stack.html">Tech Stack</a></li><li><a href="../../pages/technology/future-roadmap.html">Future Roadmap</a></li><li><a href="../../pages/technology/system-architecture.html">System Architecture</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Our Company <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/company/insights.html">Insights</a></li><li><a href="../../pages/company/careers.html">Careers</a></li><li><a href="../../pages/company/aerovania-foundation.html">Aerovania Foundation</a></li><li><a href="../../pages/company/about-us.html">About Us</a></li></ul></li>
+            </ul></nav>
+            <div class="header-actions"><a href="../../pages/company/contact-us.html" class="btn btn-dark-solid">Contact Us</a><button class="mobile-menu-btn"><i class="ph ph-list"></i></button></div>
+        </div>
+    </header>
+
+    <section class="neu-hero">
+        <div class="container">
+            <div class="neu-tag"><i class="ph ph-briefcase"></i> Careers</div>
+            <h1>Build the Future of <span class="n-accent">Aerial Intelligence</span></h1>
+            <p>We're a team of engineers, scientists, and problem-solvers building systems that work in the real world — not just on paper. If that sounds like you, let's talk.</p>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                <a href="#openings" class="neu-btn-accent"><i class="ph ph-arrow-down"></i> Open Roles</a>
+                <a href="../../pages/company/contact-us.html" class="neu-btn-primary"><i class="ph ph-envelope"></i> Send Your CV</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="n-divider"></div>
+
+    <section class="neu-section">
+        <div class="container">
+            <div class="n-split">
+                <div class="n-visual"><i class="ph ph-users-three"></i></div>
+                <div>
+                    <span class="n-label">Why Aerovania</span>
+                    <h2 class="n-title">Work on Problems That Actually Matter</h2>
+                    <p class="n-desc" style="margin-bottom:1rem;">At Aerovania, you're not building another app — you're building systems that protect borders, monitor forests, and keep infrastructure safe. The work is hard, the stakes are real, and the impact is visible.</p>
+                    <p class="n-desc" style="margin-bottom:1.5rem;">We're a small, focused team where every person's contribution shapes the product. No bureaucracy, no silos — just engineers solving hard problems together.</p>
+                    <ul class="n-check-list">
+                        <li><i class="ph ph-check-circle"></i>Work on real hardware deployed in real field conditions</li>
+                        <li><i class="ph ph-check-circle"></i>Own your work end-to-end — from design to deployment</li>
+                        <li><i class="ph ph-check-circle"></i>Collaborate directly with founders and senior engineers</li>
+                        <li><i class="ph ph-check-circle"></i>Competitive compensation and equity for key roles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="n-divider"></div>
+
+    <section class="neu-section-alt">
+        <div class="container">
+            <div style="text-align:center;max-width:600px;margin:0 auto 1rem;">
+                <span class="n-label">Culture</span>
+                <h2 class="n-title">What It's Like to Work Here</h2>
+                <p class="n-desc" style="margin:0 auto;">We hire for curiosity, rigour, and ownership. Here's what you can expect from day one.</p>
+            </div>
+            <div class="n-card-grid">
+                <div class="n-card"><div class="n-card-icon"><i class="ph ph-rocket-launch"></i></div><h3>Move Fast, Build Right</h3><p>We move quickly but never cut corners on quality. Speed and precision are not opposites — we prove that every day.</p></div>
+                <div class="n-card"><div class="n-card-icon"><i class="ph ph-wrench"></i></div><h3>Hands-On Engineering</h3><p>Our engineers get their hands dirty — literally. Field deployments, hardware testing, and real-world validation are part of the job.</p></div>
+                <div class="n-card"><div class="n-card-icon"><i class="ph ph-brain"></i></div><h3>Continuous Learning</h3><p>Drone tech, AI, and geospatial science move fast. We invest in our team's growth through training, conferences, and research time.</p></div>
+                <div class="n-card"><div class="n-card-icon"><i class="ph ph-globe"></i></div><h3>Real-World Impact</h3><p>Your work will be deployed in mines, on highways, and at borders. The feedback loop from lab to field is short and direct.</p></div>
+                <div class="n-card"><div class="n-card-icon"><i class="ph ph-users"></i></div><h3>Tight-Knit Team</h3><p>Small enough that everyone knows everyone. Big enough to tackle complex, multi-disciplinary problems across hardware and software.</p></div>
+                <div class="n-card"><div class="n-card-icon"><i class="ph ph-map-pin"></i></div><h3>Based in Nagpur</h3><p>Our HQ is in Nagpur, Maharashtra — with field operations across India. Remote and hybrid arrangements considered for the right roles.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="n-divider"></div>
+
+    <section class="neu-section" id="openings">
+        <div class="container">
+            <div style="text-align:center;max-width:600px;margin:0 auto 1rem;">
+                <span class="n-label">Open Roles</span>
+                <h2 class="n-title">Current Openings</h2>
+                <p class="n-desc" style="margin:0 auto;">We're always looking for exceptional people. If you don't see your role below, send us your CV anyway.</p>
+            </div>
+            <div class="job-list">
+                <div class="job-card">
+                    <div class="job-info"><h4>AI / Computer Vision Engineer</h4><div class="job-meta"><span class="job-tag">Full-Time</span><span class="job-tag">Nagpur / Hybrid</span><span class="job-tag">Engineering</span></div></div>
+                    <a href="../../pages/company/contact-us.html" class="neu-btn-accent" style="white-space:nowrap;"><i class="ph ph-arrow-right"></i> Apply Now</a>
+                </div>
+                <div class="job-card">
+                    <div class="job-info"><h4>Drone Systems Engineer (Hardware)</h4><div class="job-meta"><span class="job-tag">Full-Time</span><span class="job-tag">Nagpur</span><span class="job-tag">Hardware</span></div></div>
+                    <a href="../../pages/company/contact-us.html" class="neu-btn-accent" style="white-space:nowrap;"><i class="ph ph-arrow-right"></i> Apply Now</a>
+                </div>
+                <div class="job-card">
+                    <div class="job-info"><h4>GIS &amp; Geospatial Analyst</h4><div class="job-meta"><span class="job-tag">Full-Time</span><span class="job-tag">Nagpur / Remote</span><span class="job-tag">Geospatial</span></div></div>
+                    <a href="../../pages/company/contact-us.html" class="neu-btn-accent" style="white-space:nowrap;"><i class="ph ph-arrow-right"></i> Apply Now</a>
+                </div>
+                <div class="job-card">
+                    <div class="job-info"><h4>Embedded Systems Developer</h4><div class="job-meta"><span class="job-tag">Full-Time</span><span class="job-tag">Nagpur</span><span class="job-tag">Embedded</span></div></div>
+                    <a href="../../pages/company/contact-us.html" class="neu-btn-accent" style="white-space:nowrap;"><i class="ph ph-arrow-right"></i> Apply Now</a>
+                </div>
+                <div class="job-card">
+                    <div class="job-info"><h4>Business Development Manager</h4><div class="job-meta"><span class="job-tag">Full-Time</span><span class="job-tag">Pan-India</span><span class="job-tag">Sales</span></div></div>
+                    <a href="../../pages/company/contact-us.html" class="neu-btn-accent" style="white-space:nowrap;"><i class="ph ph-arrow-right"></i> Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="n-divider"></div>
+
+    <section class="n-cta">
+        <div class="container">
+            <div class="n-cta-card">
+                <h2>Don't See Your Role?</h2>
+                <p>We're always open to exceptional people. Send us your CV and a note about what you'd like to build — we'll be in touch if there's a fit.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="../../pages/company/contact-us.html" class="neu-btn-accent"><i class="ph ph-paper-plane-tilt"></i> Send Your CV</a>
+                    <a href="../../pages/company/about-us.html" class="neu-btn-primary"><i class="ph ph-info"></i> About Aerovania</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col"><div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a><div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div></div><div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="../../pages/company/about-us.html">About Us</a></li><li><a href="../../pages/industries/mining.html">Industries</a></li><li><a href="../../pages/solutions/geospatial-ai.html">Solutions</a></li></ul></div>
+            <div class="footer-col"><h4>Company</h4><ul><li><a href="../../pages/company/about-us.html">Our Vision</a></li><li><a href="../../pages/company/careers.html">Careers</a></li><li><a href="../../pages/company/contact-us.html">Contact</a></li></ul></div>
+            <div class="footer-col contact-col"><h4>Contact Us</h4><ul><li><i class="ph ph-phone"></i> +91 9834491075</li><li><i class="ph ph-envelope"></i> info@aerovania.com</li><li><i class="ph ph-globe"></i> www.aerovania.com</li><li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li></ul></div>
+        </div>
+        <div class="footer-bottom text-center"><p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p></div>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+</html>

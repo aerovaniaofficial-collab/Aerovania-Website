@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWLARS | Aerovania</title>
+    <meta name="description" content="IWLARS — Intelligent Wide-Area Land and Resource Surveillance platform by Aerovania.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <style>
+        /* ── CLAYMORPHISM — IWLARS ── */
+        body { background: #f0fdf4; }
+        .clay-blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.4; pointer-events: none; z-index: 0; }
+
+        /* ── HERO ── */
+        .clay-hero {
+            padding: 10rem 0 7rem;
+            background: linear-gradient(135deg, #d1fae5 0%, #cffafe 50%, #fef9c3 100%);
+            position: relative; overflow: hidden;
+        }
+        .clay-hero .container { position: relative; z-index: 2; }
+        .clay-tag {
+            display: inline-block; background: #fff; color: #0d9488;
+            border-radius: 50px; padding: 0.45rem 1.4rem;
+            font-size: 0.82rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+            box-shadow: 0 6px 0 #99f6e4; margin-bottom: 1.75rem;
+        }
+        .clay-hero h1 { font-family: 'Sora', sans-serif; font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800; color: #134e4a; line-height: 1.1; margin-bottom: 1.25rem; }
+        .clay-hero h1 span { color: #0d9488; }
+        .clay-hero p { color: #374151; font-size: 1.15rem; max-width: 620px; line-height: 1.75; margin-bottom: 2.5rem; }
+        .clay-btn-primary {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: #0d9488; color: #fff;
+            font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem;
+            padding: 0.85rem 2.2rem; border-radius: 16px; border: none;
+            box-shadow: 0 8px 0 #0f766e; transition: transform 0.15s, box-shadow 0.15s;
+            cursor: pointer; text-decoration: none;
+        }
+        .clay-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 11px 0 #0f766e; color: #fff; }
+        .clay-btn-primary:active { transform: translateY(4px); box-shadow: 0 4px 0 #0f766e; }
+        .clay-btn-outline {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: #fff; color: #0d9488;
+            font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem;
+            padding: 0.85rem 2.2rem; border-radius: 16px; border: 2px solid #0d9488;
+            box-shadow: 0 8px 0 #99f6e4; transition: transform 0.15s, box-shadow 0.15s;
+            cursor: pointer; text-decoration: none;
+        }
+        .clay-btn-outline:hover { transform: translateY(-3px); box-shadow: 0 11px 0 #99f6e4; color: #0d9488; }
+        .clay-btn-outline:active { transform: translateY(4px); box-shadow: 0 4px 0 #99f6e4; }
+
+        /* ── SECTIONS ── */
+        .clay-section { padding: 6rem 0; position: relative; overflow: hidden; }
+        .clay-s-a { background: #f0fdf4; }
+        .clay-s-b { background: #ecfeff; }
+        .clay-s-c { background: #fefce8; }
+        .clay-s-d { background: #f0fdfa; }
+
+        .clay-label {
+            display: inline-block; border-radius: 50px;
+            padding: 0.3rem 1rem; font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1rem;
+        }
+        .clay-s-a .clay-label { background: #d1fae5; color: #065f46; box-shadow: 0 4px 0 #6ee7b7; }
+        .clay-s-b .clay-label { background: #cffafe; color: #0e7490; box-shadow: 0 4px 0 #a5f3fc; }
+        .clay-s-c .clay-label { background: #fef9c3; color: #854d0e; box-shadow: 0 4px 0 #fde68a; }
+        .clay-s-d .clay-label { background: #ccfbf1; color: #0f766e; box-shadow: 0 4px 0 #99f6e4; }
+
+        .clay-title { font-family: 'Sora', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: #134e4a; line-height: 1.2; margin-bottom: 1rem; }
+        .clay-desc { color: #4b5563; font-size: 1rem; line-height: 1.75; margin-bottom: 1.75rem; }
+        .clay-center { text-align: center; }
+
+        /* ── SPLIT LAYOUT ── */
+        .clay-split {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4rem; align-items: center; position: relative; z-index: 2;
+        }
+        @media (max-width: 768px) { .clay-split { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+        /* ── IMAGE CARD ── */
+        .clay-img-card {
+            border-radius: 28px; overflow: hidden;
+            min-height: 360px; background: #d1fae5;
+            display: flex; align-items: center; justify-content: center; position: relative;
+            box-shadow: 0 12px 0 #6ee7b7, 0 20px 40px rgba(13,148,136,0.12);
+        }
+        .clay-img-card img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 28px; }
+        .clay-img-card .clay-icon-fallback { font-size: 6rem; color: #6ee7b7; }
+        .clay-s-b .clay-img-card { background: #cffafe; box-shadow: 0 12px 0 #a5f3fc, 0 20px 40px rgba(14,116,144,0.1); }
+        .clay-s-c .clay-img-card { background: #fef9c3; box-shadow: 0 12px 0 #fde68a, 0 20px 40px rgba(133,77,14,0.08); }
+
+        /* ── CHECK LIST ── */
+        .clay-check-list { list-style: none; margin: 0; padding: 0; }
+        .clay-check-list li {
+            display: flex; align-items: flex-start; gap: 0.85rem;
+            margin-bottom: 1rem; font-size: 0.95rem; color: #374151; line-height: 1.5;
+        }
+        .clay-check-list li .clay-check-icon {
+            width: 28px; height: 28px; background: #d1fae5; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; box-shadow: 0 3px 0 #6ee7b7; margin-top: 1px;
+        }
+        .clay-check-list li .clay-check-icon i { font-size: 1rem; color: #065f46; }
+        .clay-s-b .clay-check-list li .clay-check-icon { background: #cffafe; box-shadow: 0 3px 0 #a5f3fc; }
+        .clay-s-b .clay-check-list li .clay-check-icon i { color: #0e7490; }
+        .clay-s-c .clay-check-list li .clay-check-icon { background: #fef9c3; box-shadow: 0 3px 0 #fde68a; }
+        .clay-s-c .clay-check-list li .clay-check-icon i { color: #854d0e; }
+
+        /* ── PROCESS STEPS ── */
+        .clay-steps {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem; margin-top: 3.5rem; position: relative; z-index: 2;
+        }
+        .clay-step {
+            background: #fff; border-radius: 24px; padding: 2rem 1.5rem; text-align: center;
+            box-shadow: 0 8px 0 #6ee7b7, 0 16px 30px rgba(13,148,136,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .clay-step:hover { transform: translateY(-5px); box-shadow: 0 13px 0 #6ee7b7, 0 20px 35px rgba(13,148,136,0.12); }
+        .clay-step-num {
+            width: 52px; height: 52px; background: #0d9488; color: #fff;
+            border-radius: 16px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; font-weight: 800; font-family: 'Sora', sans-serif;
+            margin: 0 auto 1.25rem; box-shadow: 0 5px 0 #0f766e;
+        }
+        .clay-step h4 { font-size: 1rem; font-weight: 700; color: #134e4a; margin-bottom: 0.5rem; }
+        .clay-step p { font-size: 0.88rem; color: #6b7280; line-height: 1.55; }
+
+        /* ── STATS ── */
+        .clay-stats-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #d1fae5 0%, #cffafe 100%);
+            position: relative; overflow: hidden;
+        }
+        .clay-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.75rem; margin-top: 3rem; position: relative; z-index: 2; }
+        .clay-stat {
+            background: #fff; border-radius: 24px; padding: 2.5rem 1.5rem; text-align: center;
+            box-shadow: 0 8px 0 #6ee7b7, 0 16px 30px rgba(13,148,136,0.08); transition: transform 0.2s;
+        }
+        .clay-stat:hover { transform: translateY(-5px); }
+        .clay-stat .num { font-size: 2.8rem; font-weight: 800; font-family: 'Sora', sans-serif; color: #0d9488; line-height: 1; }
+        .clay-stat .lbl { font-size: 0.82rem; color: #6b7280; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
+        /* ── CTA ── */
+        .clay-cta {
+            padding: 6rem 0; text-align: center;
+            background: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+            position: relative; overflow: hidden;
+        }
+        .clay-cta h2 { font-family: 'Sora', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 1rem; position: relative; z-index: 2; }
+        .clay-cta p { color: #ccfbf1; font-size: 1.05rem; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.7; position: relative; z-index: 2; }
+        .clay-btn-white {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: #fff; color: #0d9488;
+            font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem;
+            padding: 0.9rem 2.5rem; border-radius: 16px; border: none;
+            box-shadow: 0 8px 0 #0f766e; transition: transform 0.15s, box-shadow 0.15s;
+            cursor: pointer; text-decoration: none; position: relative; z-index: 2;
+        }
+        .clay-btn-white:hover { transform: translateY(-3px); box-shadow: 0 11px 0 #0f766e; color: #0d9488; }
+        .clay-btn-white:active { transform: translateY(4px); box-shadow: 0 4px 0 #0f766e; }
+
+        @media (max-width: 600px) { .clay-stats-grid, .clay-steps { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="glass-header white-header">
+        <div class="container header-container">
+            <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a></div>
+            <nav class="desktop-nav"><ul>
+                <li class="has-dropdown"><a href="#">Solutions <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/solutions/geospatial-ai.html">Geospatial AI</a></li><li><a href="../../pages/solutions/artificial-intelligence.html">Artificial Intelligence</a></li><li><a href="../../pages/solutions/embedded-intelligence.html">Embedded Intelligence</a></li><li><a href="../../pages/solutions/composite-engineering.html">Composite Engineering</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Industries <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/industries/mining.html">Mining</a></li><li><a href="../../pages/industries/highways.html">Highways</a></li><li><a href="../../pages/industries/railway.html">Railway</a></li><li><a href="../../pages/industries/power-energy.html">Power &amp; Energy</a></li><li><a href="../../pages/industries/smart-cities.html">Smart Cities &amp; Urban Planning</a></li><li><a href="../../pages/industries/oil-gas.html">Oil &amp; Gas</a></li><li><a href="../../pages/industries/environmental-forestry.html">Environmental &amp; Forestry</a></li><li><a href="../../pages/industries/defence-security.html">Defence &amp; Border Security</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Platform <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/platform/ai-aerial-monitoring.html">AI Driven Aerial Monitoring &amp; Analytics</a></li><li><a href="../../pages/platform/iwlars.html">IWLARS</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Technology <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/technology/ai-aerial-intelligence-stack.html">AI-Powered Aerial Intelligence Stack</a></li><li><a href="../../pages/technology/ai-drone-intelligence.html">AI + Drone Intelligence</a></li><li><a href="../../pages/technology/multi-sensor-data-systems.html">Multi-Sensor Data Systems</a></li><li><a href="../../pages/technology/ai-analytics-platform.html">AI &amp; Analytics Platform</a></li><li><a href="../../pages/technology/geospatial-intelligence.html">Geospatial Intelligence</a></li><li><a href="../../pages/technology/engineering-design.html">Engineering &amp; Design</a></li><li><a href="../../pages/technology/composite-manufacturing.html">Composite Manufacturing</a></li><li><a href="../../pages/technology/tech-stack.html">Tech Stack</a></li><li><a href="../../pages/technology/future-roadmap.html">Future Roadmap</a></li><li><a href="../../pages/technology/system-architecture.html">System Architecture</a></li></ul></li>
+                <li class="has-dropdown"><a href="#">Our Company <i class="ph ph-caret-down"></i></a><ul class="dropdown-menu"><li><a href="../../pages/company/insights.html">Insights</a></li><li><a href="../../pages/company/careers.html">Careers</a></li><li><a href="../../pages/company/aerovania-foundation.html">Aerovania Foundation</a></li><li><a href="../../pages/company/about-us.html">About Us</a></li></ul></li>
+            </ul></nav>
+            <div class="header-actions"><a href="../../pages/company/contact-us.html" class="btn btn-dark-solid">Contact Us</a><button class="mobile-menu-btn"><i class="ph ph-list"></i></button></div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="clay-hero">
+        <div class="clay-blob" style="width:500px;height:500px;background:#6ee7b7;top:-150px;right:-100px;"></div>
+        <div class="clay-blob" style="width:380px;height:380px;background:#a5f3fc;bottom:-100px;left:-80px;"></div>
+        <div class="clay-blob" style="width:280px;height:280px;background:#fde68a;top:40%;left:38%;"></div>
+        <div class="container">
+            <div class="clay-tag">Platform</div>
+            <h1>Intelligent Wide-Area<br><span>Land &amp; Resource Surveillance</span></h1>
+            <p>IWLARS — a persistent, AI-powered monitoring platform for large-scale land, resource, and infrastructure surveillance across remote and critical areas.</p>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                <a href="../../pages/company/contact-us.html" class="clay-btn-primary"><i class="ph ph-rocket-launch"></i> Request a Demo</a>
+                <a href="#features" class="clay-btn-outline"><i class="ph ph-arrow-down"></i> Platform Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION A: Wide-Area Coverage & Continuous Monitoring -->
+    <section id="features" class="clay-section clay-s-a">
+        <div class="clay-blob" style="width:350px;height:350px;background:#6ee7b7;top:-80px;right:-60px;"></div>
+        <div class="container">
+            <div class="clay-split">
+                <div class="clay-img-card reveal stagger-1">
+                    <img src="../../assets/images/iwlars-coverage.jpeg" alt="Wide-Area Coverage"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="clay-icon-fallback" style="display:none;width:100%;height:360px;align-items:center;justify-content:center;">
+                        <i class="ph ph-globe-hemisphere-west"></i>
+                    </div>
+                </div>
+                <div class="reveal stagger-2">
+                    <span class="clay-label">Wide-Area Coverage</span>
+                    <h2 class="clay-title">Persistent Surveillance Across Hundreds of km²</h2>
+                    <p class="clay-desc">IWLARS deploys coordinated drone fleets and fixed sensor networks to maintain continuous coverage of areas spanning hundreds of square kilometres — including remote, inaccessible, and critical zones.</p>
+                    <ul class="clay-check-list">
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Up to 500 km² continuous coverage area</li>
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Coordinated multi-drone fleet operations</li>
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Fixed sensor integration for perimeter zones</li>
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> 24/7 automated surveillance with no coverage gaps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION B: Geospatial Intelligence -->
+    <section class="clay-section clay-s-b">
+        <div class="clay-blob" style="width:380px;height:380px;background:#a5f3fc;bottom:-80px;left:-60px;"></div>
+        <div class="container">
+            <div class="clay-split">
+                <div class="reveal stagger-1">
+                    <span class="clay-label">Geospatial Intelligence</span>
+                    <h2 class="clay-title">Live GIS Map with Full Spatial Context</h2>
+                    <p class="clay-desc">Every surveillance event is geo-referenced and instantly plotted on a live GIS map. Operators get full spatial context for every alert — with historical overlays, zone boundaries, and change detection layers all in one view.</p>
+                    <ul class="clay-check-list">
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Real-time geo-referenced event plotting</li>
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Custom zone boundaries and exclusion areas</li>
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Historical change detection overlays</li>
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Multi-layer GIS with satellite and drone imagery</li>
+                    </ul>
+                </div>
+                <div class="clay-img-card reveal stagger-2">
+                    <img src="../../assets/images/iwlars-gis.jpeg" alt="Geospatial Intelligence"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="clay-icon-fallback" style="display:none;width:100%;height:360px;align-items:center;justify-content:center;color:#a5f3fc;">
+                        <i class="ph ph-map-trifold"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION C: AI Alerting & Multi-Sensor Fusion -->
+    <section class="clay-section clay-s-c">
+        <div class="clay-blob" style="width:400px;height:400px;background:#fde68a;top:-80px;right:-60px;"></div>
+        <div class="container">
+            <div class="clay-split">
+                <div class="clay-img-card reveal stagger-1" style="box-shadow:0 12px 0 #fde68a,0 20px 40px rgba(133,77,14,0.08);">
+                    <img src="../../assets/images/iwlars-alerts.jpeg" alt="AI Alerting"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="clay-icon-fallback" style="display:none;width:100%;height:360px;align-items:center;justify-content:center;color:#fde68a;">
+                        <i class="ph ph-bell-ringing"></i>
+                    </div>
+                </div>
+                <div class="reveal stagger-2">
+                    <span class="clay-label">AI Alerting &amp; Sensor Fusion</span>
+                    <h2 class="clay-title">Intelligent Alerts from Fused Multi-Sensor Data</h2>
+                    <p class="clay-desc">IWLARS fuses data from drones, fixed cameras, satellite imagery, and IoT sensors into a single intelligence picture. AI classifies every detected event by type and severity, routing alerts to the right teams instantly.</p>
+                    <ul class="clay-check-list">
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> AI event classification by type and severity</li>
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Under 60-second alert response time</li>
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Drone, camera, satellite &amp; IoT data fusion</li>
+                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Role-based alert routing with full event context</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION D: How It Works -->
+    <section class="clay-section clay-s-d">
+        <div class="clay-blob" style="width:300px;height:300px;background:#99f6e4;bottom:-60px;right:-40px;"></div>
+        <div class="container">
+            <div class="clay-center" style="position:relative;z-index:2;">
+                <span class="clay-label">How It Works</span>
+                <h2 class="clay-title">From Sensor to Actionable Intelligence</h2>
+            </div>
+            <div class="clay-steps">
+                <div class="clay-step reveal stagger-1">
+                    <div class="clay-step-num">1</div>
+                    <h4>Deploy &amp; Configure</h4>
+                    <p>Drone fleets and fixed sensors are deployed across the target area with defined coverage zones and alert boundaries.</p>
+                </div>
+                <div class="clay-step reveal stagger-2">
+                    <div class="clay-step-num">2</div>
+                    <h4>Continuous Data Capture</h4>
+                    <p>Sensors stream live imagery, video, and telemetry 24/7 into the IWLARS platform for real-time processing.</p>
+                </div>
+                <div class="clay-step reveal stagger-3">
+                    <div class="clay-step-num">3</div>
+                    <h4>AI Analysis &amp; Detection</h4>
+                    <p>AI models analyse incoming data, detecting anomalies, intrusions, and changes against defined baselines.</p>
+                </div>
+                <div class="clay-step reveal stagger-4">
+                    <div class="clay-step-num">4</div>
+                    <h4>Alert &amp; Response</h4>
+                    <p>Classified alerts are routed to the right teams with full context, location, and evidence for rapid response.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="clay-stats-section">
+        <div class="clay-blob" style="width:400px;height:400px;background:#6ee7b7;top:-100px;left:-80px;"></div>
+        <div class="clay-blob" style="width:300px;height:300px;background:#a5f3fc;bottom:-80px;right:-60px;"></div>
+        <div class="container clay-center">
+            <span class="clay-label" style="background:#d1fae5;color:#065f46;box-shadow:0 4px 0 #6ee7b7;">Platform Scale</span>
+            <h2 class="clay-title">Designed for the Largest Challenges</h2>
+            <div class="clay-stats-grid">
+                <div class="clay-stat reveal stagger-1"><div class="num">500km²</div><div class="lbl">Max Coverage Area</div></div>
+                <div class="clay-stat reveal stagger-2"><div class="num">24/7</div><div class="lbl">Persistent Surveillance</div></div>
+                <div class="clay-stat reveal stagger-3"><div class="num">&lt;60s</div><div class="lbl">Alert Response Time</div></div>
+                <div class="clay-stat reveal stagger-4"><div class="num">99.5%</div><div class="lbl">Platform Uptime</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="clay-cta">
+        <div class="clay-blob" style="width:500px;height:500px;background:#0f766e;top:-150px;right:-100px;opacity:0.3;"></div>
+        <div class="clay-blob" style="width:350px;height:350px;background:#0e7490;bottom:-100px;left:-80px;opacity:0.3;"></div>
+        <div class="container reveal">
+            <h2>See IWLARS in Action</h2>
+            <p>Talk to our platform team about deploying IWLARS for your wide-area surveillance and intelligence requirements.</p>
+            <a href="../../pages/company/contact-us.html" class="clay-btn-white"><i class="ph ph-calendar-check"></i> Request a Demo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col"><div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a><div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div></div><div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="../../pages/company/about-us.html">About Us</a></li><li><a href="../../pages/industries/mining.html">Industries</a></li><li><a href="../../pages/solutions/geospatial-ai.html">Technology</a></li></ul></div>
+            <div class="footer-col"><h4>Company</h4><ul><li><a href="../../pages/company/about-us.html">Our Vision</a></li><li><a href="../../pages/company/careers.html">Careers</a></li><li><a href="../../pages/company/contact-us.html">Contact</a></li></ul></div>
+            <div class="footer-col contact-col"><h4>Contact Us</h4><ul><li><i class="ph ph-phone"></i> +91 9834491075</li><li><i class="ph ph-envelope"></i> info@aerovania.com</li><li><i class="ph ph-globe"></i> www.aerovania.com</li><li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li></ul></div>
+        </div>
+        <div class="footer-bottom text-center"><p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p></div>
+    </footer>
+
+    <script src="../../assets/js/script.js"></script>
+</body>
+</html>
+div>h2></div>""
