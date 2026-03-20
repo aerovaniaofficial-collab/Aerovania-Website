@@ -216,7 +216,7 @@ ul {
 
 /* White Header Overrides */
 .white-header {
-    background: #ffffff !important;
+    background: #ededed !important;
     border-bottom: 1px solid #e2e8f0 !important;
     padding: 0.8rem 0 !important;
 }
