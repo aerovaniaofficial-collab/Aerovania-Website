@@ -169,6 +169,7 @@ ul {
 .desktop-nav ul {
     display: flex;
     gap: 2.5rem;
+    padding: 1.8rem 0rem 0rem 0rem;
 }
 
 .desktop-nav a {
@@ -203,6 +204,7 @@ ul {
     display: flex;
     align-items: center;
     gap: 1rem;
+    padding: 1.8rem 0rem 0rem 0rem;
 }
 
 .mobile-menu-btn {
@@ -218,22 +220,24 @@ ul {
 .white-header {
     background: #ededed !important;
     border-bottom: 1px solid #e2e8f0 !important;
-    padding: 0.8rem 0 !important;
+    padding: 0rem 0rem 0.8rem 0rem !important;
 }
 
 .white-header.scrolled {
-    background: rgba(255, 255, 255, 0.98) !important;
+    background: rgba(255, 255, 255, 0.367) !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    .desktop-nav a {color: #0b1038;}
+    
 }
 
 .nav-logo {
-    height: 48px;
+    height: 70px;
     width: auto;
     display: block;
 }
 
 .white-header .desktop-nav a {
-    color: #475569 !important;
+    color: #475569;
     font-weight: 500;
     font-size: 0.95rem;
     display: flex;
@@ -260,7 +264,7 @@ ul {
     color: #ffffff;
     border: none;
     border-radius: 4px;
-    padding: 0.6rem 1.5rem;
+    padding: 0.4rem 1.5rem;
     font-size: 0.95rem;
     font-family: var(--font-body);
     font-weight: 500;
@@ -340,155 +344,195 @@ ul {
 }
 
 /* =========================================================================
-   HERO SLIDESHOW
+   HERO CAROUSEL � Fulcrum Digital style
    ========================================================================= */
-.hero {
+.aero-hero {
+    position: relative;
+    width: 100%;
     height: 100vh;
     min-height: 600px;
-    position: relative;
     overflow: hidden;
+    background: #060c1a;
 }
 
-.slideshow-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.slide {
+.aero-slide {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 0.9s ease;
+    z-index: 1;
     display: flex;
     align-items: center;
-    z-index: 1;
+    justify-content: center;
 }
 
-.slide.active {
+.aero-slide--active {
     opacity: 1;
     z-index: 2;
 }
 
-.slide-bg {
+.aero-slide__bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-size: cover;
     background-position: center;
-    transition: transform 6s ease-in-out;
-    transform: scale(1.05);
-    /* initial scale for zoom effect */
+    z-index: 0;
+    transform: scale(1.04);
+    transition: transform 7s ease-in-out;
 }
 
-.slide.active .slide-bg {
+.aero-slide--active .aero-slide__bg {
     transform: scale(1);
 }
 
-.slide-overlay {
+.aero-slide__overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(3, 5, 20, 0.9) 0%, rgba(3, 5, 20, 0.4) 100%);
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1;
 }
 
-.slide-content {
+.aero-slide__content {
     position: relative;
     z-index: 3;
-    max-width: 800px;
-}
-
-.slide-content h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    color: var(--text-light);
-    /* Added */
-}
-
-.slide-content .subtitle {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    margin-bottom: 2.5rem;
-    max-width: 600px;
-}
-
-.slide-controls {
-    position: absolute;
-    bottom: 3rem;
-    left: 0;
+    max-width: 780px;
     width: 100%;
-    z-index: 10;
-}
-
-.slide-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 5%;
+    text-align: center;
 }
 
-.indicator {
-    height: 3px;
-    flex: 1;
-    max-width: 120px;
-    background: rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.indicator .progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0%;
-    background-color: var(--primary-cyan);
-}
-
-.indicator.active .progress {
-    width: 100%;
-    transition: width 5s linear;
-    /* Match slide duration */
-}
-
-/* Utils needed for hero */
-.text-gradient {
-    background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-cyan) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.animate-up {
+.aero-slide__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: rgba(52,192,197,0.12);
+    border: 1px solid rgba(52,192,197,0.3);
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    margin-bottom: 1.5rem;
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(20px);
+    transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
 }
 
-.slide.active .animate-up {
+.aero-slide--active .aero-slide__eyebrow {
     opacity: 1;
     transform: translateY(0);
 }
 
-.delay-1 {
-    transition-delay: 0.2s;
+.aero-slide__title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 800;
+    color: #f1f5f9;
+    line-height: 1.1;
+    margin: 0 0 1.25rem;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s;
 }
 
-.delay-2 {
-    transition-delay: 0.4s;
+.aero-slide--active .aero-slide__title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.aero-slide__title span {
+    color: var(--cyan);
+}
+
+.aero-slide__sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.75;
+    margin: 0 0 2rem;
+    max-width: 540px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s;
+}
+
+.aero-slide--active .aero-slide__sub {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.aero-slide__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease 0.55s, transform 0.6s ease 0.55s;
+}
+
+.aero-slide--active .aero-slide__cta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.aero-slide__link {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.aero-slide__link:hover {
+    color: var(--cyan);
+}
+
+/* Progress bars */
+.aero-progress {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+    width: 60%;
+    max-width: 440px;
+}
+
+.aero-pb {
+    flex: 1;
+    height: 3px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.aero-pb__fill {
+    height: 100%;
+    width: 0;
+    background: #fff;
+    border-radius: 2px;
+}
+
+.aero-pb--active .aero-pb__fill {
+    animation: aeroPbFill 7s linear forwards;
+}
+
+@keyframes aeroPbFill {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .aero-slide__title { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+    .aero-slide__sub   { font-size: 1rem; }
+    .aero-progress     { width: 80%; bottom: 24px; }
 }
 
 .btn-primary {
@@ -507,7 +551,6 @@ ul {
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
 }
-
 /* What We Do */
 .what-we-do {
     padding: 6rem 0;
@@ -852,7 +895,7 @@ ul {
 }
 
 .footer-logo {
-    height: 40px;
+    height: 100px;
     width: auto;
     display: block;
 }
@@ -1044,6 +1087,8 @@ ul {
     margin-bottom: 2.5rem;
 }
 .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
 
 /* Section label + title reusable */
 .section-label {

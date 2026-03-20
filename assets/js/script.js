@@ -10,52 +10,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Hero Slideshow ---
-    const slides = document.querySelectorAll('.slide');
-    const indicators = document.querySelectorAll('.indicator');
-    let currentSlide = 0;
-    let slideInterval;
-    const intervalTime = 5000; // 5 seconds per slide (matches CSS transition)
+    // --- Hero Carousel ---
+    const slides = document.querySelectorAll('.aero-slide');
+    const pbs    = document.querySelectorAll('.aero-pb');
+    const SLIDE_DURATION = 7000;
+    let current = 0;
+    let timer;
 
-    function goToSlide(index) {
-        // Remove active class from current
-        slides[currentSlide].classList.remove('active');
-        indicators[currentSlide].classList.remove('active');
-        
-        // Update current index
-        currentSlide = index;
-        
-        // Add active class to new
-        slides[currentSlide].classList.add('active');
-        indicators[currentSlide].classList.add('active');
+    function showSlide(index) {
+        slides[current].classList.remove('aero-slide--active');
+        pbs[current].classList.remove('aero-pb--active');
+        // reset fill animation
+        const oldFill = pbs[current].querySelector('.aero-pb__fill');
+        oldFill.style.animation = 'none';
+        void oldFill.offsetWidth; // reflow
+        oldFill.style.animation = '';
+
+        current = index;
+        slides[current].classList.add('aero-slide--active');
+        pbs[current].classList.add('aero-pb--active');
+
+        clearTimeout(timer);
+        timer = setTimeout(() => showSlide((current + 1) % slides.length), SLIDE_DURATION);
     }
 
-    function nextSlide() {
-        let next = (currentSlide + 1) % slides.length;
-        goToSlide(next);
+    if (slides.length) {
+        pbs.forEach((pb, i) => pb.addEventListener('click', () => showSlide(i)));
+        timer = setTimeout(() => showSlide(1), SLIDE_DURATION);
     }
-
-    // Start slideshow
-    function startSlideshow() {
-        if(slides.length > 0) {
-            slideInterval = setInterval(nextSlide, intervalTime);
-        }
-    }
-
-    function resetInterval() {
-        clearInterval(slideInterval);
-        startSlideshow();
-    }
-
-    // Indicator click events
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            goToSlide(index);
-            resetInterval();
-        });
-    });
-
-    startSlideshow();
 
     // --- Scroll Reveal Animations ---
     const revealElements = document.querySelectorAll('.reveal');
