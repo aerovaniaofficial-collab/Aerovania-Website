@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
     <style>
         :root { --cyan:#34C0C5; --navy:#0a0e20; --navy2:#0d1226; }
 
-        /* ── HERO ── */
+        /* -- HERO -- */
         .page-hero {
             position:relative; overflow:hidden; min-height:520px;
             display:flex; align-items:center;
@@ -28,7 +28,7 @@
         .page-hero .hero-sub { font-size:1.1rem; color:#94a3b8; line-height:1.75; max-width:600px; margin:0 0 2rem; }
         .hero-cta-row { display:flex; gap:1rem; flex-wrap:wrap; }
 
-        /* ── INTRO STRIP ── */
+        /* -- INTRO STRIP -- */
         .intro-strip { background:#fff; padding:3rem 0; border-bottom:1px solid #e8edf3; }
         .intro-strip .container { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
         .intro-strip h2 { font-family:'Sora',sans-serif; font-size:1.7rem; font-weight:800; color:#0a0e20; margin:0 0 .75rem; }
@@ -37,7 +37,7 @@
         .intro-kpi .k-num { font-size:2rem; font-weight:800; color:var(--cyan); line-height:1; }
         .intro-kpi .k-lbl { font-size:.78rem; color:#64748b; margin-top:.2rem; }
 
-        /* ── TABBED CAPABILITIES (Fulcrum-style) ── */
+        /* -- TABBED CAPABILITIES (Fulcrum-style) -- */
         .tabs-section { background:#f4f7fb; padding:5rem 0; }
         .tabs-section .section-head { text-align:center; margin-bottom:3rem; }
         .tabs-section .section-head .eyebrow { font-size:.75rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan); display:block; margin-bottom:.75rem; }
@@ -76,7 +76,7 @@
         .tab-feat-item { display:flex; align-items:flex-start; gap:.6rem; font-size:.88rem; color:#334155; }
         .tab-feat-item i { color:var(--cyan); font-size:1rem; margin-top:.1rem; flex-shrink:0; }
 
-        /* ── WHY CHOOSE US ── */
+        /* -- WHY CHOOSE US -- */
         .why-section { background:#fff; padding:5rem 0; }
         .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
         .why-card { background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:2rem 1.5rem; transition:box-shadow .3s,transform .3s; }
@@ -86,7 +86,7 @@
         .why-card h3 { font-size:1rem; font-weight:700; color:#0a0e20; margin:0 0 .6rem; }
         .why-card p { font-size:.88rem; color:#475569; line-height:1.65; margin:0; }
 
-        /* ── STATS BAND ── */
+        /* -- STATS BAND -- */
         .stats-band { background:linear-gradient(135deg,#060c1a 0%,#0a1628 100%); padding:4rem 0; position:relative; overflow:hidden; }
         .stats-band::before { content:''; position:absolute; width:600px; height:300px; background:radial-gradient(ellipse,rgba(52,192,197,.12) 0%,transparent 70%); top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
         .stats-band-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:2.5rem; }
@@ -95,7 +95,7 @@
         .stat-tile .num { font-size:2.4rem; font-weight:800; color:var(--cyan); text-shadow:0 0 20px rgba(52,192,197,.4); }
         .stat-tile .lbl { font-size:.82rem; color:#94a3b8; margin-top:.4rem; }
 
-        /* ── CTA ── */
+        /* -- CTA -- */
         .section-cta { background:linear-gradient(135deg,#f0f9ff 0%,#e0f7f8 100%); position:relative; overflow:hidden; }
         .section-cta::before { content:''; position:absolute; width:400px; height:400px; background:radial-gradient(circle,rgba(52,192,197,.15) 0%,transparent 70%); top:-100px; right:-50px; pointer-events:none; }
         .section-cta > .container { position:relative; z-index:1; }
@@ -150,20 +150,8 @@
                             <li><a href="../../pages/platform/iwlars.html">IWLARS</a></li>
                         </ul>
                     </li>
-                    <li class="has-dropdown">
-                        <a href="#">TECHNOLOGY <i class="ph ph-caret-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="../../pages/technology/ai-aerial-intelligence-stack.html">AI-Powered Aerial Intelligence Stack</a></li>
-                            <li><a href="../../pages/technology/ai-drone-intelligence.html">AI + Drone Intelligence</a></li>
-                            <li><a href="../../pages/technology/multi-sensor-data-systems.html">Multi-Sensor Data Systems</a></li>
-                            <li><a href="../../pages/technology/ai-analytics-platform.html">AI &amp; Analytics Platform</a></li>
-                            <li><a href="../../pages/technology/geospatial-intelligence.html">Geospatial Intelligence</a></li>
-                            <li><a href="../../pages/technology/engineering-design.html">Engineering &amp; Design</a></li>
-                            <li><a href="../../pages/technology/composite-manufacturing.html">Composite Manufacturing</a></li>
-                            <li><a href="../../pages/technology/tech-stack.html">Tech Stack</a></li>
-                            <li><a href="../../pages/technology/future-roadmap.html">Future Roadmap</a></li>
-                            <li><a href="../../pages/technology/system-architecture.html">System Architecture</a></li>
-                        </ul>
+                    <li>
+                        <a href="../../pages/technology/technology.html">TECHNOLOGY</a>
                     </li>
                     <li class="has-dropdown">
                         <a href="#">OUR COMPANY <i class="ph ph-caret-down"></i></a>
@@ -198,7 +186,7 @@
         <div class="container">
             <div>
                 <h2>Aerial Intelligence for Mission-Critical Security</h2>
-                <p>Aerovania delivers end-to-end drone intelligence systems for defence and border security — combining autonomous UAV platforms, AI-powered threat detection, and real-time geospatial analytics into a single, field-proven solution.</p>
+                <p>Aerovania delivers end-to-end drone intelligence systems for defence and border security � combining autonomous UAV platforms, AI-powered threat detection, and real-time geospatial analytics into a single, field-proven solution.</p>
             </div>
             <div class="intro-kpis">
                 <div class="intro-kpi"><div class="k-num">24/7</div><div class="k-lbl">Continuous Coverage</div></div>
@@ -215,7 +203,7 @@
             <div class="section-head">
                 <span class="eyebrow">Capabilities</span>
                 <h2>What We Deliver for Defence &amp; Security</h2>
-                <p>From autonomous border patrol to tactical mapping — explore the full range of Aerovania's defence intelligence capabilities.</p>
+                <p>From autonomous border patrol to tactical mapping � explore the full range of Aerovania's defence intelligence capabilities.</p>
             </div>
             <div class="tabs-layout">
                 <div class="tab-list">
@@ -245,7 +233,7 @@
                             </div>
                             <div class="tab-panel-body">
                                 <h3>Autonomous Drone Surveillance</h3>
-                                <p>Long-endurance autonomous drone patrols cover vast border areas and perimeters continuously — without fatigue, without blind spots. AI-powered threat detection classifies human, vehicle, and aerial intrusions in real time.</p>
+                                <p>Long-endurance autonomous drone patrols cover vast border areas and perimeters continuously � without fatigue, without blind spots. AI-powered threat detection classifies human, vehicle, and aerial intrusions in real time.</p>
                                 <div class="tab-feat-grid">
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>24/7 continuous border patrol</div>
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>AI intrusion classification</div>
@@ -263,7 +251,7 @@
                             </div>
                             <div class="tab-panel-body">
                                 <h3>Thermal Night Surveillance</h3>
-                                <p>Thermal imaging payloads detect heat signatures across large areas in complete darkness — rain, fog, or dust. Identify personnel, vehicles, and equipment invisible to standard cameras.</p>
+                                <p>Thermal imaging payloads detect heat signatures across large areas in complete darkness � rain, fog, or dust. Identify personnel, vehicles, and equipment invisible to standard cameras.</p>
                                 <div class="tab-feat-grid">
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Detects through fog &amp; smoke</div>
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>AI target classification</div>
@@ -299,12 +287,12 @@
                             </div>
                             <div class="tab-panel-body">
                                 <h3>AI Threat Detection &amp; Classification</h3>
-                                <p>Computer vision models trained on defence-specific datasets classify threats in real time — distinguishing between personnel, vehicles, wildlife, and false positives with high accuracy.</p>
+                                <p>Computer vision models trained on defence-specific datasets classify threats in real time � distinguishing between personnel, vehicles, wildlife, and false positives with high accuracy.</p>
                                 <div class="tab-feat-grid">
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Real-time object classification</div>
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Multi-class threat scoring</div>
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Low false-positive rate</div>
-                                    <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Edge AI — no cloud needed</div>
+                                    <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Edge AI � no cloud needed</div>
                                 </div>
                             </div>
                         </div>
@@ -320,28 +308,28 @@
             <div class="section-head" style="text-align:center;margin-bottom:3rem;">
                 <span style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:.75rem;">Why Aerovania</span>
                 <h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#0a0e20;margin:0 0 .75rem;">Built for the Field. Proven in Operations.</h2>
-                <p style="color:#475569;font-size:1rem;max-width:600px;margin:0 auto;">Every system we deploy is engineered for the harshest conditions — not adapted from consumer technology.</p>
+                <p style="color:#475569;font-size:1rem;max-width:600px;margin:0 auto;">Every system we deploy is engineered for the harshest conditions � not adapted from consumer technology.</p>
             </div>
             <div class="why-grid">
                 <div class="why-card reveal stagger-1">
                     <div class="why-icon"><i class="ph ph-shield-check"></i></div>
                     <h3>Mission-Grade Hardware</h3>
-                    <p>IP67-rated airframes and payloads designed for extreme temperatures, dust, rain, and field conditions — not lab environments.</p>
+                    <p>IP67-rated airframes and payloads designed for extreme temperatures, dust, rain, and field conditions � not lab environments.</p>
                 </div>
                 <div class="why-card reveal stagger-2">
                     <div class="why-icon"><i class="ph ph-wifi-slash"></i></div>
                     <h3>100% Offline Capable</h3>
-                    <p>All AI processing runs on-device. No internet dependency — critical for signal-denied zones and classified operations.</p>
+                    <p>All AI processing runs on-device. No internet dependency � critical for signal-denied zones and classified operations.</p>
                 </div>
                 <div class="why-card reveal stagger-3">
                     <div class="why-icon"><i class="ph ph-lightning"></i></div>
                     <h3>Real-Time Intelligence</h3>
-                    <p>Threat alerts delivered to command centres in under 30 seconds from detection — not minutes, not hours.</p>
+                    <p>Threat alerts delivered to command centres in under 30 seconds from detection � not minutes, not hours.</p>
                 </div>
                 <div class="why-card reveal stagger-4">
                     <div class="why-icon"><i class="ph ph-map-trifold"></i></div>
                     <h3>GIS-Ready Outputs</h3>
-                    <p>All intelligence delivered as GIS-compatible files, web dashboards, or API feeds — integrating with your existing C2 systems.</p>
+                    <p>All intelligence delivered as GIS-compatible files, web dashboards, or API feeds � integrating with your existing C2 systems.</p>
                 </div>
                 <div class="why-card reveal stagger-5">
                     <div class="why-icon"><i class="ph ph-gear"></i></div>

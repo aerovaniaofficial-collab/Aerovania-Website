@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <style>
-        /* ── NEUMORPHISM SYSTEM ── */
+        /* -- NEUMORPHISM SYSTEM -- */
         :root {
             --neu-bg: #e8edf5;
             --neu-dark: #c5cad6;
@@ -26,7 +26,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: var(--neu-bg); color: var(--neu-text); font-family: 'Inter', sans-serif; }
 
-        /* ── NEU UTILITIES ── */
+        /* -- NEU UTILITIES -- */
         .neu-raised {
             background: var(--neu-bg);
             border-radius: 20px;
@@ -43,14 +43,14 @@
             box-shadow: 4px 4px 10px var(--neu-shadow-dark), -4px -4px 10px var(--neu-shadow-light);
         }
 
-        /* ── HEADER OVERRIDE ── */
+        /* -- HEADER OVERRIDE -- */
         #header.glass-header {
             background: var(--neu-bg) !important;
             box-shadow: 0 4px 16px var(--neu-shadow-dark), 0 -2px 8px var(--neu-shadow-light);
             border-bottom: none;
         }
 
-        /* ── HERO ── */
+        /* -- HERO -- */
         .neu-hero {
             background: var(--neu-bg);
             padding: 11rem 0 7rem;
@@ -123,7 +123,7 @@
         }
         .neu-btn-accent:hover { transform: translateY(-2px); box-shadow: 8px 8px 20px var(--neu-shadow-dark), -4px -4px 12px var(--neu-shadow-light); color: #fff; }
 
-        /* ── SECTIONS ── */
+        /* -- SECTIONS -- */
         .neu-section { padding: 7rem 0; background: var(--neu-bg); }
         .neu-section-alt {
             padding: 7rem 0;
@@ -144,7 +144,7 @@
         }
         .n-desc { color: var(--neu-muted); font-size: 1rem; line-height: 1.75; max-width: 580px; }
 
-        /* ── SPLIT ── */
+        /* -- SPLIT -- */
         .n-split {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -152,7 +152,7 @@
         }
         @media (max-width: 768px) { .n-split { grid-template-columns: 1fr; gap: 3rem; } }
 
-        /* ── VISUAL PANEL ── */
+        /* -- VISUAL PANEL -- */
         .n-visual {
             border-radius: 24px;
             padding: 3rem;
@@ -163,7 +163,7 @@
         }
         .n-visual i { font-size: 6rem; color: var(--neu-accent); opacity: 0.7; }
 
-        /* ── CHECK LIST ── */
+        /* -- CHECK LIST -- */
         .n-check-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
         .n-check-list li {
             display: flex; align-items: flex-start; gap: 0.85rem;
@@ -171,7 +171,7 @@
         }
         .n-check-list li i { color: var(--neu-accent); font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
 
-        /* ── CARD GRID ── */
+        /* -- CARD GRID -- */
         .n-card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -199,7 +199,7 @@
         .n-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--neu-text); margin-bottom: 0.6rem; }
         .n-card p { font-size: 0.9rem; color: var(--neu-muted); line-height: 1.6; }
 
-        /* ── PROGRAMME STEPS ── */
+        /* -- PROGRAMME STEPS -- */
         .n-steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 3rem; }
         .n-step {
             display: flex; gap: 1.5rem; align-items: flex-start;
@@ -222,7 +222,7 @@
         .n-step h4 { font-size: 1rem; font-weight: 700; color: var(--neu-text); margin-bottom: 0.35rem; }
         .n-step p { font-size: 0.9rem; color: var(--neu-muted); line-height: 1.55; }
 
-        /* ── STATS ── */
+        /* -- STATS -- */
         .n-stats-section { padding: 6rem 0; background: var(--neu-bg); }
         .n-stats-grid {
             display: grid;
@@ -241,7 +241,7 @@
         .n-stat .num { font-size: 2.6rem; font-weight: 800; font-family: 'Sora', sans-serif; color: var(--neu-accent); line-height: 1; }
         .n-stat .lbl { font-size: 0.78rem; color: var(--neu-muted); margin-top: 0.6rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* ── CTA ── */
+        /* -- CTA -- */
         .n-cta {
             padding: 7rem 0;
             background: linear-gradient(145deg, #dde3ef, #eef2f8);
@@ -257,10 +257,10 @@
         .n-cta-card h2 { font-family: 'Sora', sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; color: var(--neu-text); margin-bottom: 1rem; }
         .n-cta-card p { color: var(--neu-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem; }
 
-        /* ── DIVIDER ── */
+        /* -- DIVIDER -- */
         .n-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--neu-dark), transparent); margin: 0; }
 
-        /* ── FOOTER OVERRIDE ── */
+        /* -- FOOTER OVERRIDE -- */
         .footer { background: var(--neu-bg) !important; border-top: 1px solid var(--neu-dark); }
         .footer h4 { color: var(--neu-text) !important; }
         .footer p, .footer li, .footer a { color: var(--neu-muted) !important; }
@@ -305,20 +305,8 @@
                             <li><a href="../../pages/platform/iwlars.html">IWLARS</a></li>
                         </ul>
                     </li>
-                    <li class="has-dropdown">
-                        <a href="#">TECHNOLOGY <i class="ph ph-caret-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="../../pages/technology/ai-aerial-intelligence-stack.html">AI-Powered Aerial Intelligence Stack</a></li>
-                            <li><a href="../../pages/technology/ai-drone-intelligence.html">AI + Drone Intelligence</a></li>
-                            <li><a href="../../pages/technology/multi-sensor-data-systems.html">Multi-Sensor Data Systems</a></li>
-                            <li><a href="../../pages/technology/ai-analytics-platform.html">AI &amp; Analytics Platform</a></li>
-                            <li><a href="../../pages/technology/geospatial-intelligence.html">Geospatial Intelligence</a></li>
-                            <li><a href="../../pages/technology/engineering-design.html">Engineering &amp; Design</a></li>
-                            <li><a href="../../pages/technology/composite-manufacturing.html">Composite Manufacturing</a></li>
-                            <li><a href="../../pages/technology/tech-stack.html">Tech Stack</a></li>
-                            <li><a href="../../pages/technology/future-roadmap.html">Future Roadmap</a></li>
-                            <li><a href="../../pages/technology/system-architecture.html">System Architecture</a></li>
-                        </ul>
+                    <li>
+                        <a href="../../pages/technology/technology.html">TECHNOLOGY</a>
                     </li>
                     <li class="has-dropdown">
                         <a href="#">OUR COMPANY <i class="ph ph-caret-down"></i></a>
@@ -353,7 +341,7 @@
 
     <div class="n-divider"></div>
 
-    <!-- Mission — split -->
+    <!-- Mission � split -->
     <section class="neu-section">
         <div class="container">
             <div class="n-split">
@@ -364,7 +352,7 @@
                     <span class="n-label">Our Mission</span>
                     <h2 class="n-title">Technology That Uplifts the World Around It</h2>
                     <p class="n-desc" style="margin-bottom:1rem;">At Aerovania, we believe that innovation must be balanced with responsibility. The Aerovania Foundation is our commitment to giving back to the communities we operate in.</p>
-                    <p class="n-desc" style="margin-bottom:1.5rem;">We ensure our intelligence platforms work not just for enterprises, but for the Earth and its people. Good engineering scales gracefully — great engineering uplifts the world around it.</p>
+                    <p class="n-desc" style="margin-bottom:1.5rem;">We ensure our intelligence platforms work not just for enterprises, but for the Earth and its people. Good engineering scales gracefully � great engineering uplifts the world around it.</p>
                     <ul class="n-check-list">
                         <li><i class="ph ph-check-circle"></i> Bridging the technology gap in underserved communities</li>
                         <li><i class="ph ph-check-circle"></i> Deploying aerial intelligence for environmental conservation</li>
@@ -436,7 +424,7 @@
                             <div class="n-step-num">01</div>
                             <div>
                                 <h4>AeroLearn Programme</h4>
-                                <p>A structured STEM curriculum delivered to government schools in Vidarbha, Maharashtra — covering drone technology, AI basics, and environmental science.</p>
+                                <p>A structured STEM curriculum delivered to government schools in Vidarbha, Maharashtra � covering drone technology, AI basics, and environmental science.</p>
                             </div>
                         </div>
                         <div class="n-step">
@@ -510,7 +498,7 @@
         <div class="container">
             <div class="n-cta-card">
                 <h2>Join the Movement</h2>
-                <p>Whether you'd like to partner with us, volunteer your time, or learn more about our upcoming initiatives — we'd love to hear from you.</p>
+                <p>Whether you'd like to partner with us, volunteer your time, or learn more about our upcoming initiatives � we'd love to hear from you.</p>
                 <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
                     <a href="../../pages/company/contact-us.html" class="neu-btn-accent"><i class="ph ph-handshake"></i> Partner With Us</a>
                     <a href="../../pages/company/about-us.html" class="neu-btn-primary"><i class="ph ph-info"></i> Learn About Aerovania</a>
