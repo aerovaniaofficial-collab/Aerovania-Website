@@ -1,224 +1,1332 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technology | Aerovania</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <style>
-        :root { --cyan:#34C0C5; --navy:#0a0e20; --navy2:#0d1226; }
+        :root {
+            --cyan: #34C0C5;
+            --navy: #0a0e20;
+            --navy2: #0d1226;
+        }
 
         /* ── SHARED ── */
-        .t-eyebrow { display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);background:rgba(52,192,197,.1);border:1px solid rgba(52,192,197,.28);border-radius:50px;padding:.35rem .9rem;margin-bottom:1.25rem; }
-        .t-h2 { font-family:'Sora',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;line-height:1.1;margin:0 0 1rem; }
-        .t-p  { font-size:1rem;line-height:1.75;color:rgba(255,255,255,.6);max-width:520px; }
-        .t-p--dark { color:#64748b; }
-        .t-btn { display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:8px;font-size:.9rem;font-weight:600;text-decoration:none;transition:all .25s; }
-        .t-btn--cyan { background:var(--cyan);color:#000; }
-        .t-btn--cyan:hover { background:#2aacb1;transform:translateY(-2px); }
-        .t-btn--ghost { border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8); }
-        .t-btn--ghost:hover { border-color:var(--cyan);color:var(--cyan); }
-        .t-value-bar { display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem; }
-        .t-value-pill { font-size:.78rem;font-weight:600;color:var(--cyan);background:rgba(52,192,197,.08);border:1px solid rgba(52,192,197,.2);border-radius:50px;padding:.3rem .85rem; }
+        .t-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            background: rgba(52, 192, 197, .1);
+            border: 1px solid rgba(52, 192, 197, .28);
+            border-radius: 50px;
+            padding: .35rem .9rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .t-h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 1rem;
+        }
+
+        .t-p {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, .6);
+            max-width: 520px;
+        }
+
+        .t-p--dark {
+            color: #64748b;
+        }
+
+        .t-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .75rem 1.6rem;
+            border-radius: 8px;
+            font-size: .9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .25s;
+        }
+
+        .t-btn--cyan {
+            background: var(--cyan);
+            color: #000;
+        }
+
+        .t-btn--cyan:hover {
+            background: #2aacb1;
+            transform: translateY(-2px);
+        }
+
+        .t-btn--ghost {
+            border: 1.5px solid rgba(255, 255, 255, .25);
+            color: rgba(255, 255, 255, .8);
+        }
+
+        .t-btn--ghost:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        .t-value-bar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .t-value-pill {
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--cyan);
+            background: rgba(52, 192, 197, .08);
+            border: 1px solid rgba(52, 192, 197, .2);
+            border-radius: 50px;
+            padding: .3rem .85rem;
+        }
 
         /* reveal */
-        .reveal { opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease; }
-        .reveal.visible { opacity:1;transform:none; }
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
 
         /* ── 1. HERO ── */
-        .tp-hero { position:relative;min-height:100vh;display:flex;align-items:center;background:var(--navy);overflow:hidden; }
-        .tp-hero__grid { position:absolute;inset:0;background-image:linear-gradient(rgba(52,192,197,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(52,192,197,.06) 1px,transparent 1px);background-size:60px 60px;animation:gridMove 20s linear infinite; }
-        @keyframes gridMove { from{background-position:0 0} to{background-position:60px 60px} }
-        .tp-hero__glow { position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(52,192,197,.15) 0%,transparent 65%);top:-200px;right:-100px;pointer-events:none; }
-        .tp-hero__glow2 { position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(52,192,197,.08) 0%,transparent 65%);bottom:-100px;left:5%;pointer-events:none; }
-        .tp-hero .container { position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:8rem 0 6rem; }
-        .tp-hero__left {}
-        .tp-hero h1 { font-family:'Sora',sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;color:#f1f5f9;line-height:1.08;margin:0 0 1.25rem; }
-        .tp-hero h1 span { color:var(--cyan); }
-        .tp-hero__cta { display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem; }
-        .tp-hero__right { position:relative;display:flex;align-items:center;justify-content:center; }
-        /* drone SVG visual */
-        .drone-vis { position:relative;width:100%;max-width:480px; }
-        .drone-vis__ring { position:absolute;border-radius:50%;border:1px solid rgba(52,192,197,.2);animation:ringPulse 3s ease-in-out infinite; }
-        .drone-vis__ring:nth-child(1) { width:200px;height:200px;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:0s; }
-        .drone-vis__ring:nth-child(2) { width:320px;height:320px;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:.6s; }
-        .drone-vis__ring:nth-child(3) { width:440px;height:440px;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:1.2s; }
-        @keyframes ringPulse { 0%,100%{opacity:.3;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.7;transform:translate(-50%,-50%) scale(1.04)} }
-        .drone-vis__core { position:relative;z-index:2;width:120px;height:120px;margin:160px auto;background:rgba(52,192,197,.12);border:1px solid rgba(52,192,197,.4);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:var(--cyan);box-shadow:0 0 40px rgba(52,192,197,.2); }
-        .drone-vis__stream { position:absolute;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);border-radius:2px;animation:streamFlow 2s linear infinite; }
-        .drone-vis__stream:nth-child(4) { width:80px;top:calc(50% - 1px);left:0;animation-delay:0s; }
-        .drone-vis__stream:nth-child(5) { width:60px;top:calc(50% + 20px);left:10px;animation-delay:.4s; }
-        .drone-vis__stream:nth-child(6) { width:70px;top:calc(50% - 20px);left:5px;animation-delay:.8s; }
-        .drone-vis__stream:nth-child(7) { width:80px;top:calc(50% - 1px);right:0;left:auto;animation:streamFlowR 2s linear infinite;animation-delay:.2s; }
-        .drone-vis__stream:nth-child(8) { width:60px;top:calc(50% + 20px);right:10px;left:auto;animation:streamFlowR 2s linear infinite;animation-delay:.6s; }
-        @keyframes streamFlow { from{transform:translateX(-20px);opacity:0} 50%{opacity:1} to{transform:translateX(20px);opacity:0} }
-        @keyframes streamFlowR { from{transform:translateX(20px);opacity:0} 50%{opacity:1} to{transform:translateX(-20px);opacity:0} }
-        .drone-vis__node { position:absolute;width:8px;height:8px;background:var(--cyan);border-radius:50%;box-shadow:0 0 10px var(--cyan);animation:nodePulse 2s ease-in-out infinite; }
-        .drone-vis__node:nth-child(9)  { top:30%;left:15%;animation-delay:0s; }
-        .drone-vis__node:nth-child(10) { top:60%;left:20%;animation-delay:.5s; }
-        .drone-vis__node:nth-child(11) { top:25%;right:18%;animation-delay:1s; }
-        .drone-vis__node:nth-child(12) { top:65%;right:15%;animation-delay:1.5s; }
-        @keyframes nodePulse { 0%,100%{transform:scale(1);opacity:.6} 50%{transform:scale(1.6);opacity:1} }
+        .tp-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--navy);
+            overflow: hidden;
+        }
 
-        @media(max-width:900px){ .tp-hero .container{grid-template-columns:1fr;padding:7rem 0 4rem;} .tp-hero__right{display:none;} }
+        .tp-hero__grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(52, 192, 197, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(52, 192, 197, .06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            from {
+                background-position: 0 0
+            }
+
+            to {
+                background-position: 60px 60px
+            }
+        }
+
+        .tp-hero__glow {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(52, 192, 197, .15) 0%, transparent 65%);
+            top: -200px;
+            right: -100px;
+            pointer-events: none;
+        }
+
+        .tp-hero__glow2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(52, 192, 197, .08) 0%, transparent 65%);
+            bottom: -100px;
+            left: 5%;
+            pointer-events: none;
+        }
+
+        .tp-hero .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 8rem 0 6rem;
+        }
+
+        .tp-hero__left {}
+
+        .tp-hero h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            color: #f1f5f9;
+            line-height: 1.08;
+            margin: 0 0 1.25rem;
+        }
+
+        .tp-hero h1 span {
+            color: var(--cyan);
+        }
+
+        .tp-hero__cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .tp-hero__right {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* drone SVG visual */
+        .drone-vis {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .drone-vis__ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(52, 192, 197, .2);
+            animation: ringPulse 3s ease-in-out infinite;
+        }
+
+        .drone-vis__ring:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 0s;
+        }
+
+        .drone-vis__ring:nth-child(2) {
+            width: 320px;
+            height: 320px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: .6s;
+        }
+
+        .drone-vis__ring:nth-child(3) {
+            width: 440px;
+            height: 440px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 1.2s;
+        }
+
+        @keyframes ringPulse {
+
+            0%,
+            100% {
+                opacity: .3;
+                transform: translate(-50%, -50%) scale(1)
+            }
+
+            50% {
+                opacity: .7;
+                transform: translate(-50%, -50%) scale(1.04)
+            }
+        }
+
+        .drone-vis__core {
+            position: relative;
+            z-index: 2;
+            width: 120px;
+            height: 120px;
+            margin: 160px auto;
+            background: rgba(52, 192, 197, .12);
+            border: 1px solid rgba(52, 192, 197, .4);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--cyan);
+            box-shadow: 0 0 40px rgba(52, 192, 197, .2);
+        }
+
+        .drone-vis__stream {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            border-radius: 2px;
+            animation: streamFlow 2s linear infinite;
+        }
+
+        .drone-vis__stream:nth-child(4) {
+            width: 80px;
+            top: calc(50% - 1px);
+            left: 0;
+            animation-delay: 0s;
+        }
+
+        .drone-vis__stream:nth-child(5) {
+            width: 60px;
+            top: calc(50% + 20px);
+            left: 10px;
+            animation-delay: .4s;
+        }
+
+        .drone-vis__stream:nth-child(6) {
+            width: 70px;
+            top: calc(50% - 20px);
+            left: 5px;
+            animation-delay: .8s;
+        }
+
+        .drone-vis__stream:nth-child(7) {
+            width: 80px;
+            top: calc(50% - 1px);
+            right: 0;
+            left: auto;
+            animation: streamFlowR 2s linear infinite;
+            animation-delay: .2s;
+        }
+
+        .drone-vis__stream:nth-child(8) {
+            width: 60px;
+            top: calc(50% + 20px);
+            right: 10px;
+            left: auto;
+            animation: streamFlowR 2s linear infinite;
+            animation-delay: .6s;
+        }
+
+        @keyframes streamFlow {
+            from {
+                transform: translateX(-20px);
+                opacity: 0
+            }
+
+            50% {
+                opacity: 1
+            }
+
+            to {
+                transform: translateX(20px);
+                opacity: 0
+            }
+        }
+
+        @keyframes streamFlowR {
+            from {
+                transform: translateX(20px);
+                opacity: 0
+            }
+
+            50% {
+                opacity: 1
+            }
+
+            to {
+                transform: translateX(-20px);
+                opacity: 0
+            }
+        }
+
+        .drone-vis__node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--cyan);
+            animation: nodePulse 2s ease-in-out infinite;
+        }
+
+        .drone-vis__node:nth-child(9) {
+            top: 30%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .drone-vis__node:nth-child(10) {
+            top: 60%;
+            left: 20%;
+            animation-delay: .5s;
+        }
+
+        .drone-vis__node:nth-child(11) {
+            top: 25%;
+            right: 18%;
+            animation-delay: 1s;
+        }
+
+        .drone-vis__node:nth-child(12) {
+            top: 65%;
+            right: 15%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes nodePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: .6
+            }
+
+            50% {
+                transform: scale(1.6);
+                opacity: 1
+            }
+        }
+
+        @media(max-width:900px) {
+            .tp-hero .container {
+                grid-template-columns: 1fr;
+                padding: 7rem 0 4rem;
+            }
+
+            .tp-hero__right {
+                display: none;
+            }
+        }
 
         /* ── 2. AI + DRONE — 3-col glass cards ── */
-        .tp-drone { padding:6rem 0;background:#06090f; }
-        .tp-drone__header { text-align:center;margin-bottom:3rem; }
-        .tp-drone__grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem; }
-        .glass-card { background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:2rem;backdrop-filter:blur(12px);transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden; }
-        .glass-card::before { content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(52,192,197,.1) 0%,transparent 60%);opacity:0;transition:opacity .3s; }
-        .glass-card:hover { transform:translateY(-6px);box-shadow:0 20px 60px rgba(52,192,197,.12);border-color:rgba(52,192,197,.3); }
-        .glass-card:hover::before { opacity:1; }
-        .glass-card__icon { width:52px;height:52px;background:rgba(52,192,197,.12);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--cyan);margin-bottom:1.25rem;transition:background .3s; }
-        .glass-card:hover .glass-card__icon { background:var(--cyan);color:#000; }
-        .glass-card__title { font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#f1f5f9;margin:0 0 .6rem; }
-        .glass-card__desc { font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.7; }
-        @media(max-width:768px){ .tp-drone__grid{grid-template-columns:1fr;} }
+        .tp-drone {
+            padding: 6rem 0;
+            background: #06090f;
+        }
+
+        .tp-drone__header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tp-drone__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(12px);
+            transition: transform .3s, box-shadow .3s, border-color .3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(52, 192, 197, .1) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(52, 192, 197, .12);
+            border-color: rgba(52, 192, 197, .3);
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .glass-card__icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(52, 192, 197, .12);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--cyan);
+            margin-bottom: 1.25rem;
+            transition: background .3s;
+        }
+
+        .glass-card:hover .glass-card__icon {
+            background: var(--cyan);
+            color: #000;
+        }
+
+        .glass-card__title {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin: 0 0 .6rem;
+        }
+
+        .glass-card__desc {
+            font-size: .875rem;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.7;
+        }
+
+        @media(max-width:768px) {
+            .tp-drone__grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         /* ── 3. MULTI-SENSOR — horizontal split + stack layers ── */
-        .tp-sensor { padding:6rem 0;background:var(--navy2); }
-        .tp-sensor__inner { display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center; }
-        .tp-sensor__layers { position:relative;height:320px; }
-        .sensor-layer { position:absolute;left:0;right:0;height:72px;border-radius:12px;border:1px solid rgba(52,192,197,.2);display:flex;align-items:center;padding:0 1.25rem;gap:1rem;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.8);backdrop-filter:blur(8px);transition:transform .3s,box-shadow .3s; }
-        .sensor-layer:hover { transform:translateX(8px);box-shadow:0 8px 30px rgba(52,192,197,.15); }
-        .sensor-layer:nth-child(1) { top:0;background:rgba(52,192,197,.08);z-index:4; }
-        .sensor-layer:nth-child(2) { top:84px;background:rgba(52,192,197,.06);z-index:3; }
-        .sensor-layer:nth-child(3) { top:168px;background:rgba(52,192,197,.04);z-index:2; }
-        .sensor-layer:nth-child(4) { top:252px;background:rgba(52,192,197,.02);z-index:1; }
-        .sensor-layer__dot { width:10px;height:10px;border-radius:50%;flex-shrink:0; }
-        @media(max-width:900px){ .tp-sensor__inner{grid-template-columns:1fr;} }
+        .tp-sensor {
+            padding: 6rem 0;
+            background: var(--navy2);
+        }
+
+        .tp-sensor__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .tp-sensor__layers {
+            position: relative;
+            height: 320px;
+        }
+
+        .sensor-layer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 72px;
+            border-radius: 12px;
+            border: 1px solid rgba(52, 192, 197, .2);
+            display: flex;
+            align-items: center;
+            padding: 0 1.25rem;
+            gap: 1rem;
+            font-size: .85rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .8);
+            backdrop-filter: blur(8px);
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .sensor-layer:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 30px rgba(52, 192, 197, .15);
+        }
+
+        .sensor-layer:nth-child(1) {
+            top: 0;
+            background: rgba(52, 192, 197, .08);
+            z-index: 4;
+        }
+
+        .sensor-layer:nth-child(2) {
+            top: 84px;
+            background: rgba(52, 192, 197, .06);
+            z-index: 3;
+        }
+
+        .sensor-layer:nth-child(3) {
+            top: 168px;
+            background: rgba(52, 192, 197, .04);
+            z-index: 2;
+        }
+
+        .sensor-layer:nth-child(4) {
+            top: 252px;
+            background: rgba(52, 192, 197, .02);
+            z-index: 1;
+        }
+
+        .sensor-layer__dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        @media(max-width:900px) {
+            .tp-sensor__inner {
+                grid-template-columns: 1fr;
+            }
+        }
 
         /* ── 4. AI ANALYTICS — Z-pattern ── */
-        .tp-analytics { padding:6rem 0;background:#06090f; }
-        .tp-analytics__row { display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:5rem; }
-        .tp-analytics__row:last-child { margin-bottom:0; }
-        .tp-analytics__row--reverse { direction:rtl; }
-        .tp-analytics__row--reverse > * { direction:ltr; }
-        .analytics-mockup { background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.5rem;position:relative;overflow:hidden; }
-        .analytics-mockup__bar { height:8px;border-radius:4px;background:rgba(52,192,197,.2);margin-bottom:.75rem;position:relative;overflow:hidden; }
-        .analytics-mockup__bar::after { content:'';position:absolute;inset:0;background:var(--cyan);border-radius:4px;animation:barFill 2.5s ease-in-out infinite alternate; }
-        .analytics-mockup__bar:nth-child(1)::after { width:85%; }
-        .analytics-mockup__bar:nth-child(2)::after { width:62%;animation-delay:.3s; }
-        .analytics-mockup__bar:nth-child(3)::after { width:91%;animation-delay:.6s; }
-        .analytics-mockup__bar:nth-child(4)::after { width:47%;animation-delay:.9s; }
-        @keyframes barFill { from{opacity:.4} to{opacity:1} }
-        .analytics-mockup__label { font-size:.72rem;color:rgba(255,255,255,.35);margin-bottom:1rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase; }
-        .bbox-demo { display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1rem; }
-        .bbox { border:1.5px solid var(--cyan);border-radius:6px;padding:.5rem .75rem;font-size:.75rem;color:var(--cyan);position:relative; }
-        .bbox::before { content:'';position:absolute;top:-4px;left:-4px;width:8px;height:8px;border-top:2px solid var(--cyan);border-left:2px solid var(--cyan); }
-        .bbox::after { content:'';position:absolute;bottom:-4px;right:-4px;width:8px;height:8px;border-bottom:2px solid var(--cyan);border-right:2px solid var(--cyan); }
-        @media(max-width:900px){ .tp-analytics__row{grid-template-columns:1fr;} .tp-analytics__row--reverse{direction:ltr;} }
+        .tp-analytics {
+            padding: 6rem 0;
+            background: #06090f;
+        }
+
+        .tp-analytics__row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .tp-analytics__row:last-child {
+            margin-bottom: 0;
+        }
+
+        .tp-analytics__row--reverse {
+            direction: rtl;
+        }
+
+        .tp-analytics__row--reverse>* {
+            direction: ltr;
+        }
+
+        .analytics-mockup {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .analytics-mockup__bar {
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(52, 192, 197, .2);
+            margin-bottom: .75rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .analytics-mockup__bar::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--cyan);
+            border-radius: 4px;
+            animation: barFill 2.5s ease-in-out infinite alternate;
+        }
+
+        .analytics-mockup__bar:nth-child(1)::after {
+            width: 85%;
+        }
+
+        .analytics-mockup__bar:nth-child(2)::after {
+            width: 62%;
+            animation-delay: .3s;
+        }
+
+        .analytics-mockup__bar:nth-child(3)::after {
+            width: 91%;
+            animation-delay: .6s;
+        }
+
+        .analytics-mockup__bar:nth-child(4)::after {
+            width: 47%;
+            animation-delay: .9s;
+        }
+
+        @keyframes barFill {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .analytics-mockup__label {
+            font-size: .72rem;
+            color: rgba(255, 255, 255, .35);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .bbox-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin-top: 1rem;
+        }
+
+        .bbox {
+            border: 1.5px solid var(--cyan);
+            border-radius: 6px;
+            padding: .5rem .75rem;
+            font-size: .75rem;
+            color: var(--cyan);
+            position: relative;
+        }
+
+        .bbox::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid var(--cyan);
+            border-left: 2px solid var(--cyan);
+        }
+
+        .bbox::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            width: 8px;
+            height: 8px;
+            border-bottom: 2px solid var(--cyan);
+            border-right: 2px solid var(--cyan);
+        }
+
+        @media(max-width:900px) {
+            .tp-analytics__row {
+                grid-template-columns: 1fr;
+            }
+
+            .tp-analytics__row--reverse {
+                direction: ltr;
+            }
+        }
 
         /* ── 5. GEOSPATIAL — full-width dark map ── */
-        .tp-geo { padding:6rem 0;background:var(--navy);position:relative;overflow:hidden; }
-        .tp-geo__map { position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(52,192,197,.07) 0%,transparent 60%);pointer-events:none; }
-        .tp-geo__lines { position:absolute;inset:0;overflow:hidden;pointer-events:none; }
-        .geo-line { position:absolute;height:1px;background:linear-gradient(90deg,transparent,rgba(52,192,197,.4),transparent);animation:geoLine 4s linear infinite; }
-        .geo-line:nth-child(1) { width:60%;top:30%;animation-delay:0s; }
-        .geo-line:nth-child(2) { width:40%;top:50%;animation-delay:1s; }
-        .geo-line:nth-child(3) { width:70%;top:70%;animation-delay:2s; }
-        @keyframes geoLine { from{transform:translateX(-100%)} to{transform:translateX(200%)} }
-        .tp-geo__inner { position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center; }
-        .geo-overlay { display:flex;flex-direction:column;gap:1rem; }
-        .geo-marker { display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1rem 1.25rem;transition:border-color .3s,background .3s; }
-        .geo-marker:hover { border-color:rgba(52,192,197,.4);background:rgba(52,192,197,.06); }
-        .geo-marker__dot { width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);flex-shrink:0; }
-        .geo-marker__text { font-size:.875rem;color:rgba(255,255,255,.7); }
-        .geo-marker__val { margin-left:auto;font-size:.8rem;font-weight:700;color:var(--cyan); }
-        @media(max-width:900px){ .tp-geo__inner{grid-template-columns:1fr;} }
+        .tp-geo {
+            padding: 6rem 0;
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tp-geo__map {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 60% 50%, rgba(52, 192, 197, .07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .tp-geo__lines {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .geo-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(52, 192, 197, .4), transparent);
+            animation: geoLine 4s linear infinite;
+        }
+
+        .geo-line:nth-child(1) {
+            width: 60%;
+            top: 30%;
+            animation-delay: 0s;
+        }
+
+        .geo-line:nth-child(2) {
+            width: 40%;
+            top: 50%;
+            animation-delay: 1s;
+        }
+
+        .geo-line:nth-child(3) {
+            width: 70%;
+            top: 70%;
+            animation-delay: 2s;
+        }
+
+        @keyframes geoLine {
+            from {
+                transform: translateX(-100%)
+            }
+
+            to {
+                transform: translateX(200%)
+            }
+        }
+
+        .tp-geo__inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .geo-overlay {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .geo-marker {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            transition: border-color .3s, background .3s;
+        }
+
+        .geo-marker:hover {
+            border-color: rgba(52, 192, 197, .4);
+            background: rgba(52, 192, 197, .06);
+        }
+
+        .geo-marker__dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 10px var(--cyan);
+            flex-shrink: 0;
+        }
+
+        .geo-marker__text {
+            font-size: .875rem;
+            color: rgba(255, 255, 255, .7);
+        }
+
+        .geo-marker__val {
+            margin-left: auto;
+            font-size: .8rem;
+            font-weight: 700;
+            color: var(--cyan);
+        }
+
+        @media(max-width:900px) {
+            .tp-geo__inner {
+                grid-template-columns: 1fr;
+            }
+        }
 
         /* ── 6. ENGINEERING — split with CAD wireframe ── */
-        .tp-eng { padding:6rem 0;background:#06090f; }
-        .tp-eng__inner { display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center; }
-        .cad-vis { position:relative;height:340px;display:flex;align-items:center;justify-content:center; }
-        .cad-vis__frame { width:220px;height:220px;border:1px solid rgba(52,192,197,.3);border-radius:16px;position:relative;animation:cadRotate 12s linear infinite; }
-        .cad-vis__frame::before,.cad-vis__frame::after { content:'';position:absolute;border:1px solid rgba(52,192,197,.15);border-radius:8px; }
-        .cad-vis__frame::before { inset:20px; }
-        .cad-vis__frame::after { inset:40px; }
-        @keyframes cadRotate { from{transform:rotateY(0deg) rotateX(10deg)} to{transform:rotateY(360deg) rotateX(10deg)} }
-        .cad-vis__dot { position:absolute;width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 8px var(--cyan); }
-        .cad-vis__dot:nth-child(2) { top:10%;left:10%; }
-        .cad-vis__dot:nth-child(3) { top:10%;right:10%; }
-        .cad-vis__dot:nth-child(4) { bottom:10%;left:10%; }
-        .cad-vis__dot:nth-child(5) { bottom:10%;right:10%; }
-        .cad-vis__line { position:absolute;height:1px;background:rgba(52,192,197,.2);transform-origin:left; }
-        .eng-bullets { display:flex;flex-direction:column;gap:.85rem;margin-top:1.5rem; }
-        .eng-bullet { display:flex;align-items:center;gap:.75rem;font-size:.9rem;color:rgba(255,255,255,.7); }
-        .eng-bullet i { color:var(--cyan);font-size:1rem;flex-shrink:0; }
-        @media(max-width:900px){ .tp-eng__inner{grid-template-columns:1fr;} .cad-vis{height:200px;} }
+        .tp-eng {
+            padding: 6rem 0;
+            background: #06090f;
+        }
+
+        .tp-eng__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .cad-vis {
+            position: relative;
+            height: 340px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cad-vis__frame {
+            width: 220px;
+            height: 220px;
+            border: 1px solid rgba(52, 192, 197, .3);
+            border-radius: 16px;
+            position: relative;
+            animation: cadRotate 12s linear infinite;
+        }
+
+        .cad-vis__frame::before,
+        .cad-vis__frame::after {
+            content: '';
+            position: absolute;
+            border: 1px solid rgba(52, 192, 197, .15);
+            border-radius: 8px;
+        }
+
+        .cad-vis__frame::before {
+            inset: 20px;
+        }
+
+        .cad-vis__frame::after {
+            inset: 40px;
+        }
+
+        @keyframes cadRotate {
+            from {
+                transform: rotateY(0deg) rotateX(10deg)
+            }
+
+            to {
+                transform: rotateY(360deg) rotateX(10deg)
+            }
+        }
+
+        .cad-vis__dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--cyan);
+        }
+
+        .cad-vis__dot:nth-child(2) {
+            top: 10%;
+            left: 10%;
+        }
+
+        .cad-vis__dot:nth-child(3) {
+            top: 10%;
+            right: 10%;
+        }
+
+        .cad-vis__dot:nth-child(4) {
+            bottom: 10%;
+            left: 10%;
+        }
+
+        .cad-vis__dot:nth-child(5) {
+            bottom: 10%;
+            right: 10%;
+        }
+
+        .cad-vis__line {
+            position: absolute;
+            height: 1px;
+            background: rgba(52, 192, 197, .2);
+            transform-origin: left;
+        }
+
+        .eng-bullets {
+            display: flex;
+            flex-direction: column;
+            gap: .85rem;
+            margin-top: 1.5rem;
+        }
+
+        .eng-bullet {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .7);
+        }
+
+        .eng-bullet i {
+            color: var(--cyan);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        @media(max-width:900px) {
+            .tp-eng__inner {
+                grid-template-columns: 1fr;
+            }
+
+            .cad-vis {
+                height: 200px;
+            }
+        }
 
         /* ── 7. COMPOSITE — 2x2 grid with texture ── */
-        .tp-composite { padding:6rem 0;background:var(--navy2); }
-        .tp-composite__header { text-align:center;margin-bottom:3rem; }
-        .composite-grid { display:grid;grid-template-columns:1fr 1fr;gap:1.5rem; }
-        .composite-card { border-radius:16px;padding:2rem;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.07);transition:transform .3s,box-shadow .3s; }
-        .composite-card:hover { transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3); }
-        .composite-card__bg { position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(52,192,197,.03) 0px,rgba(52,192,197,.03) 1px,transparent 1px,transparent 8px);z-index:0; }
-        .composite-card__content { position:relative;z-index:1; }
-        .composite-card__num { font-family:'Sora',sans-serif;font-size:3rem;font-weight:800;color:rgba(52,192,197,.08);line-height:1;margin-bottom:.5rem; }
-        .composite-card__title { font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#f1f5f9;margin-bottom:.5rem; }
-        .composite-card__desc { font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.65; }
-        @media(max-width:640px){ .composite-grid{grid-template-columns:1fr;} }
+        .tp-composite {
+            padding: 6rem 0;
+            background: var(--navy2);
+        }
+
+        .tp-composite__header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .composite-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .composite-card {
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .07);
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .composite-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, .3);
+        }
+
+        .composite-card__bg {
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(45deg, rgba(52, 192, 197, .03) 0px, rgba(52, 192, 197, .03) 1px, transparent 1px, transparent 8px);
+            z-index: 0;
+        }
+
+        .composite-card__content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .composite-card__num {
+            font-family: 'Sora', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(52, 192, 197, .08);
+            line-height: 1;
+            margin-bottom: .5rem;
+        }
+
+        .composite-card__title {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: .5rem;
+        }
+
+        .composite-card__desc {
+            font-size: .875rem;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.65;
+        }
+
+        @media(max-width:640px) {
+            .composite-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         /* ── 8. TECH STACK — logo cloud ── */
-        .tp-stack { padding:6rem 0;background:#06090f; }
-        .tp-stack__header { text-align:center;margin-bottom:3rem; }
-        .stack-category { margin-bottom:2.5rem; }
-        .stack-category__label { font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(255,255,255,.06); }
-        .stack-logos { display:flex;flex-wrap:wrap;gap:.75rem; }
-        .stack-logo { background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.6rem 1.25rem;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.4);transition:color .25s,border-color .25s,background .25s;cursor:default; }
-        .stack-logo:hover { color:var(--cyan);border-color:rgba(52,192,197,.35);background:rgba(52,192,197,.06); }
+        .tp-stack {
+            padding: 6rem 0;
+            background: #06090f;
+        }
+
+        .tp-stack__header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .stack-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .stack-category__label {
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            margin-bottom: 1rem;
+            padding-bottom: .5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .stack-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+        }
+
+        .stack-logo {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: 10px;
+            padding: .6rem 1.25rem;
+            font-size: .82rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .4);
+            transition: color .25s, border-color .25s, background .25s;
+            cursor: default;
+        }
+
+        .stack-logo:hover {
+            color: var(--cyan);
+            border-color: rgba(52, 192, 197, .35);
+            background: rgba(52, 192, 197, .06);
+        }
 
         /* ── 9. ROADMAP — horizontal timeline ── */
-        .tp-roadmap { padding:6rem 0;background:var(--navy2);overflow:hidden; }
-        .tp-roadmap__header { text-align:center;margin-bottom:4rem; }
-        .timeline { position:relative;display:flex;gap:0;overflow-x:auto;padding-bottom:1rem;scrollbar-width:none; }
-        .timeline::-webkit-scrollbar { display:none; }
-        .timeline::before { content:'';position:absolute;top:32px;left:0;right:0;height:2px;background:rgba(255,255,255,.08); }
-        .timeline__glow { position:absolute;top:31px;left:0;height:4px;background:linear-gradient(90deg,var(--cyan),rgba(52,192,197,.2));border-radius:2px;width:60%;animation:timelineGrow 3s ease-out forwards; }
-        @keyframes timelineGrow { from{width:0} to{width:60%} }
-        .tl-step { flex:0 0 200px;padding:0 1rem;position:relative; }
-        .tl-step__dot { width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.2);background:var(--navy2);margin:0 auto 1.5rem;position:relative;z-index:1;transition:border-color .3s,background .3s; }
-        .tl-step.active .tl-step__dot { border-color:var(--cyan);background:var(--cyan);box-shadow:0 0 16px rgba(52,192,197,.5); }
-        .tl-step__year { font-size:.72rem;font-weight:700;color:var(--cyan);letter-spacing:.1em;text-align:center;margin-bottom:.5rem; }
-        .tl-step__title { font-family:'Sora',sans-serif;font-size:.9rem;font-weight:700;color:#f1f5f9;text-align:center;margin-bottom:.4rem; }
-        .tl-step__desc { font-size:.78rem;color:rgba(255,255,255,.4);text-align:center;line-height:1.55; }
+        .tp-roadmap {
+            padding: 6rem 0;
+            background: var(--navy2);
+            overflow: hidden;
+        }
+
+        .tp-roadmap__header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .timeline {
+            position: relative;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scrollbar-width: none;
+        }
+
+        .timeline::-webkit-scrollbar {
+            display: none;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 32px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, .08);
+        }
+
+        .timeline__glow {
+            position: absolute;
+            top: 31px;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyan), rgba(52, 192, 197, .2));
+            border-radius: 2px;
+            width: 60%;
+            animation: timelineGrow 3s ease-out forwards;
+        }
+
+        @keyframes timelineGrow {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 60%
+            }
+        }
+
+        .tl-step {
+            flex: 0 0 200px;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .tl-step__dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, .2);
+            background: var(--navy2);
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: border-color .3s, background .3s;
+        }
+
+        .tl-step.active .tl-step__dot {
+            border-color: var(--cyan);
+            background: var(--cyan);
+            box-shadow: 0 0 16px rgba(52, 192, 197, .5);
+        }
+
+        .tl-step__year {
+            font-size: .72rem;
+            font-weight: 700;
+            color: var(--cyan);
+            letter-spacing: .1em;
+            text-align: center;
+            margin-bottom: .5rem;
+        }
+
+        .tl-step__title {
+            font-family: 'Sora', sans-serif;
+            font-size: .9rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            text-align: center;
+            margin-bottom: .4rem;
+        }
+
+        .tl-step__desc {
+            font-size: .78rem;
+            color: rgba(255, 255, 255, .4);
+            text-align: center;
+            line-height: 1.55;
+        }
 
         /* ── 10. SYSTEM ARCHITECTURE ── */
-        .tp-arch { padding:6rem 0;background:#06090f; }
-        .tp-arch__header { text-align:center;margin-bottom:4rem; }
-        .arch-pipeline { display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;row-gap:2rem; }
-        .arch-node { display:flex;flex-direction:column;align-items:center;gap:.75rem;flex:0 0 120px; }
-        .arch-node__icon { width:64px;height:64px;border-radius:16px;background:rgba(52,192,197,.1);border:1px solid rgba(52,192,197,.25);display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--cyan);transition:background .3s,box-shadow .3s; }
-        .arch-node:hover .arch-node__icon { background:rgba(52,192,197,.2);box-shadow:0 0 24px rgba(52,192,197,.25); }
-        .arch-node__label { font-size:.78rem;font-weight:600;color:rgba(255,255,255,.6);text-align:center; }
-        .arch-arrow { display:flex;align-items:center;padding:0 .5rem;color:rgba(52,192,197,.4);font-size:1.2rem;flex-shrink:0; }
+        .tp-arch {
+            padding: 6rem 0;
+            background: #06090f;
+        }
+
+        .tp-arch__header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .arch-pipeline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+            row-gap: 2rem;
+        }
+
+        .arch-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .75rem;
+            flex: 0 0 120px;
+        }
+
+        .arch-node__icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: rgba(52, 192, 197, .1);
+            border: 1px solid rgba(52, 192, 197, .25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--cyan);
+            transition: background .3s, box-shadow .3s;
+        }
+
+        .arch-node:hover .arch-node__icon {
+            background: rgba(52, 192, 197, .2);
+            box-shadow: 0 0 24px rgba(52, 192, 197, .25);
+        }
+
+        .arch-node__label {
+            font-size: .78rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .6);
+            text-align: center;
+        }
+
+        .arch-arrow {
+            display: flex;
+            align-items: center;
+            padding: 0 .5rem;
+            color: rgba(52, 192, 197, .4);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
 
         /* ── FINAL STATEMENT ── */
-        .tp-statement { padding:8rem 0;background:var(--navy);position:relative;overflow:hidden;text-align:center; }
-        .tp-statement__grid { position:absolute;inset:0;background-image:linear-gradient(rgba(52,192,197,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(52,192,197,.04) 1px,transparent 1px);background-size:80px 80px;animation:gridMove 25s linear infinite; }
-        .tp-statement__glow { position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(52,192,197,.1) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none; }
-        .tp-statement .container { position:relative;z-index:2; }
-        .tp-statement__quote { font-family:'Sora',sans-serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;color:#f1f5f9;line-height:1.5;max-width:860px;margin:0 auto 2.5rem; }
-        .tp-statement__quote span { color:var(--cyan); }
+        .tp-statement {
+            padding: 8rem 0;
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .tp-statement__grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(52, 192, 197, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(52, 192, 197, .04) 1px, transparent 1px);
+            background-size: 80px 80px;
+            animation: gridMove 25s linear infinite;
+        }
+
+        .tp-statement__glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(52, 192, 197, .1) 0%, transparent 65%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .tp-statement .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .tp-statement__quote {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: #f1f5f9;
+            line-height: 1.5;
+            max-width: 860px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .tp-statement__quote span {
+            color: var(--cyan);
+        }
 
         /* ── WHY IT MATTERS bar ── */
-        .why-bar { background:rgba(52,192,197,.06);border-top:1px solid rgba(52,192,197,.15);border-bottom:1px solid rgba(52,192,197,.15);padding:1.25rem 0; }
-        .why-bar__inner { display:flex;gap:2rem;justify-content:center;flex-wrap:wrap; }
-        .why-item { display:flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.7); }
-        .why-item i { color:var(--cyan); }
+        .why-bar {
+            background: rgba(52, 192, 197, .06);
+            border-top: 1px solid rgba(52, 192, 197, .15);
+            border-bottom: 1px solid rgba(52, 192, 197, .15);
+            padding: 1.25rem 0;
+        }
+
+        .why-bar__inner {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .why-item {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .82rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .7);
+        }
+
+        .why-item i {
+            color: var(--cyan);
+        }
     </style>
 </head>
+
 <body>
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
+                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                        class="nav-logo"></a>
             </div>
             <nav class="desktop-nav">
                 <ul>
@@ -247,7 +1355,8 @@
                     <li class="has-dropdown">
                         <a href="#">PLATFORM <i class="ph ph-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../platform/ai-aerial-monitoring.html">AI Driven Aerial Monitoring & Analytics</a></li>
+                            <li><a href="../platform/ai-aerial-monitoring.html">AI Driven Aerial Monitoring &
+                                    Analytics</a></li>
                             <li><a href="../platform/iwlars.html">IWLARS</a></li>
                         </ul>
                     </li>
@@ -279,14 +1388,16 @@
             <div class="tp-hero__left reveal">
                 <span class="t-eyebrow"><i class="ph ph-cpu"></i> AI-Powered Aerial Intelligence Stack</span>
                 <h1>The Full-Stack<br>Intelligence <span>Engine</span></h1>
-                <p class="t-p">From drone sensors to boardroom decisions — every layer engineered for precision, scale, and real-world impact across defence and critical infrastructure.</p>
+                <p class="t-p">From drone sensors to boardroom decisions — every layer engineered for precision, scale,
+                    and real-world impact across defence and critical infrastructure.</p>
                 <div class="t-value-bar">
                     <span class="t-value-pill">70% faster inspections</span>
                     <span class="t-value-pill">40% higher defect accuracy</span>
                     <span class="t-value-pill">Real-time intelligence</span>
                 </div>
                 <div class="tp-hero__cta">
-                    <a href="ai-aerial-intelligence-stack.html" class="t-btn t-btn--cyan"><i class="ph ph-stack"></i> Explore Technology</a>
+                    <a href="ai-aerial-intelligence-stack.html" class="t-btn t-btn--cyan"><i class="ph ph-stack"></i>
+                        Explore Technology</a>
                     <a href="../company/contact-us.html" class="t-btn t-btn--ghost">View Use Cases</a>
                 </div>
             </div>
@@ -326,23 +1437,27 @@
             <div class="tp-drone__header reveal">
                 <span class="t-eyebrow"><i class="ph ph-drone"></i> AI + Drone Intelligence</span>
                 <h2 class="t-h2" style="color:#f1f5f9;">Autonomous Intelligence,<br>Airborne</h2>
-                <p class="t-p" style="margin:0 auto;">Edge AI meets autonomous flight — detecting, classifying, and reporting in real time without human intervention.</p>
+                <p class="t-p" style="margin:0 auto;">Edge AI meets autonomous flight — detecting, classifying, and
+                    reporting in real time without human intervention.</p>
             </div>
             <div class="tp-drone__grid">
                 <div class="glass-card reveal">
                     <div class="glass-card__icon"><i class="ph ph-path"></i></div>
                     <div class="glass-card__title">Autonomous Flight Planning</div>
-                    <div class="glass-card__desc">AI-driven mission planning with dynamic obstacle avoidance, adaptive routing, and geofenced patrol zones.</div>
+                    <div class="glass-card__desc">AI-driven mission planning with dynamic obstacle avoidance, adaptive
+                        routing, and geofenced patrol zones.</div>
                 </div>
                 <div class="glass-card reveal">
                     <div class="glass-card__icon"><i class="ph ph-eye"></i></div>
                     <div class="glass-card__title">Real-Time Object Detection</div>
-                    <div class="glass-card__desc">120+ computer vision models running at the edge — detecting anomalies, intrusions, and structural defects mid-flight.</div>
+                    <div class="glass-card__desc">120+ computer vision models running at the edge — detecting anomalies,
+                        intrusions, and structural defects mid-flight.</div>
                 </div>
                 <div class="glass-card reveal">
                     <div class="glass-card__icon"><i class="ph ph-lightning"></i></div>
                     <div class="glass-card__title">Edge AI Processing</div>
-                    <div class="glass-card__desc">Onboard inference with sub-100ms latency — no cloud dependency for critical real-time decisions.</div>
+                    <div class="glass-card__desc">Onboard inference with sub-100ms latency — no cloud dependency for
+                        critical real-time decisions.</div>
                 </div>
             </div>
         </div>
@@ -364,7 +1479,8 @@
                 <div class="reveal">
                     <span class="t-eyebrow"><i class="ph ph-broadcast"></i> Multi-Sensor Data Systems</span>
                     <h2 class="t-h2" style="color:#f1f5f9;">Every Layer of Reality,<br>Captured</h2>
-                    <p class="t-p">Fused sensor pipelines that combine RGB, thermal, LiDAR, and radar into a single coherent intelligence stream.</p>
+                    <p class="t-p">Fused sensor pipelines that combine RGB, thermal, LiDAR, and radar into a single
+                        coherent intelligence stream.</p>
                     <div class="t-value-bar">
                         <span class="t-value-pill">4 sensor modalities</span>
                         <span class="t-value-pill">Sub-cm accuracy</span>
@@ -406,13 +1522,17 @@
             <!-- Row 1: text left, dashboard right -->
             <div class="tp-analytics__row reveal">
                 <div>
-                    <h3 style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;margin:0 0 .75rem;">Live Dashboard & Reporting</h3>
-                    <p class="t-p">Cloud-native analytics with 120+ AI models delivering anomaly detection, change analysis, and auto-generated compliance reports.</p>
+                    <h3
+                        style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;margin:0 0 .75rem;">
+                        Live Dashboard & Reporting</h3>
+                    <p class="t-p">Cloud-native analytics with 120+ AI models delivering anomaly detection, change
+                        analysis, and auto-generated compliance reports.</p>
                     <div class="t-value-bar" style="margin-top:1.25rem;">
                         <span class="t-value-pill">120+ AI models</span>
                         <span class="t-value-pill">Auto-reports</span>
                     </div>
-                    <div style="margin-top:1.5rem;"><a href="ai-analytics-platform.html" class="t-btn t-btn--cyan">Explore Platform</a></div>
+                    <div style="margin-top:1.5rem;"><a href="ai-analytics-platform.html"
+                            class="t-btn t-btn--cyan">Explore Platform</a></div>
                 </div>
                 <div class="analytics-mockup">
                     <div class="analytics-mockup__label">Detection Confidence</div>
@@ -433,15 +1553,22 @@
             <div class="tp-analytics__row tp-analytics__row--reverse reveal">
                 <div class="analytics-mockup">
                     <div class="analytics-mockup__label">Heatmap Analysis</div>
-                    <div style="height:140px;background:linear-gradient(135deg,rgba(52,192,197,.05),rgba(249,115,22,.15),rgba(52,192,197,.05));border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:.8rem;">Thermal anomaly overlay</div>
+                    <div
+                        style="height:140px;background:linear-gradient(135deg,rgba(52,192,197,.05),rgba(249,115,22,.15),rgba(52,192,197,.05));border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:.8rem;">
+                        Thermal anomaly overlay</div>
                     <div class="analytics-mockup__label" style="margin-top:1rem;">Report Generated</div>
-                    <div style="background:rgba(52,192,197,.06);border:1px solid rgba(52,192,197,.2);border-radius:8px;padding:.75rem 1rem;font-size:.8rem;color:rgba(255,255,255,.6);">
-                        <i class="ph ph-file-pdf" style="color:var(--cyan);"></i> &nbsp;Site_Inspection_Report_2025.pdf &nbsp;<span style="color:var(--cyan);">✓ Ready</span>
+                    <div
+                        style="background:rgba(52,192,197,.06);border:1px solid rgba(52,192,197,.2);border-radius:8px;padding:.75rem 1rem;font-size:.8rem;color:rgba(255,255,255,.6);">
+                        <i class="ph ph-file-pdf" style="color:var(--cyan);"></i> &nbsp;Site_Inspection_Report_2025.pdf
+                        &nbsp;<span style="color:var(--cyan);">✓ Ready</span>
                     </div>
                 </div>
                 <div>
-                    <h3 style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;margin:0 0 .75rem;">AI-Powered Defect Detection</h3>
-                    <p class="t-p">Bounding-box detection, heatmap overlays, and automated PDF reports — turning raw aerial data into actionable site intelligence.</p>
+                    <h3
+                        style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;margin:0 0 .75rem;">
+                        AI-Powered Defect Detection</h3>
+                    <p class="t-p">Bounding-box detection, heatmap overlays, and automated PDF reports — turning raw
+                        aerial data into actionable site intelligence.</p>
                     <div class="t-value-bar" style="margin-top:1.25rem;">
                         <span class="t-value-pill">40% accuracy gain</span>
                         <span class="t-value-pill">Zero manual tagging</span>
@@ -472,9 +1599,12 @@
             <div class="tp-geo__inner">
                 <div class="reveal">
                     <span class="t-eyebrow"><i class="ph ph-globe-hemisphere-west"></i> Geospatial Intelligence</span>
-                    <h2 class="t-h2" style="color:#f1f5f9;">See the World in<br><span style="color:var(--cyan);">Verified Detail</span></h2>
-                    <p class="t-p">High-resolution mapping, 3D terrain modelling, and GIS-ready corridor intelligence for infrastructure and environmental monitoring.</p>
-                    <div style="margin-top:1.75rem;"><a href="geospatial-intelligence.html" class="t-btn t-btn--cyan">Explore Geospatial</a></div>
+                    <h2 class="t-h2" style="color:#f1f5f9;">See the World in<br><span
+                            style="color:var(--cyan);">Verified Detail</span></h2>
+                    <p class="t-p">High-resolution mapping, 3D terrain modelling, and GIS-ready corridor intelligence
+                        for infrastructure and environmental monitoring.</p>
+                    <div style="margin-top:1.75rem;"><a href="geospatial-intelligence.html"
+                            class="t-btn t-btn--cyan">Explore Geospatial</a></div>
                 </div>
                 <div class="geo-overlay reveal">
                     <div class="geo-marker">
@@ -517,15 +1647,21 @@
                 <div class="reveal">
                     <span class="t-eyebrow"><i class="ph ph-pencil-ruler"></i> Engineering & Design</span>
                     <h2 class="t-h2" style="color:#f1f5f9;">Precision Engineering,<br>Built In-House</h2>
-                    <p class="t-p">Every UAV platform is designed from first principles — CFD-optimised, FEA-validated, and manufactured for operational extremes.</p>
+                    <p class="t-p">Every UAV platform is designed from first principles — CFD-optimised, FEA-validated,
+                        and manufactured for operational extremes.</p>
                     <div class="eng-bullets">
-                        <div class="eng-bullet"><i class="ph ph-wind"></i> Computational Fluid Dynamics (CFD) optimisation</div>
-                        <div class="eng-bullet"><i class="ph ph-graph"></i> Finite Element Analysis (FEA) structural validation</div>
-                        <div class="eng-bullet"><i class="ph ph-drone"></i> Full UAV system design — airframe to avionics</div>
+                        <div class="eng-bullet"><i class="ph ph-wind"></i> Computational Fluid Dynamics (CFD)
+                            optimisation</div>
+                        <div class="eng-bullet"><i class="ph ph-graph"></i> Finite Element Analysis (FEA) structural
+                            validation</div>
+                        <div class="eng-bullet"><i class="ph ph-drone"></i> Full UAV system design — airframe to
+                            avionics</div>
                         <div class="eng-bullet"><i class="ph ph-gear"></i> Embedded systems & payload integration</div>
-                        <div class="eng-bullet"><i class="ph ph-recycle"></i> Rapid prototyping & iterative testing</div>
+                        <div class="eng-bullet"><i class="ph ph-recycle"></i> Rapid prototyping & iterative testing
+                        </div>
                     </div>
-                    <div style="margin-top:1.75rem;"><a href="engineering-design.html" class="t-btn t-btn--cyan">Explore Engineering</a></div>
+                    <div style="margin-top:1.75rem;"><a href="engineering-design.html" class="t-btn t-btn--cyan">Explore
+                            Engineering</a></div>
                 </div>
             </div>
         </div>
@@ -537,7 +1673,8 @@
             <div class="tp-composite__header reveal">
                 <span class="t-eyebrow"><i class="ph ph-wrench"></i> Composite Manufacturing</span>
                 <h2 class="t-h2" style="color:#f1f5f9;">Materials That Perform<br>Where It Counts</h2>
-                <p class="t-p" style="margin:0 auto;">In-house composite fabrication delivering airframes that are lighter, stronger, and built for operational endurance.</p>
+                <p class="t-p" style="margin:0 auto;">In-house composite fabrication delivering airframes that are
+                    lighter, stronger, and built for operational endurance.</p>
             </div>
             <div class="composite-grid">
                 <div class="composite-card reveal">
@@ -545,7 +1682,8 @@
                     <div class="composite-card__content">
                         <div class="composite-card__num">01</div>
                         <div class="composite-card__title">Carbon Fibre Structures</div>
-                        <div class="composite-card__desc">High-strength, low-weight carbon fibre layups engineered for maximum stiffness-to-weight ratio in demanding environments.</div>
+                        <div class="composite-card__desc">High-strength, low-weight carbon fibre layups engineered for
+                            maximum stiffness-to-weight ratio in demanding environments.</div>
                     </div>
                 </div>
                 <div class="composite-card reveal">
@@ -553,7 +1691,8 @@
                     <div class="composite-card__content">
                         <div class="composite-card__num">02</div>
                         <div class="composite-card__title">Lightweight Airframes</div>
-                        <div class="composite-card__desc">Sub-2kg airframe designs that extend flight endurance by 40% while maintaining structural integrity under payload stress.</div>
+                        <div class="composite-card__desc">Sub-2kg airframe designs that extend flight endurance by 40%
+                            while maintaining structural integrity under payload stress.</div>
                     </div>
                 </div>
                 <div class="composite-card reveal">
@@ -561,7 +1700,8 @@
                     <div class="composite-card__content">
                         <div class="composite-card__num">03</div>
                         <div class="composite-card__title">Fabrication Techniques</div>
-                        <div class="composite-card__desc">Vacuum infusion, autoclave curing, and resin transfer moulding — precision processes for consistent, repeatable quality.</div>
+                        <div class="composite-card__desc">Vacuum infusion, autoclave curing, and resin transfer moulding
+                            — precision processes for consistent, repeatable quality.</div>
                     </div>
                 </div>
                 <div class="composite-card reveal">
@@ -569,7 +1709,8 @@
                     <div class="composite-card__content">
                         <div class="composite-card__num">04</div>
                         <div class="composite-card__title">Rapid Prototyping</div>
-                        <div class="composite-card__desc">From CAD to flying prototype in under 6 weeks — iterative design cycles that compress development timelines dramatically.</div>
+                        <div class="composite-card__desc">From CAD to flying prototype in under 6 weeks — iterative
+                            design cycles that compress development timelines dramatically.</div>
                     </div>
                 </div>
             </div>
@@ -591,7 +1732,8 @@
             <div class="tp-stack__header reveal">
                 <span class="t-eyebrow"><i class="ph ph-code"></i> Tech Stack</span>
                 <h2 class="t-h2" style="color:#f1f5f9;">Enterprise-Grade<br>Infrastructure</h2>
-                <p class="t-p" style="margin:0 auto;">The full software and hardware stack powering Aerovania's platforms — from edge compute to cloud orchestration.</p>
+                <p class="t-p" style="margin:0 auto;">The full software and hardware stack powering Aerovania's
+                    platforms — from edge compute to cloud orchestration.</p>
             </div>
             <div class="reveal">
                 <div class="stack-category">
@@ -647,7 +1789,8 @@
             <div class="tp-roadmap__header reveal">
                 <span class="t-eyebrow"><i class="ph ph-rocket-launch"></i> Future Roadmap</span>
                 <h2 class="t-h2" style="color:#f1f5f9;">Where We're Headed</h2>
-                <p class="t-p" style="margin:0 auto;">Next-generation capabilities already in development — from swarm autonomy to satellite-grade intelligence.</p>
+                <p class="t-p" style="margin:0 auto;">Next-generation capabilities already in development — from swarm
+                    autonomy to satellite-grade intelligence.</p>
             </div>
             <div class="timeline reveal">
                 <div class="timeline__glow"></div>
@@ -691,7 +1834,8 @@
             <div class="tp-arch__header reveal">
                 <span class="t-eyebrow"><i class="ph ph-tree-structure"></i> System Architecture</span>
                 <h2 class="t-h2" style="color:#f1f5f9;">From Drone to Decision</h2>
-                <p class="t-p" style="margin:0 auto;">A modular, cloud-native pipeline that takes raw sensor data and delivers verified intelligence — in real time.</p>
+                <p class="t-p" style="margin:0 auto;">A modular, cloud-native pipeline that takes raw sensor data and
+                    delivers verified intelligence — in real time.</p>
             </div>
             <div class="arch-pipeline reveal">
                 <div class="arch-node">
@@ -729,16 +1873,19 @@
         <div class="container">
             <span class="t-eyebrow" style="margin-bottom:2rem;"><i class="ph ph-star"></i> Our Position</span>
             <p class="tp-statement__quote">
-                "Aerovania is a <span>full-stack aerial intelligence</span> and engineering company — combining AI, advanced UAV systems, and composite manufacturing to solve real-world <span>infrastructure challenges</span> at scale."
+                "Aerovania is a <span>full-stack aerial intelligence</span> and engineering company — combining AI,
+                advanced UAV systems, and composite manufacturing to solve real-world <span>infrastructure
+                    challenges</span> at scale."
             </p>
             <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                <a href="../company/contact-us.html" class="t-btn t-btn--cyan"><i class="ph ph-envelope"></i> Start a Conversation</a>
+                <a href="../company/contact-us.html" class="t-btn t-btn--cyan"><i class="ph ph-envelope"></i> Start a
+                    Conversation</a>
                 <a href="../platform/ai-aerial-monitoring.html" class="t-btn t-btn--ghost">View Platforms</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer
     <footer class="footer">
         <div class="container footer-inner">
             <div class="footer-brand">
@@ -767,16 +1914,64 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom"><p>&copy; 2025 Aerovania. All rights reserved.</p></div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Aerovania. All rights reserved.</p>
+        </div>
+    </footer> -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <div class="logo">
+                    <a href="#"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                            class="footer-logo"></a>
+                    <div style="font-size: 0.8rem; letter-spacing: 0; color: #64748b; margin-top: 0.5rem;">Turning
+                        Vision into Verified Reality</div>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                    <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph ph-youtube-logo"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../../pages/company/about-us.html">About Us</a></li>
+                    <li><a href="../../pages/industries/mining.html">Industries</a></li>
+                    <li><a href="../../pages/solutions/geospatial-ai.html">Technology</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../pages/company/about-us.html">Our Vision</a></li>
+                    <li><a href="../../pages/company/careers.html">Careers</a></li>
+                    <li><a href="../../pages/company/contact-us.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li><li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
 
+                     <li><i class="ph ph-envelope"></i> info@aerovania.com</li>
+                    <li><i class="ph ph-globe"></i> www.aerovania.com</li>
+                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A & D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
     <script src="../../assets/js/script.js"></script>
     <script>
         // Scroll reveal
         const obs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
         }, { threshold: 0.12 });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
 </body>
+
 </html>
