@@ -1,152 +1,1239 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artificial Intelligence | Aerovania</title>
-    <meta name="description" content="Industrial-grade computer vision, anomaly detection, and predictive analytics for infrastructure.">
+    <meta name="description"
+        content="Industrial-grade computer vision, anomaly detection, and predictive analytics for infrastructure.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
+    <style>
+        :root {
+            --cyan: #34C0C5;
+            --navy: #0a0e20;
+            --navy2: #0d1226;
+        }
+
+        /* shared */
+        .s-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            background: rgba(52, 192, 197, .1);
+            border: 1px solid rgba(52, 192, 197, .28);
+            border-radius: 50px;
+            padding: .35rem .9rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .s-h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.4rem, 5.5vw, 4rem);
+            font-weight: 800;
+            color: #f1f5f9;
+            line-height: 1.08;
+            margin: 0 0 1.25rem;
+        }
+
+        .s-h1 span {
+            color: var(--cyan);
+        }
+
+        .s-h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            color: #f1f5f9;
+            line-height: 1.1;
+            margin: 0 0 1rem;
+        }
+
+        .s-h2 span {
+            color: var(--cyan);
+        }
+
+        .s-p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, .6);
+            max-width: 540px;
+        }
+
+        .s-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .8rem 1.75rem;
+            border-radius: 10px;
+            font-size: .9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .25s;
+        }
+
+        .s-btn--cyan {
+            background: var(--cyan);
+            color: #000;
+        }
+
+        .s-btn--cyan:hover {
+            background: #2aacb1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(52, 192, 197, .3);
+        }
+
+        .s-btn--ghost {
+            border: 1.5px solid rgba(255, 255, 255, .2);
+            color: rgba(255, 255, 255, .8);
+        }
+
+        .s-btn--ghost:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        .s-pill {
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--cyan);
+            background: rgba(52, 192, 197, .08);
+            border: 1px solid rgba(52, 192, 197, .2);
+            border-radius: 50px;
+            padding: .3rem .85rem;
+        }
+
+        .s-pills {
+            display: flex;
+            gap: .75rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .s-check {
+            list-style: none;
+            margin: 1.5rem 0 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+        }
+
+        .s-check li {
+            display: flex;
+            align-items: flex-start;
+            gap: .75rem;
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .65);
+            line-height: 1.55;
+        }
+
+        .s-check li i {
+            color: var(--cyan);
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: .1rem;
+        }
+
+        /* reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .d1 {
+            transition-delay: .15s;
+        }
+
+        .d2 {
+            transition-delay: .3s;
+        }
+
+        .d3 {
+            transition-delay: .45s;
+        }
+
+        /* ── HERO ── */
+        .ai-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--navy);
+            overflow: hidden;
+        }
+
+        .ai-hero__grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(52, 192, 197, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(52, 192, 197, .05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridDrift 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridDrift {
+            from {
+                background-position: 0 0
+            }
+
+            to {
+                background-position: 60px 60px
+            }
+        }
+
+        .ai-hero__glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(52, 192, 197, .13) 0%, transparent 65%);
+            top: -250px;
+            right: -150px;
+            pointer-events: none;
+        }
+
+        .ai-hero__glow2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 102, 241, .1) 0%, transparent 65%);
+            bottom: -100px;
+            left: 5%;
+            pointer-events: none;
+        }
+
+        .ai-hero .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 9rem 0 6rem;
+        }
+
+        .ai-hero__cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* neural net visual */
+        .nn-vis {
+            position: relative;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nn-vis svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        /* ── WHY BAR ── */
+        .why-bar {
+            background: rgba(52, 192, 197, .06);
+            border-top: 1px solid rgba(52, 192, 197, .15);
+            border-bottom: 1px solid rgba(52, 192, 197, .15);
+            padding: 1.25rem 0;
+        }
+
+        .why-bar__inner {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .why-item {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .82rem;
+            font-weight: 600;
+            color: rgb(0, 0, 0);
+        }
+
+        .why-item i {
+            color: var(--cyan);
+        }
+
+        /* ── CAPABILITIES GRID ── */
+        .cap-section {
+            padding: 6rem 0;
+            background: #06090f;
+        }
+
+        .cap-section__header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .cap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .cap-card {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform .3s, border-color .3s, box-shadow .3s;
+        }
+
+        .cap-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(52, 192, 197, .1) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        .cap-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(52, 192, 197, .3);
+            box-shadow: 0 20px 50px rgba(52, 192, 197, .1);
+        }
+
+        .cap-card:hover::before {
+            opacity: 1;
+        }
+
+        .cap-card__icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(52, 192, 197, .1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--cyan);
+            margin-bottom: 1.25rem;
+            transition: background .3s;
+        }
+
+        .cap-card:hover .cap-card__icon {
+            background: var(--cyan);
+            color: #000;
+        }
+
+        .cap-card__title {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin: 0 0 .6rem;
+        }
+
+        .cap-card__desc {
+            font-size: .875rem;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.7;
+        }
+
+        @media(max-width:768px) {
+            .cap-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── SPLIT: INDUSTRIAL ── */
+        .ind-section {
+            padding: 6rem 0;
+            background: var(--navy2);
+        }
+
+        .ind-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        @media(max-width:900px) {
+            .ind-split {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* model accuracy visual */
+        .model-vis {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .model-vis__label {
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            margin-bottom: 1.25rem;
+        }
+
+        .model-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: .85rem;
+        }
+
+        .model-row__name {
+            font-size: .8rem;
+            color: rgba(255, 255, 255, .6);
+            width: 140px;
+            flex-shrink: 0;
+        }
+
+        .model-row__bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .model-row__fill {
+            height: 100%;
+            border-radius: 4px;
+            background: var(--cyan);
+            animation: barGrow 1.5s ease-out forwards;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        @keyframes barGrow {
+            to {
+                transform: scaleX(1)
+            }
+        }
+
+        .model-row__val {
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--cyan);
+            width: 40px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .model-env {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            margin-top: 1.25rem;
+        }
+
+        .model-env__tag {
+            font-size: .72rem;
+            font-weight: 600;
+            padding: .25rem .65rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .08);
+            color: rgba(255, 255, 255, .5);
+        }
+
+        /* ── PIPELINE ── */
+        .pipe-section {
+            padding: 6rem 0;
+            background: #06090f;
+        }
+
+        .pipe-section__header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .pipe-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+            row-gap: 2rem;
+        }
+
+        .pipe-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .75rem;
+            flex: 0 0 130px;
+        }
+
+        .pipe-node__icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            background: rgba(52, 192, 197, .1);
+            border: 1px solid rgba(52, 192, 197, .25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--cyan);
+            transition: background .3s, box-shadow .3s;
+        }
+
+        .pipe-node:hover .pipe-node__icon {
+            background: rgba(52, 192, 197, .2);
+            box-shadow: 0 0 28px rgba(52, 192, 197, .25);
+        }
+
+        .pipe-node__label {
+            font-size: .78rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .55);
+            text-align: center;
+        }
+
+        .pipe-arrow {
+            color: rgba(52, 192, 197, .35);
+            font-size: 1.2rem;
+            padding: 0 .5rem;
+            flex-shrink: 0;
+        }
+
+        /* ── STATS ── */
+        .stats-section {
+            padding: 5rem 0;
+            background: var(--navy2);
+        }
+
+        .stats-section__header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform .3s, border-color .3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(52, 192, 197, .3);
+        }
+
+        .stat-card__val {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--cyan);
+            line-height: 1;
+        }
+
+        .stat-card__lbl {
+            font-size: .78rem;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-top: .5rem;
+        }
+
+        @media(max-width:768px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* ── USE CASES ── */
+        .uc-section {
+            padding: 6rem 0;
+            background: var(--navy);
+        }
+
+        .uc-section__header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .uc-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .uc-item {
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .uc-item:last-child {
+            border-bottom: 1px solid rgba(255, 255, 255, .07);
+        }
+
+        .uc-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(52, 192, 197, .04);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .uc-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .uc-link {
+            display: grid;
+            grid-template-columns: 5vw 1fr auto;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.75rem 5vw;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .uc-num {
+            font-family: 'Sora', sans-serif;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            color: rgba(255, 255, 255, .2);
+            transition: color .3s;
+        }
+
+        .uc-item:hover .uc-num {
+            color: var(--cyan);
+        }
+
+        .uc-main {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+
+        .uc-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
+            font-weight: 800;
+            color: rgba(255, 255, 255, .8);
+            transition: color .3s;
+        }
+
+        .uc-item:hover .uc-title {
+            color: #fff;
+        }
+
+        .uc-desc {
+            font-size: .85rem;
+            color: rgba(255, 255, 255, .0);
+            max-height: 0;
+            overflow: hidden;
+            transition: color .3s, max-height .4s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .uc-item:hover .uc-desc {
+            color: rgba(255, 255, 255, .45);
+            max-height: 60px;
+        }
+
+        .uc-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, .12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .25);
+            font-size: 1rem;
+            transition: all .3s;
+        }
+
+        .uc-item:hover .uc-arrow {
+            background: var(--cyan);
+            border-color: var(--cyan);
+            color: #000;
+            transform: rotate(-45deg);
+        }
+
+        /* ── CTA ── */
+        .ai-cta {
+            padding: 7rem 0;
+            background: var(--navy2);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .ai-cta__glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(52, 192, 197, .12) 0%, transparent 65%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .ai-cta__grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(52, 192, 197, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(52, 192, 197, .04) 1px, transparent 1px);
+            background-size: 80px 80px;
+            animation: gridDrift 25s linear infinite;
+        }
+
+        .ai-cta .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ai-cta h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            color: #f1f5f9;
+            margin: 0 0 1rem;
+        }
+
+        .ai-cta h2 span {
+            color: var(--cyan);
+        }
+
+        .ai-cta p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, .6);
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.75;
+        }
+
+        .ai-cta__btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
 </head>
+
 <body>
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
-            <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a></div>
+            <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png"
+                        alt="Aerovania Logo" class="nav-logo"></a></div>
             <nav class="desktop-nav">
                 <ul>
                     <li class="has-dropdown">
                         <a href="#">SOLUTIONS <i class="ph ph-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../../pages/solutions/geospatial-ai.html">Geospatial AI</a></li>
-                            <li><a href="../../pages/solutions/artificial-intelligence.html">Artificial Intelligence</a></li>
-                            <li><a href="../../pages/solutions/embedded-intelligence.html">Embedded Intelligence</a></li>
-                            <li><a href="../../pages/solutions/composite-engineering.html">Composite Engineering</a></li>
+                            <li><a href="geospatial-ai.html">Geospatial AI</a></li>
+                            <li><a href="artificial-intelligence.html">Artificial Intelligence</a></li>
+                            <li><a href="embedded-intelligence.html">Embedded Intelligence</a></li>
+                            <li><a href="composite-engineering.html">Composite Engineering</a></li>
                         </ul>
                     </li>
                     <li class="has-dropdown">
                         <a href="#">INDUSTRIES <i class="ph ph-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../../pages/industries/mining.html">Mining</a></li>
-                            <li><a href="../../pages/industries/highways.html">Highways</a></li>
-                            <li><a href="../../pages/industries/railway.html">Railway</a></li>
-                            <li><a href="../../pages/industries/power-energy.html">Power &amp; Energy</a></li>
-                            <li><a href="../../pages/industries/smart-cities.html">Smart Cities &amp; Urban Planning</a></li>
-                            <li><a href="../../pages/industries/oil-gas.html">Oil &amp; Gas</a></li>
-                            <li><a href="../../pages/industries/environmental-forestry.html">Environmental &amp; Forestry</a></li>
-                            <li><a href="../../pages/industries/defence-security.html">Defence &amp; Border Security</a></li>
+                            <li><a href="../industries/mining.html">Mining</a></li>
+                            <li><a href="../industries/highways.html">Highways</a></li>
+                            <li><a href="../industries/railway.html">Railway</a></li>
+                            <li><a href="../industries/power-energy.html">Power &amp; Energy</a></li>
+                            <li><a href="../industries/smart-cities.html">Smart Cities &amp; Urban Planning</a></li>
+                            <li><a href="../industries/oil-gas.html">Oil &amp; Gas</a></li>
+                            <li><a href="../industries/environmental-forestry.html">Environmental &amp; Forestry</a>
+                            </li>
+                            <li><a href="../industries/defence-security.html">Defence &amp; Border Security</a></li>
                         </ul>
                     </li>
                     <li class="has-dropdown">
                         <a href="#">PLATFORM <i class="ph ph-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../../pages/platform/ai-aerial-monitoring.html">AI Driven Aerial Monitoring &amp; Analytics</a></li>
-                            <li><a href="../../pages/platform/iwlars.html">IWLARS</a></li>
+                            <li><a href="../platform/ai-aerial-monitoring.html">AI Driven Aerial Monitoring &amp;
+                                    Analytics</a></li>
+                            <li><a href="../platform/iwlars.html">IWLARS</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="../../pages/technology/technology.html">TECHNOLOGY</a>
-                    </li>
+                    <li><a href="../technology/technology.html">TECHNOLOGY</a></li>
                     <li class="has-dropdown">
                         <a href="#">OUR COMPANY <i class="ph ph-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../../pages/company/insights.html">Insights</a></li>
-                            <li><a href="../../pages/company/careers.html">Careers</a></li>
-                            <li><a href="../../pages/company/aerovania-foundation.html">Aerovania Foundation</a></li>
-                            <li><a href="../../pages/company/about-us.html">About Us</a></li>
+                            <li><a href="../company/insights.html">Insights</a></li>
+                            <li><a href="../company/careers.html">Careers</a></li>
+                            <li><a href="../company/aerovania-foundation.html">Aerovania Foundation</a></li>
+                            <li><a href="../company/about-us.html">About Us</a></li>
                         </ul>
                     </li>
                 </ul>
             </nav>
-            <div class="header-actions"><a href="../../pages/company/contact-us.html" class="btn btn-dark-solid">Contact Us</a><button class="mobile-menu-btn"><i class="ph ph-list"></i></button></div>
+            <div class="header-actions">
+                <a href="../company/contact-us.html" class="btn btn-dark-solid">Contact Us</a>
+                <button class="mobile-menu-btn"><i class="ph ph-list"></i></button>
+            </div>
         </div>
     </header>
 
-    <!-- DARK: Hero -->
-    <section class="page-hero">
+    <!-- HERO -->
+    <section class="ai-hero">
+        <div class="ai-hero__grid"></div>
+        <div class="ai-hero__glow"></div>
+        <div class="ai-hero__glow2"></div>
         <div class="container">
-            <div class="tag">Solutions</div>
-            <h1>Artificial <span class="text-cyan">Intelligence</span></h1>
-            <p>Industrial-grade computer vision, real-time anomaly detection, and predictive analytics that give your infrastructure a mind of its own.</p>
-            <div class="hero-cta-row">
-                <a href="../../pages/company/contact-us.html" class="btn btn-primary btn-lg">Request a Demo</a>
-                <a href="#features" class="btn btn-outline-cyan">Explore Features</a>
+            <div class="reveal">
+                <span class="s-eyebrow"><i class="ph ph-brain"></i> Artificial Intelligence</span>
+                <h1 class="s-h1">Intelligence That<br>Thinks <span>Faster</span><br>Than Risk</h1>
+                <p class="s-p">Industrial-grade computer vision, real-time anomaly detection, and predictive analytics —
+                    giving your infrastructure a mind of its own.</p>
+                <div class="s-pills">
+                    <span class="s-pill">98% detection accuracy</span>
+                    <span class="s-pill">&lt;200ms inference</span>
+                    <span class="s-pill">120+ AI models</span>
+                </div>
+                <div class="ai-hero__cta">
+                    <a href="../company/contact-us.html" class="s-btn s-btn--cyan"><i class="ph ph-rocket-launch"></i>
+                        Request a Demo</a>
+                    <a href="#capabilities" class="s-btn s-btn--ghost"><i class="ph ph-arrow-down"></i> Explore
+                        Capabilities</a>
+                </div>
+            </div>
+            <!-- Neural net SVG animation -->
+            <div class="nn-vis reveal d1">
+                <svg viewBox="0 0 400 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- connections -->
+                    <g stroke="rgba(52,192,197,0.15)" stroke-width="1">
+                        <line x1="80" y1="80" x2="200" y2="60" />
+                        <line x1="80" y1="80" x2="200" y2="130" />
+                        <line x1="80" y1="80" x2="200" y2="200" />
+                        <line x1="80" y1="80" x2="200" y2="270" />
+                        <line x1="80" y1="190" x2="200" y2="60" />
+                        <line x1="80" y1="190" x2="200" y2="130" />
+                        <line x1="80" y1="190" x2="200" y2="200" />
+                        <line x1="80" y1="190" x2="200" y2="270" />
+                        <line x1="80" y1="300" x2="200" y2="130" />
+                        <line x1="80" y1="300" x2="200" y2="200" />
+                        <line x1="80" y1="300" x2="200" y2="270" />
+                        <line x1="80" y1="300" x2="200" y2="340" />
+                        <line x1="200" y1="60" x2="320" y2="100" />
+                        <line x1="200" y1="60" x2="320" y2="190" />
+                        <line x1="200" y1="130" x2="320" y2="100" />
+                        <line x1="200" y1="130" x2="320" y2="190" />
+                        <line x1="200" y1="130" x2="320" y2="280" />
+                        <line x1="200" y1="200" x2="320" y2="100" />
+                        <line x1="200" y1="200" x2="320" y2="190" />
+                        <line x1="200" y1="200" x2="320" y2="280" />
+                        <line x1="200" y1="270" x2="320" y2="190" />
+                        <line x1="200" y1="270" x2="320" y2="280" />
+                        <line x1="200" y1="340" x2="320" y2="280" />
+                    </g>
+                    <!-- animated pulses -->
+                    <circle r="3" fill="var(--cyan)" opacity=".8">
+                        <animateMotion dur="2s" repeatCount="indefinite" path="M80,80 L200,130 L320,190" />
+                    </circle>
+                    <circle r="3" fill="var(--cyan)" opacity=".6">
+                        <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.5s"
+                            path="M80,190 L200,270 L320,280" />
+                    </circle>
+                    <circle r="3" fill="var(--cyan)" opacity=".7">
+                        <animateMotion dur="1.8s" repeatCount="indefinite" begin="1s"
+                            path="M80,300 L200,200 L320,100" />
+                    </circle>
+                    <!-- input nodes -->
+                    <circle cx="80" cy="80" r="10" fill="rgba(52,192,197,.15)" stroke="rgba(52,192,197,.5)"
+                        stroke-width="1.5" />
+                    <circle cx="80" cy="190" r="10" fill="rgba(52,192,197,.15)" stroke="rgba(52,192,197,.5)"
+                        stroke-width="1.5" />
+                    <circle cx="80" cy="300" r="10" fill="rgba(52,192,197,.15)" stroke="rgba(52,192,197,.5)"
+                        stroke-width="1.5" />
+                    <!-- hidden nodes -->
+                    <circle cx="200" cy="60" r="12" fill="rgba(52,192,197,.2)" stroke="var(--cyan)"
+                        stroke-width="1.5" />
+                    <circle cx="200" cy="130" r="12" fill="rgba(52,192,197,.25)" stroke="var(--cyan)"
+                        stroke-width="1.5" />
+                    <circle cx="200" cy="200" r="12" fill="rgba(52,192,197,.2)" stroke="var(--cyan)"
+                        stroke-width="1.5" />
+                    <circle cx="200" cy="270" r="12" fill="rgba(52,192,197,.15)" stroke="var(--cyan)"
+                        stroke-width="1.5" />
+                    <circle cx="200" cy="340" r="12" fill="rgba(52,192,197,.1)" stroke="rgba(52,192,197,.4)"
+                        stroke-width="1.5" />
+                    <!-- output nodes -->
+                    <circle cx="320" cy="100" r="14" fill="rgba(52,192,197,.3)" stroke="var(--cyan)" stroke-width="2" />
+                    <circle cx="320" cy="190" r="14" fill="rgba(52,192,197,.35)" stroke="var(--cyan)"
+                        stroke-width="2" />
+                    <circle cx="320" cy="280" r="14" fill="rgba(52,192,197,.25)" stroke="var(--cyan)"
+                        stroke-width="2" />
+                    <!-- labels -->
+                    <text x="30" y="84" fill="rgba(255,255,255,.3)" font-size="9" font-family="Inter">Input</text>
+                    <text x="155" y="30" fill="rgba(255,255,255,.3)" font-size="9" font-family="Inter">Hidden</text>
+                    <text x="330" y="104" fill="rgba(52,192,197,.8)" font-size="9" font-family="Inter">Output</text>
+                </svg>
             </div>
         </div>
     </section>
 
-    <!-- LIGHT: Core Capabilities -->
-    <section id="features" class="section-light">
+    <!-- WHY IT MATTERS -->
+    <div class="why-bar">
+        <div class="why-bar__inner">
+            <span class="why-item"><i class="ph ph-check-circle"></i> 40% higher defect detection accuracy</span>
+            <span class="why-item"><i class="ph ph-check-circle"></i> Works in dust, fog & low-light</span>
+            <span class="why-item"><i class="ph ph-check-circle"></i> Edge-deployable — no cloud dependency</span>
+            <span class="why-item"><i class="ph ph-check-circle"></i> Explainable AI for regulatory compliance</span>
+        </div>
+    </div>
+
+    <!-- CAPABILITIES GRID -->
+    <section id="capabilities" class="cap-section">
         <div class="container">
-            <span class="section-label reveal">Core Capabilities</span>
-            <h2 class="section-title-lg reveal">AI That Thinks in Real Time</h2>
-            <p class="reveal" style="color:#64748b;max-width:650px;font-size:1.05rem;line-height:1.7;margin-bottom:0;">Our proprietary AI models are trained on millions of industrial data points, delivering accuracy that generic solutions can't match.</p>
-            <div class="card-grid">
-                <div class="card-light reveal stagger-1"><div class="card-icon"><i class="ph ph-eye"></i></div><h3>Computer Vision</h3><p>Real-time object detection, classification, and tracking across video streams from drones, fixed cameras, and edge devices.</p></div>
-                <div class="card-light reveal stagger-2"><div class="card-icon"><i class="ph ph-warning-circle"></i></div><h3>Anomaly Detection</h3><p>Automatically flag structural defects, safety violations, and operational anomalies before they escalate into incidents.</p></div>
-                <div class="card-light reveal stagger-3"><div class="card-icon"><i class="ph ph-trend-up"></i></div><h3>Predictive Analytics</h3><p>Forecast equipment failures, maintenance windows, and risk events using time-series AI models trained on historical data.</p></div>
-                <div class="card-light reveal stagger-1"><div class="card-icon"><i class="ph ph-robot"></i></div><h3>Automated Reporting</h3><p>Generate structured inspection reports, compliance documents, and executive dashboards automatically from AI-processed data.</p></div>
-                <div class="card-light reveal stagger-2"><div class="card-icon"><i class="ph ph-brain"></i></div><h3>Custom Model Training</h3><p>Domain-specific model fine-tuning using your operational data to achieve industry-leading accuracy for your environment.</p></div>
-                <div class="card-light reveal stagger-3"><div class="card-icon"><i class="ph ph-bell-ringing"></i></div><h3>Real-Time Alerting</h3><p>Instant multi-channel alerts via SMS, email, and dashboard notifications when critical events are detected on-site.</p></div>
+            <div class="cap-section__header reveal">
+                <span class="s-eyebrow"><i class="ph ph-cpu"></i> Core Capabilities</span>
+                <h2 class="s-h2">AI That Thinks in <span>Real Time</span></h2>
+                <p class="s-p" style="margin:0 auto;">Proprietary models trained on millions of industrial data points —
+                    accuracy that generic solutions can't match.</p>
+            </div>
+            <div class="cap-grid">
+                <div class="cap-card reveal d1">
+                    <div class="cap-card__icon"><i class="ph ph-eye"></i></div>
+                    <div class="cap-card__title">Computer Vision</div>
+                    <div class="cap-card__desc">Real-time object detection, classification, and tracking across video
+                        streams from drones, fixed cameras, and edge devices.</div>
+                </div>
+                <div class="cap-card reveal d2">
+                    <div class="cap-card__icon"><i class="ph ph-warning-circle"></i></div>
+                    <div class="cap-card__title">Anomaly Detection</div>
+                    <div class="cap-card__desc">Automatically flag structural defects, safety violations, and
+                        operational anomalies before they escalate into incidents.</div>
+                </div>
+                <div class="cap-card reveal d3">
+                    <div class="cap-card__icon"><i class="ph ph-chart-line-up"></i></div>
+                    <div class="cap-card__title">Predictive Analytics</div>
+                    <div class="cap-card__desc">Forecast equipment failures, maintenance windows, and risk events using
+                        time-series AI models trained on historical data.</div>
+                </div>
+                <div class="cap-card reveal d1">
+                    <div class="cap-card__icon"><i class="ph ph-file-text"></i></div>
+                    <div class="cap-card__title">Automated Reporting</div>
+                    <div class="cap-card__desc">Generate structured inspection reports, compliance documents, and
+                        executive dashboards automatically from AI-processed data.</div>
+                </div>
+                <div class="cap-card reveal d2">
+                    <div class="cap-card__icon"><i class="ph ph-brain"></i></div>
+                    <div class="cap-card__title">Custom Model Training</div>
+                    <div class="cap-card__desc">Domain-specific fine-tuning using your operational data to achieve
+                        industry-leading accuracy for your environment.</div>
+                </div>
+                <div class="cap-card reveal d3">
+                    <div class="cap-card__icon"><i class="ph ph-bell-ringing"></i></div>
+                    <div class="cap-card__title">Real-Time Alerting</div>
+                    <div class="cap-card__desc">Instant multi-channel alerts via SMS, email, and dashboard notifications
+                        when critical events are detected on-site.</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- DARK: Built for Industrial Environments -->
-    <section class="section-dark">
+    <!-- INDUSTRIAL SPLIT -->
+    <section class="ind-section">
         <div class="container">
-            <div class="split-grid">
-                <div class="split-visual-dark reveal stagger-1"><i class="ph ph-cpu"></i></div>
-                <div class="reveal stagger-2">
-                    <span class="section-label">Our Approach</span>
-                    <h2 class="section-title-lg light">Built for Industrial Environments</h2>
-                    <p class="section-desc">Generic AI models fail in harsh industrial settings. Our models are purpose-built and continuously retrained on real-world data from mines, railways, highways, and power infrastructure.</p>
-                    <ul class="check-list">
-                        <li><i class="ph ph-check-circle"></i> Edge-deployable models for low-latency inference</li>
+            <div class="ind-split">
+                <div class="reveal">
+                    <span class="s-eyebrow"><i class="ph ph-factory"></i> Our Approach</span>
+                    <h2 class="s-h2">Built for <span>Industrial</span><br>Environments</h2>
+                    <p class="s-p">Generic AI models fail in harsh industrial settings. Our models are purpose-built and
+                        continuously retrained on real-world data from mines, railways, highways, and power
+                        infrastructure.</p>
+                    <ul class="s-check">
+                        <li><i class="ph ph-check-circle"></i> Edge-deployable models for sub-200ms inference</li>
                         <li><i class="ph ph-check-circle"></i> Works in dust, fog, low-light, and extreme weather</li>
                         <li><i class="ph ph-check-circle"></i> Integrates with existing SCADA and ERP systems</li>
                         <li><i class="ph ph-check-circle"></i> Explainable AI outputs for regulatory compliance</li>
                         <li><i class="ph ph-check-circle"></i> Continuous learning from operational feedback</li>
                     </ul>
+                    <div class="s-pills" style="margin-top:1.75rem;">
+                        <span class="s-pill">SCADA integration</span>
+                        <span class="s-pill">Continuous learning</span>
+                        <span class="s-pill">Explainable AI</span>
+                    </div>
+                </div>
+                <div class="model-vis reveal d1">
+                    <div class="model-vis__label">Model Accuracy by Domain</div>
+                    <div class="model-row">
+                        <span class="model-row__name">PPE Detection</span>
+                        <div class="model-row__bar">
+                            <div class="model-row__fill" style="width:98%;animation-delay:.1s;"></div>
+                        </div>
+                        <span class="model-row__val">98%</span>
+                    </div>
+                    <div class="model-row">
+                        <span class="model-row__name">Structural Defects</span>
+                        <div class="model-row__bar">
+                            <div class="model-row__fill" style="width:95%;animation-delay:.3s;"></div>
+                        </div>
+                        <span class="model-row__val">95%</span>
+                    </div>
+                    <div class="model-row">
+                        <span class="model-row__name">Intrusion Detection</span>
+                        <div class="model-row__bar">
+                            <div class="model-row__fill" style="width:97%;animation-delay:.5s;"></div>
+                        </div>
+                        <span class="model-row__val">97%</span>
+                    </div>
+                    <div class="model-row">
+                        <span class="model-row__name">Vegetation Encroach.</span>
+                        <div class="model-row__bar">
+                            <div class="model-row__fill" style="width:92%;animation-delay:.7s;"></div>
+                        </div>
+                        <span class="model-row__val">92%</span>
+                    </div>
+                    <div class="model-row">
+                        <span class="model-row__name">Corrosion & Wear</span>
+                        <div class="model-row__bar">
+                            <div class="model-row__fill" style="width:91%;animation-delay:.9s;"></div>
+                        </div>
+                        <span class="model-row__val">91%</span>
+                    </div>
+                    <div class="model-vis__label" style="margin-top:1.25rem;">Operational Environments</div>
+                    <div class="model-env">
+                        <span class="model-env__tag">Mining</span>
+                        <span class="model-env__tag">Railways</span>
+                        <span class="model-env__tag">Power Lines</span>
+                        <span class="model-env__tag">Highways</span>
+                        <span class="model-env__tag">Oil & Gas</span>
+                        <span class="model-env__tag">Defence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI PIPELINE -->
+    <section class="pipe-section">
+        <div class="container">
+            <div class="pipe-section__header reveal">
+                <span class="s-eyebrow"><i class="ph ph-path"></i> AI Pipeline</span>
+                <h2 class="s-h2">From Raw Data to <span>Verified Intelligence</span></h2>
+                <p class="s-p" style="margin:0 auto;">Every inference follows a hardened pipeline — from sensor capture
+                    to actionable output.</p>
+            </div>
+            <div class="pipe-flow reveal">
+                <div class="pipe-node">
+                    <div class="pipe-node__icon"><i class="ph ph-camera"></i></div>
+                    <div class="pipe-node__label">Sensor Capture</div>
+                </div>
+                <div class="pipe-arrow"><i class="ph ph-arrow-right"></i></div>
+                <div class="pipe-node">
+                    <div class="pipe-node__icon"><i class="ph ph-funnel"></i></div>
+                    <div class="pipe-node__label">Pre-processing</div>
+                </div>
+                <div class="pipe-arrow"><i class="ph ph-arrow-right"></i></div>
+                <div class="pipe-node">
+                    <div class="pipe-node__icon"><i class="ph ph-brain"></i></div>
+                    <div class="pipe-node__label">AI Inference</div>
+                </div>
+                <div class="pipe-arrow"><i class="ph ph-arrow-right"></i></div>
+                <div class="pipe-node">
+                    <div class="pipe-node__icon"><i class="ph ph-check-square"></i></div>
+                    <div class="pipe-node__label">Validation</div>
+                </div>
+                <div class="pipe-arrow"><i class="ph ph-arrow-right"></i></div>
+                <div class="pipe-node">
+                    <div class="pipe-node__icon"><i class="ph ph-chart-bar"></i></div>
+                    <div class="pipe-node__label">Dashboard Output</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- STATS -->
-    <section class="section-stats">
-        <div class="container text-center">
-            <span class="section-label reveal" style="color:var(--primary-cyan);">Impact</span>
-            <h2 class="section-title-lg light reveal">AI That Delivers Results</h2>
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-section__header reveal">
+                <span class="s-eyebrow"><i class="ph ph-chart-bar"></i> Impact</span>
+                <h2 class="s-h2">AI That <span>Delivers Results</span></h2>
+            </div>
             <div class="stats-grid">
-                <div class="stat-box reveal stagger-1"><div class="num">120+</div><div class="lbl">AI Models Deployed</div></div>
-                <div class="stat-box reveal stagger-2"><div class="num">98%</div><div class="lbl">Detection Accuracy</div></div>
-                <div class="stat-box reveal stagger-3"><div class="num">1100+</div><div class="lbl">Sites Secured</div></div>
-                <div class="stat-box reveal stagger-4"><div class="num">&lt;200ms</div><div class="lbl">Inference Latency</div></div>
+                <div class="stat-card reveal d1">
+                    <div class="stat-card__val">120+</div>
+                    <div class="stat-card__lbl">AI Models Deployed</div>
+                </div>
+                <div class="stat-card reveal d2">
+                    <div class="stat-card__val">98%</div>
+                    <div class="stat-card__lbl">Detection Accuracy</div>
+                </div>
+                <div class="stat-card reveal d3">
+                    <div class="stat-card__val">1100+</div>
+                    <div class="stat-card__lbl">Sites Secured</div>
+                </div>
+                <div class="stat-card reveal d3">
+                    <div class="stat-card__val">&lt;200ms</div>
+                    <div class="stat-card__lbl">Inference Latency</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- LIGHT: CTA -->
-    <section class="section-cta">
-        <div class="container reveal">
-            <h2>See AI in Action</h2>
-            <p>Schedule a live demonstration and see how our AI models perform on your specific use case.</p>
-            <a href="../../pages/company/contact-us.html" class="btn btn-cyan">Book a Demo</a>
+    <!-- USE CASES — full-width list with hover reveal -->
+    <section class="uc-section">
+        <div class="container">
+            <div class="uc-section__header reveal">
+                <span class="s-eyebrow"><i class="ph ph-buildings"></i> Use Cases</span>
+                <h2 class="s-h2">Where Our AI <span>Performs</span></h2>
+            </div>
+        </div>
+        <ul class="uc-list">
+            <li class="uc-item">
+                <a href="../industries/mining.html" class="uc-link">
+                    <span class="uc-num">01</span>
+                    <div class="uc-main"><span class="uc-title">Mine Safety & Compliance</span><span
+                            class="uc-desc">Real-time PPE detection, restricted zone monitoring, and automated ATR
+                            reporting across open-cast and underground mines.</span></div>
+                    <span class="uc-arrow"><i class="ph ph-arrow-right"></i></span>
+                </a>
+            </li>
+            <li class="uc-item">
+                <a href="../industries/power-energy.html" class="uc-link">
+                    <span class="uc-num">02</span>
+                    <div class="uc-main"><span class="uc-title">Power Line Inspection</span><span class="uc-desc">AI
+                            detection of insulator damage, conductor sag, vegetation encroachment, and corrosion along
+                            transmission corridors.</span></div>
+                    <span class="uc-arrow"><i class="ph ph-arrow-right"></i></span>
+                </a>
+            </li>
+            <li class="uc-item">
+                <a href="../industries/railway.html" class="uc-link">
+                    <span class="uc-num">03</span>
+                    <div class="uc-main"><span class="uc-title">Railway Track & Asset Monitoring</span><span
+                            class="uc-desc">Automated detection of track defects, ballast degradation, and OHE anomalies
+                            across thousands of kilometres.</span></div>
+                    <span class="uc-arrow"><i class="ph ph-arrow-right"></i></span>
+                </a>
+            </li>
+            <li class="uc-item">
+                <a href="../industries/defence-security.html" class="uc-link">
+                    <span class="uc-num">04</span>
+                    <div class="uc-main"><span class="uc-title">Border & Perimeter Security</span><span
+                            class="uc-desc">AI-powered intrusion detection, object classification, and threat assessment
+                            across borders, coastlines, and critical facilities.</span></div>
+                    <span class="uc-arrow"><i class="ph ph-arrow-right"></i></span>
+                </a>
+            </li>
+            <li class="uc-item">
+                <a href="../industries/highways.html" class="uc-link">
+                    <span class="uc-num">05</span>
+                    <div class="uc-main"><span class="uc-title">Highway & Road Condition Analysis</span><span
+                            class="uc-desc">Automated pothole detection, crack mapping, and road surface degradation
+                            scoring from aerial and ground-level imagery.</span></div>
+                    <span class="uc-arrow"><i class="ph ph-arrow-right"></i></span>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="ai-cta">
+        <div class="ai-cta__grid"></div>
+        <div class="ai-cta__glow"></div>
+        <div class="container">
+            <span class="s-eyebrow" style="margin-bottom:1.5rem;"><i class="ph ph-rocket-launch"></i> Get Started</span>
+            <h2>See AI in Action on<br><span>Your Use Case</span></h2>
+            <p>Schedule a live demonstration and see how our AI models perform on your specific operational environment.
+            </p>
+            <div class="ai-cta__btns">
+                <a href="../company/contact-us.html" class="s-btn s-btn--cyan"><i class="ph ph-envelope"></i> Book a
+                    Demo</a>
+                <a href="../technology/technology.html" class="s-btn s-btn--ghost">Explore Technology</a>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container footer-grid">
-            <div class="footer-col brand-col"><div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a><div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div></div><div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div></div>
-            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="../../pages/company/about-us.html">About Us</a></li><li><a href="../../pages/industries/mining.html">Industries</a></li><li><a href="../../pages/solutions/geospatial-ai.html">Technology</a></li></ul></div>
-            <div class="footer-col"><h4>Company</h4><ul><li><a href="../../pages/company/about-us.html">Our Vision</a></li><li><a href="../../pages/company/careers.html">Careers</a></li><li><a href="../../pages/company/contact-us.html">Contact</a></li></ul></div>
-            <div class="footer-col contact-col"><h4>Contact Us</h4><ul><li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li><li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li><li><i class="ph ph-envelope"></i> info@aerovania.com</li><li><i class="ph ph-globe"></i> www.aerovania.com</li><li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li></ul></div>
+            <div class="footer-col brand-col">
+                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png"
+                            alt="Aerovania Logo" class="footer-logo"></a>
+                    <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
+                    </div>
+                </div>
+                <div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i
+                            class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="geospatial-ai.html">Geospatial AI</a></li>
+                    <li><a href="artificial-intelligence.html">Artificial Intelligence</a></li>
+                    <li><a href="embedded-intelligence.html">Embedded Intelligence</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../company/about-us.html">About Us</a></li>
+                    <li><a href="../company/careers.html">Careers</a></li>
+                    <li><a href="../company/contact-us.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217"
+                            style="color:inherit;text-decoration:none;">+91 78758 55217</a></li>
+                    <li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075"
+                            style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
+                    <li><i class="ph ph-envelope"></i> info@aerovania.com</li>
+                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-bottom text-center"><p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p></div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p>
+        </div>
     </footer>
+
     <script src="../../assets/js/script.js"></script>
+    <script>
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
 </body>
+
 </html>
