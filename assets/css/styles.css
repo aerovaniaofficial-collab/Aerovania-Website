@@ -707,7 +707,7 @@ ul {
 /* Industries */
 .industries-section {
     padding: 6rem 0;
-    background: var(--bg-light);
+    background: #d2d2d238;;
 }
 
 .section-title {
@@ -750,7 +750,6 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 14, 32, 0.7);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -848,7 +847,7 @@ ul {
 
 .testi-quote {
     font-size: 2rem;
-    color: var(--cyan);
+    color: rgba(255, 255, 255, 0.536);
     margin-bottom: 1.25rem;
     display: block;
 }
@@ -939,7 +938,7 @@ ul {
 }
 
 .testi-dot.active {
-    background: rgb(250, 250, 250);
+    background: rgba(250, 250, 250, 0.46);
     width: 18px;
 }
 
@@ -995,6 +994,105 @@ ul {
     border: 3px solid var(--primary-cyan);
     border-radius: 8px;
     background: transparent;
+}
+
+/* Why Choose Aerovania */
+.why-choose {
+    padding: 7rem 0;
+    background: #06090f;
+}
+.why-choose__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+}
+.why-choose__label {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 1.5rem;
+}
+.why-choose__heading {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 800;
+    color: #f1f5f9;
+    line-height: 1.1;
+    margin: 0 0 1.5rem;
+}
+.why-choose__heading em {
+    font-style: italic;
+    color: var(--cyan);
+    font-weight: 700;
+}
+.why-choose__sub {
+    font-size: .95rem;
+    color: rgba(255,255,255,.5);
+    line-height: 1.8;
+    max-width: 380px;
+    margin-bottom: 2.5rem;
+}
+.why-choose__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,.18);
+    padding: .7rem 1.4rem;
+    border-radius: 6px;
+    transition: border-color .25s, color .25s;
+}
+.why-choose__cta:hover { border-color: var(--cyan); color: var(--cyan); }
+
+.why-choose__right {
+    display: flex;
+    flex-direction: column;
+    padding-top: .5rem;
+}
+.why-item-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.why-item-row:first-child { border-top: 1px solid rgba(255,255,255,.06); }
+.why-item-num {
+    font-family: 'Sora', sans-serif;
+    font-size: .72rem;
+    font-weight: 700;
+    color: rgba(255,255,255,.2);
+    letter-spacing: .1em;
+    min-width: 24px;
+    padding-top: .15rem;
+    transition: color .3s;
+}
+.why-item-row:hover .why-item-num { color: var(--cyan); }
+.why-item-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: .4rem;
+    transition: color .3s;
+}
+.why-item-row:hover .why-item-title { color: var(--cyan); }
+.why-item-desc {
+    font-size: .875rem;
+    color: rgba(255,255,255,.4);
+    line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+    .why-choose__inner { grid-template-columns: 1fr; gap: 3rem; }
 }
 
 /* CTA */
