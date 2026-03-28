@@ -4,65 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aerovania | Engineering Tomorrow's Infrastructure</title>
-    <meta name="description"
-        content="AI-powered monitoring, drone intelligence, and geospatial analytics for critical infrastructure.">
-
-    <!-- Fonts -->
+    <meta name="description" content="AI-powered monitoring, drone intelligence, and geospatial analytics for critical infrastructure.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
+
     <!-- Header -->
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="#"><img src="assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
+                <a href="index.html"><img src="assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
             </div>
             <nav class="desktop-nav">
                 <ul>
                     <li class="has-dropdown">
-                        <a href="#solutions">SOLUTIONS <i class="ph ph-caret-down"></i></a>
+                        <a href="#">SOLUTIONS <i class="ph ph-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="pages/solutions/geospatial-ai.html">Geospatial Mapping</a></li>
-                            <li><a href="pages/solutions/artificial-intelligence.html">Artificial intelligence</a></li>
-                            <li><a href="pages/solutions/embedded-intelligence.html">Edge Computing</a></li>
-                            <li><a href="pages/solutions/composite-engineering.html">Composite engineering</a></li>
+                            <li><a href="pages/solutions/geospatial-ai.html">Geospatial AI</a></li>
+                            <li><a href="pages/solutions/artificial-intelligence.html">Artificial Intelligence</a></li>
+                            <li><a href="pages/solutions/embedded-intelligence.html">Embedded Intelligence</a></li>
+                            <li><a href="pages/solutions/composite-engineering.html">Composite Engineering</a></li>
                         </ul>
                     </li>
                     <li class="has-dropdown">
-                        <a href="#industries">INDUSTRIES <i class="ph ph-caret-down"></i></a>
+                        <a href="#">INDUSTRIES <i class="ph ph-caret-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="pages/industries/mining.html">Mining</a></li>
                             <li><a href="pages/industries/highways.html">Highways</a></li>
                             <li><a href="pages/industries/railway.html">Railway</a></li>
-                            <li><a href="pages/industries/power-energy.html">Power & Energy</a></li>
-                            <li><a href="pages/industries/smart-cities.html">Smart cities & urban planning</a></li>
-                            <li><a href="pages/industries/oil-gas.html">Oil & Gas</a></li>
-                            <li><a href="pages/industries/environmental-forestry.html">Environmental & Forestry</a></li>
-                            <li><a href="pages/industries/defence-security.html">Defence & Border Security</a></li>
+                            <li><a href="pages/industries/power-energy.html">Power &amp; Energy</a></li>
+                            <li><a href="pages/industries/smart-cities.html">Smart Cities &amp; Urban Planning</a></li>
+                            <li><a href="pages/industries/oil-gas.html">Oil &amp; Gas</a></li>
+                            <li><a href="pages/industries/environmental-forestry.html">Environmental &amp; Forestry</a></li>
+                            <li><a href="pages/industries/defence-security.html">Defence &amp; Border Security</a></li>
                         </ul>
                     </li>
                     <li class="has-dropdown">
-                        <a href="#platform">PLATFORM <i class="ph ph-caret-down"></i></a>
+                        <a href="#">PLATFORM <i class="ph ph-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="pages/platform/ai-aerial-monitoring.html">AI Mines Analytics</a></li>
+                            <li><a href="pages/platform/ai-aerial-monitoring.html">AI Driven Aerial Monitoring &amp; Analytics</a></li>
                             <li><a href="pages/platform/iwlars.html">IWLARS</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="pages/technology/technology.html">TECHNOLOGY</a>
-                    </li>
+                    <li><a href="pages/technology/technology.html">TECHNOLOGY</a></li>
                     <li class="has-dropdown">
-                        <a href="#company">OUR COMPANY <i class="ph ph-caret-down"></i></a>
+                        <a href="#">OUR COMPANY <i class="ph ph-caret-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="pages/company/insights.html">Insights</a></li>
                             <li><a href="pages/company/careers.html">Careers</a></li>
@@ -74,118 +64,66 @@
             </nav>
             <div class="header-actions">
                 <a href="pages/company/contact-us.html" class="btn btn-dark-solid">Contact Us</a>
-                <button class="mobile-menu-btn">
-                    <i class="ph ph-list"></i>
-                </button>
+                <button class="mobile-menu-btn"><i class="ph ph-list"></i></button>
             </div>
         </div>
     </header>
 
     <!-- Hero Carousel -->
     <section class="aero-hero" id="aero-hero">
-        <!-- Slide 3: Geospatial AI -->
-        <!-- <div class="aero-slide">
-            <div class="aero-slide__bg" style="background-image:url('assets/images/hero_ai_dashboard.png');"></div>
+
+        <!-- Slide 1: AI Aerial Monitoring (video bg) -->
+        <div class="aero-slide aero-slide--active">
+            <div class="aero-slide__bg">
+                <video autoplay loop muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none;">
+                    <source src="assets/video/Video Project 5.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="aero-slide__overlay"></div>
             <div class="aero-slide__content">
-                <span class="aero-slide__eyebrow"><i class="ph ph-globe-hemisphere-west"></i> Geospatial Map</span>
-                <h1 class="aero-slide__title">Artificial intelligence in GIS</h1>
-                <p class="aero-slide__sub">High-resolution aerial mapping, 3D terrain modelling, and GIS-ready intelligence — turning raw survey data into verified geospatial insight.</p>
+                <span class="aero-slide__eyebrow"><i class="ph ph-drone"></i> AI Aerial Monitoring Platform</span>
+                <h1 class="aero-slide__title">Turning Vision into<br><span>Verified Reality</span></h1>
+                <p class="aero-slide__sub">AI-powered aerial intelligence for defence, infrastructure, and environmental monitoring &mdash; from drone to decision in real time.</p>
                 <div class="aero-slide__cta">
-                    <a href="pages/solutions/geospatial-ai.html" class="btn btn-primary btn-lg">Explore Geospatial AI</a>
-                    <!-- <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a> -->
-                <!-- </div>
+                    <a href="pages/platform/ai-aerial-monitoring.html" class="btn btn-primary btn-lg">Explore Platform</a>
+                    <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a>
+                </div>
             </div>
-        </div> -->
-        <!-- Slide 3: Geospatial AI — LiDAR canvas background -->
-        <div class="aero-slide aero-slide--active">
-            <div class="aero-slide__bg" style="background-image:url('assets/images/hero_lidar_terrain.png');"></div>
+        </div>
+
+        <!-- Slide 2: IWLARS (LiDAR canvas bg) -->
+        <div class="aero-slide">
+            <div class="aero-slide__bg" style="background:#060b14;"></div>
+            <iframe id="lidar-iframe" src="" data-src="assets/video/lidar_train_wagon_analysis_system.html"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;z-index:1;pointer-events:none;"
+                scrolling="no" tabindex="-1"></iframe>
+            <div class="aero-slide__overlay" style="background:rgba(0,0,0,0.5);"></div>
+            <div class="aero-slide__content">
+                <span class="aero-slide__eyebrow"><i class="ph ph-broadcast"></i> IWLARS Platform</span>
+                <h1 class="aero-slide__title">Intelligent Wagon Load<br><span>Analysis &amp; Reporting</span></h1>
+                <p class="aero-slide__sub">Persistent, AI-enhanced surveillance across borders, coastlines, and critical infrastructure &mdash; day and night, all weather.</p>
+                <div class="aero-slide__cta">
+                    <a href="pages/platform/iwlars.html" class="btn btn-primary btn-lg">Explore IWLARS</a>
+                    <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Geospatial AI -->
+        <div class="aero-slide">
+            <div class="aero-slide__bg" style="background-image:url('assets/images/hero_ai_dashboard.png');"></div>
             <div class="aero-slide__overlay"></div>
             <div class="aero-slide__content">
                 <span class="aero-slide__eyebrow"><i class="ph ph-globe-hemisphere-west"></i> Geospatial AI</span>
                 <h1 class="aero-slide__title">Map the World.<br><span>Understand It.</span></h1>
-                <p class="aero-slide__sub">High-resolution aerial mapping, 3D terrain modelling, and GIS-ready intelligence — turning raw survey data into verified geospatial insight.</p>
+                <p class="aero-slide__sub">High-resolution aerial mapping, 3D terrain modelling, and GIS-ready intelligence &mdash; turning raw survey data into verified geospatial insight.</p>
                 <div class="aero-slide__cta">
                     <a href="pages/solutions/geospatial-ai.html" class="btn btn-primary btn-lg">Explore Geospatial AI</a>
-                    <!-- <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a> -->
+                    <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a>
                 </div>
             </div>
         </div>
-        <!-- Slide 1: AI Aerial Monitoring -->
-        <div class="aero-slide">   
-        <div class="aero-slide__bg">
-        <video autoplay loop muted playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback"
-            style="
-                position: absolute;
-                top: 0; left: 0;
-                width: 100%; height: 100%;
-                object-fit: cover;
-                pointer-events: none;">
-            <source src="/assets/video/Video Project 5.mp4" type="video/mp4">
-            <source src="assets/videos/hero_drone_survey.webm" type="video/webm">
-        </video>
-        <div style="
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(
-                177deg,
-                rgb(255 255 255 / 70%) 0%,
-                rgba(164, 181, 255, 0.481) 50%,
-                rgb(0 0 0) 100%
-            );
-            
-            z-index: 1;
-        "></div>
-        </div>
-            <div class="aero-slide__overlay"></div>
-            <div class="aero-slide__content">
-                <span class="aero-slide__eyebrow"><i class="ph ph-drone"></i> AI Mines Analytics</span>
-                <h1 class="aero-slide__title">Turning Vision into Verified Reality</h1>
-                <p class="aero-slide__sub">AI-powered aerial intelligence for defence, infrastructure, and environmental monitoring — from drone to decision in real time.</p>
-                <div class="aero-slide__cta">
-                    <a href="pages/platform/ai-aerial-monitoring.html" class="btn btn-primary btn-lg">Explore Platform</a>
-                    <!-- <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a> -->
-                </div>
-            </div>
-        </div>
-        <!-- Slide 2: IWLARS -->
-        <div class="aero-slide">
-            <!-- <div class="aero-slide__bg" style="background:#060b14;"></div> -->
-            <iframe
-                id="lidar-iframe"
-                src=""
-                data-src="assets/video/lidar_train_wagon_analysis_system.html"
-                style="
-                    position:absolute;
-                    top: 99px;
-                    left:0;
-                    width:100%;
-                    height:100%;
-                    border:none;
-                    z-index:1;
-                    pointer-events:none;
-                    display:block;
-                    opacity: 46%;"
-                scrolling="no"
-                tabindex="-1"
-            ></iframe>
-            <div class="aero-slide__overlay" style=            
-            "background: linear-gradient(177deg,
-                rgba(255, 255, 255, 0.214) 0%,
-                rgba(164, 181, 255, 0.212) 50%,
-                rgb(0 0 0) 100%)
-            ;"></div>
-            <div class="aero-slide__content">
-                <span class="aero-slide__eyebrow"><i class="ph ph-broadcast"></i> IWLARS Platform</span>
-                <h1 class="aero-slide__title">Intelligent Wagon Load Analysis & Reporting System</h1>
-                <p class="aero-slide__sub">Persistent, AI-enhanced surveillance across borders, coastlines, and critical infrastructure — day and night, all weather.</p>
-                <div class="aero-slide__cta">
-                    <a href="pages/platform/iwlars.html" class="btn btn-primary btn-lg">Explore IWLARS</a>
-                    <!-- <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a> -->
-                </div>
-            </div>
-        </div>
+
         <!-- Progress bars -->
         <div class="aero-progress">
             <div class="aero-pb aero-pb--active" data-slide="0"><div class="aero-pb__fill"></div></div>
@@ -208,28 +146,28 @@
                 </div>
                 <p class="wwd-para">
                     At Aerovania, we are pioneers in <strong>aerial intelligence and AI-driven infrastructure monitoring</strong>. As India's leading engineering technology company, we are driven by an unwavering belief in the power of precision to transform nations.<br><br>
-                    That's why, since our founding, we have relentlessly pushed the boundaries of what's possible � revolutionising how India's critical infrastructure is surveyed, monitored, and maintained through <strong>advanced drone survey, LiDAR analytics, indigenous UAV development, and AI-powered monitoring systems</strong> � trusted by Indian Railways, NHAI, Coal India, and Defence, because every data point we deliver shapes a safer, smarter India.
+                    That's why, since our founding, we have relentlessly pushed the boundaries of what's possible &mdash; revolutionising how India's critical infrastructure is surveyed, monitored, and maintained through <strong>advanced drone survey, LiDAR analytics, indigenous UAV development, and AI-powered monitoring systems</strong> &mdash; trusted by Indian Railways, NHAI, Coal India, and Defence, because every data point we deliver shapes a safer, smarter India.
                 </p>
-                <!-- <div class="wwd-pills">
+                <div class="wwd-pills">
                     <span class="wwd-pill">DPIIT Recognised</span>
                     <span class="wwd-pill">ISO Certified</span>
                     <span class="wwd-pill">NHAI Empanelled</span>
                     <span class="wwd-pill">Startup India</span>
                     <span class="wwd-pill">40+ Engineers</span>
-                    <span class="wwd-pill">�5mm Accuracy</span>
+                    <span class="wwd-pill">&plusmn;5mm Accuracy</span>
                     <span class="wwd-pill">Zero Safety Incidents</span>
-                </div> -->
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Aerovania � Progress Bar Metrics -->
+    <!-- Why Aerovania — Progress Bar Metrics -->
     <section class="cb-section">
         <div class="cb-inner">
             <div class="cb-left">
                 <div class="cb-label">WHY AEROVANIA</div>
                 <h2 class="cb-heading">Metrics that prove our <span>engineering edge</span></h2>
-                <p class="cb-sub">From DPIIT-recognised R&D labs in Nagpur to live AI deployments with Coal India � every number below reflects a real project, a real client, and a real outcome delivered with zero safety incidents.</p>
+                <p class="cb-sub">From DPIIT-recognised R&amp;D labs in Nagpur to live AI deployments with Coal India &mdash; every number below reflects a real project, a real client, and a real outcome delivered with zero safety incidents.</p>
                 <a href="pages/company/about-us.html" class="cb-cta-btn">View Case Studies &rarr;</a>
             </div>
             <div class="cb-right">
@@ -241,17 +179,17 @@
                 <div class="cb-metric">
                     <div class="cb-meta"><span class="cb-name">Government &amp; PSU clients</span><span class="cb-val">12<span style="color:#3b6fd4;">+</span></span></div>
                     <div class="cb-track"><div class="cb-fill" id="bf2" style="background:#3b6fd4;"></div></div>
-                    <div class="cb-desc">Indian Railways � NHAI � Coal India � Survey of India � NHPC � Defence</div>
+                    <div class="cb-desc">Indian Railways &middot; NHAI &middot; Coal India &middot; Survey of India &middot; NHPC &middot; Defence</div>
                 </div>
                 <div class="cb-metric">
-                    <div class="cb-meta"><span class="cb-name">LiDAR precision accuracy</span><span class="cb-val">�5<span style="color:#c96b20;">mm</span></span></div>
+                    <div class="cb-meta"><span class="cb-name">LiDAR precision accuracy</span><span class="cb-val">&plusmn;5<span style="color:#c96b20;">mm</span></span></div>
                     <div class="cb-track"><div class="cb-fill" id="bf3" style="background:#c96b20;"></div></div>
                     <div class="cb-desc">Consistently achieved under controlled survey conditions with ground control</div>
                 </div>
                 <div class="cb-metric">
                     <div class="cb-meta"><span class="cb-name">Pan-India operational states</span><span class="cb-val">25<span style="color:#6b4fd4;">+</span></span></div>
                     <div class="cb-track"><div class="cb-fill" id="bf4" style="background:#6b4fd4;"></div></div>
-                    <div class="cb-desc">Mountains � mines � forests � highways � from Himalayan corridors to coastal belts</div>
+                    <div class="cb-desc">Mountains &middot; mines &middot; forests &middot; highways &mdash; from Himalayan corridors to coastal belts</div>
                 </div>
                 <div class="cb-metric">
                     <div class="cb-meta"><span class="cb-name">ISO-certified quality operations</span><span class="cb-val" style="color:#1a8c5c;">100%</span></div>
@@ -261,7 +199,7 @@
                 <div class="cb-metric">
                     <div class="cb-meta"><span class="cb-name">Core technology service verticals</span><span class="cb-val" style="color:#00a693;">6</span></div>
                     <div class="cb-track"><div class="cb-fill" id="bf6" style="background:#00a693;"></div></div>
-                    <div class="cb-desc">Drone Survey � LiDAR � AI Monitoring � UAV Dev � Infrastructure � Training</div>
+                    <div class="cb-desc">Drone Survey &middot; LiDAR &middot; AI Monitoring &middot; UAV Dev &middot; Infrastructure &middot; Training</div>
                 </div>
             </div>
         </div>
@@ -271,7 +209,7 @@
     <section class="c2-section">
         <div class="c2-head">
             <h2>Industries we <em>serve</em></h2>
-            <p>Precision aerial intelligence across India's critical sectors � government-trusted, mission-proven</p>
+            <p>Precision aerial intelligence across India's critical sectors &mdash; government-trusted, mission-proven</p>
             <div class="c2-line"></div>
         </div>
         <div class="c2-grid">
@@ -284,7 +222,7 @@
                     <div class="c2-desc">Corridor surveys, LiDAR wagon monitoring, asset inspection, and track condition assessment for zonal railways.</div>
                     <div class="c2-tags"><span class="c2-tag" style="background:#e4f7f5;color:#006e65;">LiDAR</span><span class="c2-tag" style="background:#e4f7f5;color:#006e65;">Corridor</span><span class="c2-tag">AI Monitoring</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">Indian Railways ?</span><span class="c2-arr">?</span></div>
+                <div class="c2-footer"><span class="c2-client">Indian Railways &#10003;</span><span class="c2-arr">&#8594;</span></div>
             </a>
             <a href="pages/industries/mining.html" class="c2-card">
                 <div class="c2-top" style="background:linear-gradient(135deg,#fff4ec,#fffaf5);">
@@ -295,7 +233,7 @@
                     <div class="c2-desc">High-precision volumetric surveys, pit progression mapping, stockpile calculations, and AI-powered compliance monitoring.</div>
                     <div class="c2-tags"><span class="c2-tag" style="background:#fff4ec;color:#9a4e14;">Volume</span><span class="c2-tag" style="background:#fff4ec;color:#9a4e14;">AI Monitoring</span><span class="c2-tag">DGPS</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">Coal India WCL � CCL ?</span><span class="c2-arr" style="color:#c96b20;">?</span></div>
+                <div class="c2-footer"><span class="c2-client">Coal India WCL &middot; CCL &#10003;</span><span class="c2-arr" style="color:#c96b20;">&#8594;</span></div>
             </a>
             <a href="pages/industries/highways.html" class="c2-card">
                 <div class="c2-top" style="background:linear-gradient(135deg,#eef3ff,#f5f8ff);">
@@ -306,7 +244,7 @@
                     <div class="c2-desc">Topographic surveys, right-of-way documentation, construction progress monitoring, and highway corridor mapping.</div>
                     <div class="c2-tags"><span class="c2-tag" style="background:#eef3ff;color:#2a56b0;">Corridor</span><span class="c2-tag" style="background:#eef3ff;color:#2a56b0;">ROW Docs</span><span class="c2-tag">Progress</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">NHAI Empanelled ?</span><span class="c2-arr" style="color:#3b6fd4;">?</span></div>
+                <div class="c2-footer"><span class="c2-client">NHAI Empanelled &#10003;</span><span class="c2-arr" style="color:#3b6fd4;">&#8594;</span></div>
             </a>
             <a href="pages/industries/defence-security.html" class="c2-card">
                 <div class="c2-top" style="background:linear-gradient(135deg,#f0eeff,#f7f5ff);">
@@ -317,7 +255,7 @@
                     <div class="c2-desc">Comprehensive survey services, large-scale mapping, and advanced technology for government agencies and defence estates.</div>
                     <div class="c2-tags"><span class="c2-tag" style="background:#f0eeff;color:#4a30a8;">Mapping</span><span class="c2-tag" style="background:#f0eeff;color:#4a30a8;">Survey</span><span class="c2-tag">DPIIT</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">Survey of India � Defence ?</span><span class="c2-arr" style="color:#6b4fd4;">?</span></div>
+                <div class="c2-footer"><span class="c2-client">Survey of India &middot; Defence &#10003;</span><span class="c2-arr" style="color:#6b4fd4;">&#8594;</span></div>
             </a>
             <a href="pages/industries/power-energy.html" class="c2-card">
                 <div class="c2-top" style="background:linear-gradient(135deg,#eafaf3,#f5fffe);">
@@ -328,7 +266,7 @@
                     <div class="c2-desc">Transmission corridor surveys, hydroelectric project monitoring, and critical power infrastructure condition assessment.</div>
                     <div class="c2-tags"><span class="c2-tag" style="background:#eafaf3;color:#146046;">NHPC</span><span class="c2-tag" style="background:#eafaf3;color:#146046;">Transmission</span><span class="c2-tag">LiDAR</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">NHPC � NHIDCL ?</span><span class="c2-arr" style="color:#1a8c5c;">?</span></div>
+                <div class="c2-footer"><span class="c2-client">NHPC &middot; NHIDCL &#10003;</span><span class="c2-arr" style="color:#1a8c5c;">&#8594;</span></div>
             </a>
             <a href="pages/industries/environmental-forestry.html" class="c2-card">
                 <div class="c2-top" style="background:linear-gradient(135deg,#f4fef6,#eafaf3);">
@@ -339,7 +277,7 @@
                     <div class="c2-desc">Vegetation mapping, forest boundary delineation, canopy analysis, and wildlife habitat assessment for state departments.</div>
                     <div class="c2-tags"><span class="c2-tag" style="background:#eafaf3;color:#1a5c1e;">Canopy</span><span class="c2-tag" style="background:#eafaf3;color:#1a5c1e;">Boundary</span><span class="c2-tag">UAV</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">Maharashtra Forest Dept. ?</span><span class="c2-arr" style="color:#2e7d32;">?</span></div>
+                <div class="c2-footer"><span class="c2-client">Maharashtra Forest Dept. &#10003;</span><span class="c2-arr" style="color:#2e7d32;">&#8594;</span></div>
             </a>
             <a href="pages/industries/smart-cities.html" class="c2-card">
                 <div class="c2-top" style="background:linear-gradient(135deg,#fff8e6,#fffdf5);">
@@ -350,7 +288,7 @@
                     <div class="c2-desc">Progress documentation, quantity estimation, earthwork calculations, and schedule verification for major civil projects.</div>
                     <div class="c2-tags"><span class="c2-tag" style="background:#fff8e6;color:#8a5c08;">Progress</span><span class="c2-tag" style="background:#fff8e6;color:#8a5c08;">Earthworks</span><span class="c2-tag">DTM</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">State PWDs � NHIDCL ?</span><span class="c2-arr" style="color:#b07a10;">?</span></div>
+                <div class="c2-footer"><span class="c2-client">State PWDs &middot; NHIDCL &#10003;</span><span class="c2-arr" style="color:#b07a10;">&#8594;</span></div>
             </a>
             <a href="pages/industries/oil-gas.html" class="c2-card">
                 <div class="c2-top" style="background:linear-gradient(135deg,#fcebeb,#fff5f5);">
@@ -361,16 +299,15 @@
                     <div class="c2-desc">Watershed surveys, reservoir monitoring, hydro project documentation, and river corridor mapping.</div>
                     <div class="c2-tags"><span class="c2-tag" style="background:#fcebeb;color:#7a1f1f;">Hydro</span><span class="c2-tag" style="background:#fcebeb;color:#7a1f1f;">Watershed</span><span class="c2-tag">NHPC</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">NHPC � IBM ?</span><span class="c2-arr" style="color:#a32d2d;">?</span></div>
+                <div class="c2-footer"><span class="c2-client">NHPC &middot; IBM &#10003;</span><span class="c2-arr" style="color:#a32d2d;">&#8594;</span></div>
             </a>
         </div>
     </section>
 
-
-    <!-- Trusted By Industry Leader -->
+    <!-- Trusted By -->
     <section class="trusted-section">
         <div class="container trusted-inner">
-            <h2 class="section-title text-white text-center reveal">Trusted By Industry Leader</h2>
+            <h2 class="section-title text-white text-center reveal">Trusted By Industry Leaders</h2>
             <div class="trusted-logos reveal stagger-1">
                 <span>Indian Railways</span>
                 <span>Coal India</span>
@@ -381,7 +318,6 @@
 
             <div class="testi-slider reveal stagger-2">
                 <div class="testi-track" id="testiTrack">
-
                     <div class="testi-slide">
                         <i class="ph-fill ph-quotes testi-quote"></i>
                         <p class="testi-text">"Aerovania's drone and AI monitoring solutions have significantly improved infrastructure monitoring and operational efficiency."</p>
@@ -393,10 +329,9 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="testi-slide">
                         <i class="ph-fill ph-quotes testi-quote"></i>
-                        <p class="testi-text">"The real-time aerial intelligence platform cut our site inspection time by over 60%. What used to take days now takes hours — with far greater accuracy."</p>
+                        <p class="testi-text">"The real-time aerial intelligence platform cut our site inspection time by over 60%. What used to take days now takes hours &mdash; with far greater accuracy."</p>
                         <div class="testi-author">
                             <div class="testi-avatar"><i class="ph ph-hard-hat"></i></div>
                             <div>
@@ -405,7 +340,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="testi-slide">
                         <i class="ph-fill ph-quotes testi-quote"></i>
                         <p class="testi-text">"Aerovania's LiDAR and geospatial mapping gave us corridor intelligence we simply couldn't get any other way. The 3D terrain models are exceptional."</p>
@@ -417,7 +351,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="testi-slide">
                         <i class="ph-fill ph-quotes testi-quote"></i>
                         <p class="testi-text">"Deploying Aerovania's AI surveillance system across our border corridor transformed our situational awareness. The all-weather capability is a game changer."</p>
@@ -425,13 +358,11 @@
                             <div class="testi-avatar"><i class="ph ph-shield-check"></i></div>
                             <div>
                                 <div class="testi-name">Director, Border Security Division</div>
-                                <div class="testi-role">Defence & Security Agency</div>
+                                <div class="testi-role">Defence &amp; Security Agency</div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="testi-controls">
                     <button class="testi-btn" id="testiPrev" aria-label="Previous"><i class="ph ph-arrow-left"></i></button>
                     <div class="testi-dots" id="testiDots"></div>
@@ -441,12 +372,53 @@
         </div>
     </section>
 
+    <!-- Why Choose Aerovania -->
+    <section class="why-choose">
+        <div class="container why-choose__inner">
+            <div class="why-choose__left reveal">
+                <p class="why-choose__label">Why Choose Us</p>
+                <h2 class="why-choose__heading">Aerial Intelligence,<br><em>Engineered</em><br>to Perform.</h2>
+                <p class="why-choose__sub">We don't just deploy drones &mdash; we architect end-to-end intelligence systems. Aerovania brings together AI engineers, UAV specialists, and domain experts under one roof to deliver outcomes that matter.</p>
+                <a href="pages/company/about-us.html" class="why-choose__cta">Our Story &nbsp;&rarr;</a>
+            </div>
+            <div class="why-choose__right reveal">
+                <div class="why-item-row">
+                    <span class="why-item-num">01</span>
+                    <div>
+                        <div class="why-item-title">End-to-End Ownership</div>
+                        <div class="why-item-desc">From aerial survey to boardroom dashboard &mdash; one team, full accountability, zero handoff gaps.</div>
+                    </div>
+                </div>
+                <div class="why-item-row">
+                    <span class="why-item-num">02</span>
+                    <div>
+                        <div class="why-item-title">Purpose-Built AI Models</div>
+                        <div class="why-item-desc">120+ models trained on real industrial data &mdash; not generic solutions repurposed for your environment.</div>
+                    </div>
+                </div>
+                <div class="why-item-row">
+                    <span class="why-item-num">03</span>
+                    <div>
+                        <div class="why-item-title">Hardware + Software Stack</div>
+                        <div class="why-item-desc">We design, manufacture, and operate our own UAV platforms &mdash; full-stack control from composite airframe to cloud dashboard.</div>
+                    </div>
+                </div>
+                <div class="why-item-row">
+                    <span class="why-item-num">04</span>
+                    <div>
+                        <div class="why-item-title">Defence to Industrial Scale</div>
+                        <div class="why-item-desc">Proven across mines, railways, power lines, and border security &mdash; enterprise-grade reliability in every deployment.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta-section">
         <div class="container cta-inner text-center reveal">
             <h2 class="cta-title">Let's Build the Future of<br>Infrastructure Intelligence</h2>
-            <p class="cta-desc">Discover how Aerovania's AI-powered monitoring and drones can transform your operations.
-            </p>
+            <p class="cta-desc">Discover how Aerovania's AI-powered monitoring and drones can transform your operations.</p>
             <div class="cta-buttons">
                 <a href="pages/company/contact-us.html" class="btn btn-cyan">Contact Us</a>
                 <a href="pages/company/contact-us.html" class="btn btn-outline-cyan">Request Demo</a>
@@ -459,10 +431,8 @@
         <div class="container footer-grid">
             <div class="footer-col brand-col">
                 <div class="logo">
-                    <a href="#"><img src="assets/images/aerovania-logo.png" alt="Aerovania Logo"
-                            class="footer-logo"></a>
-                    <div style="font-size: 0.8rem; letter-spacing: 0; color: #64748b; margin-top: 0.5rem;">Turning
-                        Vision into Verified Reality</div>
+                    <a href="index.html"><img src="assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a>
+                    <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div>
                 </div>
                 <div class="socials">
                     <a href="#"><i class="ph ph-linkedin-logo"></i></a>
@@ -475,7 +445,7 @@
                 <ul>
                     <li><a href="pages/company/about-us.html">About Us</a></li>
                     <li><a href="pages/industries/mining.html">Industries</a></li>
-                    <li><a href="pages/solutions/geospatial-ai.html">Technology</a></li>
+                    <li><a href="pages/technology/technology.html">Technology</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -489,16 +459,19 @@
             <div class="footer-col contact-col">
                 <h4>Contact Us</h4>
                 <ul>
-                    <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li><li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
+                    <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li>
+                    <li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
                     <li><i class="ph ph-envelope"></i> info@aerovania.com</li>
                     <li><i class="ph ph-globe"></i> www.aerovania.com</li>
-                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A & D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li>
+                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom text-center">
             <p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p>
         </div>
+    </footer>
+
     <script src="assets/js/script.js"></script>
     <script>
         // Testimonial slider
@@ -508,14 +481,12 @@
             const dotsEl = document.getElementById('testiDots');
             if (!slides.length) return;
             let cur = 0, timer;
-
             slides.forEach((_, i) => {
                 const d = document.createElement('div');
                 d.className = 'testi-dot' + (i === 0 ? ' active' : '');
                 d.addEventListener('click', () => go(i));
                 dotsEl.appendChild(d);
             });
-
             function go(i) {
                 cur = (i + slides.length) % slides.length;
                 track.style.transform = `translateX(-${cur * 100}%)`;
@@ -523,43 +494,33 @@
                 clearTimeout(timer);
                 timer = setTimeout(() => go(cur + 1), 5000);
             }
-
             document.getElementById('testiPrev').addEventListener('click', () => go(cur - 1));
             document.getElementById('testiNext').addEventListener('click', () => go(cur + 1));
             timer = setTimeout(() => go(1), 5000);
         })();
 
-        // Lazy-load LiDAR iframe only when slide 3 is active
+        // Lazy-load LiDAR iframe only when slide 2 is active
         (function () {
             const iframe = document.getElementById('lidar-iframe');
             if (!iframe) return;
             let loaded = false;
-
             function maybeLoad() {
                 const slides = document.querySelectorAll('.aero-slide');
-                slides.forEach((s, i) => {
-                    if (i === 2 && s.classList.contains('aero-slide--active') && !loaded) {
-                        iframe.src = iframe.dataset.src;
-                        loaded = true;
-                        // trigger resize inside iframe after it loads
-                        iframe.addEventListener('load', () => {
-                            try {
-                                iframe.contentWindow.dispatchEvent(new Event('resize'));
-                            } catch(e) {}
-                        }, { once: true });
-                    }
-                });
+                if (slides[1] && slides[1].classList.contains('aero-slide--active') && !loaded) {
+                    iframe.src = iframe.dataset.src;
+                    loaded = true;
+                    iframe.addEventListener('load', () => {
+                        try { iframe.contentWindow.dispatchEvent(new Event('resize')); } catch(e) {}
+                    }, { once: true });
+                }
             }
-
             const observer = new MutationObserver(maybeLoad);
             document.querySelectorAll('.aero-slide').forEach(s =>
                 observer.observe(s, { attributes: true, attributeFilter: ['class'] })
             );
         })();
-    </script>imer = setTimeout(() => go(1), 5000);
-        })();
-    </script>
-        // Progress bar animation (cb-section) — trigger on scroll into view
+
+        // Progress bar animation — trigger on scroll
         (function () {
             function setBar(id, pct, delay) {
                 setTimeout(() => { const el = document.getElementById(id); if (el) el.style.width = pct + '%'; }, delay);
@@ -576,6 +537,6 @@
             }, { threshold: 0.3 });
             obs.observe(section);
         })();
+    </script>
 </body>
-
 </html>
