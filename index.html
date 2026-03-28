@@ -32,7 +32,7 @@
                     <li class="has-dropdown">
                         <a href="#solutions">SOLUTIONS <i class="ph ph-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="pages/solutions/geospatial-ai.html">Geospatial AI</a></li>
+                            <li><a href="pages/solutions/geospatial-ai.html">Geospatial Mapping</a></li>
                             <li><a href="pages/solutions/artificial-intelligence.html">Artificial intelligence</a></li>
                             <li><a href="pages/solutions/embedded-intelligence.html">Edge Computing</a></li>
                             <li><a href="pages/solutions/composite-engineering.html">Composite engineering</a></li>
@@ -54,7 +54,7 @@
                     <li class="has-dropdown">
                         <a href="#platform">PLATFORM <i class="ph ph-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="pages/platform/ai-aerial-monitoring.html">AI Mines &amp; Analytics</a></li>
+                            <li><a href="pages/platform/ai-aerial-monitoring.html">AI Mines Analytics</a></li>
                             <li><a href="pages/platform/iwlars.html">IWLARS</a></li>
                         </ul>
                     </li>
@@ -83,25 +83,31 @@
 
     <!-- Hero Carousel -->
     <section class="aero-hero" id="aero-hero">
-
+        <!-- Slide 3: Geospatial AI -->
+        <!-- <div class="aero-slide">
+            <div class="aero-slide__bg" style="background-image:url('assets/images/hero_ai_dashboard.png');"></div>
+            <div class="aero-slide__overlay"></div>
+            <div class="aero-slide__content">
+                <span class="aero-slide__eyebrow"><i class="ph ph-globe-hemisphere-west"></i> Geospatial Map</span>
+                <h1 class="aero-slide__title">Artificial intelligence in GIS</h1>
+                <p class="aero-slide__sub">High-resolution aerial mapping, 3D terrain modelling, and GIS-ready intelligence — turning raw survey data into verified geospatial insight.</p>
+                <div class="aero-slide__cta">
+                    <a href="pages/solutions/geospatial-ai.html" class="btn btn-primary btn-lg">Explore Geospatial AI</a>
+                    <!-- <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a> -->
+                <!-- </div>
+            </div>
+        </div> -->
         <!-- Slide 1: AI Aerial Monitoring -->
 
         <div class="aero-slide aero-slide--active">
         <div class="aero-slide__bg">
-        <video
-            autoplay
-            loop
-            muted
-            playsinline
-            disablePictureInPicture
-            controlsList="nodownload nofullscreen noremoteplayback"
+        <video autoplay loop muted playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback"
             style="
                 position: absolute;
                 top: 0; left: 0;
                 width: 100%; height: 100%;
                 object-fit: cover;
-                pointer-events: none;"
-        >
+                pointer-events: none;">
             <source src="/assets/video/Video Project 5.mp4" type="video/mp4">
             <source src="assets/videos/hero_drone_survey.webm" type="video/webm">
         </video>
@@ -121,7 +127,7 @@
         </div>
             <div class="aero-slide__overlay"></div>
             <div class="aero-slide__content">
-                <span class="aero-slide__eyebrow"><i class="ph ph-drone"></i> AI Mines &amp; Analytics</span>
+                <span class="aero-slide__eyebrow"><i class="ph ph-drone"></i> AI Mines Analytics</span>
                 <h1 class="aero-slide__title">Turning Vision into Verified Reality</h1>
                 <p class="aero-slide__sub">AI-powered aerial intelligence for defence, infrastructure, and environmental monitoring — from drone to decision in real time.</p>
                 <div class="aero-slide__cta">
@@ -146,13 +152,23 @@
             </div>
         </div>
 
-        <!-- Slide 3: Geospatial AI -->
+
+
+        <!-- Slide 3: Geospatial AI — LiDAR canvas background -->
         <div class="aero-slide">
-            <div class="aero-slide__bg" style="background-image:url('assets/images/hero_ai_dashboard.png');"></div>
-            <div class="aero-slide__overlay"></div>
+            <div class="aero-slide__bg" style="background:#060b14;"></div>
+            <iframe
+                id="lidar-iframe"
+                src=""
+                data-src="assets/video/lidar_train_wagon_analysis_system.html"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;z-index:1;pointer-events:none;display:block;"
+                scrolling="no"
+                tabindex="-1"
+            ></iframe>
+            <div class="aero-slide__overlay" style="background:rgba(0,0,0,0.45);"></div>
             <div class="aero-slide__content">
                 <span class="aero-slide__eyebrow"><i class="ph ph-globe-hemisphere-west"></i> Geospatial AI</span>
-                <h1 class="aero-slide__title">Artificial intelligence in GIS</h1>
+                <h1 class="aero-slide__title">Map the World.<br><span>Understand It.</span></h1>
                 <p class="aero-slide__sub">High-resolution aerial mapping, 3D terrain modelling, and GIS-ready intelligence — turning raw survey data into verified geospatial insight.</p>
                 <div class="aero-slide__cta">
                     <a href="pages/solutions/geospatial-ai.html" class="btn btn-primary btn-lg">Explore Geospatial AI</a>
@@ -478,8 +494,6 @@
         <div class="footer-bottom text-center">
             <p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p>
         </div>
-    </footer>
-
     <script src="assets/js/script.js"></script>
     <script>
         // Testimonial slider
@@ -508,6 +522,36 @@
             document.getElementById('testiPrev').addEventListener('click', () => go(cur - 1));
             document.getElementById('testiNext').addEventListener('click', () => go(cur + 1));
             timer = setTimeout(() => go(1), 5000);
+        })();
+
+        // Lazy-load LiDAR iframe only when slide 3 is active
+        (function () {
+            const iframe = document.getElementById('lidar-iframe');
+            if (!iframe) return;
+            let loaded = false;
+
+            function maybeLoad() {
+                const slides = document.querySelectorAll('.aero-slide');
+                slides.forEach((s, i) => {
+                    if (i === 2 && s.classList.contains('aero-slide--active') && !loaded) {
+                        iframe.src = iframe.dataset.src;
+                        loaded = true;
+                        // trigger resize inside iframe after it loads
+                        iframe.addEventListener('load', () => {
+                            try {
+                                iframe.contentWindow.dispatchEvent(new Event('resize'));
+                            } catch(e) {}
+                        }, { once: true });
+                    }
+                });
+            }
+
+            const observer = new MutationObserver(maybeLoad);
+            document.querySelectorAll('.aero-slide').forEach(s =>
+                observer.observe(s, { attributes: true, attributeFilter: ['class'] })
+            );
+        })();
+    </script>imer = setTimeout(() => go(1), 5000);
         })();
     </script>
 </body>

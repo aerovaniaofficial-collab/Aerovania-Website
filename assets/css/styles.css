@@ -589,8 +589,8 @@ ul {
 
 .wwd-grid {
     flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
     gap: 1.5rem;
 }
 

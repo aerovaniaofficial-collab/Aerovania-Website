@@ -1,0 +1,790 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: transparent;
+  }
+
+  #root {
+    font-family: var(--font-sans);
+    background: #0a0e1a;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  #scene-label {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    background: rgba(0, 200, 255, 0.13);
+    border: 1px solid rgba(0, 200, 255, 0.35);
+    color: #00c8ff;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.08em;
+    z-index: 10;
+  }
+
+  #scene-num {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    color: rgba(0, 200, 255, 0.55);
+    font-size: 11px;
+    z-index: 10;
+  }
+
+  #rec-dot {
+    position: absolute;
+    top: 18px;
+    right: 100px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff3344;
+    z-index: 10;
+  }
+
+  #progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00c8ff, #0055ff);
+    transition: width 0.1s;
+    z-index: 10;
+  }
+
+  canvas {
+    display: block;
+  }
+
+  #overlay-stats {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: rgba(10, 14, 26, 0.85);
+    border: 1px solid rgba(0, 200, 255, 0.25);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #cce8ff;
+    font-size: 11px;
+    line-height: 1.8;
+    z-index: 10;
+    min-width: 170px;
+  }
+
+  #overlay-stats .val {
+    color: #00e5ff;
+    font-size: 12px;
+    font-weight: 500;
+  }
+</style>
+<div id="root" style="position:relative; width:100%; height:520px;">
+  <!-- <div id="scene-label">SCENE 1 — AERIAL OVERVIEW</div> -->
+  <!-- <div id="scene-num">01 / 05</div> -->
+  <div id="rec-dot"></div>
+  <canvas id="c" width="680" height="520" style="width:100%;height:100%;"></canvas>
+  <div id="overlay-stats">
+    <div>Scan coverage &nbsp;<span class="val" id="sv">0%</span></div>
+    <div>Points captured &nbsp;<span class="val" id="pc">0</span></div>
+    <div>Load variance &nbsp;<span class="val" id="lv">—</span></div>
+    <div>Status &nbsp;<span class="val" id="st">SCANNING</span></div>
+  </div>
+  <div id="progress-bar" style="width:0%"></div>
+</div>
+
+<script>
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d');
+  const W = 680, H = 520;
+  canvas.width = W; canvas.height = H;
+
+  let frame = 0;
+  const TOTAL_FRAMES = 1800; // ~60s at 30fps
+  let sceneLabel = document.getElementById('scene-label');
+  let sceneNum = document.getElementById('scene-num');
+  let progressBar = document.getElementById('progress-bar');
+  let svEl = document.getElementById('sv');
+  let pcEl = document.getElementById('pc');
+  let lvEl = document.getElementById('lv');
+  let stEl = document.getElementById('st');
+
+  function setStat(el, val) { if (el) el.textContent = val; }
+
+  // Point cloud storage
+  let points3d = [];
+  let cloudPoints = [];
+  let trolleyX = 40;
+  let scanProgress = 0;
+  let pointCount = 0;
+
+  // Wagon data - weight distribution 5x3 grid
+  const wagonGrid = [];
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 5; c++) {
+    wagonGrid.push({ r, c, h: 0.4 + Math.random() * 0.55 + (r === 1 ? 0.15 : 0) + (c === 2 || c === 3 ? 0.1 : 0) });
+  }
+
+  function easeInOut(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  // Rect blink
+  let recBlink = 0;
+  setInterval(() => {
+    recBlink = !recBlink;
+    document.getElementById('rec-dot').style.opacity = recBlink ? '1' : '0.2';
+  }, 600);
+
+  function getScene(f) {
+    const t = f / TOTAL_FRAMES;
+    if (t < 0.18) return { id: 1, t: t / 0.18, label: 'AERIAL OVERVIEW — PULLEY TROLLEY SYSTEM', num: '01 / 05' };
+    if (t < 0.38) return { id: 2, t: (t - 0.18) / 0.20, label: 'LIDAR SCAN — POINT CLOUD CAPTURE', num: '02 / 05' };
+    if (t < 0.56) return { id: 3, t: (t - 0.38) / 0.18, label: '3D POINT CLOUD — WAGON LOAD MAP', num: '03 / 05' };
+    if (t < 0.78) return { id: 4, t: (t - 0.56) / 0.22, label: 'WEIGHT DISTRIBUTION ANALYSIS', num: '04 / 05' };
+    return { id: 5, t: (t - 0.78) / 0.22, label: 'ENGINEER DASHBOARD — STABILITY REPORT', num: '05 / 05' };
+  }
+
+  // --- SCENE 1: Aerial View ---
+  function drawAerial(st) {
+    const t = st.t;
+    // Sky gradient
+    let g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, '#0a0f1e'); g.addColorStop(1, '#1a2535');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+    // Mountains bg
+    ctx.fillStyle = '#14202e';
+    ctx.beginPath(); ctx.moveTo(0, 320);
+    ctx.bezierCurveTo(80, 260, 150, 290, 220, 270);
+    ctx.bezierCurveTo(290, 250, 340, 230, 400, 260);
+    ctx.bezierCurveTo(480, 300, 560, 260, 640, 250);
+    ctx.lineTo(640, 520); ctx.lineTo(0, 520); ctx.fill();
+
+    // Factory lights far bg
+    for (let i = 0; i < 12; i++) {
+      let fx = 180 + i * 33, fy = 250 + Math.sin(i) * 18;
+      ctx.fillStyle = `rgba(255,200,80,${0.3 + Math.sin(frame * 0.03 + i) * 0.15})`;
+      ctx.beginPath(); ctx.arc(fx, fy, 2, 0, Math.PI * 2); ctx.fill();
+    }
+
+    // Ground / loading yard
+    ctx.fillStyle = '#111820';
+    ctx.fillRect(0, 370, W, 150);
+
+    // Rail tracks (2 parallel lines)
+    ctx.strokeStyle = '#445566'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(0, 408); ctx.lineTo(W, 408); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0, 416); ctx.lineTo(W, 416); ctx.stroke();
+
+    // Sleepers
+    ctx.strokeStyle = '#2a3540'; ctx.lineWidth = 3;
+    for (let i = 0; i < 45; i++) {
+      ctx.beginPath(); ctx.moveTo(i * 16, 404); ctx.lineTo(i * 16, 420); ctx.stroke();
+    }
+
+    // Draw wagons (6 wagons)
+    const wagonW = 90, wagonH = 48, wagonY = 362;
+    const startX = 30;
+    for (let i = 0; i < 6; i++) {
+      let wx = startX + i * (wagonW + 6);
+      // Body
+      ctx.fillStyle = '#1e3a5f';
+      ctx.fillRect(wx, wagonY, wagonW, wagonH);
+      ctx.strokeStyle = '#2d5a8f'; ctx.lineWidth = 1;
+      ctx.strokeRect(wx, wagonY, wagonW, wagonH);
+      // Load (coal/ore heap)
+      let loadH = 18 + Math.sin(i * 1.4) * 5;
+      ctx.fillStyle = '#223344';
+      ctx.beginPath();
+      ctx.moveTo(wx + 4, wagonY);
+      ctx.bezierCurveTo(wx + wagonW * 0.3, wagonY - loadH, wx + wagonW * 0.7, wagonY - loadH - 4, wx + wagonW - 4, wagonY);
+      ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = '#1a4060'; ctx.lineWidth = 0.5; ctx.stroke();
+      // Wheels
+      for (let w = 0; w < 2; w++) {
+        ctx.fillStyle = '#0d1a25';
+        ctx.beginPath(); ctx.arc(wx + 20 + w * 50, wagonY + wagonH - 2, 8, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#445566'; ctx.lineWidth = 1; ctx.stroke();
+      }
+      // Label
+      ctx.fillStyle = 'rgba(0,200,255,0.5)';
+      ctx.font = '8px monospace';
+      ctx.fillText(`W-0${i + 1}`, wx + 34, wagonY + 26);
+    }
+
+    // Pulley cable (main wire)
+    ctx.strokeStyle = '#556677'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(0, 330); ctx.lineTo(W, 330); ctx.stroke();
+
+    // Pulley towers
+    const towers = [0, 220, 440, 660];
+    towers.forEach(tx => {
+      ctx.strokeStyle = '#445566'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(tx + 15, 520); ctx.lineTo(tx + 15, 310); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(tx + 15, 310); ctx.lineTo(tx + 30, 310); ctx.stroke();
+      // Pulley wheel
+      ctx.fillStyle = '#2a3a4a';
+      ctx.beginPath(); ctx.arc(tx + 30, 310, 7, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = '#556677'; ctx.lineWidth = 1; ctx.stroke();
+    });
+
+    // Trolley
+    let tx2 = lerp(40, 600, easeInOut(t));
+    let ty = 324;
+    // Trolley body
+    ctx.fillStyle = '#1a3050';
+    ctx.fillRect(tx2 - 20, ty, 40, 22);
+    ctx.strokeStyle = '#00c8ff'; ctx.lineWidth = 1.5;
+    ctx.strokeRect(tx2 - 20, ty, 40, 22);
+
+    // LiDAR dome
+    ctx.fillStyle = '#0a1e35';
+    ctx.beginPath(); ctx.arc(tx2, ty + 22, 10, 0, Math.PI); ctx.fill();
+    ctx.strokeStyle = '#00ffcc'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.arc(tx2, ty + 22, 10, 0, Math.PI); ctx.stroke();
+
+    // Hanging cable from trolley to scan head
+    ctx.strokeStyle = '#334455'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(tx2, ty + 22); ctx.lineTo(tx2, ty + 40); ctx.stroke();
+
+    // LiDAR scan beams
+    if (t > 0.1) {
+      let numBeams = 8;
+      for (let b = 0; b < numBeams; b++) {
+        let angle = -Math.PI / 2 - Math.PI / 3 + (b / numBeams) * (2 * Math.PI / 3);
+        let blen = 55 + Math.sin(frame * 0.15 + b) * 8;
+        let bx = tx2 + Math.cos(angle) * blen;
+        let by = ty + 40 + Math.sin(angle) * blen;
+        let alpha = 0.25 + Math.sin(frame * 0.1 + b * 0.5) * 0.15;
+        ctx.strokeStyle = `rgba(0,255,200,${alpha})`;
+        ctx.lineWidth = 0.8;
+        ctx.beginPath(); ctx.moveTo(tx2, ty + 40); ctx.lineTo(bx, by); ctx.stroke();
+        ctx.fillStyle = `rgba(0,255,180,${alpha + 0.2})`;
+        ctx.beginPath(); ctx.arc(bx, by, 1.5, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+
+    // Progress indicator
+    ctx.fillStyle = 'rgba(0,200,255,0.08)';
+    ctx.fillRect(30, 388, (tx2 - 30) * 1.0, 48);
+    ctx.strokeStyle = 'rgba(0,200,255,0.4)'; ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath(); ctx.moveTo(tx2, 330); ctx.lineTo(tx2, 415); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Title overlay
+    ctx.fillStyle = 'rgba(0,200,255,0.7)';
+    ctx.font = '500 11px var(--font-sans, monospace)';
+    ctx.fillText('PULLEY-GUIDED LIDAR TROLLEY SYSTEM', 20, 500);
+    ctx.fillStyle = 'rgba(0,200,255,0.4)';
+    ctx.font = '10px monospace';
+    ctx.fillText('Coal / Iron Ore Loading Site  —  Automated Load Stability Inspection', 20, 514);
+
+    scanProgress = Math.floor(t * 100);
+    pointCount = Math.floor(t * 24800);
+    setStat(svEl, scanProgress + '%');
+    setStat(pcEl, pointCount.toLocaleString());
+    setStat(lvEl, '±4.2 t');
+    setStat(stEl, 'SCANNING');
+  }
+
+  // --- SCENE 2: LiDAR Close-up scan ---
+  function drawLidarScan(st) {
+    const t = st.t;
+    ctx.fillStyle = '#060b14';
+    ctx.fillRect(0, 0, W, H);
+
+    // Grid overlay
+    ctx.strokeStyle = 'rgba(0,80,120,0.25)'; ctx.lineWidth = 0.5;
+    for (let x = 0; x < W; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+    for (let y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+    // Wagon cross-section (side view close-up)
+    const wX = 80, wY = 180, wW = 520, wH = 140;
+    ctx.fillStyle = '#0d1f35';
+    ctx.fillRect(wX, wY, wW, wH);
+    ctx.strokeStyle = '#1a5080'; ctx.lineWidth = 2;
+    ctx.strokeRect(wX, wY, wW, wH);
+
+    // Coal/ore inside wagon (irregular surface)
+    ctx.fillStyle = '#1a2a3a';
+    ctx.beginPath();
+    ctx.moveTo(wX + 10, wY);
+    for (let i = 0; i <= 10; i++) {
+      let px = wX + 10 + i * (wW - 20) / 10;
+      let height = 45 + Math.sin(i * 0.9) * 18 + Math.cos(i * 0.5) * 12 + (i > 3 && i < 7 ? 20 : 0);
+      if (i === 0) ctx.lineTo(px, wY - height);
+      else ctx.bezierCurveTo(px - 25, wY - height + 5, px - 10, wY - height - 5, px, wY - height);
+    }
+    ctx.lineTo(wX + wW - 10, wY); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = '#2a4060'; ctx.lineWidth = 1; ctx.stroke();
+
+    // Trolley overhead
+    let tx = lerp(80, 560, easeInOut(t));
+    ctx.fillStyle = '#1a3050';
+    ctx.fillRect(tx - 22, 60, 44, 24);
+    ctx.strokeStyle = '#00c8ff'; ctx.lineWidth = 1.5; ctx.strokeRect(tx - 22, 60, 44, 24);
+
+    // Cable
+    ctx.strokeStyle = '#445566'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(0, 68); ctx.lineTo(W, 68); ctx.stroke();
+
+    // LiDAR sensor box
+    ctx.fillStyle = '#0a2040';
+    ctx.fillRect(tx - 10, 84, 20, 16);
+    ctx.strokeStyle = '#00ffcc'; ctx.lineWidth = 1; ctx.strokeRect(tx - 10, 84, 20, 16);
+    ctx.fillStyle = '#00ffcc';
+    ctx.beginPath(); ctx.arc(tx, 95, 3, 0, Math.PI * 2); ctx.fill();
+
+    // Scan beams fan
+    let scanY = 100;
+    let numRays = 32;
+    for (let r = 0; r < numRays; r++) {
+      let angle = -Math.PI / 2 - Math.PI / 3 + (r / numRays) * (2 * Math.PI / 3);
+      let rayLen = 250;
+      let ex = tx + Math.cos(angle) * rayLen;
+      let ey = scanY + Math.sin(angle) * rayLen;
+      // Check if hits wagon surface
+      let alpha = 0.15;
+      ctx.strokeStyle = `rgba(0,255,180,${alpha})`;
+      ctx.lineWidth = 0.6;
+      ctx.beginPath(); ctx.moveTo(tx, scanY); ctx.lineTo(ex, ey); ctx.stroke();
+      // Hit point
+      if (ey > wY - 80 && ey < wY + wH) {
+        ctx.fillStyle = `rgba(0,255,150,0.8)`;
+        ctx.beginPath(); ctx.arc(ex, ey, 2, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+
+    // Accumulating point cloud along scanned area
+    let scanX2 = lerp(80, 560, easeInOut(t));
+    if (t > 0.05 && frame % 2 === 0) {
+      for (let p = 0; p < 6; p++) {
+        let px = 80 + Math.random() * (scanX2 - 80);
+        let surface = wY - 45 - Math.sin((px - 80) / 50) * 18 - Math.cos((px - 80) / 30) * 12 - (px > 250 && px < 380 ? 20 : 0);
+        cloudPoints.push({
+          x: px, y: surface + (Math.random() - 0.5) * 6,
+          c: `hsl(${160 + Math.random() * 40},100%,${50 + Math.random() * 30}%)`,
+          age: 0
+        });
+      }
+    }
+    cloudPoints = cloudPoints.filter(p => p.age < 180);
+    cloudPoints.forEach(p => {
+      p.age++;
+      let a = Math.max(0, 1 - p.age / 180);
+      ctx.fillStyle = p.c.replace(')', `,${a})`).replace('hsl(', 'hsla(');
+      ctx.beginPath(); ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2); ctx.fill();
+    });
+
+    // Scan head line
+    ctx.strokeStyle = 'rgba(0,200,255,0.6)'; ctx.lineWidth = 1;
+    ctx.setLineDash([6, 4]);
+    ctx.beginPath(); ctx.moveTo(tx, 68); ctx.lineTo(tx, wY + wH); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Annotations
+    ctx.fillStyle = '#00c8ff'; ctx.font = '10px monospace';
+    ctx.fillText('ROTATION: 20Hz', tx + 4, 58);
+    ctx.fillStyle = 'rgba(0,255,150,0.7)'; ctx.font = '10px monospace';
+    ctx.fillText('SURFACE DETECTED', wX + 10, wY - 90);
+    ctx.fillStyle = 'rgba(100,180,255,0.6)'; ctx.font = '10px monospace';
+    ctx.fillText('WAGON FLOOR', wX + 10, wY + wH - 10);
+
+    // Measurement lines
+    ctx.strokeStyle = 'rgba(255,200,0,0.5)'; ctx.lineWidth = 0.8;
+    ctx.setLineDash([3, 3]);
+    let mX = 200;
+    ctx.beginPath(); ctx.moveTo(mX, wY - 70); ctx.lineTo(mX, wY + wH); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(255,200,0,0.8)'; ctx.font = '9px monospace';
+    ctx.fillText('H: 1.24m', mX + 4, wY - 30);
+
+    setStat(svEl, Math.floor(t * 100) + '%');
+    setStat(pcEl, Math.floor(t * 32000).toLocaleString());
+    setStat(lvEl, '±3.8 t');
+    setStat(stEl, t > 0.9 ? 'COMPLETE' : 'SCANNING');
+  }
+
+  // --- SCENE 3: 3D Point Cloud ---
+  function drawPointCloud(st) {
+    const t = st.t;
+    ctx.fillStyle = '#050a12';
+    ctx.fillRect(0, 0, W, H);
+
+    // Axis grid (isometric-style)
+    const ox = 340, oy = 420, scaleX = 5.5, scaleY = 3.2, scaleZ = 4.0;
+    function iso(x, y, z) {
+      return {
+        px: ox + (x - y) * scaleX,
+        py: oy - z * scaleZ + (x + y) * scaleY * 0.5
+      };
+    }
+
+    // Draw grid floor
+    ctx.strokeStyle = 'rgba(0,80,150,0.25)'; ctx.lineWidth = 0.5;
+    for (let i = 0; i <= 20; i++) {
+      let a = iso(i * 2.5, 0, 0), b = iso(i * 2.5, 50, 0);
+      ctx.beginPath(); ctx.moveTo(a.px, a.py); ctx.lineTo(b.px, b.py); ctx.stroke();
+    }
+    for (let j = 0; j <= 20; j++) {
+      let a = iso(0, j * 2.5, 0), b = iso(50, j * 2.5, 0);
+      ctx.beginPath(); ctx.moveTo(a.px, a.py); ctx.lineTo(b.px, b.py); ctx.stroke();
+    }
+
+    // Wagon outline (3D box)
+    const wLen = 45, wWid = 14, wHt = 10;
+    const corners = [
+      iso(2, 4, 0), iso(wLen, 4, 0), iso(wLen, 4 + wWid, 0), iso(2, 4 + wWid, 0),
+      iso(2, 4, wHt), iso(wLen, 4, wHt), iso(wLen, 4 + wWid, wHt), iso(2, 4 + wWid, wHt)
+    ];
+    ctx.strokeStyle = 'rgba(0,150,220,0.6)'; ctx.lineWidth = 1.2;
+    [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]].forEach(([a, b]) => {
+      ctx.beginPath(); ctx.moveTo(corners[a].px, corners[a].py);
+      ctx.lineTo(corners[b].px, corners[b].py); ctx.stroke();
+    });
+
+    // Point cloud surface (load shape)
+    let numPoints = Math.floor(t * 2800);
+    if (points3d.length < numPoints) {
+      for (let i = points3d.length; i < Math.min(numPoints, 2800); i++) {
+        let px = 2.5 + Math.random() * 42;
+        let pz = 4.5 + Math.random() * 12;
+        let py = 4.5 + Math.random() * 11;
+        // Load height varies
+        let lh = 5 + 3 * Math.sin(px * 0.3) * Math.cos(pz * 0.2) + 2 * (py > 7 && py < 12 ? 1.5 : 0) + Math.random() * 1.5;
+        points3d.push({ x: px, y: py, z: lh + wHt, r: Math.random(), g: Math.random() });
+      }
+    }
+
+    // Sort by depth for painter's algorithm (approximate)
+    let sorted = [...points3d].sort((a, b) => (b.x + b.y) - (a.x + a.y));
+    sorted.forEach(p => {
+      let pos = iso(p.x, p.y, p.z);
+      let h = (p.z - wHt) / 8;
+      // Color by height: blue→cyan→green→yellow→red
+      let hue = 240 - h * 240;
+      ctx.fillStyle = `hsl(${hue},100%,60%)`;
+      ctx.beginPath(); ctx.arc(pos.px, pos.py, 1.2, 0, Math.PI * 2); ctx.fill();
+    });
+
+    // Color scale bar
+    for (let i = 0; i < 100; i++) {
+      let hue = 240 - i * 2.4;
+      ctx.fillStyle = `hsl(${hue},100%,60%)`;
+      ctx.fillRect(620, 100 + i * 2, 14, 2);
+    }
+    ctx.fillStyle = '#00c8ff'; ctx.font = '9px monospace';
+    ctx.fillText('HIGH', 610, 96); ctx.fillText('LOW', 612, 305);
+
+    // Labels
+    ctx.fillStyle = 'rgba(0,200,255,0.8)'; ctx.font = '11px monospace';
+    ctx.fillText('3D LIDAR POINT CLOUD — WAGON LOAD SURFACE', 20, 30);
+    ctx.fillStyle = 'rgba(0,200,255,0.4)'; ctx.font = '10px monospace';
+    ctx.fillText(`Points rendered: ${sorted.length.toLocaleString()}`, 20, 48);
+
+    // Rotating callout
+    let rot = frame * 0.012;
+    let cx2 = ox + Math.cos(rot) * 120, cy2 = oy - 80 + Math.sin(rot) * 40;
+    ctx.strokeStyle = 'rgba(255,220,0,0.4)'; ctx.lineWidth = 0.6;
+    ctx.setLineDash([3, 4]);
+    ctx.beginPath(); ctx.moveTo(cx2, cy2); ctx.lineTo(cx2 + 30, cy2 - 20); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(255,220,0,0.7)'; ctx.font = '9px monospace';
+    ctx.fillText('PEAK LOAD ZONE', cx2 + 32, cy2 - 22);
+
+    setStat(svEl, '100%');
+    setStat(pcEl, sorted.length.toLocaleString());
+    setStat(lvEl, '±3.1 t');
+    setStat(stEl, 'PROCESSING');
+  }
+
+  // --- SCENE 4: Weight Distribution Heatmap ---
+  function drawHeatmap(st) {
+    const t = st.t;
+    ctx.fillStyle = '#060c18';
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.fillStyle = 'rgba(0,200,255,0.8)'; ctx.font = '500 13px var(--font-sans, monospace)';
+    ctx.fillText('WAGON WEIGHT DISTRIBUTION — STABILITY ANALYSIS', 24, 32);
+
+    // Draw 3 wagons side by side
+    const cols = 5, rows = 3;
+    const cellW = 56, cellH = 44, padX = 30, padY = 60, gX = 20, gY = 6;
+
+    // Weight matrix (simulated from scan)
+    const weights = [
+      [8.2, 9.1, 10.5, 9.8, 7.9],
+      [9.4, 11.2, 13.8, 12.4, 10.1],
+      [8.7, 9.6, 11.1, 10.3, 8.5]
+    ];
+    const maxW = 14, minW = 7;
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        let cx2 = padX + c * (cellW + gX);
+        let cy2 = padY + r * (cellH + gY);
+        let w = weights[r][c];
+        let norm = (w - minW) / (maxW - minW);
+        // Heat color
+        let hue = 240 - norm * 240;
+        let alpha = Math.min(1, t * 2);
+        ctx.fillStyle = `hsla(${hue},100%,${45 + norm * 20}%,${alpha})`;
+        ctx.fillRect(cx2, cy2, cellW, cellH);
+        ctx.strokeStyle = `rgba(0,200,255,0.3)`; ctx.lineWidth = 1;
+        ctx.strokeRect(cx2, cy2, cellW, cellH);
+
+        // Weight label
+        if (t > 0.4) {
+          let textAlpha = Math.min(1, (t - 0.4) * 3);
+          ctx.fillStyle = `rgba(255,255,255,${textAlpha * 0.9})`;
+          ctx.font = '500 11px monospace';
+          ctx.textAlign = 'center';
+          ctx.fillText(w.toFixed(1) + 't', cx2 + cellW / 2, cy2 + cellH / 2 + 4);
+          ctx.textAlign = 'left';
+        }
+      }
+    }
+
+    // Stability indicator
+    let totalW = weights.flat().reduce((a, b) => a + b, 0);
+    let leftW = weights.flat().filter((_, i) => i % 5 < 2).reduce((a, b) => a + b, 0);
+    let rightW = weights.flat().filter((_, i) => i % 5 > 2).reduce((a, b) => a + b, 0);
+    let imbalance = Math.abs(leftW - rightW) / totalW * 100;
+
+    // Side profile showing center of gravity
+    let profileX = 490, profileY = 60, profileW = 160, profileH = 200;
+    ctx.strokeStyle = 'rgba(0,150,200,0.4)'; ctx.lineWidth = 1;
+    ctx.strokeRect(profileX, profileY, profileW, profileH);
+    ctx.fillStyle = 'rgba(0,100,150,0.2)'; ctx.fillRect(profileX, profileY, profileW, profileH);
+
+    ctx.fillStyle = 'rgba(0,200,255,0.6)'; ctx.font = '10px monospace';
+    ctx.fillText('SIDE PROFILE', profileX + 36, profileY + 14);
+
+    // Wagon outline in profile
+    ctx.strokeStyle = '#2a5a80'; ctx.lineWidth = 2;
+    ctx.strokeRect(profileX + 20, profileY + 80, profileW - 40, 60);
+
+    // Load profile
+    ctx.fillStyle = 'rgba(30,60,100,0.8)';
+    ctx.beginPath();
+    ctx.moveTo(profileX + 20, profileY + 80);
+    for (let i = 0; i <= 8; i++) {
+      let px2 = profileX + 20 + i * (profileW - 40) / 8;
+      let col = Math.floor(i * (cols - 1) / 8);
+      let avg = (weights[0][Math.min(col, 4)] + weights[1][Math.min(col, 4)] + weights[2][Math.min(col, 4)]) / 3;
+      let lh = ((avg - minW) / (maxW - minW)) * 50;
+      ctx.lineTo(px2, profileY + 80 - lh);
+    }
+    ctx.lineTo(profileX + profileW - 20, profileY + 80); ctx.closePath(); ctx.fill();
+
+    // CoG marker
+    let cogX = profileX + profileW / 2 + (rightW - leftW) / totalW * 30;
+    ctx.fillStyle = 'rgba(255,80,80,0.9)';
+    ctx.beginPath(); ctx.arc(cogX, profileY + 90, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = 'rgba(255,80,80,0.6)'; ctx.lineWidth = 1;
+    ctx.setLineDash([3, 3]);
+    ctx.beginPath(); ctx.moveTo(profileX + profileW / 2, profileY + 60); ctx.lineTo(profileX + profileW / 2, profileY + 200); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(255,80,80,0.8)'; ctx.font = '9px monospace';
+    ctx.fillText('CoG', cogX + 8, profileY + 94);
+
+    // Stats below
+    let statsY = 290;
+    let stats = [
+      { label: 'Total load', val: totalW.toFixed(1) + ' t' },
+      { label: 'Max cell', val: '13.8 t' },
+      { label: 'Imbalance', val: imbalance.toFixed(1) + '%' },
+      { label: 'Status', val: imbalance < 8 ? 'STABLE' : 'REVIEW' }
+    ];
+    stats.forEach((s, i) => {
+      let sx = 24 + i * 170;
+      ctx.fillStyle = 'rgba(0,150,200,0.15)';
+      ctx.fillRect(sx, statsY, 155, 52);
+      ctx.strokeStyle = imbalance < 8 && i === 3 ? 'rgba(0,255,100,0.4)' : 'rgba(0,150,200,0.3)'; ctx.lineWidth = 1;
+      ctx.strokeRect(sx, statsY, 155, 52);
+      ctx.fillStyle = 'rgba(0,200,255,0.5)'; ctx.font = '10px monospace';
+      ctx.fillText(s.label.toUpperCase(), sx + 10, statsY + 18);
+      ctx.fillStyle = imbalance < 8 && i === 3 ? 'rgba(0,255,150,0.9)' : 'rgba(100,220,255,0.9)'; ctx.font = '500 16px monospace';
+      ctx.fillText(s.val, sx + 10, statsY + 40);
+    });
+
+    // Color scale
+    for (let i = 0; i < 100; i++) { let h = 240 - i * 2.4; ctx.fillStyle = `hsl(${h},100%,55%)`; ctx.fillRect(24 + i * 3.3, 360, 3.3, 14); }
+    ctx.fillStyle = 'rgba(0,200,255,0.5)'; ctx.font = '9px monospace';
+    ctx.fillText('7t', 20, 384); ctx.fillText('14t', 352, 384);
+
+    setStat(svEl, '100%');
+    setStat(lvEl, imbalance.toFixed(1) + '%');
+    setStat(stEl, imbalance < 8 ? 'STABLE' : 'REVIEW');
+  }
+
+  // --- SCENE 5: Engineer Dashboard ---
+  function drawDashboard(st) {
+    const t = st.t;
+    ctx.fillStyle = '#050a14';
+    ctx.fillRect(0, 0, W, H);
+
+    // Header bar
+    ctx.fillStyle = '#0d1a2a';
+    ctx.fillRect(0, 0, W, 44);
+    ctx.strokeStyle = 'rgba(0,200,255,0.3)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, 44); ctx.lineTo(W, 44); ctx.stroke();
+
+    ctx.fillStyle = '#00c8ff'; ctx.font = '500 12px monospace';
+    ctx.fillText('▶  SMART WAGON LOAD INSPECTOR  v2.4', 16, 27);
+    ctx.fillStyle = 'rgba(0,255,150,0.8)'; ctx.font = '10px monospace';
+    ctx.fillText('● LIVE', 540, 27);
+    ctx.fillStyle = 'rgba(0,200,255,0.5)';
+    let d = new Date(); ctx.fillText(d.toTimeString().slice(0, 8), 590, 27);
+
+    // 4 metric cards
+    const metrics = [
+      { label: 'SCAN STATUS', val: 'COMPLETE', sub: 'Wagon W-03', ok: true },
+      { label: 'TOTAL MASS', val: '142.6 T', sub: 'Within limit', ok: true },
+      { label: 'LOAD BALANCE', val: '96.2%', sub: 'CoG deviation: 4cm', ok: true },
+      { label: 'RISK LEVEL', val: 'LOW', sub: 'Derail index: 0.08', ok: true }
+    ];
+    metrics.forEach((m, i) => {
+      let mx = 14 + i * 168, my = 54, mw = 158, mh = 72;
+      ctx.fillStyle = 'rgba(0,20,40,0.8)';
+      ctx.fillRect(mx, my, mw, mh);
+      ctx.strokeStyle = m.ok ? 'rgba(0,255,150,0.35)' : 'rgba(255,80,80,0.4)'; ctx.lineWidth = 1;
+      ctx.strokeRect(mx, my, mw, mh);
+      ctx.fillStyle = 'rgba(0,200,255,0.45)'; ctx.font = '9px monospace';
+      ctx.fillText(m.label, mx + 10, my + 16);
+      ctx.fillStyle = m.ok ? 'rgba(0,255,180,0.95)' : 'rgba(255,100,100,0.9)'; ctx.font = '500 18px monospace';
+      ctx.fillText(m.val, mx + 10, my + 44);
+      ctx.fillStyle = 'rgba(0,200,255,0.4)'; ctx.font = '9px monospace';
+      ctx.fillText(m.sub, mx + 10, my + 62);
+    });
+
+    // Point cloud mini view (left panel)
+    let lcX = 14, lcY = 138, lcW = 240, lcH = 170;
+    ctx.fillStyle = 'rgba(0,15,30,0.9)'; ctx.fillRect(lcX, lcY, lcW, lcH);
+    ctx.strokeStyle = 'rgba(0,150,200,0.3)'; ctx.lineWidth = 1; ctx.strokeRect(lcX, lcY, lcW, lcH);
+    ctx.fillStyle = 'rgba(0,200,255,0.5)'; ctx.font = '9px monospace'; ctx.fillText('3D POINT CLOUD VIEW', lcX + 8, lcY + 14);
+
+    // Mini animated point cloud
+    let spinT = frame * 0.008;
+    for (let p = 0; p < 350; p++) {
+      let px2 = (p % 20) * 11 + 16;
+      let pz = Math.floor(p / 20) * 8 + 8;
+      let h = 20 + Math.sin(px2 * 0.12) * 14 + Math.cos(pz * 0.1) * 8 + (px2 > 60 && px2 < 140 ? 12 : 0);
+      let rotX = lcX + lcW / 2 + (px2 - 110) * Math.cos(spinT) - (pz - 60) * Math.sin(spinT) * 0.4;
+      let rotY = lcY + lcH - 20 - h * 0.7 + (px2 - 110) * Math.sin(spinT) * 0.3;
+      let norm = h / 36;
+      let hue = 240 - norm * 240;
+      ctx.fillStyle = `hsl(${hue},100%,60%)`;
+      ctx.beginPath(); ctx.arc(rotX, rotY, 1.2, 0, Math.PI * 2); ctx.fill();
+    }
+
+    // Weight heatmap panel (center)
+    let hcX = 264, hcY = 138, hcW = 240, hcH = 170;
+    ctx.fillStyle = 'rgba(0,15,30,0.9)'; ctx.fillRect(hcX, hcY, hcW, hcH);
+    ctx.strokeStyle = 'rgba(0,150,200,0.3)'; ctx.lineWidth = 1; ctx.strokeRect(hcX, hcY, hcW, hcH);
+    ctx.fillStyle = 'rgba(0,200,255,0.5)'; ctx.font = '9px monospace'; ctx.fillText('LOAD DISTRIBUTION MAP', hcX + 8, hcY + 14);
+
+    const wt = [[8.2, 9.1, 10.5, 9.8, 7.9], [9.4, 11.2, 13.8, 12.4, 10.1], [8.7, 9.6, 11.1, 10.3, 8.5]];
+    for (let r = 0; r < 3; r++) for (let c = 0; c < 5; c++) {
+      let norm2 = (wt[r][c] - 7) / 7;
+      let hue = 240 - norm2 * 240;
+      ctx.fillStyle = `hsl(${hue},100%,50%)`;
+      ctx.fillRect(hcX + 14 + c * 43, hcY + 22 + r * 42, 39, 38);
+      ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.font = '500 10px monospace'; ctx.textAlign = 'center';
+      ctx.fillText(wt[r][c] + 't', hcX + 14 + c * 43 + 19, hcY + 22 + r * 42 + 22); ctx.textAlign = 'left';
+    }
+
+    // Stability graph (right panel)
+    let rcX = 514, rcY = 138, rcW = 156, rcH = 170;
+    ctx.fillStyle = 'rgba(0,15,30,0.9)'; ctx.fillRect(rcX, rcY, rcW, rcH);
+    ctx.strokeStyle = 'rgba(0,150,200,0.3)'; ctx.lineWidth = 1; ctx.strokeRect(rcX, rcY, rcW, rcH);
+    ctx.fillStyle = 'rgba(0,200,255,0.5)'; ctx.font = '9px monospace'; ctx.fillText('STABILITY INDEX', rcX + 8, rcY + 14);
+
+    // Line chart
+    let pts2 = [0.82, 0.85, 0.79, 0.88, 0.91, 0.87, 0.94, 0.96, 0.98, 0.96, 0.97, 0.96];
+    ctx.strokeStyle = 'rgba(0,255,150,0.8)'; ctx.lineWidth = 1.5; ctx.beginPath();
+    pts2.forEach((v, i) => {
+      let px2 = rcX + 14 + i * 11, py2 = rcY + rcH - 20 - (v - 0.75) * 400;
+      i === 0 ? ctx.moveTo(px2, py2) : ctx.lineTo(px2, py2);
+    });
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(0,255,150,0.15)'; ctx.beginPath();
+    pts2.forEach((v, i) => {
+      let px2 = rcX + 14 + i * 11, py2 = rcY + rcH - 20 - (v - 0.75) * 400;
+      i === 0 ? ctx.moveTo(px2, py2) : ctx.lineTo(px2, py2);
+    });
+    ctx.lineTo(rcX + 14 + 11 * 11, rcY + rcH - 20); ctx.lineTo(rcX + 14, rcY + rcH - 20); ctx.closePath(); ctx.fill();
+
+    // Engineer view - bottom area
+    ctx.fillStyle = 'rgba(0,15,30,0.85)'; ctx.fillRect(14, 318, 652, 150);
+    ctx.strokeStyle = 'rgba(0,150,200,0.3)'; ctx.lineWidth = 1; ctx.strokeRect(14, 318, 652, 150);
+    ctx.fillStyle = 'rgba(0,200,255,0.5)'; ctx.font = '9px monospace'; ctx.fillText('INSPECTION REPORT — AUTOMATED DERAILMENT RISK ASSESSMENT', 24, 333);
+
+    // Engineer silhouette (simple)
+    let eX = 580, eY = 340;
+    ctx.fillStyle = 'rgba(0,100,180,0.6)';
+    ctx.beginPath(); ctx.arc(eX, eY, 12, 0, Math.PI * 2); ctx.fill();
+    ctx.fillRect(eX - 9, eY + 12, 18, 30);
+    ctx.fillStyle = 'rgba(0,200,255,0.4)'; ctx.font = '8px monospace';
+    ctx.fillText('ENG.SHARMA', eX - 16, eY + 54);
+
+    // Report lines
+    const reportLines = [
+      { c: 'rgba(0,255,150,0.8)', t: '✔  Scan complete — 32,480 points captured across W-03' },
+      { c: 'rgba(0,255,150,0.8)', t: '✔  Load surface mapped — peak height: 1.38m at cell [2,3]' },
+      { c: 'rgba(0,255,150,0.8)', t: '✔  Weight distribution: 96.2% balanced (threshold 90%)' },
+      { c: 'rgba(255,220,0,0.8)', t: '⚠  Minor asymmetry detected — CoG offset: 4cm rightward' },
+      { c: 'rgba(0,255,150,0.8)', t: '✔  Derailment risk index: 0.08 (SAFE — limit 0.35)' },
+      { c: 'rgba(0,255,150,0.8)', t: '✔  Clearance check passed — no oversize load detected' }
+    ];
+    let showLines = Math.min(reportLines.length, Math.floor(t * reportLines.length * 1.4));
+    reportLines.slice(0, showLines).forEach((l, i) => {
+      ctx.fillStyle = l.c; ctx.font = '10px monospace';
+      ctx.fillText(l.t, 30, 352 + i * 19);
+    });
+
+    setStat(svEl, '100%'); setStat(pcEl, '32,480'); setStat(lvEl, '4cm'); setStat(stEl, 'SAFE');
+  }
+
+  function drawAll() {
+    ctx.clearRect(0, 0, W, H);
+    let scene = getScene(frame);
+    if (sceneLabel) sceneLabel.textContent = 'SCENE ' + scene.id + ' — ' + scene.label;
+    if (sceneNum) sceneNum.textContent = scene.num;
+    if (progressBar) progressBar.style.width = (frame / TOTAL_FRAMES * 100).toFixed(1) + '%';
+
+    if (scene.id === 1) drawAerial(scene);
+    else if (scene.id === 2) drawLidarScan(scene);
+    else if (scene.id === 3) drawPointCloud(scene);
+    else if (scene.id === 4) drawHeatmap(scene);
+    else drawDashboard(scene);
+
+    // Timestamp overlay
+    ctx.fillStyle = 'rgba(0,200,255,0.35)'; ctx.font = '9px monospace';
+    let ts = (frame / 30).toFixed(1).padStart(5, '0');
+    ctx.fillText('TC ' + ts + 's', W - 70, H - 8);
+
+    frame = (frame + 1) % TOTAL_FRAMES;
+    requestAnimationFrame(drawAll);
+  }
+
+  // Reset clouds between scenes
+  let lastScene = 0;
+  function trackScene() {
+    let s = getScene(frame);
+    if (s.id !== lastScene) {
+      cloudPoints = [];
+      if (s.id === 3) points3d = [];
+      lastScene = s.id;
+    }
+    setTimeout(trackScene, 200);
+  }
+  trackScene();
+  drawAll();
+</script>
