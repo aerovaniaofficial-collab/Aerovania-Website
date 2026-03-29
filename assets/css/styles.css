@@ -638,22 +638,7 @@ ul {
 
 .wwd-para strong { color: #080f18; font-weight: 700; }
 
-.wwd-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
 
-.wwd-pill {
-    background: #f4f8fa;
-    border: 1px solid #dde8ee;
-    border-radius: 20px;
-    padding: 5px 14px;
-    font-size: .72rem;
-    font-weight: 600;
-    color: #2d4255;
-    letter-spacing: .05em;
-}
 
 /* Boost */
 .boost-section {
