@@ -220,7 +220,7 @@
                 </div>
                 <p class="wwd-para">
                     At Aerovania, we are pioneers in <strong>aerial intelligence and AI-driven infrastructure monitoring</strong>. As India's leading engineering technology company, we are driven by an unwavering belief in the power of precision to transform nations.<br><br>
-                    That's why, since our founding, we have relentlessly pushed the boundaries of what's possible &mdash; revolutionising how India's critical infrastructure is surveyed, monitored, and maintained through <strong>advanced drone survey, LiDAR analytics, indigenous UAV development, and AI-powered monitoring systems</strong> &mdash; trusted by Indian Railways, NHAI, Coal India, and Defence, because every data point we deliver shapes a safer, smarter India.
+                    That's why, since our founding, we have relentlessly pushed the boundaries of what's possible &mdash; revolutionising how India's critical infrastructure is surveyed, monitored, and maintained through <strong>advanced drone survey, LiDAR analytics, indigenous UAV development, and AI-powered monitoring systems</strong> &mdash; trusted by Indian Railways, NHAI, Coal India, and Defence.
                 </p>
             </div>
         </div>
@@ -266,6 +266,79 @@
                     <div class="cb-track"><div class="cb-fill" id="bf6" style="background:#00a693;"></div></div>
                     <div class="cb-desc">Drone Survey &middot; LiDAR &middot; AI Monitoring &middot; UAV Dev &middot; Infrastructure &middot; Training</div>
                 </div>
+            </div>
+        </div>
+    </section>
+<!-- Service Platforms -->
+    <section class="plat-section">
+        <div class="container">
+            <div class="plat-header reveal">
+                <p class="plat-label">Our Platforms</p>
+                <h2 class="plat-heading">Built for the Field.<br>Trusted by Industry.</h2>
+                <p class="plat-sub">Two purpose-built platforms — one for mine operations intelligence, one for wide-area surveillance.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="plat-tabs reveal">
+                <button class="plat-tab plat-tab--active" data-plat="0">
+                    <i class="ph ph-drone"></i> AI Mines Analytics
+                </button>
+                <button class="plat-tab" data-plat="1">
+                    <i class="ph ph-broadcast"></i> IWLARS
+                </button>
+            </div>
+
+            <!-- Slides -->
+            <div class="plat-slides">
+
+                <!-- Platform 1 -->
+                <div class="plat-slide plat-slide--active">
+                    <div class="plat-slide__left">
+                        <span class="plat-slide__eyebrow">Platform 01</span>
+                        <h3 class="plat-slide__title">AI Driven Aerial Monitoring &amp; Analytics</h3>
+                        <p class="plat-slide__desc">A comprehensive AI-powered analytics platform for mine operations — real-time violation detection, geospatial site intelligence, video surveillance, and role-based access control.</p>
+                        <ul class="plat-slide__list">
+                            <li><i class="ph ph-check-circle"></i> Live KPIs, violation statistics &amp; trend charts</li>
+                            <li><i class="ph ph-check-circle"></i> Interactive geospatial map with violation markers</li>
+                            <li><i class="ph ph-check-circle"></i> AI-powered PPE &amp; safety compliance detection</li>
+                            <li><i class="ph ph-check-circle"></i> Role-based access &amp; ATR document management</li>
+                        </ul>
+                        <div class="plat-slide__pills">
+                            <span>120+ AI Models</span>
+                            <span>98.2% Accuracy</span>
+                            <span>Real-time</span>
+                        </div>
+                        <a href="pages/platform/ai-aerial-monitoring.html" class="plat-slide__cta">Explore Platform &rarr;</a>
+                    </div>
+                    <div class="plat-slide__right">
+                        <img src="assets/images/analytics-dashboard.jpeg" alt="AI Mines Analytics Dashboard">
+                    </div>
+                </div>
+
+                <!-- Platform 2 -->
+                <div class="plat-slide">
+                    <div class="plat-slide__left">
+                        <span class="plat-slide__eyebrow">Platform 02</span>
+                        <h3 class="plat-slide__title">IWLARS — Intelligent Wagon Load Analysis &amp; Reporting</h3>
+                        <p class="plat-slide__desc">Pulley-guided LiDAR trolley system for automated wagon load scanning — 3D point cloud capture, weight distribution heatmaps, and derailment risk assessment in real time.</p>
+                        <ul class="plat-slide__list">
+                            <li><i class="ph ph-check-circle"></i> LiDAR point cloud capture at 20Hz rotation</li>
+                            <li><i class="ph ph-check-circle"></i> 3D weight distribution heatmap per wagon</li>
+                            <li><i class="ph ph-check-circle"></i> Centre-of-gravity &amp; derailment risk index</li>
+                            <li><i class="ph ph-check-circle"></i> Automated engineer stability report generation</li>
+                        </ul>
+                        <div class="plat-slide__pills">
+                            <span>32,000+ pts/scan</span>
+                            <span>&plusmn;5mm accuracy</span>
+                            <span>Auto-report</span>
+                        </div>
+                        <a href="pages/platform/iwlars.html" class="plat-slide__cta">Explore IWLARS &rarr;</a>
+                    </div>
+                    <div class="plat-slide__right plat-slide__right--dark">
+                        <img src="assets/images/hero_lidar_terrain.png" alt="IWLARS LiDAR Platform">
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -602,6 +675,17 @@
             }, { threshold: 0.3 });
             obs.observe(section);
         })();
+    </script>
+    <script>
+        // Platform tabs
+        document.querySelectorAll('.plat-tab').forEach((tab, i) => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.plat-tab').forEach(t => t.classList.remove('plat-tab--active'));
+                document.querySelectorAll('.plat-slide').forEach(s => s.classList.remove('plat-slide--active'));
+                tab.classList.add('plat-tab--active');
+                document.querySelectorAll('.plat-slide')[i].classList.add('plat-slide--active');
+            });
+        });
     </script>
 </body>
 </html>
