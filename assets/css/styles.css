@@ -383,18 +383,15 @@ ul {
     transform: scale(1.04);
     transition: transform 5s ease-in-out;
 }
-
 .aero-slide--active .aero-slide__bg {
     transform: scale(1);
 }
-
 .aero-slide__overlay {
     position: absolute;
     inset: 0;
-    /* background: rgba(0, 0, 0, 0.55); */
+    background: rgba(0, 0, 0, 0.50);
     z-index: 1;
 }
-
 .aero-slide__content {
     display: flex;
     position: relative;
