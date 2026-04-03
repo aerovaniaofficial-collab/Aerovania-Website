@@ -139,24 +139,36 @@ ul {
     left: 0;
     width: 100%;
     z-index: 100;
-    padding: 1.25rem 0;
+    padding: 0.75rem 1.5rem;
     transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     background: transparent;
 }
 
 .glass-header.scrolled {
-    background: rgba(11, 16, 56, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    /* assuming glass-border */
-    padding: 1rem 0;
+    background: transparent;
+    padding: 0.5rem 1.5rem;
 }
 
+/* The card that wraps the entire nav */
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 14px;
+    padding: 0.5rem 1.25rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.glass-header.scrolled .header-container {
+    background: rgb(255 255 255 / 45%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 .logo-text {
@@ -164,75 +176,65 @@ ul {
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 2px;
-    color: var(--text-light);
-    /* changed from text-main */
+    color: var(--text-dark);
 }
 
 .desktop-nav ul {
     display: flex;
-    gap: 2.5rem;
-    padding: 1.8rem 0rem 0rem 0rem;
+    gap: 1.25rem;
+    padding: 0;
+    align-items: center;
 }
 
-.desktop-nav a {
-    color: var(--text-muted);
+.desktop-nav > ul > li > a {
+    color: #374151;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     position: relative;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
-.desktop-nav a:hover,
-.desktop-nav a.active {
-    color: var(--text-light);
+.desktop-nav > ul > li > a:hover {
+    background: rgba(52, 192, 197, 0.08);
+    color: #0f172a;
 }
 
-.desktop-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: var(--primary-cyan);
-    transition: 0.2s ease;
-}
-
-.desktop-nav a:hover::after,
-.desktop-nav a.active::after {
-    width: 100%;
-}
+.desktop-nav a::after { display: none; }
 
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1.8rem 0rem 0rem 0rem;
+    gap: 0.75rem;
+    padding: 0;
 }
 
 .mobile-menu-btn {
     display: none;
     background: none;
     border: none;
-    color: var(--text-light);
-    font-size: 1.5rem;
+    color: #374151;
+    font-size: 1.4rem;
     cursor: pointer;
 }
 
-/* White Header Overrides */
+/* White Header — now just uses the card style above */
 .white-header {
-    background: #ededed !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    padding: 0rem 0rem 0.8rem 0rem !important;
+    background: transparent !important;
+    border-bottom: none !important;
+    padding: 0.75rem 1.5rem !important;
 }
 
 .white-header.scrolled {
-    background: rgba(255, 255, 255, 0.367) !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-
-    .desktop-nav a {
-        color: #0b1038;
-    }
-
+    background: transparent !important;
+    box-shadow: none !important;
 }
 
 .nav-logo {
@@ -241,115 +243,241 @@ ul {
     display: block;
 }
 
-.white-header .desktop-nav a {
-    color: #475569;
+.white-header .desktop-nav > ul > li > a {
+    color: #000000;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.3rem;
 }
 
-.white-header .desktop-nav a i {
-    font-size: 0.8rem;
-    margin-top: 2px;
+.white-header .desktop-nav > ul > li > a i {
+    font-size: 0.72rem;
 }
 
-.white-header .desktop-nav a:hover,
-.white-header .desktop-nav a.active {
-    color: #0f172a !important;
+.white-header .desktop-nav > ul > li > a:hover {
+    color: #004cff;
+    background: rgba(52, 192, 197, 0.08);
 }
 
-.white-header .desktop-nav a::after {
-    background-color: var(--primary-cyan) !important;
-}
+.white-header .desktop-nav a::after { display: none; }
 
 .btn-dark-solid {
     background-color: #111827;
     color: #ffffff;
     border: none;
-    border-radius: 4px;
-    padding: 0.4rem 1.5rem;
-    font-size: 0.95rem;
+    border-radius: 8px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
     font-family: var(--font-body);
-    font-weight: 500;
-    transition: 0.3s;
+    font-weight: 600;
+    transition: 0.2s;
     cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 .btn-dark-solid:hover {
-    background-color: #000000;
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    color: #fff;
+    transform: translateY(-1px);
 }
 
-.white-header .mobile-menu-btn {
-    color: #0f172a !important;
-}
-
-/* Dropdown Menus */
+/* Dropdown Menus — card style */
 .desktop-nav .has-dropdown {
     position: relative;
 }
 
-.desktop-nav .has-dropdown>ul.dropdown-menu {
+.desktop-nav .has-dropdown > ul.dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 8px);
     left: 0;
     width: max-content;
-    max-width: 320px;
-    min-width: 220px;
+    max-width: 280px;
+    min-width: 200px;
     background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    border: 1px solid #f1f5f9;
-    padding: 0.5rem 0;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0,0,0,0.05);
+    padding: 0.5rem;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(15px);
-    transition: all 0.3s ease;
-    z-index: 100;
+    transform: translateY(8px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 200;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 2px;
 }
 
-.desktop-nav .has-dropdown:hover>ul.dropdown-menu {
+.desktop-nav .has-dropdown:hover > ul.dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-.white-header .desktop-nav .dropdown-menu li {
+.desktop-nav .dropdown-menu li {
     width: 100%;
 }
 
-.white-header .desktop-nav .dropdown-menu a {
-    color: #475569 !important;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-    display: block;
+.desktop-nav .dropdown-menu a {
+    color: #374151 !important;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     width: 100%;
-    transition: 0.2s ease;
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
     white-space: normal;
     line-height: 1.4;
 }
 
-.white-header .desktop-nav .dropdown-menu a::after {
-    display: none;
-    /* remove bottom border hover effect */
+.desktop-nav .dropdown-menu a::after { display: none !important; }
+
+.desktop-nav .dropdown-menu a:hover {
+    background: rgba(52, 192, 197, 0.08) !important;
+    color: var(--primary-cyan) !important;
 }
 
-.white-header .desktop-nav .dropdown-menu a:hover {
-    background-color: #f8fafc;
+.white-header .mobile-menu-btn {
+    color: #374151 !important;
+}
+
+/* ── MEGA MENU ── */
+.desktop-nav .has-dropdown { position: relative; }
+
+.mega-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.05);
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+    z-index: 200;
+    min-width: 588px;
+}
+
+.mega-menu--wide { min-width: 711px; }
+
+.has-dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.mega-menu__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+}
+
+.mega-menu__grid--3 { grid-template-columns: 1fr 1fr 1fr; }
+
+.mega-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s;
+}
+
+.mega-item:hover { background: rgba(52,192,197,0.07); }
+
+.mega-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(52,192,197,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.mega-item:hover .mega-icon { background: rgba(52,192,197,0.15); }
+
+.mega-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 2px;
+    line-height: 1.3;
+}
+
+.mega-desc {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Keep old dropdown-menu working for sub-pages that still use it */
+.desktop-nav .has-dropdown > ul.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: max-content;
+    max-width: 280px;
+    min-width: 200px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.05);
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    list-style: none;
+}
+
+.desktop-nav .has-dropdown:hover > ul.dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.desktop-nav .dropdown-menu li { width: 100%; }
+
+.desktop-nav .dropdown-menu a {
+    color: #374151 !important;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
+    white-space: normal;
+    line-height: 1.4;
+}
+
+.desktop-nav .dropdown-menu a::after { display: none !important; }
+
+.desktop-nav .dropdown-menu a:hover {
+    background: rgba(52,192,197,0.08) !important;
     color: var(--primary-cyan) !important;
-    padding-left: 1.75rem;
-    /* slight shift on hover */
 }
 
 /* =========================================================================
-   HERO CAROUSEL � Fulcrum Digital style
+   HERO CAROUSEL — Fulcrum Digital style
    ========================================================================= */
 .aero-hero {
     position: relative;
