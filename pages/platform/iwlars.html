@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -425,6 +425,73 @@
     </footer>
 
     <script src="../../assets/js/script.js"></script>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav-panel" id="mobilePanel">
+        <div class="mnp-header">
+            <img src="../../assets/images/aerovania-logo.png" alt="Aerovania" style="height:36px;">
+            <button class="mnp-close" id="mobileClose"><i class="ph ph-x"></i></button>
+        </div>
+        <ul>
+            <li>
+                <a href="#" onclick="toggleSub(this)">SOLUTIONS <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="../../pages/solutions/geospatial-ai.html">Geospatial Mapping</a>
+                    <a href="../../pages/solutions/artificial-intelligence.html">Artificial Intelligence</a>
+                    <a href="../../pages/solutions/embedded-intelligence.html">Edge Computing</a>
+                    <a href="../../pages/solutions/composite-engineering.html">Composite Engineering</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSub(this)">INDUSTRIES <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="../../pages/industries/mining.html">Mining</a>
+                    <a href="../../pages/industries/highways.html">Highways</a>
+                    <a href="../../pages/industries/railway.html">Railway</a>
+                    <a href="../../pages/industries/power-energy.html">Power &amp; Energy</a>
+                    <a href="../../pages/industries/smart-cities.html">Smart Cities</a>
+                    <a href="../../pages/industries/oil-gas.html">Oil &amp; Gas</a>
+                    <a href="../../pages/industries/environmental-forestry.html">Environmental &amp; Forestry</a>
+                    <a href="../../pages/industries/defence-security.html">Defence &amp; Security</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSub(this)">PLATFORM <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="../../pages/platform/ai-aerial-monitoring.html">AI Mines Analytics</a>
+                    <a href="../../pages/platform/iwlars.html">IWLARS</a>
+                </div>
+            </li>
+            <li><a href="../../pages/technology/technology.html">TECHNOLOGY</a></li>
+            <li>
+                <a href="#" onclick="toggleSub(this)">COMPANY <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="../../pages/company/about-us.html">About Us</a>
+                    <a href="../../pages/company/careers.html">Careers</a>
+                    <a href="../../pages/company/insights.html">Insights</a>
+                    <a href="../../pages/company/aerovania-foundation.html">Foundation</a>
+                </div>
+            </li>
+        </ul>
+        <a href="../../pages/company/contact-us.html" class="mnp-cta">Contact Us</a>
+    </div>
+    <script>
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const mobilePanel = document.getElementById('mobilePanel');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileClose = document.getElementById('mobileClose');
+        function openMobile() { mobilePanel.classList.add('open'); mobileOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
+        function closeMobile() { mobilePanel.classList.remove('open'); mobileOverlay.classList.remove('open'); document.body.style.overflow=''; }
+        if (mobileBtn) mobileBtn.addEventListener('click', openMobile);
+        if (mobileClose) mobileClose.addEventListener('click', closeMobile);
+        if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobile);
+        function toggleSub(el) {
+            event.preventDefault();
+            const sub = el.nextElementSibling;
+            if (sub) sub.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
 div>h2></div>""

@@ -12,30 +12,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Hero Carousel ---
     const slides = document.querySelectorAll('.aero-slide');
-    const pbs    = document.querySelectorAll('.aero-pb');
+    const dots   = document.querySelectorAll('.slide-dot');
+    const counter = document.getElementById('slideCounter');
     const SLIDE_DURATION = 7000;
     let current = 0;
     let timer;
 
     function showSlide(index) {
         slides[current].classList.remove('aero-slide--active');
-        pbs[current].classList.remove('aero-pb--active');
-        // reset fill animation
-        const oldFill = pbs[current].querySelector('.aero-pb__fill');
-        oldFill.style.animation = 'none';
-        void oldFill.offsetWidth; // reflow
-        oldFill.style.animation = '';
-
+        dots[current].classList.remove('slide-dot--active');
         current = index;
         slides[current].classList.add('aero-slide--active');
-        pbs[current].classList.add('aero-pb--active');
-
+        dots[current].classList.add('slide-dot--active');
+        if (counter) counter.textContent = (current + 1) + ' / ' + slides.length;
+        // lazy-load lidar iframe on slide 3
+        if (current === 2) {
+            const iframe = document.getElementById('lidar-iframe');
+            if (iframe && !iframe.src) {
+                iframe.src = iframe.dataset.src;
+                iframe.addEventListener('load', () => {
+                    try { iframe.contentWindow.dispatchEvent(new Event('resize')); } catch(e) {}
+                }, { once: true });
+            }
+        }
         clearTimeout(timer);
         timer = setTimeout(() => showSlide((current + 1) % slides.length), SLIDE_DURATION);
     }
 
     if (slides.length) {
-        pbs.forEach((pb, i) => pb.addEventListener('click', () => showSlide(i)));
+        dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
         timer = setTimeout(() => showSlide(1), SLIDE_DURATION);
     }
 

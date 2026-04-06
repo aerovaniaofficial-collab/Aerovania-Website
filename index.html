@@ -102,139 +102,81 @@
 
     <!-- Hero Carousel -->
     <section class="aero-hero" id="aero-hero">
-        <!-- Slide 3: Geospatial AI -->
-        <!-- <div class="aero-slide">
-            <div class="aero-slide__bg" style="background-image:url('assets/images/hero_ai_dashboard.png');"></div>
-            <div class="aero-slide__overlay"></div>
-            <div class="aero-slide__content">
-                <span class="aero-slide__eyebrow"><i class="ph ph-globe-hemisphere-west"></i> Geospatial Map</span>
-                <h1 class="aero-slide__title">Artificial intelligence in GIS</h1>
-                <p class="aero-slide__sub">High-resolution aerial mapping, 3D terrain modelling, and GIS-ready intelligence — turning raw survey data into verified geospatial insight.</p>
-                <div class="aero-slide__cta">
-                    <a href="pages/solutions/geospatial-ai.html" class="btn btn-primary btn-lg">Explore Geospatial AI</a>
-                    <!-- <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a> -->
-                <!-- </div>
-            </div>
-        </div> -->
-        <!-- Slide 3: Geospatial AI — LiDAR canvas background -->
-        <div class="aero-slide aero-slide--active">
-        <div class="aero-slide__bg">
-        <video autoplay loop muted playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback"
-            style="
-                position: absolute;
-                top: 0; left: 0;
-                width: 100%; height: 100%;
-                object-fit: cover;
-                pointer-events: none;">
-            <source src="/assets/video/Project_video_2.mp4" type="video/mp4">
-            <source src="assets/videos/hero_drone_survey.webm" type="video/webm">
-        </video>
-        <div style="
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: 
-            linear-gradient(
-                177deg,
-                rgba(255, 255, 255, 0) 0%,
-                rgb(0 0 0) 100%
-            );
-            
-            z-index: 1;
-        "></div>
-        </div>
-            <div class="aero-slide__overlay"></div>
-            <div class="aero-slide__content">
-                <span class="aero-slide__eyebrow"><i class="ph ph-globe-hemisphere-west"></i> Geospatial Mapping</span>
-                <h1 class="aero-slide__title">Aerial Mapping and Surveillance</h1>
-                <p class="aero-slide__sub">High-resolution aerial mapping, 3D terrain modelling, and GIS-ready intelligence — turning raw survey data into verified geospatial insight.</p>
-                <div class="aero-slide__cta">
-                    <a href="pages/solutions/geospatial-ai.html" class="btn btn-primary btn-lg">Explore Geospatial AI</a>
-                    <!-- <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a> -->
-                </div>
-            </div>
-        </div>
-        <!-- Slide 1: AI Aerial Monitoring -->
-        <div class="aero-slide">   
-        <div class="aero-slide__bg">
-        <video autoplay loop muted playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback"
-            style="
-                position: absolute;
-                top: 0; left: 0;
-                width: 100%; height: 100%;
-                object-fit: cover;
-                pointer-events: none;">
-            <source src="/assets/video/Video Project 5.mp4" type="video/mp4">
-            <source src="assets/videos/hero_drone_survey.webm" type="video/webm">
-        </video>
-        <div style="
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(
-                177deg,
-                rgba(255, 255, 255, 0) 0%,
-                rgb(0 0 0) 100%
-            );
-            
-            z-index: 1;
-        "></div>
-        </div>
-            <div class="aero-slide__overlay"></div>
-            <div class="aero-slide__content">
-                <span class="aero-slide__eyebrow"><i class="ph ph-drone"></i> AI Mines Analytics</span>
-                <h1 class="aero-slide__title">Turning Vision into Verified Reality</h1>
-                <p class="aero-slide__sub">AI-powered aerial intelligence for defence, infrastructure, and environmental monitoring — from drone to decision in real time.</p>
-                <div class="aero-slide__cta">
-                    <a href="pages/platform/ai-aerial-monitoring.html" class="btn btn-primary btn-lg">Explore Platform</a>
-                    <!-- <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a> -->
-                </div>
-            </div>
-        </div>
-        <!-- Slide 2: IWLARS -->
 
-        <div class="aero-slide">
-            <!-- <div class="aero-slide__bg" style="background:#060b14;"></div> -->
-            <iframe
-                id="lidar-iframe"
-                src=""
-                data-src="assets/video/lidar_train_wagon_analysis_system.html"
-                style="
-                    position:absolute;
-                    top: 99px;
-                    left:0;
-                    width:100%;
-                    height:100%;
-                    border:none;
-                    z-index:1;
-                    pointer-events:none;
-                    display:block;
-                    opacity: 46%;"
-                scrolling="no"
-                tabindex="-1"
-            ></iframe>
-            <div class="aero-slide__overlay" style=            
-            "background: linear-gradient(177deg,
-                rgba(255, 255, 255, 0.214) 0%,
-
-                rgb(0 0 0) 100%)
-            ;"></div>
+        <!-- Slide 1: Geospatial Mapping -->
+        <div class="aero-slide aero-slide--active" data-index="0">
+            <div class="aero-slide__bg">
+                <video autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;">
+                    <source src="assets/video/Project_video_2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="aero-slide__overlay"></div>
             <div class="aero-slide__content">
-                <span class="aero-slide__eyebrow"><i class="ph ph-broadcast"></i> IWLARS Platform</span>
-                <h1 class="aero-slide__title">Intelligent Wagon Load Analysis & Reporting System</h1>
-                <p class="aero-slide__sub">Persistent, AI-enhanced surveillance across borders, coastlines, and critical infrastructure — day and night, all weather.</p>
-                <div class="aero-slide__cta">
-                    <a href="pages/platform/iwlars.html" class="btn btn-primary btn-lg">Explore IWLARS</a>
-                    <!-- <a href="pages/company/contact-us.html" class="aero-slide__link">Request a Demo &rarr;</a> -->
+                <div class="slide-tag">India's First Engineering Intelligence Company</div>
+                <h1 class="slide-title">Geospatial Mapping</h1>
+                <h2 class="slide-subtitle">Precision Data Capture &amp; Intelligence</h2>
+                <p class="slide-desc">Advanced drone surveys, LiDAR mapping, and photogrammetry delivering survey-grade geospatial intelligence for infrastructure planning and monitoring.</p>
+                <div class="slide-features">
+                    <span class="slide-feat">&plusmn;5mm Survey Precision</span>
+                    <span class="slide-feat">High-Density Point Clouds</span>
+                    <span class="slide-feat">Real-time Processing</span>
                 </div>
+                <a href="pages/company/contact-us.html" class="slide-cta-btn">Request Demo</a>
             </div>
         </div>
-                <!-- Progress bars -->
-        <div class="aero-progress">
-            <div class="aero-pb aero-pb--active" data-slide="0"><div class="aero-pb__fill"></div></div>
-            <div class="aero-pb" data-slide="1"><div class="aero-pb__fill"></div></div>
-            <div class="aero-pb" data-slide="2"><div class="aero-pb__fill"></div></div>
+
+        <!-- Slide 2: AI Mines Analytics -->
+        <div class="aero-slide" data-index="1">
+            <div class="aero-slide__bg">
+                <video autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;">
+                    <source src="assets/video/Video Project 5.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="aero-slide__overlay"></div>
+            <div class="aero-slide__content">
+                <div class="slide-tag">AI Mines Analytics</div>
+                <h1 class="slide-title">Turning Vision into<br>Verified Reality</h1>
+                <h2 class="slide-subtitle">Real-Time Mine Intelligence</h2>
+                <p class="slide-desc">AI-powered aerial intelligence for defence, infrastructure, and environmental monitoring from drone to decision in real time.</p>
+                <div class="slide-features">
+                    <span class="slide-feat">120+ AI Models</span>
+                    <span class="slide-feat">98.2% Accuracy</span>
+                    <span class="slide-feat">Live Dashboard</span>
+                </div>
+                <a href="pages/company/contact-us.html" class="slide-cta-btn">Request Demo</a>
+            </div>
         </div>
+
+        <!-- Slide 3: IWLARS -->
+        <div class="aero-slide" data-index="2">
+            <div class="aero-slide__bg" style="background:#060b14;"></div>
+            <iframe id="lidar-iframe" src="" data-src="assets/video/lidar_train_wagon_analysis_system.html"
+                style="position:absolute;inset:0;width:100%;height:100%;border:none;z-index:1;pointer-events:none;"
+                scrolling="no" tabindex="-1"></iframe>
+            <div class="aero-slide__overlay" style="background:linear-gradient(90deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.3) 60%,rgba(0,0,0,0) 100%);"></div>
+            <div class="aero-slide__content">
+                <div class="slide-tag">IWLARS Platform</div>
+                <h1 class="slide-title">Intelligent Wagon<br>Load Analysis</h1>
+                <h2 class="slide-subtitle">LiDAR-Powered Stability Intelligence</h2>
+                <p class="slide-desc">Pulley-guided LiDAR trolley system for automated wagon load scanning  3D point cloud capture, weight distribution heatmaps, and derailment risk assessment.</p>
+                <div class="slide-features">
+                    <span class="slide-feat">32,000+ pts/scan</span>
+                    <span class="slide-feat">&plusmn;5mm Accuracy</span>
+                    <span class="slide-feat">Auto-Report</span>
+                </div>
+                <a href="pages/company/contact-us.html" class="slide-cta-btn">Request Demo</a>
+            </div>
+        </div>
+
+        <!-- Vertical dot nav (left side) -->
+        <div class="slide-dot-nav" id="slideDotNav">
+            <button class="slide-dot slide-dot--active" data-slide="0" aria-label="Slide 1"></button>
+            <button class="slide-dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="slide-dot" data-slide="2" aria-label="Slide 3"></button>
+        </div>
+
+        <!-- Slide counter (bottom right) -->
+        <div class="slide-counter" id="slideCounter">1 / 3</div>
 
     </section>
 
@@ -658,6 +600,73 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <!-- Mobile Nav -->
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav-panel" id="mobilePanel">
+        <div class="mnp-header">
+            <img src="assets/images/aerovania-logo.png" alt="Aerovania" style="height:36px;">
+            <button class="mnp-close" id="mobileClose"><i class="ph ph-x"></i></button>
+        </div>
+        <ul>
+            <li>
+                <a href="#" onclick="toggleSub(this)">SOLUTIONS <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="pages/solutions/geospatial-ai.html">Geospatial Mapping</a>
+                    <a href="pages/solutions/artificial-intelligence.html">Artificial Intelligence</a>
+                    <a href="pages/solutions/embedded-intelligence.html">Edge Computing</a>
+                    <a href="pages/solutions/composite-engineering.html">Composite Engineering</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSub(this)">INDUSTRIES <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="pages/industries/mining.html">Mining</a>
+                    <a href="pages/industries/highways.html">Highways</a>
+                    <a href="pages/industries/railway.html">Railway</a>
+                    <a href="pages/industries/power-energy.html">Power &amp; Energy</a>
+                    <a href="pages/industries/smart-cities.html">Smart Cities</a>
+                    <a href="pages/industries/oil-gas.html">Oil &amp; Gas</a>
+                    <a href="pages/industries/environmental-forestry.html">Environmental &amp; Forestry</a>
+                    <a href="pages/industries/defence-security.html">Defence &amp; Security</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSub(this)">PLATFORM <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="pages/platform/ai-aerial-monitoring.html">AI Mines Analytics</a>
+                    <a href="pages/platform/iwlars.html">IWLARS</a>
+                </div>
+            </li>
+            <li><a href="pages/technology/technology.html">TECHNOLOGY</a></li>
+            <li>
+                <a href="#" onclick="toggleSub(this)">COMPANY <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="pages/company/about-us.html">About Us</a>
+                    <a href="pages/company/careers.html">Careers</a>
+                    <a href="pages/company/insights.html">Insights</a>
+                    <a href="pages/company/aerovania-foundation.html">Foundation</a>
+                </div>
+            </li>
+        </ul>
+        <a href="pages/company/contact-us.html" class="mnp-cta">Contact Us</a>
+    </div>
+    <script>
+        // Mobile nav
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const mobilePanel = document.getElementById('mobilePanel');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileClose = document.getElementById('mobileClose');
+        function openMobile() { mobilePanel.classList.add('open'); mobileOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
+        function closeMobile() { mobilePanel.classList.remove('open'); mobileOverlay.classList.remove('open'); document.body.style.overflow=''; }
+        if (mobileBtn) mobileBtn.addEventListener('click', openMobile);
+        if (mobileClose) mobileClose.addEventListener('click', closeMobile);
+        if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobile);
+        function toggleSub(el) {
+            el.preventDefault ? el.preventDefault() : (event.preventDefault());
+            const sub = el.nextElementSibling;
+            if (sub) sub.classList.toggle('open');
+        }
+    </script>
     <script>
         // Testimonial slider
         (function () {

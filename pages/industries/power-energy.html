@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -231,5 +231,72 @@
     <footer class="footer"><div class="container footer-grid"><div class="footer-col brand-col"><div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a><div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div></div><div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div></div><div class="footer-col"><h4>Quick Links</h4><ul><li><a href="../../pages/company/about-us.html">About Us</a></li><li><a href="../../pages/industries/mining.html">Industries</a></li><li><a href="../../pages/solutions/geospatial-ai.html">Technology</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="../../pages/company/about-us.html">Our Vision</a></li><li><a href="../../pages/company/careers.html">Careers</a></li><li><a href="../../pages/company/contact-us.html">Contact</a></li></ul></div><div class="footer-col contact-col"><h4>Contact Us</h4><ul><li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li><li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li><li><i class="ph ph-envelope"></i> info@aerovania.com</li><li><i class="ph ph-globe"></i> www.aerovania.com</li><li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li></ul></div></div><div class="footer-bottom text-center"><p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p></div></footer>
     <script src="../../assets/js/script.js"></script>
     <script>document.querySelectorAll('.tab-btn').forEach(btn=>{btn.addEventListener('click',()=>{const t=btn.dataset.tab;btn.closest('.tabs-layout').querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.closest('.tabs-layout').querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById(t).classList.add('active')})});</script>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav-panel" id="mobilePanel">
+        <div class="mnp-header">
+            <img src="../../assets/images/aerovania-logo.png" alt="Aerovania" style="height:36px;">
+            <button class="mnp-close" id="mobileClose"><i class="ph ph-x"></i></button>
+        </div>
+        <ul>
+            <li>
+                <a href="#" onclick="toggleSub(this)">SOLUTIONS <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="../../pages/solutions/geospatial-ai.html">Geospatial Mapping</a>
+                    <a href="../../pages/solutions/artificial-intelligence.html">Artificial Intelligence</a>
+                    <a href="../../pages/solutions/embedded-intelligence.html">Edge Computing</a>
+                    <a href="../../pages/solutions/composite-engineering.html">Composite Engineering</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSub(this)">INDUSTRIES <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="../../pages/industries/mining.html">Mining</a>
+                    <a href="../../pages/industries/highways.html">Highways</a>
+                    <a href="../../pages/industries/railway.html">Railway</a>
+                    <a href="../../pages/industries/power-energy.html">Power &amp; Energy</a>
+                    <a href="../../pages/industries/smart-cities.html">Smart Cities</a>
+                    <a href="../../pages/industries/oil-gas.html">Oil &amp; Gas</a>
+                    <a href="../../pages/industries/environmental-forestry.html">Environmental &amp; Forestry</a>
+                    <a href="../../pages/industries/defence-security.html">Defence &amp; Security</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSub(this)">PLATFORM <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="../../pages/platform/ai-aerial-monitoring.html">AI Mines Analytics</a>
+                    <a href="../../pages/platform/iwlars.html">IWLARS</a>
+                </div>
+            </li>
+            <li><a href="../../pages/technology/technology.html">TECHNOLOGY</a></li>
+            <li>
+                <a href="#" onclick="toggleSub(this)">COMPANY <i class="ph ph-caret-down"></i></a>
+                <div class="mnp-sub">
+                    <a href="../../pages/company/about-us.html">About Us</a>
+                    <a href="../../pages/company/careers.html">Careers</a>
+                    <a href="../../pages/company/insights.html">Insights</a>
+                    <a href="../../pages/company/aerovania-foundation.html">Foundation</a>
+                </div>
+            </li>
+        </ul>
+        <a href="../../pages/company/contact-us.html" class="mnp-cta">Contact Us</a>
+    </div>
+    <script>
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const mobilePanel = document.getElementById('mobilePanel');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileClose = document.getElementById('mobileClose');
+        function openMobile() { mobilePanel.classList.add('open'); mobileOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
+        function closeMobile() { mobilePanel.classList.remove('open'); mobileOverlay.classList.remove('open'); document.body.style.overflow=''; }
+        if (mobileBtn) mobileBtn.addEventListener('click', openMobile);
+        if (mobileClose) mobileClose.addEventListener('click', closeMobile);
+        if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobile);
+        function toggleSub(el) {
+            event.preventDefault();
+            const sub = el.nextElementSibling;
+            if (sub) sub.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
