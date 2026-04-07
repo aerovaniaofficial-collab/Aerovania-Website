@@ -419,7 +419,7 @@ img { display: block; max-width: 100%; }
   border-radius: 2px;
 }
 .aero-pb--active .aero-pb__fill {
-  animation: aeroPbFill 7s linear forwards;
+  animation: aeroPbFill 5s linear forwards;
 }
 @keyframes aeroPbFill { from { width: 0; } to { width: 100%; } }
 

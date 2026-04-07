@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.aero-slide');
     const dots   = document.querySelectorAll('.slide-dot');
     const counter = document.getElementById('slideCounter');
-    const SLIDE_DURATION = 7000;
+    const SLIDE_DURATION = 5000;
     let current = 0;
     let timer;
 
@@ -25,14 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
         slides[current].classList.add('aero-slide--active');
         dots[current].classList.add('slide-dot--active');
         if (counter) counter.textContent = (current + 1) + ' / ' + slides.length;
-        // lazy-load lidar iframe on slide 3
+        // restart video from beginning for the active slide
+        const activeVideo = slides[current].querySelector('video');
+        if (activeVideo) {
+            activeVideo.currentTime = 0;
+            activeVideo.play().catch(() => {});
+        }
+        // lazy-load lidar iframe on slide 3, restart every time
         if (current === 2) {
             const iframe = document.getElementById('lidar-iframe');
-            if (iframe && !iframe.src) {
-                iframe.src = iframe.dataset.src;
-                iframe.addEventListener('load', () => {
-                    try { iframe.contentWindow.dispatchEvent(new Event('resize')); } catch(e) {}
-                }, { once: true });
+            if (iframe) {
+                const src = iframe.dataset.src;
+                iframe.src = '';
+                requestAnimationFrame(() => {
+                    iframe.src = src;
+                });
             }
         }
         clearTimeout(timer);
@@ -41,6 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (slides.length) {
         dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
+        // restart first slide video on load
+        const firstVideo = slides[0].querySelector('video');
+        if (firstVideo) { firstVideo.currentTime = 0; firstVideo.play().catch(() => {}); }
         timer = setTimeout(() => showSlide(1), SLIDE_DURATION);
     }
 

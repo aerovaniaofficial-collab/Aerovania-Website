@@ -1,8 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
 <style>
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    background: #0a0e1a;
   }
 
   body {
@@ -12,8 +22,10 @@
   #root {
     font-family: var(--font-sans);
     background: #0a0e1a;
-    border-radius: 12px;
+    border-radius: 0;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
   }
 
   #scene-label {
@@ -85,11 +97,9 @@
     font-weight: 500;
   }
 </style>
-<div id="root" style="position:relative; width:100%; height:520px;">
-  <!-- <div id="scene-label">SCENE 1 — AERIAL OVERVIEW</div> -->
-  <!-- <div id="scene-num">01 / 05</div> -->
+<div id="root" style="position:relative; width:100%; height:100%;">
   <div id="rec-dot"></div>
-  <canvas id="c" width="680" height="520" style="width:100%;height:100%;"></canvas>
+  <canvas id="c" width="680" height="520" style="width:100%;height:100%;display:block;"></canvas>
   <div id="overlay-stats">
     <div>Scan coverage &nbsp;<span class="val" id="sv">0%</span></div>
     <div>Points captured &nbsp;<span class="val" id="pc">0</span></div>
@@ -106,7 +116,7 @@
   canvas.width = W; canvas.height = H;
 
   let frame = 0;
-  const TOTAL_FRAMES = 1800; // ~60s at 30fps
+  const TOTAL_FRAMES = 200; // 5s at 30fps — scene1: 0-74, scene3: 75-149
   let sceneLabel = document.getElementById('scene-label');
   let sceneNum = document.getElementById('scene-num');
   let progressBar = document.getElementById('progress-bar');
@@ -142,11 +152,9 @@
 
   function getScene(f) {
     const t = f / TOTAL_FRAMES;
-    if (t < 0.18) return { id: 1, t: t / 0.18, label: 'AERIAL OVERVIEW — PULLEY TROLLEY SYSTEM', num: '01 / 05' };
-    if (t < 0.38) return { id: 2, t: (t - 0.18) / 0.20, label: 'LIDAR SCAN — POINT CLOUD CAPTURE', num: '02 / 05' };
-    if (t < 0.56) return { id: 3, t: (t - 0.38) / 0.18, label: '3D POINT CLOUD — WAGON LOAD MAP', num: '03 / 05' };
-    if (t < 0.78) return { id: 4, t: (t - 0.56) / 0.22, label: 'WEIGHT DISTRIBUTION ANALYSIS', num: '04 / 05' };
-    return { id: 5, t: (t - 0.78) / 0.22, label: 'ENGINEER DASHBOARD — STABILITY REPORT', num: '05 / 05' };
+    // Only show scene 1 (first 50%) and scene 3 (last 50%)
+    if (t < 0.5) return { id: 1, t: t / 0.5, label: 'AERIAL OVERVIEW — PULLEY TROLLEY SYSTEM', num: '01 / 02' };
+    return { id: 3, t: (t - 0.5) / 0.5, label: '3D POINT CLOUD — WAGON LOAD MAP', num: '02 / 02' };
   }
 
   // --- SCENE 1: Aerial View ---
@@ -770,8 +778,8 @@
     let ts = (frame / 30).toFixed(1).padStart(5, '0');
     ctx.fillText('TC ' + ts + 's', W - 70, H - 8);
 
-    frame = (frame + 1) % TOTAL_FRAMES;
-    requestAnimationFrame(drawAll);
+    frame++;
+    if (frame < TOTAL_FRAMES) requestAnimationFrame(drawAll);
   }
 
   // Reset clouds between scenes
@@ -788,3 +796,6 @@
   trackScene();
   drawAll();
 </script>
+
+</body>
+</html>
