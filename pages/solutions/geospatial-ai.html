@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -55,7 +55,7 @@
         .page-hero .container {
             position: relative;
             z-index: 2;
-            padding: 6rem 0 5rem;
+            padding: 1rem 0 0.5rem;
         }
 
         .page-hero .hero-eyebrow {
@@ -89,8 +89,8 @@
         }
 
         .page-hero .hero-sub {
-            font-size: 1.1rem;
-            color: #94a3b8;
+            font-size: 1rem;
+            color: #aaaaaa;
             line-height: 1.75;
             max-width: 600px;
             margin: 0 0 2rem;
@@ -388,9 +388,86 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        .btn-lg{
-                padding: 0rem 1.3rem;
-                font-size: 0.8rem;
+
+        .btn-lg {
+            padding: 0rem 1.3rem;
+            font-size: 0.8rem;
+            border-radius: 30px;
+        }
+
+        /* Geo Stats Band */
+        .geo-stats-header { text-align: center; margin-bottom: 3rem; }
+        .geo-stats-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 0.75rem;
+        }
+        .geo-stats-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 800;
+            color: #f1f5f9;
+            margin: 0 0 1.5rem;
+        }
+        .geo-stats-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), transparent);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+        .geo-stats-band {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(52,192,197,0.15);
+            border-bottom: 1px solid rgba(52,192,197,0.15);
+            padding: 2.5rem 0;
+        }
+        .geo-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 3rem;
+            gap: 0.2rem;
+        }
+        .geo-stat-num {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.4rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: var(--cyan);
+            line-height: 1;
+            text-shadow: 0 0 30px rgba(52,192,197,0.35);
+        }
+        .geo-stat-unit {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(52,192,197,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.1rem;
+        }
+        .geo-stat-lbl {
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-top: 0.3rem;
+            text-align: center;
+        }
+        .geo-stat-sep {
+            width: 1px;
+            height: 60px;
+            background: rgba(52,192,197,0.2);
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .geo-stats-band { padding: 1rem 0; }
+            .geo-stat-sep { display: none; }
+            .geo-stat-item { padding: 1rem 1.5rem; }
         }
     </style>
 </head>
@@ -403,7 +480,14 @@
                 <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
                         class="nav-logo"></a>
             </div>
-            <nav class="desktop-nav">
+            <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
+                <div class="nav-contact-info"
+                    style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
+                    <a href="mailto:info@aerovania.com"
+                        style="margin-right: 15px; color: inherit; text-decoration: none; ">info@aerovania.com</a>
+                    <a style="margin-right: 15px; color: inherit; text-decoration: none; ">|</a>
+                    <a href="tel:+917875855217" style="color: inherit; text-decoration: none;">+91 78758 55217</a>
+                </div>
                 <ul>
                     <!-- SOLUTIONS -->
                     <li class="has-dropdown">
@@ -798,13 +882,15 @@
     <section class="page-hero">
         <video autoplay muted loop playsinline
             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.35;">
-            <source src="../../assets/video/Project_video_2.mp4" type="video/mp4">
+            <source src="../../assets/video/Geo Mapping.mp4" type="video/mp4">
         </video>
         <div class="container">
             <div class="hero-eyebrow"><i class="ph ph-map-trifold"></i> Solutions</div>
-            <h1>Geospatial<span> Mapping</span></h1>
+            <h1>Geospatial Mapping</h1>
             <p class="hero-sub">Precision mapping, terrain intelligence, and spatial analytics that transform raw aerial
-                data into actionable geospatial insights for critical infrastructure.</p>
+                data into actionable geospatial insights for critical infrastructure.<br>
+                </br>
+            </p>
             <div class="hero-cta-row">
                 <a href="../../pages/company/contact-us.html" class="btn btn-primary btn-lg">Request a Demo</a>
                 <a href="#mapping" class="btn btn-outline-cyan">Explore Features</a>
@@ -816,7 +902,7 @@
         <div class="container">
             <div class="split-wrap">
                 <div class="split-img-wrap reveal stagger-1">
-                    <img src="../../assets/images/hero_drone_survey.png" alt="High-resolution orthomosaic mapping">
+                    <img src="../../assets/images/Geospetial/Precision Mapping.png" alt="High-resolution orthomosaic mapping">
                     <div class="img-badge"><i class="ph ph-map-trifold"></i><span>Orthomosaic Generated</span></div>
                 </div>
                 <div class="split-info reveal stagger-2">
@@ -833,24 +919,32 @@
                     </ul>
                     <div class="stat-strip light-bg">
                         <div>
-                            <div class="s-num">&lt;5cm</div>
+                            <div class="s-num">5cm</div>
                             <div class="s-lbl">Ground Resolution</div>
-                        </div>
-                        <div>
-                            <div class="s-num">RTK</div>
-                            <div class="s-lbl">GNSS Accuracy</div>
+                            </div>
+                            <div>
+                                <div class="s-num">RTK</div>
+                                <div class="s-lbl">GNSS Accuracy</div>
+                            </div>
+                            <div>
+                                <div class="s-num">3D</div>
+                                <div class="s-lbl">Terrain Models</div>
+                            </div>
+                            <div>
+                                <div class="s-num">Auto</div>
+                                <div class="s-lbl">Mosaicking</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <section class="split-section dark">
         <div class="container">
             <div class="split-wrap reverse">
                 <div class="split-img-wrap reveal stagger-1">
-                    <img src="../../assets/images/hero_lidar_terrain.png" alt="LiDAR point cloud processing">
+                    <img src="../../assets/images/Geospetial/Lidar.webp" alt="LiDAR point cloud processing">
                     <div class="img-badge"><i class="ph ph-waves"></i><span>LiDAR Scan Active</span></div>
                 </div>
                 <div class="split-info reveal stagger-2">
@@ -860,7 +954,7 @@
                         ground models, vegetation layers, and structural features penetrating canopy to reveal
                         bare-earth terrain at 2cm vertical accuracy.</p>
                     <ul class="feat-list light-text">
-                        <li><i class="ph ph-check-circle"></i>Up to 1,000,000 points/second capture rate</li>
+                        <li><i class="ph ph-check-circle"></i>Up to 1.2M points/second capture rate</li>
                         <li><i class="ph ph-check-circle"></i>Canopy penetration for bare-earth DTM generation</li>
                         <li><i class="ph ph-check-circle"></i>Volumetric calculations for stockpiles and excavations
                         </li>
@@ -872,8 +966,16 @@
                             <div class="s-lbl">Vertical Accuracy</div>
                         </div>
                         <div>
-                            <div class="s-num">1M+</div>
+                            <div class="s-num">1.2M+</div>
                             <div class="s-lbl">Points/Second</div>
+                        </div>
+                        <div>
+                            <div class="s-num">DTM</div>
+                            <div class="s-lbl">Bare-Earth Model</div>
+                        </div>
+                        <div>
+                            <div class="s-num">3</div>
+                            <div class="s-lbl">Output Formats</div>
                         </div>
                     </div>
                 </div>
@@ -885,7 +987,7 @@
         <div class="container">
             <div class="split-wrap">
                 <div class="split-img-wrap reveal stagger-1">
-                    <img src="../../assets/images/hero_ai_monitoring.png" alt="GIS integration and spatial analytics">
+                    <img src="../../assets/images/Geospetial/GIS Integration.png" alt="GIS integration and spatial analytics">
                     <div class="img-badge"><i class="ph ph-database"></i><span>GIS Integration</span></div>
                 </div>
                 <div class="split-info reveal stagger-2">
@@ -909,6 +1011,59 @@
                             <div class="s-num">Auto</div>
                             <div class="s-lbl">Change Detection</div>
                         </div>
+                        <div>
+                            <div class="s-num">3</div>
+                            <div class="s-lbl">GIS Platforms</div>
+                        </div>
+                        <div>
+                            <div class="s-num">Vector</div>
+                            <div class="s-lbl">Asset Layers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="split-section light">
+        <div class="container">
+            <div class="split-wrap reverse">
+                <div class="split-img-wrap reveal stagger-1">
+                    <img src="../../assets/images/Geospetial/Bathymetry.webp"
+                        alt="Bathymetric survey and underwater mapping">
+                    <div class="img-badge"><i class="ph ph-waves"></i><span>Bathymetric Survey Active</span></div>
+                </div>
+                <div class="split-info reveal stagger-2">
+                    <span class="split-label">Underwater Mapping</span>
+                    <h2 class="split-title dark-text">Bathymetry & Underwater Terrain Mapping</h2>
+                    <p class="split-desc dark-text">High-resolution underwater terrain mapping using autonomous drone
+                        and boat systems equipped with advanced sonar technology to capture riverbed, reservoir, and
+                        coastal floor topography with centimetre-level accuracy — without deploying divers or manual
+                        vessels.</p>
+                    <ul class="feat-list dark-text">
+                        <li><i class="ph ph-check-circle"></i>Autonomous drone and boat systems for seamless surveys
+                        </li>
+                        <li><i class="ph ph-check-circle"></i>Riverbed, reservoir &amp; coastal floor profiling</li>
+                        <li><i class="ph ph-check-circle"></i>Sediment accumulation & erosion change detection</li>
+                        <li><i class="ph ph-check-circle"></i>Integrated above & below waterline 3D models</li>
+                    </ul>
+                    <div class="stat-strip light-bg">
+                        <div>
+                            <div class="s-num">±3cm</div>
+                            <div class="s-lbl">Depth Accuracy</div>
+                        </div>
+                        <div>
+                            <div class="s-num">30m</div>
+                            <div class="s-lbl">Max Water Depth</div>
+                        </div>
+                        <div>
+                            <div class="s-num">Auto</div>
+                            <div class="s-lbl">Autonomous Survey</div>
+                        </div>
+                        <div>
+                            <div class="s-num">3D</div>
+                            <div class="s-lbl">Unified Models</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -916,25 +1071,41 @@
     </section>
 
     <section class="stats-row-section">
-        <div class="container text-center">
-            <span class="section-label reveal" style="color:var(--cyan);">Geospatial Mapping</span>
-            <h2 class="section-title-lg light reveal">Survey-Grade Intelligence at Scale</h2>
-            <div class="stats-row">
-                <div class="stat-tile reveal stagger-1">
-                    <div class="num">500M+</div>
-                    <div class="lbl">Sq Ft Mapped</div>
+        <div class="container">
+            <div class="geo-stats-header reveal">
+                <span class="geo-stats-label">Geospatial Mapping</span>
+                <h2 class="geo-stats-title">Survey-Grade Intelligence at Scale</h2>
+                <div class="geo-stats-line"></div>
+            </div>
+            <div class="geo-stats-band reveal">
+                <div class="geo-stat-item">
+                    <span class="geo-stat-num">2000+</span>
+                    <span class="geo-stat-unit">Sq Ft</span>
+                    <span class="geo-stat-lbl">Area Mapped</span>
                 </div>
-                <div class="stat-tile reveal stagger-2">
-                    <div class="num">&lt;5cm</div>
-                    <div class="lbl">Ground Resolution</div>
+                <div class="geo-stat-sep"></div>
+                <div class="geo-stat-item">
+                    <span class="geo-stat-num">&lt;5</span>
+                    <span class="geo-stat-unit">cm</span>
+                    <span class="geo-stat-lbl">Ground Resolution</span>
                 </div>
-                <div class="stat-tile reveal stagger-3">
-                    <div class="num">2cm</div>
-                    <div class="lbl">Vertical Accuracy</div>
+                <div class="geo-stat-sep"></div>
+                <div class="geo-stat-item">
+                    <span class="geo-stat-num">2</span>
+                    <span class="geo-stat-unit">cm</span>
+                    <span class="geo-stat-lbl">Vertical Accuracy</span>
                 </div>
-                <div class="stat-tile reveal stagger-4">
-                    <div class="num">10+</div>
-                    <div class="lbl">Output Formats</div>
+                <div class="geo-stat-sep"></div>
+                <div class="geo-stat-item">
+                    <span class="geo-stat-num">10+</span>
+                    <span class="geo-stat-unit">Formats</span>
+                    <span class="geo-stat-lbl">GIS Output Types</span>
+                </div>
+                <div class="geo-stat-sep"></div>
+                <div class="geo-stat-item">
+                    <span class="geo-stat-num">±3</span>
+                    <span class="geo-stat-unit">cm</span>
+                    <span class="geo-stat-lbl">Bathymetric Depth</span>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -223,10 +223,10 @@
 
         /* Image card */
         .clay-img-card {
-            border-radius: 28px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 12px 0 #c7d2fe, 0 20px 40px rgba(99, 102, 241, 0.12);
-            min-height: 360px;
+            box-shadow: 0px 20px 10px #c7d2fe, 0 20px 40px rgba(99, 102, 241, 0.12);
+            /* min-height: 360px; */
             background: #e0e7ff;
             display: flex;
             align-items: center;
@@ -239,7 +239,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            border-radius: 28px;
+            /* border-radius: 28px; */
         }
 
         .clay-img-card .clay-icon-fallback {
@@ -249,12 +249,12 @@
 
         .clay-section-b .clay-img-card {
             background: #fce7f3;
-            box-shadow: 0 12px 0 #fbcfe8, 0 20px 40px rgba(236, 72, 153, 0.1);
+            box-shadow: 0px 20px 10px #c7d2fe, 0 20px 40px rgba(99, 102, 241, 0.12);
         }
 
         .clay-section-c .clay-img-card {
             background: #dcfce7;
-            box-shadow: 0 12px 0 #bbf7d0, 0 20px 40px rgba(34, 197, 94, 0.1);
+            box-shadow: 0px 20px 10px #c7d2fe, 0 20px 40px rgba(99, 102, 241, 0.12);
         }
 
         /* Check list clay */
@@ -486,7 +486,12 @@
             <div class="logo">
                 <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
             </div>
-            <nav class="desktop-nav">
+            <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
+                <div class="nav-contact-info" style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
+                    <a href="mailto:info@aerovania.com" style="margin-right: 15px; color: inherit; text-decoration: none; ">info@aerovania.com</a>
+                    <a style="margin-right: 15px; color: inherit; text-decoration: none; ">|</a>
+                    <a href="tel:+917875855217" style="color: inherit; text-decoration: none;">+91 78758 55217</a>
+                </div>
                 <ul>
                     <!-- SOLUTIONS -->
                     <li class="has-dropdown">
@@ -577,7 +582,7 @@
             muted
             playsinline
             disablePictureInPicture
-            controlsList="nodownload nofullscreen noremoteplayback"="auto" src="../../assets/video/Video Project 5.mp4"
+            controlsList="nodownload nofullscreen noremoteplayback"="auto" src="../../assets/video/mines.mp4"
             style="
                 position: absolute;
                 top: 0; left: 0;
@@ -627,7 +632,7 @@
         <div class="container">
             <div class="clay-split">
                 <div class="clay-img-card reveal stagger-1">
-                    <img src="../../assets/images/analytics-dashboard.jpeg" alt="Analytics Dashboard"
+                    <img src="../../assets/images/AI mines/analytics-dashboard.png" alt="Analytics Dashboard"
                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                     <div class="clay-icon-fallback"
                         style="display:none;width:100%;height:360px;align-items:center;justify-content:center;">
@@ -635,20 +640,14 @@
                     </div>
                 </div>
                 <div class="reveal stagger-2">
-                    <span class="clay-label">Analytics &amp; Monitoring</span>
-                    <h2 class="clay-title">Real-Time Dashboard &amp; Map Intelligence</h2>
+                    <span class="clay-label">Analytics & Monitoring</span>
+                    <h2 class="clay-title">Real-Time Dashboard & KPI Intelligence</h2>
                     <p class="clay-desc">Get a complete operational picture with live KPIs, violation statistics, and
-                        time-series trend charts ? all in one unified dashboard. Violations are instantly plotted on an
-                        interactive geospatial map with custom markers so you can pinpoint incidents across all mine
-                        sites in real time.</p>
+                        time-series trend charts — all in one unified dashboard.</p>
                     <ul class="clay-check-list">
                         <li>
                             <div class="clay-check-icon"><i class="ph ph-check"></i></div> Live KPIs, charts, and
                             violation statistics
-                        </li>
-                        <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Interactive map with
-                            geospatial violation markers
                         </li>
                         <li>
                             <div class="clay-check-icon"><i class="ph ph-check"></i></div> Searchable, filterable
@@ -664,23 +663,91 @@
         </div>
     </section>
 
-    <!-- SECTION B: Site & Video Management -->
+    <!-- SECTION A2: Map Intelligence -->
     <section class="clay-section clay-section-b">
-        <div class="clay-blob" style="width:380px;height:380px;background:#f9a8d4;bottom:-80px;left:-60px;"></div>
+        <div class="clay-blob" style="width:400px;height:400px;background:#a5b4fc;top:-100px;left:-80px;"></div>
         <div class="container">
             <div class="clay-split">
                 <div class="reveal stagger-1">
-                    <span class="clay-label">Site &amp; Video Management</span>
-                    <h2 class="clay-title">Manage Sites, Features &amp; Surveillance Videos</h2>
+                    <span class="clay-label">Geospatial Monitoring</span>
+                    <h2 class="clay-title">Interactive Map with Violation Markers</h2>
+                    <p class="clay-desc">Violations are instantly plotted on an interactive geospatial map with custom
+                        markers so you can pinpoint incidents across all mine sites in real time.</p>
+                    <ul class="clay-check-list">
+                        <li>
+                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Interactive map with
+                            geospatial violation markers
+                        </li>
+                        <li>
+                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Multi-site overview with
+                            instant incident pinpointing
+                        </li>
+                        <li>
+                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Real-time sync with
+                            dashboard KPIs and violation tables
+                        </li>
+                    </ul>
+                </div>
+                <div class="clay-img-card reveal stagger-2">
+                    <img src="../../assets/images/AI mines/map-intelligence.png" alt="Map Intelligence"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="clay-icon-fallback"
+                        style="display:none;width:100%;height:360px;align-items:center;justify-content:center;">
+                        <i class="ph ph-map-trifold"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION B: Site Management -->
+    <!-- <section class="clay-section clay-section-c">
+        <div class="clay-blob" style="width:380px;height:380px;background:#6ee7b7;bottom:-80px;right:-60px;"></div>
+        <div class="container">
+            <div class="clay-split">
+                <div class="clay-img-card reveal stagger-1">
+                    <img src="../../assets/images/AI mines/site-management.png" alt="Site Management"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="clay-icon-fallback"
+                        style="display:none;width:100%;height:360px;align-items:center;justify-content:center;color:#6ee7b7;">
+                        <i class="ph ph-buildings"></i>
+                    </div>
+                </div>
+                <div class="reveal stagger-2">
+                    <span class="clay-label">Site Management</span>
+                    <h2 class="clay-title">Manage Mining Sites &amp; Features</h2>
                     <p class="clay-desc">Dynamically create and manage mining sites with built-in duplicate prevention.
-                        Pre-loaded with BNK Mines, Dhori, Kathara, and Bukaro. Link surveillance videos to specific
-                        sites and features ? with YouTube thumbnail generation, search and filter, and role-based
-                        access.</p>
+                        Pre-loaded with BNK Mines, Dhori, Kathara, and Bukaro.</p>
                     <ul class="clay-check-list">
                         <li>
                             <div class="clay-check-icon"><i class="ph ph-check"></i></div> Add, edit, and delete sites
                             with validation
                         </li>
+                        <li>
+                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Built-in duplicate site
+                            prevention
+                        </li>
+                        <li>
+                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Admin-only creation,
+                            read-only for regular users
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- SECTION B2: Video Management -->
+    <!-- <section class="clay-section clay-section-d">
+        <div class="clay-blob" style="width:380px;height:380px;background:#f9a8d4;bottom:-80px;left:-60px;"></div>
+        <div class="container">
+            <div class="clay-split">
+                <div class="reveal stagger-1">
+                    <span class="clay-label">Video Management</span>
+                    <h2 class="clay-title">Surveillance Video Library by Site</h2>
+                    <p class="clay-desc">Link surveillance videos to specific sites and features — with YouTube
+                        thumbnail generation, search and filter, and role-based access.</p>
+                    <ul class="clay-check-list">
                         <li>
                             <div class="clay-check-icon"><i class="ph ph-check"></i></div> Video links organised by site
                             and feature
@@ -690,8 +757,8 @@
                             auto-generation
                         </li>
                         <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Admin-only creation,
-                            read-only for regular users
+                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Search and filter across all
+                            linked videos
                         </li>
                     </ul>
                 </div>
@@ -705,15 +772,14 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <!-- SECTION C: Security & ATR -->
-    <section class="clay-section clay-section-c">
+    <!-- SECTION C: Security & Access -->
+    <!-- <section class="clay-section clay-section-a">
         <div class="clay-blob" style="width:350px;height:350px;background:#6ee7b7;top:-80px;right:-60px;"></div>
         <div class="container">
             <div class="clay-split">
-                <div class="clay-img-card reveal stagger-1"
-                    style="box-shadow:0 12px 0 #bbf7d0,0 20px 40px rgba(34,197,94,0.1);">
+                <div class="clay-img-card reveal stagger-1">
                     <img src="../../assets/images/security-access.jpeg" alt="Security & Access Control"
                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                     <div class="clay-icon-fallback"
@@ -722,30 +788,64 @@
                     </div>
                 </div>
                 <div class="reveal stagger-2">
-                    <span class="clay-label">Security &amp; Document Management</span>
-                    <h2 class="clay-title">Role-Based Access &amp; ATR Document Control</h2>
-                    <p class="clay-desc">JWT-secured authentication with separate admin and user roles. ATR
-                        (Accident/Incident Report) PDFs are stored securely on Cloudinary, organised by department with
-                        colour-coded badges and drag-and-drop upload.</p>
+                    <span class="clay-label">Security</span>
+                    <h2 class="clay-title">Role-Based Access Control</h2>
+                    <p class="clay-desc">JWT-secured authentication with separate admin and user roles, ensuring the
+                        right people have access to the right data at all times.</p>
                     <ul class="clay-check-list">
                         <li>
                             <div class="clay-check-icon"><i class="ph ph-check"></i></div> JWT authentication with
                             role-based access control
                         </li>
                         <li>
+                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Admin cross-department access
+                            with colour-coded badges
+                        </li>
+                        <li>
                             <div class="clay-check-icon"><i class="ph ph-check"></i></div> Departments: E&amp;T,
                             Security, Operation, Survey, Safety
                         </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- SECTION C2: ATR Document Management -->
+    <section class="clay-section clay-section-c">
+        <div class="clay-blob" style="width:350px;height:350px;background:#6ee7b7;bottom:-80px;left:-60px;"></div>
+        <div class="container">
+            <div class="clay-split">
+                                <div class="clay-img-card reveal stagger-2"
+                    style="box-shadow: 0px 20px 20px #bbf7d0, 0 20px 40px rgba(34, 197, 94, 0.1);">
+                    <img src="../../assets/images/AI mines/ATR Report.png" alt="ATR Document Management"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="clay-icon-fallback"
+                        style="display:none;width:100%;height:360px;align-items:center;justify-content:center;color:#6ee7b7;">
+                        <i class="ph ph-file-pdf"></i>
+                    </div>
+                </div>
+                <div class="reveal stagger-1">
+                    <span class="clay-label">Document Management</span>
+                    <h2 class="clay-title">ATR Document Control &amp; Storage</h2>
+                    <p class="clay-desc">ATR (Accident/Incident Report) PDFs are stored securely on Cloudinary,
+                        organised by department with colour-coded badges and drag-and-drop upload.</p>
+                    <ul class="clay-check-list">
                         <li>
                             <div class="clay-check-icon"><i class="ph ph-check"></i></div> Drag-and-drop PDF upload to
                             department folders
                         </li>
                         <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Admin cross-department access
-                            with colour-coded badges
+                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Secure Cloudinary storage
+                            with organised access
+                        </li>
+                        <li>
+                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Colour-coded department
+                            badges for quick identification
                         </li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </section>
