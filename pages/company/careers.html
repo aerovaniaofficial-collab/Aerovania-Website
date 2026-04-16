@@ -67,6 +67,28 @@
         .footer a:hover{color:var(--neu-accent)!important}
         .footer-bottom{border-top:1px solid var(--neu-dark)!important}
         @media(max-width:768px){.n-split{grid-template-columns:1fr;gap:3rem}.job-card{flex-direction:column;align-items:flex-start}}
+
+        /* ── Apply Modal ── */
+        .apply-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);z-index:9000;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .25s}
+        .apply-modal-overlay.open{opacity:1;pointer-events:all}
+        .apply-modal{background:var(--neu-bg);border-radius:24px;padding:2.5rem;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;box-shadow:16px 16px 40px var(--neu-shadow-dark),-16px -16px 40px var(--neu-shadow-light);transform:translateY(20px);transition:transform .25s}
+        .apply-modal-overlay.open .apply-modal{transform:translateY(0)}
+        .apply-modal-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.75rem;gap:1rem}
+        .apply-modal-header h3{font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:var(--neu-text);line-height:1.3}
+        .apply-modal-header p{font-size:.85rem;color:var(--neu-accent);font-weight:600;margin-top:.25rem}
+        .modal-close{background:none;border:none;cursor:pointer;color:var(--neu-muted);font-size:1.4rem;padding:.25rem;line-height:1;flex-shrink:0}
+        .modal-close:hover{color:var(--neu-text)}
+        .apply-form .form-group{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.1rem}
+        .apply-form label{font-size:.82rem;font-weight:600;color:var(--neu-text);letter-spacing:.3px}
+        .apply-form input,.apply-form textarea{padding:.8rem 1rem;border-radius:12px;border:none;background:var(--neu-bg);color:var(--neu-text);font-family:'Inter',sans-serif;font-size:.93rem;box-shadow:inset 4px 4px 10px var(--neu-shadow-dark),inset -4px -4px 10px var(--neu-shadow-light);outline:none;transition:.2s;resize:vertical}
+        .apply-form input:focus,.apply-form textarea:focus{box-shadow:inset 5px 5px 12px var(--neu-shadow-dark),inset -5px -5px 12px var(--neu-shadow-light),0 0 0 2px rgba(52,192,197,.3)}
+        .apply-form textarea{min-height:100px}
+        .file-upload-label{display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border-radius:12px;cursor:pointer;box-shadow:inset 4px 4px 10px var(--neu-shadow-dark),inset -4px -4px 10px var(--neu-shadow-light);font-size:.88rem;color:var(--neu-muted)}
+        .file-upload-label i{color:var(--neu-accent);font-size:1.2rem}
+        .file-upload-label input{display:none}
+        #file-name{font-size:.82rem;color:var(--neu-accent)}
+        .apply-success{display:none;padding:1rem 1.25rem;border-radius:12px;background:rgba(52,192,197,.12);border:1px solid rgba(52,192,197,.3);color:#2a9a9e;font-size:.95rem;margin-bottom:1.25rem}
+        .apply-error{display:none;padding:1rem 1.25rem;border-radius:12px;background:rgba(220,53,69,.08);border:1px solid rgba(220,53,69,.25);color:#c0392b;font-size:.95rem;margin-bottom:1.25rem}
     </style>
 </head>
 <body>
@@ -225,27 +247,9 @@
                 <h2 class="n-title">Current Openings</h2>
                 <p class="n-desc" style="margin:0 auto;">We're always looking for exceptional people. If you don't see your role below, send us your CV anyway.</p>
             </div>
-            <div class="job-list">
-                <div class="job-card">
-                    <div class="job-info"><h4>AI / Computer Vision Engineer</h4><div class="job-meta"><span class="job-tag">Full-Time</span><span class="job-tag">Nagpur / Hybrid</span><span class="job-tag">Engineering</span></div></div>
-                    <a href="../../pages/company/contact-us.html" class="neu-btn-accent" style="white-space:nowrap;"><i class="ph ph-arrow-right"></i> Apply Now</a>
-                </div>
-                <div class="job-card">
-                    <div class="job-info"><h4>Drone Systems Engineer (Hardware)</h4><div class="job-meta"><span class="job-tag">Full-Time</span><span class="job-tag">Nagpur</span><span class="job-tag">Hardware</span></div></div>
-                    <a href="../../pages/company/contact-us.html" class="neu-btn-accent" style="white-space:nowrap;"><i class="ph ph-arrow-right"></i> Apply Now</a>
-                </div>
-                <div class="job-card">
-                    <div class="job-info"><h4>GIS &amp; Geospatial Analyst</h4><div class="job-meta"><span class="job-tag">Full-Time</span><span class="job-tag">Nagpur / Remote</span><span class="job-tag">Geospatial</span></div></div>
-                    <a href="../../pages/company/contact-us.html" class="neu-btn-accent" style="white-space:nowrap;"><i class="ph ph-arrow-right"></i> Apply Now</a>
-                </div>
-                <div class="job-card">
-                    <div class="job-info"><h4>Embedded Systems Developer</h4><div class="job-meta"><span class="job-tag">Full-Time</span><span class="job-tag">Nagpur</span><span class="job-tag">Embedded</span></div></div>
-                    <a href="../../pages/company/contact-us.html" class="neu-btn-accent" style="white-space:nowrap;"><i class="ph ph-arrow-right"></i> Apply Now</a>
-                </div>
-                <div class="job-card">
-                    <div class="job-info"><h4>Business Development Manager</h4><div class="job-meta"><span class="job-tag">Full-Time</span><span class="job-tag">Pan-India</span><span class="job-tag">Sales</span></div></div>
-                    <a href="../../pages/company/contact-us.html" class="neu-btn-accent" style="white-space:nowrap;"><i class="ph ph-arrow-right"></i> Apply Now</a>
-                </div>
+            <div class="job-list" id="job-list">
+                <!-- Jobs loaded dynamically from API -->
+                <div style="text-align:center;padding:2rem;color:var(--neu-muted);">Loading openings...</div>
             </div>
         </div>
     </section>
@@ -275,6 +279,55 @@
         <div class="footer-bottom text-center"><p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p></div>
     </footer>
     <script src="../../assets/js/script.js"></script>
+
+    <!-- Apply Modal -->
+    <div class="apply-modal-overlay" id="applyModal">
+        <div class="apply-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="apply-modal-header">
+                <div>
+                    <h3 id="modal-title">Apply for Position</h3>
+                    <p id="modal-role-label"></p>
+                </div>
+                <button class="modal-close" id="modalClose" aria-label="Close"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="apply-success" id="apply-success"><i class="ph ph-check-circle"></i> Application submitted! We'll be in touch soon.</div>
+            <div class="apply-error" id="apply-error"></div>
+            <form class="apply-form" id="apply-form" enctype="multipart/form-data">
+                <input type="hidden" id="apply-role" name="role">
+                <div class="form-group">
+                    <label for="apply-name">Full Name *</label>
+                    <input type="text" id="apply-name" name="name" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="apply-email">Email Address *</label>
+                    <input type="email" id="apply-email" name="email" placeholder="you@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="apply-phone">Phone Number</label>
+                    <input type="tel" id="apply-phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                </div>
+                <div class="form-group">
+                    <label for="apply-linkedin">LinkedIn Profile</label>
+                    <input type="url" id="apply-linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                </div>
+                <div class="form-group">
+                    <label>Upload CV / Resume (PDF, DOC, DOCX — max 5MB)</label>
+                    <label class="file-upload-label">
+                        <i class="ph ph-upload-simple"></i>
+                        <span id="file-name">Choose file...</span>
+                        <input type="file" id="apply-cv" name="cv" accept=".pdf,.doc,.docx">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="apply-cover">Cover Note</label>
+                    <textarea id="apply-cover" name="cover" placeholder="Tell us why you'd be a great fit..."></textarea>
+                </div>
+                <button type="submit" class="neu-btn-accent" id="apply-submit" style="width:100%;justify-content:center;">
+                    <i class="ph ph-paper-plane-tilt"></i> <span>Submit Application</span>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Mobile Nav -->
     <div class="mobile-nav-overlay" id="mobileOverlay"></div>
@@ -341,6 +394,124 @@
             const sub = el.nextElementSibling;
             if (sub) sub.classList.toggle('open');
         }
+    </script>
+
+    <script>
+        const BACKEND = 'http://localhost:3001';
+        const modal = document.getElementById('applyModal');
+        const modalClose = document.getElementById('modalClose');
+
+        // Load jobs from API
+        async function loadJobs() {
+            const list = document.getElementById('job-list');
+            try {
+                const res = await fetch(`${BACKEND}/api/jobs`);
+                const jobs = await res.json();
+                if (!jobs.length) {
+                    list.innerHTML = '<p style="text-align:center;color:var(--neu-muted);padding:2rem;">No open positions right now. Check back soon or send your CV.</p>';
+                    return;
+                }
+                list.innerHTML = jobs.map(job => `
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h4>${job.title}</h4>
+                            <div class="job-meta">
+                                <span class="job-tag">${job.type}</span>
+                                ${job.location ? `<span class="job-tag">${job.location}</span>` : ''}
+                                ${job.department ? `<span class="job-tag">${job.department}</span>` : ''}
+                            </div>
+                        </div>
+                        <button class="neu-btn-accent apply-btn" data-role="${job.title}" style="white-space:nowrap;">
+                            <i class="ph ph-arrow-right"></i> Apply Now
+                        </button>
+                    </div>
+                `).join('');
+                // Re-attach click handlers after render
+                attachApplyHandlers();
+            } catch {
+                list.innerHTML = '<p style="text-align:center;color:var(--neu-muted);padding:2rem;">Could not load openings. Please refresh the page.</p>';
+            }
+        }
+
+        // Open modal with role pre-filled
+        function attachApplyHandlers() {
+            document.querySelectorAll('.apply-btn').forEach(btn => {
+                btn.addEventListener('click', () => openModal(btn.dataset.role));
+            });
+        }
+
+        function openModal(role) {
+            document.getElementById('apply-role').value = role;
+            document.getElementById('modal-role-label').textContent = role;
+            document.getElementById('apply-success').style.display = 'none';
+            document.getElementById('apply-error').style.display = 'none';
+            document.getElementById('apply-form').reset();
+            document.getElementById('file-name').textContent = 'Choose file...';
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+        // "Send Your CV" CTA opens modal with generic role
+        document.querySelectorAll('[href="../../pages/company/contact-us.html"]').forEach(el => {
+            if (el.textContent.includes('Send Your CV')) {
+                el.removeAttribute('href');
+                el.style.cursor = 'pointer';
+                el.addEventListener('click', e => { e.preventDefault(); openModal('Open Application'); });
+            }
+        });
+
+        // File name display
+        document.getElementById('apply-cv').addEventListener('change', function() {
+            document.getElementById('file-name').textContent = this.files[0]?.name || 'Choose file...';
+        });
+
+        // Submit application
+        document.getElementById('apply-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('apply-submit');
+            const successEl = document.getElementById('apply-success');
+            const errorEl = document.getElementById('apply-error');
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="ph ph-spinner"></i> <span>Submitting...</span>';
+            successEl.style.display = 'none';
+            errorEl.style.display = 'none';
+
+            const formData = new FormData(this);
+
+            try {
+                const res = await fetch(`${BACKEND}/api/careers`, {
+                    method: 'POST',
+                    body: formData,
+                });
+                const json = await res.json();
+                if (json.success) {
+                    successEl.style.display = 'block';
+                    this.reset();
+                    document.getElementById('file-name').textContent = 'Choose file...';
+                } else {
+                    errorEl.textContent = json.error || 'Something went wrong.';
+                    errorEl.style.display = 'block';
+                }
+            } catch {
+                errorEl.textContent = 'Could not reach the server. Please try again later.';
+                errorEl.style.display = 'block';
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="ph ph-paper-plane-tilt"></i> <span>Submit Application</span>';
+            }
+        });
+
+        loadJobs();
     </script>
 </body>
 </html>

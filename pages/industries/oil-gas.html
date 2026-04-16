@@ -1,80 +1,247 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oil &amp; Gas | Aerovania</title>
-    <meta name="description" content="Drone-based pipeline inspection, facility monitoring, and HSE compliance for oil and gas operators.">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oil & Gas | Aerovania</title>
+    <meta name="description" content="Pipeline surveys, reservoir volumetrics, and refinery inspection using thermal and LiDAR drones.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <style>
-        :root{--cyan:#34C0C5;--navy:#0a0e20;--navy2:#0d1226}
-        .page-hero{position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center;background:linear-gradient(135deg,var(--navy) 0%,#0d1a35 60%,#0a1a2e 100%)}
-        .page-hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(52,192,197,.18) 0%,transparent 70%);top:-150px;right:-100px;pointer-events:none}
-        .page-hero::after{content:'';position:absolute;width:350px;height:350px;background:radial-gradient(circle,rgba(52,192,197,.10) 0%,transparent 70%);bottom:-80px;left:5%;pointer-events:none}
-        .page-hero .container{position:relative;z-index:2;padding:6rem 0 5rem}
-        .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);background:rgba(52,192,197,.1);border:1px solid rgba(52,192,197,.25);border-radius:50px;padding:.4rem 1rem;margin-bottom:1.5rem}
-        .page-hero h1{font-family:'Sora',sans-serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;color:#f1f5f9;line-height:1.12;margin:0 0 1.25rem;max-width:700px}
-        .page-hero h1 span{color:var(--cyan)}
-        .page-hero .hero-sub{font-size:1.1rem;color:#94a3b8;line-height:1.75;max-width:600px;margin:0 0 2rem}
-        .hero-cta-row{display:flex;gap:1rem;flex-wrap:wrap}
-        .intro-strip{background:#fff;padding:3rem 0;border-bottom:1px solid #e8edf3}
-        .intro-strip .container{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-        .intro-strip h2{font-family:'Sora',sans-serif;font-size:1.7rem;font-weight:800;color:#0a0e20;margin:0 0 .75rem}
-        .intro-strip p{color:#475569;font-size:1rem;line-height:1.75;margin:0}
-        .intro-kpis{display:flex;gap:2rem;flex-wrap:wrap}
-        .intro-kpi .k-num{font-size:2rem;font-weight:800;color:var(--cyan);line-height:1}
-        .intro-kpi .k-lbl{font-size:.78rem;color:#64748b;margin-top:.2rem}
-        .tabs-section{background:#f4f7fb;padding:5rem 0}
-        .tabs-section .section-head{text-align:center;margin-bottom:3rem}
-        .tabs-section .section-head .eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:.75rem}
-        .tabs-section .section-head h2{font-family:'Sora',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#0a0e20;margin:0 0 .75rem}
-        .tabs-section .section-head p{color:#475569;font-size:1rem;max-width:600px;margin:0 auto}
-        .tabs-layout{display:grid;grid-template-columns:340px 1fr;gap:2.5rem;align-items:start}
+        :root{--cyan:#34C0C5;--cyan2:#29a8ad;--navy:#0a0e20;--navy2:#0d1226;--navy3:#060c1a}
+
+        /* ══ HERO ══ */
+        .page-hero{position:relative;overflow:hidden;min-height:600px;display:flex;align-items:center;
+            background:linear-gradient(135deg,var(--navy) 0%,#0b1630 55%,#091220 100%)}
+        .page-hero-bg{position:absolute;inset:0;background-image:url('../../assets/images/Industries/Oil\ and\ Gas.png');background-size:cover;background-position:center 60%;z-index:0;transform:scale(1.04);transition:transform 8s ease-in-out}
+        .page-hero:hover .page-hero-bg{transform:scale(1)}
+        .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,12,26,.88) 0%,rgba(6,12,26,.65) 50%,rgba(6,12,26,.4) 100%);z-index:1;pointer-events:none}
+        .page-hero canvas{position:absolute;inset:0;pointer-events:none;z-index:1;width:100%;height:100%}
+        .page-hero::before{content:'';position:absolute;width:800px;height:800px;
+            background:radial-gradient(circle,rgba(52,192,197,.15) 0%,transparent 65%);
+            top:-250px;right:-200px;pointer-events:none;z-index:1}
+        .page-hero::after{content:'';position:absolute;width:400px;height:400px;
+            background:radial-gradient(circle,rgba(52,192,197,.08) 0%,transparent 70%);
+            bottom:-100px;left:5%;pointer-events:none;z-index:1}
+
+        @keyframes scanDown{0%{top:-2px;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:100%;opacity:0}}
+        .page-hero .container{position:relative;z-index:3}
+        .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;
+            letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);
+            background:rgba(52,192,197,.1);border:1px solid rgba(52,192,197,.3);
+            border-radius:50px;padding:.45rem 1.1rem;margin-bottom:1.75rem;
+            animation:fadeSlideUp .6s ease both}
+        @keyframes fadeSlideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+        .page-hero h1{font-family:'Sora',sans-serif;font-size:clamp(2.4rem,5.5vw,4rem);
+            font-weight:800;color:#f1f5f9;line-height:1.1;margin:0 0 1.25rem;max-width:760px;
+            animation:fadeSlideUp .7s .1s ease both}
+        .page-hero h1 span{color:var(--cyan);text-shadow:0 0 40px rgba(52,192,197,.35)}
+        .page-hero .hero-sub{font-size:1.05rem;color:#94a3b8;line-height:1.8;
+            max-width:580px;margin:0 0 2.25rem;animation:fadeSlideUp .7s .2s ease both}
+        .hero-cta-row{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeSlideUp .7s .3s ease both}
+        .hero-float-badge{position:absolute;background:rgba(10,14,32,.88);
+            backdrop-filter:blur(14px);border:1px solid rgba(52,192,197,.3);
+            border-radius:14px;padding:.7rem 1.1rem;display:flex;align-items:center;gap:.65rem;z-index:4;
+            animation:floatBadge 3s ease-in-out infinite alternate}
+        @keyframes floatBadge{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+        .hero-float-badge i{color:var(--cyan);font-size:1.15rem}
+        .hero-float-badge .fb-val{font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:800;color:#f1f5f9;line-height:1.1}
+        .hero-float-badge .fb-lbl{font-size:.68rem;color:#64748b;margin-top:.1rem}
+        .hfb1{right:8%;top:28%;animation-delay:0s}
+        .hfb2{right:4%;top:52%;animation-delay:.9s}
+        .hfb3{right:18%;top:74%;animation-delay:1.6s}
+
+        /* ══ INTRO STRIP ══ */
+        .intro-strip{background:var(--navy3);padding:4.5rem 0;position:relative;overflow:hidden;
+            border-bottom:1px solid rgba(52,192,197,.12)}
+        .intro-strip::before{content:'';position:absolute;inset:0;
+            background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(52,192,197,.07) 0%,transparent 70%);
+            pointer-events:none}
+        .intro-strip .container{display:grid;grid-template-columns:1fr 1fr;gap:4rem;
+            align-items:center;position:relative;z-index:2}
+        .intro-strip-eyebrow{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;
+            font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);
+            background:rgba(52,192,197,.1);border:1px solid rgba(52,192,197,.25);
+            border-radius:50px;padding:.35rem .9rem;margin-bottom:1.25rem}
+        .intro-strip h2{font-family:'Sora',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);
+            font-weight:800;color:#f1f5f9;margin:0 0 1rem;line-height:1.2}
+        .intro-strip h2 span{color:var(--cyan)}
+        .intro-strip p{color:#94a3b8;font-size:1rem;line-height:1.8;margin:0 0 1.5rem}
+        .intro-trust-row{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
+        .intro-trust-badge{display:flex;align-items:center;gap:.45rem;font-size:.78rem;color:#64748b;font-weight:500}
+        .intro-trust-badge i{color:var(--cyan);font-size:.95rem}
+        .intro-kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+        .intro-kpi-card{background:rgba(255,255,255,.04);border:1px solid rgba(52,192,197,.15);
+            border-radius:4px;padding:1.35rem 1.25rem;display:flex;align-items:flex-start;gap:.9rem;
+            transition:transform .3s,box-shadow .3s,border-color .3s;cursor:default}
+        .intro-kpi-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(52,192,197,.18);border-color:rgba(52,192,197,.4)}
+        .kpi-icon{width:42px;height:42px;border-radius:11px;background:rgba(52,192,197,.12);
+            display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .3s}
+        .intro-kpi-card:hover .kpi-icon{background:rgba(52,192,197,.22)}
+        .kpi-icon i{color:var(--cyan);font-size:1.2rem}
+        .kpi-val{font-family:'Sora',sans-serif;font-size:1.5rem;font-weight:800;color:var(--cyan);
+            line-height:1;text-shadow:0 0 20px rgba(52,192,197,.3)}
+        .kpi-desc{font-size:.75rem;color:#64748b;margin-top:.25rem;line-height:1.4}
+
+        /* ══ TABS ══ */
+        .tabs-section{background:#f4f7fb;padding:5.5rem 0;position:relative}
+        .tabs-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+            background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+        .tabs-section .section-head{text-align:center;margin-bottom:3.5rem}
+        .tabs-section .section-head .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.16em;
+            text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:.75rem}
+        .tabs-section .section-head h2{font-family:'Sora',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);
+            font-weight:800;color:#0a0e20;margin:0 0 .75rem}
+        .tabs-layout{display:grid;grid-template-columns:320px 1fr;gap:2.5rem;align-items:start}
         .tab-list{display:flex;flex-direction:column;gap:.5rem}
-        .tab-btn{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:1.1rem 1.25rem;cursor:pointer;text-align:left;transition:all .25s;position:relative;overflow:hidden}
-        .tab-btn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cyan);transform:scaleY(0);transition:transform .25s;border-radius:0 2px 2px 0}
-        .tab-btn:hover{border-color:rgba(52,192,197,.4);box-shadow:0 4px 16px rgba(52,192,197,.1)}
-        .tab-btn.active{border-color:var(--cyan);box-shadow:0 4px 20px rgba(52,192,197,.18);background:#f0fdfe}
+        .tab-btn{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid #e2e8f0;
+            border-radius:14px;padding:1.1rem 1.25rem;cursor:pointer;text-align:left;
+            transition:all .28s;position:relative;overflow:hidden}
+        .tab-btn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+            background:linear-gradient(180deg,var(--cyan),var(--cyan2));
+            transform:scaleY(0);transition:transform .28s;border-radius:0 2px 2px 0}
+        .tab-btn:hover{border-color:rgba(52,192,197,.4);box-shadow:0 4px 20px rgba(52,192,197,.12);transform:translateX(3px)}
+        .tab-btn.active{border-color:var(--cyan);box-shadow:0 4px 24px rgba(52,192,197,.2);background:linear-gradient(135deg,#f0fdfe,#fff)}
         .tab-btn.active::before{transform:scaleY(1)}
-        .tab-num{width:36px;height:36px;border-radius:10px;background:#e8f8f9;color:var(--cyan);font-size:.85rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s,color .25s}
-        .tab-btn.active .tab-num{background:var(--cyan);color:#fff}
+        .tab-num{width:36px;height:36px;border-radius:10px;background:#e8f8f9;font-size:.85rem;
+            font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+            transition:all .28s;color:#0a0e20}
+        .tab-btn.active .tab-num{background:var(--cyan);color:#fff;box-shadow:0 4px 12px rgba(52,192,197,.4)}
         .tab-text h4{font-size:.95rem;font-weight:700;color:#0a0e20;margin:0 0 .2rem}
         .tab-text p{font-size:.8rem;color:#64748b;margin:0;line-height:1.4}
         .tab-panel{display:none}.tab-panel.active{display:block}
-        .tab-panel-inner{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.1)}
+        .tab-panel-inner{background:#fff;border-radius:22px;overflow:hidden;
+            box-shadow:0 16px 64px rgba(0,0,0,.12);animation:panelIn .35s ease both}
+        @keyframes panelIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
         .tab-panel-img{position:relative;aspect-ratio:16/9;overflow:hidden}
-        .tab-panel-img img{width:100%;height:100%;object-fit:cover;display:block}
-        .tab-panel-img .panel-badge{position:absolute;bottom:1rem;left:1rem;background:rgba(10,14,32,.85);backdrop-filter:blur(12px);border:1px solid rgba(52,192,197,.3);border-radius:10px;padding:.5rem .9rem;display:flex;align-items:center;gap:.5rem}
+        .tab-panel-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+        .tab-panel-inner:hover .tab-panel-img img{transform:scale(1.04)}
+        .tab-panel-img .panel-badge{position:absolute;bottom:1rem;left:1rem;
+            background:rgba(10,14,32,.88);backdrop-filter:blur(14px);
+            border:1px solid rgba(52,192,197,.35);border-radius:11px;
+            padding:.55rem 1rem;display:flex;align-items:center;gap:.55rem}
         .tab-panel-img .panel-badge i{color:var(--cyan);font-size:1rem}
         .tab-panel-img .panel-badge span{font-size:.78rem;color:#e2e8f0;font-weight:500}
+        .panel-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);
+            box-shadow:0 0 8px var(--cyan);animation:pulse 1.5s infinite;flex-shrink:0}
+        @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
         .tab-panel-body{padding:2rem 2.5rem}
-        .tab-panel-body h3{font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;color:#0a0e20;margin:0 0 .75rem}
-        .tab-panel-body p{color:#475569;font-size:.95rem;line-height:1.75;margin:0 0 1.25rem}
-        .tab-feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
-        .tab-feat-item{display:flex;align-items:flex-start;gap:.6rem;font-size:.88rem;color:#334155}
-        .tab-feat-item i{color:var(--cyan);font-size:1rem;margin-top:.1rem;flex-shrink:0}
-        .why-section{background:#fff;padding:5rem 0}
+        .tab-panel-body h3{font-family:'Sora',sans-serif;font-size:1.5rem;font-weight:800;color:#0a0e20;margin:0 0 .75rem}
+        .tab-panel-body p{color:#475569;font-size:.95rem;line-height:1.78;margin:0 0 1.5rem}
+        .tab-feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+        .tab-feat-item{display:flex;align-items:flex-start;gap:.65rem;font-size:.88rem;color:#334155;
+            padding:.45rem .6rem;border-radius:8px;transition:background .2s}
+        .tab-feat-item:hover{background:rgba(52,192,197,.06)}
+        .tab-feat-item i{color:var(--cyan);font-size:1.05rem;margin-top:.1rem;flex-shrink:0}
+
+        /* ══ WHY ══ */
+        .why-section{background:#fff;padding:5.5rem 0;position:relative;overflow:hidden}
+        .why-section::after{content:'';position:absolute;width:500px;height:500px;
+            background:radial-gradient(circle,rgba(52,192,197,.05) 0%,transparent 70%);
+            bottom:-100px;right:-100px;pointer-events:none}
         .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-        .why-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:2rem 1.5rem;transition:box-shadow .3s,transform .3s}
-        .why-card:hover{box-shadow:0 8px 32px rgba(52,192,197,.12);transform:translateY(-3px)}
-        .why-icon{width:52px;height:52px;border-radius:14px;background:rgba(52,192,197,.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+        .why-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:20px;padding:2rem 1.75rem;
+            transition:all .35s;position:relative;overflow:hidden;cursor:default;
+            transform-style:preserve-3d}
+        .why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+            background:linear-gradient(90deg,var(--cyan),transparent);
+            transform:scaleX(0);transform-origin:left;transition:transform .35s}
+        .why-card:hover::before{transform:scaleX(1)}
+        .why-card:hover{box-shadow:0 16px 48px rgba(52,192,197,.14);border-color:rgba(52,192,197,.3);background:#fff}
+        .why-icon{width:56px;height:56px;border-radius:16px;background:rgba(52,192,197,.1);
+            display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;transition:all .35s}
+        .why-card:hover .why-icon{background:rgba(52,192,197,.18);box-shadow:0 8px 24px rgba(52,192,197,.2);transform:scale(1.05)}
         .why-icon i{font-size:1.5rem;color:var(--cyan)}
-        .why-card h3{font-size:1rem;font-weight:700;color:#0a0e20;margin:0 0 .6rem}
-        .why-card p{font-size:.88rem;color:#475569;line-height:1.65;margin:0}
-        .stats-band{background:linear-gradient(135deg,#060c1a 0%,#0a1628 100%);padding:4rem 0;position:relative;overflow:hidden}
-        .stats-band::before{content:'';position:absolute;width:600px;height:300px;background:radial-gradient(ellipse,rgba(52,192,197,.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-        .stats-band-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem}
-        .stat-tile{background:rgba(255,255,255,.04);border:1px solid rgba(52,192,197,.2);border-radius:18px;padding:2rem 1.5rem;text-align:center;backdrop-filter:blur(12px);transition:transform .3s,box-shadow .3s}
-        .stat-tile:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(52,192,197,.18)}
-        .stat-tile .num{font-size:2.4rem;font-weight:800;color:var(--cyan);text-shadow:0 0 20px rgba(52,192,197,.4)}
-        .stat-tile .lbl{font-size:.82rem;color:#94a3b8;margin-top:.4rem}
-        .section-cta{background:linear-gradient(135deg,#f0f9ff 0%,#e0f7f8 100%);position:relative;overflow:hidden}
-        .section-cta::before{content:'';position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(52,192,197,.15) 0%,transparent 70%);top:-100px;right:-50px;pointer-events:none}
+        .why-card h3{font-size:1rem;font-weight:700;color:#0a0e20;margin:0 0 .65rem}
+        .why-card p{font-size:.88rem;color:#475569;line-height:1.7;margin:0}
+
+        /* ══ PROCESS ══ */
+        .process-section{background:#f4f7fb;padding:5.5rem 0;position:relative}
+        .process-section::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+            background:linear-gradient(90deg,transparent,rgba(52,192,197,.4),transparent)}
+        .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+            background:rgba(52,192,197,.12);border-radius:20px;overflow:hidden;margin-top:3rem}
+        .process-step{background:#fff;padding:2.5rem 2rem;position:relative;transition:background .3s}
+        .process-step:hover{background:#f0fdfe}
+        .process-step-num{font-family:'Sora',sans-serif;font-size:3rem;font-weight:800;
+            color:rgba(52,192,197,.12);line-height:1;margin-bottom:1rem;transition:color .3s}
+        .process-step:hover .process-step-num{color:rgba(52,192,197,.28)}
+        .process-step-icon{width:48px;height:48px;;background:rgba(52,192,197,.1);
+            display:flex;align-items:center;justify-content:center;margin-bottom:1rem;transition:all .3s}
+        .process-step:hover .process-step-icon{background:rgba(52,192,197,.2);transform:scale(1.08)}
+        .process-step-icon i{font-size:1.4rem;color:var(--cyan)}
+        .process-step h4{font-size:1rem;font-weight:700;color:#0a0e20;margin:0 0 .5rem}
+        .process-step p{font-size:.85rem;color:#475569;line-height:1.65;margin:0}
+
+        /* ══ STATS BAND ══ */
+        .stats-row-section{background:linear-gradient(135deg,#060c1a 0%,#0a1628 100%);
+            padding:4.5rem 0;position:relative;overflow:hidden}
+        .stats-row-section::before{content:'';position:absolute;width:700px;height:350px;
+            background:radial-gradient(ellipse,rgba(52,192,197,.12) 0%,transparent 70%);
+            top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+        .geo-stats-header{text-align:center;margin-bottom:3rem}
+        .geo-stats-label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.14em;
+            text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem}
+        .geo-stats-title{font-family:'Sora',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);
+            font-weight:800;color:#f1f5f9;margin:0 0 1.5rem}
+        .geo-stats-line{width:60px;height:3px;background:linear-gradient(90deg,var(--cyan),transparent);
+            margin:0 auto;border-radius:2px}
+        .geo-stats-band{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+            border-top:1px solid rgba(52,192,197,.15);border-bottom:1px solid rgba(52,192,197,.15);padding:2.5rem 0}
+        .geo-stat-item{display:flex;flex-direction:column;align-items:center;padding:0 3rem;gap:.2rem}
+        .geo-stat-num{font-family:'Sora',sans-serif;font-size:clamp(2.4rem,4vw,3.5rem);
+            font-weight:800;color:var(--cyan);line-height:1;text-shadow:0 0 30px rgba(52,192,197,.35)}
+        .geo-stat-unit{font-size:.78rem;font-weight:600;color:rgba(52,192,197,.7);
+            text-transform:uppercase;letter-spacing:.08em;margin-top:.1rem}
+        .geo-stat-lbl{font-size:.78rem;color:#64748b;margin-top:.3rem;text-align:center}
+        .geo-stat-sep{width:1px;height:60px;background:rgba(52,192,197,.2);flex-shrink:0}
+
+        /* ══ CTA ══ */
+        .section-cta{background:linear-gradient(135deg,#060c1a 0%,#0b1a2e 100%);
+            position:relative;overflow:hidden;padding:5rem 0;text-align:center}
+        .section-cta::before{content:'';position:absolute;width:600px;height:400px;
+            background:radial-gradient(ellipse,rgba(52,192,197,.14) 0%,transparent 70%);
+            top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
         .section-cta>.container{position:relative;z-index:1}
-        @media(max-width:900px){.tabs-layout{grid-template-columns:1fr}.tab-list{flex-direction:row;flex-wrap:wrap}.tab-btn{flex:1;min-width:140px}.why-grid{grid-template-columns:1fr 1fr}.stats-band-grid{grid-template-columns:repeat(2,1fr)}.intro-strip .container{grid-template-columns:1fr}.tab-feat-grid{grid-template-columns:1fr}}
-        @media(max-width:540px){.why-grid{grid-template-columns:1fr}.stats-band-grid{grid-template-columns:1fr 1fr}}
+        .section-cta h2{font-family:'Sora',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);
+            font-weight:800;color:#f1f5f9;margin:0 0 1rem}
+        .section-cta h2 span{color:var(--cyan)}
+        .section-cta p{color:#94a3b8;font-size:1rem;max-width:540px;margin:0 auto 2rem;line-height:1.75}
+        .cta-btn-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+        .btn-ghost-cyan{display:inline-flex;align-items:center;gap:.5rem;color:#94a3b8;font-size:.9rem;
+            font-weight:500;text-decoration:none;padding:.75rem 1.5rem;
+            border:1px solid rgba(255,255,255,.12);border-radius:50px;
+            transition:all .3s}
+        .btn-ghost-cyan:hover{border-color:rgba(52,192,197,.45);color:var(--cyan)}
+
+        /* ══ REVEAL ANIMATIONS ══ */
+        .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+        .reveal.visible{opacity:1;transform:none}
+        .stagger-1{transition-delay:.1s}.stagger-2{transition-delay:.2s}.stagger-3{transition-delay:.3s}
+        .stagger-4{transition-delay:.4s}.stagger-5{transition-delay:.5s}.stagger-6{transition-delay:.6s}
+
+        /* ══ RESPONSIVE ══ */
+        @media(max-width:900px){
+            .tabs-layout{grid-template-columns:1fr}
+            .tab-list{flex-direction:row;flex-wrap:wrap}
+            .tab-btn{flex:1;min-width:140px}
+            .why-grid{grid-template-columns:1fr 1fr}
+            .intro-strip .container{grid-template-columns:1fr;gap:2.5rem}
+            .intro-kpi-grid{grid-template-columns:1fr 1fr}
+            .process-grid{grid-template-columns:1fr 1fr}
+            .tab-feat-grid{grid-template-columns:1fr}
+            .hero-float-badge{display:none}
+        }
+        @media(max-width:600px){
+            .why-grid{grid-template-columns:1fr}
+            .process-grid{grid-template-columns:1fr}
+            .geo-stats-band{padding:1rem 0}
+            .geo-stat-sep{display:none}
+            .geo-stat-item{padding:1rem 1.5rem}
+        }
     </style>
 </head>
 <body>
@@ -82,7 +249,8 @@
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
+                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                        class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
                 <div class="nav-contact-info" style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
@@ -169,73 +337,260 @@
             </div>
         </div>
     </header>
+
+    
+    <!-- ── HERO ── -->
     <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="page-hero-overlay"></div>
+        <canvas id="heroCanvas"></canvas>
+
+        
+    <div class="hero-float-badge hfb1" style="animation-delay:0s">
+        <i class="ph ph-thermometer"></i>
+        <div><div class="fb-val">Thermal</div><div class="fb-lbl">Leak Detection</div></div>
+    </div>
+    <div class="hero-float-badge hfb2" style="animation-delay:1s">
+        <i class="ph ph-lightning"></i>
+        <div><div class="fb-val">Zero</div><div class="fb-lbl">Shutdown</div></div>
+    </div>
+    <div class="hero-float-badge hfb3" style="animation-delay:1.8s">
+        <i class="ph ph-waves"></i>
+        <div><div class="fb-val">±5mm</div><div class="fb-lbl">LiDAR Accuracy</div></div>
+    </div>
         <div class="container">
-            <div class="hero-eyebrow"><i class="ph ph-gas-pump"></i> Industry Solution</div>
-            <h1>Oil &amp; Gas <span>Intelligence</span></h1>
-            <p class="hero-sub">Drone-based pipeline inspection, facility monitoring, and HSE compliance for upstream, midstream, and downstream oil and gas operators.</p>
-            <div class="hero-cta-row"><a href="../../pages/company/contact-us.html" class="btn btn-primary btn-lg">Talk to an Expert</a><a href="#capabilities" class="btn btn-outline-cyan">Explore Capabilities</a></div>
+            <div class="hero-eyebrow"><i class="ph ph-drop"></i> Oil & Gas Inspection Intelligence</div>
+            <h1>Safer Pipeline Inspection from Above</h1>
+            <p class="hero-sub">Pipeline surveys, reservoir volumetrics, and refinery inspection using thermal and LiDAR drones — no shutdowns, no scaffolding, no confined-space entry.</p>
+            <div class="hero-cta-row">
+                <a href="../../pages/company/contact-us.html" class="btn btn-primary btn-lg">Talk to an Expert</a>
+                <a href="#capabilities" class="btn btn-outline-cyan">Explore Capabilities</a>
+            </div>
         </div>
     </section>
+
+    <!-- ── INTRO ── -->
     <section class="intro-strip">
         <div class="container">
-            <div><h2>Aerial Intelligence for Oil &amp; Gas Operations</h2><p>Aerovania's drone platform delivers thermal inspection, pipeline corridor surveys, and AI-powered leak detection across oil and gas infrastructure  reducing downtime, improving safety, and cutting inspection costs.</p></div>
-            <div class="intro-kpis">
-                <div class="intro-kpi"><div class="k-num">Thermal</div><div class="k-lbl">Leak Detection</div></div>
-                <div class="intro-kpi"><div class="k-num">10x</div><div class="k-lbl">Faster than Manual</div></div>
-                <div class="intro-kpi"><div class="k-num">AI</div><div class="k-lbl">Anomaly Detection</div></div>
-                <div class="intro-kpi"><div class="k-num">Zero</div><div class="k-lbl">Shutdown Required</div></div>
+            <div class="intro-text-block reveal">
+                <div class="intro-strip-eyebrow"><i class="ph ph-drop"></i>Oil & Gas Inspection Intelligence</div>
+                <h2>Safer Pipeline Inspection <span>from Above</span></h2>
+                <p>Aerovania delivers drone-based pipeline surveys, reservoir volumetrics, and thermal refinery inspections — replacing dangerous manual inspections with faster, safer, and more accurate aerial intelligence.</p>
+                <div class="intro-trust-row">
+                    <div class="intro-trust-badge"><i class="ph ph-lightning"></i>Zero Shutdown</div>
+                    <div class="intro-trust-badge"><i class="ph ph-file-text"></i>PNGRB Compliant</div>
+                    <div class="intro-trust-badge"><i class="ph ph-thermometer"></i>Thermal Detection</div>
+                </div>
+            </div>
+            <div class="intro-kpi-grid reveal stagger-2">
+                <div class="intro-kpi-card"><div class="kpi-icon"><i class="ph ph-thermometer"></i></div><div class="kpi-body"><div class="kpi-val">Thermal</div><div class="kpi-desc">Leak Detection</div></div></div>
+                <div class="intro-kpi-card"><div class="kpi-icon"><i class="ph ph-waves"></i></div><div class="kpi-body"><div class="kpi-val">LiDAR</div><div class="kpi-desc">Pipeline Survey</div></div></div>
+                <div class="intro-kpi-card"><div class="kpi-icon"><i class="ph ph-cube"></i></div><div class="kpi-body"><div class="kpi-val">3D</div><div class="kpi-desc">Reservoir Models</div></div></div>
+                <div class="intro-kpi-card"><div class="kpi-icon"><i class="ph ph-lightning"></i></div><div class="kpi-body"><div class="kpi-val">Zero</div><div class="kpi-desc">Shutdown Required</div></div></div>
             </div>
         </div>
     </section>
+
+    <!-- ── CAPABILITIES ── -->
     <section id="capabilities" class="tabs-section">
         <div class="container">
-            <div class="section-head"><span class="eyebrow">Capabilities</span><h2>What We Deliver for Oil &amp; Gas</h2><p>From pipeline inspection to facility monitoring  explore Aerovania's full oil and gas intelligence suite.</p></div>
+            <div class="section-head reveal">
+                <span class="eyebrow">Capabilities</span>
+                <h2>What We Deliver for Oil & Gas</h2>
+            </div>
             <div class="tabs-layout">
                 <div class="tab-list">
-                    <button class="tab-btn active" data-tab="t1"><div class="tab-num">1</div><div class="tab-text"><h4>Pipeline Inspection</h4><p>Corridor &amp; leak detection</p></div></button>
-                    <button class="tab-btn" data-tab="t2"><div class="tab-num">2</div><div class="tab-text"><h4>Facility Monitoring</h4><p>Thermal &amp; visual inspection</p></div></button>
-                    <button class="tab-btn" data-tab="t3"><div class="tab-num">3</div><div class="tab-text"><h4>HSE Compliance</h4><p>Safety monitoring</p></div></button>
-                    <button class="tab-btn" data-tab="t4"><div class="tab-num">4</div><div class="tab-text"><h4>Flare Stack Inspection</h4><p>High-risk asset inspection</p></div></button>
+                <button class="tab-btn active" data-tab="t1"><div class="tab-num">1</div><div class="tab-text"><h4>Pipeline Survey</h4><p>Corridor & integrity inspection</p></div></button>
+                <button class="tab-btn" data-tab="t2"><div class="tab-num">2</div><div class="tab-text"><h4>Thermal Leak Detection</h4><p>Hotspot & leak identification</p></div></button>
+                <button class="tab-btn" data-tab="t3"><div class="tab-num">3</div><div class="tab-text"><h4>Reservoir Volumetrics</h4><p>Storage & inventory</p></div></button>
+                <button class="tab-btn" data-tab="t4"><div class="tab-num">4</div><div class="tab-text"><h4>Refinery Inspection</h4><p>Facility & structure assessment</p></div></button>
+                <button class="tab-btn" data-tab="t5"><div class="tab-num">5</div><div class="tab-text"><h4>Environmental Compliance</h4><p>Spill & impact monitoring</p></div></button>
                 </div>
                 <div class="tab-panels">
-                    <div class="tab-panel active" id="t1"><div class="tab-panel-inner"><div class="tab-panel-img"><img src="../../assets/images/hero_drone_survey.png" alt="Pipeline Inspection"><div class="panel-badge"><i class="ph ph-pipe"></i><span>Pipeline Survey Active</span></div></div><div class="tab-panel-body"><h3>Pipeline Corridor Inspection</h3><p>Thermal and RGB drone inspection of oil and gas pipelines detects leaks, corrosion, third-party encroachments, and ROW violations  covering hundreds of kilometres per day without shutdown.</p><div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Thermal leak detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Corrosion identification</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>ROW encroachment detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>No shutdown required</div></div></div></div></div>
-                    <div class="tab-panel" id="t2"><div class="tab-panel-inner"><div class="tab-panel-img"><img src="../../assets/images/hero_ai_monitoring.png" alt="Facility Monitoring"><div class="panel-badge"><i class="ph ph-factory"></i><span>Facility Scan Active</span></div></div><div class="tab-panel-body"><h3>Facility &amp; Plant Monitoring</h3><p>Thermal and visual drone inspection of refineries, processing plants, and storage facilities  detecting hotspots, structural defects, and equipment anomalies without scaffolding or plant shutdown.</p><div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Thermal hotspot detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Structural defect mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>No scaffolding required</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Predictive maintenance reports</div></div></div></div></div>
-                    <div class="tab-panel" id="t3"><div class="tab-panel-inner"><div class="tab-panel-img"><img src="../../assets/images/hero_lidar_terrain.png" alt="HSE Compliance"><div class="panel-badge"><i class="ph ph-shield-check"></i><span>HSE Monitoring Active</span></div></div><div class="tab-panel-body"><h3>HSE Compliance Monitoring</h3><p>AI-powered aerial monitoring detects HSE violations, unauthorised access, and hazardous conditions across oil and gas facilities  delivering real-time alerts to safety officers.</p><div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>PPE compliance detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Exclusion zone monitoring</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Automated incident reports</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Regulatory audit trails</div></div></div></div></div>
-                    <div class="tab-panel" id="t4"><div class="tab-panel-inner"><div class="tab-panel-img"><img src="../../assets/images/hero_ai_dashboard.png" alt="Flare Stack Inspection"><div class="panel-badge"><i class="ph ph-fire"></i><span>Flare Inspection Active</span></div></div><div class="tab-panel-body"><h3>Flare Stack &amp; High-Risk Inspection</h3><p>Close-range drone inspection of flare stacks, chimneys, and high-risk assets  detecting structural defects, corrosion, and refractory damage without scaffolding or personnel exposure.</p><div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Flare stack inspection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Corrosion &amp; defect detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Zero personnel exposure</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Condition rating reports</div></div></div></div></div>
+                <div class="tab-panel active" id="t1">
+                    <div class="tab-panel-inner">
+                        <div class="tab-panel-img">
+                            <img src="../../assets/images/hero_drone_survey.png" alt="Pipeline Survey">
+                            <div class="panel-badge"><i class="ph-pipe"></i><span>Pipeline Survey Active</span></div>
+                        </div>
+                        <div class="tab-panel-body">
+                            <h3>Pipeline Survey</h3>
+                            <p>LiDAR and visual drone surveys of pipeline corridors detect encroachments, third-party damage, corrosion, and right-of-way violations — covering hundreds of kilometres per day without ground access.</p>
+                            <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Corridor encroachment detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Third-party damage identification</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>ROW violation mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>GIS-ready outputs</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-panel" id="t2">
+                    <div class="tab-panel-inner">
+                        <div class="tab-panel-img">
+                            <img src="../../assets/images/hero_ai_monitoring.png" alt="Thermal Leak Detection">
+                            <div class="panel-badge"><i class="ph-thermometer"></i><span>Thermal Scan Active</span></div>
+                        </div>
+                        <div class="tab-panel-body">
+                            <h3>Thermal Leak Detection</h3>
+                            <p>Thermal drone surveys detect pipeline leaks, hotspots, and insulation failures along above-ground pipelines and at facilities — identifying issues before they become safety incidents.</p>
+                            <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Pipeline leak detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Insulation failure mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Hotspot identification</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Automated alert reports</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-panel" id="t3">
+                    <div class="tab-panel-inner">
+                        <div class="tab-panel-img">
+                            <img src="../../assets/images/hero_lidar_terrain.png" alt="Reservoir Volumetrics">
+                            <div class="panel-badge"><i class="ph-cylinder"></i><span>Volumetric Survey Active</span></div>
+                        </div>
+                        <div class="tab-panel-body">
+                            <h3>Reservoir Volumetrics</h3>
+                            <p>Drone-based volumetric surveys of oil storage tanks, earthen reservoirs, and containment berms provide accurate inventory data — replacing manual dipping and unsafe confined-space entry.</p>
+                            <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Tank & reservoir volumes</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Berm condition mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Inventory reconciliation</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>No confined-space entry</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-panel" id="t4">
+                    <div class="tab-panel-inner">
+                        <div class="tab-panel-img">
+                            <img src="../../assets/images/video-management.jpeg" alt="Refinery Inspection">
+                            <div class="panel-badge"><i class="ph-factory"></i><span>Refinery Inspection Active</span></div>
+                        </div>
+                        <div class="tab-panel-body">
+                            <h3>Refinery Inspection</h3>
+                            <p>Thermal and visual drone inspection of refinery structures — flare stacks, cooling towers, storage tanks, and process units — detecting corrosion, hotspots, and structural defects without scaffolding.</p>
+                            <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Flare stack inspection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Cooling tower assessment</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Corrosion detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>No scaffolding required</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-panel" id="t5">
+                    <div class="tab-panel-inner">
+                        <div class="tab-panel-img">
+                            <img src="../../assets/images/hero_ai_dashboard.png" alt="Environmental Compliance">
+                            <div class="panel-badge"><i class="ph-leaf"></i><span>Compliance Monitoring Active</span></div>
+                        </div>
+                        <div class="tab-panel-body">
+                            <h3>Environmental Compliance</h3>
+                            <p>Regular drone surveys monitor oil and gas facilities for environmental compliance — detecting spills, vegetation damage, and land contamination for regulatory reporting and remediation planning.</p>
+                            <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Spill detection & mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Vegetation damage monitoring</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Land contamination mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Regulatory compliance reports</div></div>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ── WHY AEROVANIA ── -->
     <section class="why-section">
         <div class="container">
-            <div class="section-head" style="text-align:center;margin-bottom:3rem;"><span style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:.75rem;">Why Aerovania</span><h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#0a0e20;margin:0 0 .75rem;">The Oil &amp; Gas Intelligence Advantage</h2><p style="color:#475569;font-size:1rem;max-width:600px;margin:0 auto;">Built for the safety and reliability demands of critical oil and gas infrastructure.</p></div>
+            <div class="section-head reveal" style="text-align:center;margin-bottom:3rem">
+                <span style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:.75rem">Why Aerovania</span>
+                <h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#0a0e20;margin:0 0 .75rem">The Oil & Gas Intelligence Advantage</h2>
+                <p style="color:#475569;font-size:1rem;max-width:600px;margin:0 auto">Safer, faster, and more accurate than traditional inspection methods.</p>
+            </div>
             <div class="why-grid">
-                <div class="why-card reveal stagger-1"><div class="why-icon"><i class="ph ph-gas-pump"></i></div><h3>No Shutdown Required</h3><p>Drone inspections require no plant shutdown, no scaffolding, and no disruption to operations  reducing costs and downtime.</p></div>
-                <div class="why-card reveal stagger-2"><div class="why-icon"><i class="ph ph-thermometer-hot"></i></div><h3>Thermal Intelligence</h3><p>Thermal imaging detects leaks, hotspots, and failing equipment invisible to the naked eye  before they cause incidents.</p></div>
-                <div class="why-card reveal stagger-3"><div class="why-icon"><i class="ph ph-shield-check"></i></div><h3>Zero Risk to Personnel</h3><p>Eliminate the need to send inspection teams into hazardous areas  drones access all areas safely from the air.</p></div>
-                <div class="why-card reveal stagger-4"><div class="why-icon"><i class="ph ph-chart-line-up"></i></div><h3>Predictive Maintenance</h3><p>Historical inspection data enables trend analysis and predictive maintenance scheduling  reducing unplanned failures.</p></div>
-                <div class="why-card reveal stagger-5"><div class="why-icon"><i class="ph ph-file-text"></i></div><h3>Regulatory Compliance</h3><p>Inspection outputs formatted for OISD, PESO, and international HSE regulatory reporting requirements.</p></div>
-                <div class="why-card reveal stagger-6"><div class="why-icon"><i class="ph ph-clock"></i></div><h3>10x Faster Inspection</h3><p>Cover the same infrastructure in a fraction of the time compared to manual ground-based inspection methods.</p></div>
+            <div class="why-card reveal stagger-1"><div class="why-icon"><i class="ph ph-lightning"></i></div><h3>Zero Shutdown Required</h3><p>Drone inspections of pipelines, refineries, and storage facilities require no process shutdown or production interruption.</p></div>
+            <div class="why-card reveal stagger-2"><div class="why-icon"><i class="ph ph-thermometer"></i></div><h3>Thermal Leak Detection</h3><p>Thermal cameras detect pipeline leaks, insulation failures, and hotspots before they become safety or environmental incidents.</p></div>
+            <div class="why-card reveal stagger-3"><div class="why-icon"><i class="ph ph-waves"></i></div><h3>LiDAR Pipeline Survey</h3><p>LiDAR surveys map pipeline corridors with ±5mm accuracy — detecting encroachments and ROW violations across hundreds of kilometres.</p></div>
+            <div class="why-card reveal stagger-4"><div class="why-icon"><i class="ph ph-brain"></i></div><h3>AI Defect Analysis</h3><p>Machine learning models automatically classify corrosion, structural defects, and environmental violations from drone imagery.</p></div>
+            <div class="why-card reveal stagger-5"><div class="why-icon"><i class="ph ph-file-text"></i></div><h3>Regulatory Compliance</h3><p>Automated inspection reports meet PNGRB, MoEFCC, and oil company regulatory documentation requirements.</p></div>
+            <div class="why-card reveal stagger-6"><div class="why-icon"><i class="ph ph-rocket"></i></div><h3>Rapid Deployment</h3><p>Field-deployable drone systems operational within hours — designed for rapid response to pipeline incidents and spills.</p></div>
             </div>
         </div>
     </section>
-    <section class="stats-band">
-        <div class="container text-center">
-            <span class="section-label reveal" style="color:var(--cyan);">Results</span>
-            <h2 class="section-title-lg light reveal">Proven Oil &amp; Gas Intelligence</h2>
-            <div class="stats-band-grid">
-                <div class="stat-tile reveal stagger-1"><div class="num">10x</div><div class="lbl">Faster than Manual</div></div>
-                <div class="stat-tile reveal stagger-2"><div class="num">Zero</div><div class="lbl">Shutdown Required</div></div>
-                <div class="stat-tile reveal stagger-3"><div class="num">Thermal</div><div class="lbl">Leak Detection</div></div>
-                <div class="stat-tile reveal stagger-4"><div class="num">&lt;24h</div><div class="lbl">Data to Report</div></div>
+
+    <!-- ── HOW IT WORKS ── -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-head reveal" style="text-align:center;margin-bottom:0">
+                <span style="font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:.75rem">How It Works</span>
+                <h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#0a0e20;margin:0">From Survey to Intelligence</h2>
+            </div>
+            <div class="process-grid">
+            <div class="process-step reveal stagger-1"><div class="process-step-num">01</div><div class="process-step-icon"><i class="ph ph-drone"></i></div><h4>Corridor Survey</h4><p>LiDAR drones survey pipeline corridors detecting encroachments and ROW violations.</p></div>
+            <div class="process-step reveal stagger-2"><div class="process-step-num">02</div><div class="process-step-icon"><i class="ph ph-thermometer"></i></div><h4>Thermal Scan</h4><p>Thermal cameras identify leaks, hotspots, and insulation failures.</p></div>
+            <div class="process-step reveal stagger-3"><div class="process-step-num">03</div><div class="process-step-icon"><i class="ph ph-brain"></i></div><h4>AI Defect Analysis</h4><p>AI classifies corrosion, structural defects, and environmental violations.</p></div>
+            <div class="process-step reveal stagger-4"><div class="process-step-num">04</div><div class="process-step-icon"><i class="ph ph-file-text"></i></div><h4>Compliance Report</h4><p>PNGRB and MoEFCC compliant reports generated automatically.</p></div>
             </div>
         </div>
     </section>
-    <section class="section-cta"><div class="container reveal"><h2>Inspect Your Oil &amp; Gas Infrastructure</h2><p>Talk to our oil and gas intelligence team about a drone inspection programme for your pipelines, facilities, or assets.</p><a href="../../pages/company/contact-us.html" class="btn btn-cyan">Request a Survey</a></div></section>
-    <footer class="footer"><div class="container footer-grid"><div class="footer-col brand-col"><div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a><div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div></div><div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div></div><div class="footer-col"><h4>Quick Links</h4><ul><li><a href="../../pages/company/about-us.html">About Us</a></li><li><a href="../../pages/industries/mining.html">Industries</a></li><li><a href="../../pages/solutions/geospatial-ai.html">Technology</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="../../pages/company/about-us.html">Our Vision</a></li><li><a href="../../pages/company/careers.html">Careers</a></li><li><a href="../../pages/company/contact-us.html">Contact</a></li></ul></div><div class="footer-col contact-col"><h4>Contact Us</h4><ul><li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li><li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li><li><i class="ph ph-envelope"></i> info@aerovania.com</li><li><i class="ph ph-globe"></i> www.aerovania.com</li><li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li></ul></div></div><div class="footer-bottom text-center"><p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p></div></footer>
+
+    <!-- ── STATS ── -->
+    <section class="stats-row-section">
+        <div class="container">
+            <div class="geo-stats-header reveal">
+                <span class="geo-stats-label">Oil & Gas</span>
+                <h2 class="geo-stats-title">Measurable Impact on Oil & Gas Operations</h2>
+                <div class="geo-stats-line"></div>
+            </div>
+            <div class="geo-stats-band reveal">
+                <div class="geo-stat-item"><span class="geo-stat-num">Zero</span><span class="geo-stat-unit">Shutdowns</span><span class="geo-stat-lbl">Inspection Ready</span></div>
+                <div class="geo-stat-sep"></div>
+                <div class="geo-stat-item"><span class="geo-stat-num">Thermal</span><span class="geo-stat-unit">Detection</span><span class="geo-stat-lbl">Leak ID</span></div>
+                <div class="geo-stat-sep"></div>
+                <div class="geo-stat-item"><span class="geo-stat-num">±5</span><span class="geo-stat-unit">mm</span><span class="geo-stat-lbl">LiDAR Accuracy</span></div>
+                <div class="geo-stat-sep"></div>
+                <div class="geo-stat-item"><span class="geo-stat-num">AI-Powered</span><span class="geo-stat-unit">Analysis</span><span class="geo-stat-lbl">Pipeline Reports</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="section-cta">
+        <div class="container reveal">
+            <h2>Modernise Your <span>Pipeline Inspections</span></h2>
+            <p>Talk to our oil & gas inspection team about drone-based pipeline surveys and refinery monitoring.</p>
+            <div class="cta-btn-row">
+                <a href="../../pages/company/contact-us.html" class="btn btn-cyan">Request a Demo</a>
+                <a href="../../pages/company/contact-us.html" class="btn-ghost-cyan"><i class="ph ph-phone"></i>Talk to an Expert</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png"
+                            alt="Aerovania Logo" class="footer-logo"></a>
+                    <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
+                    </div>
+                </div>
+                <div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i
+                            class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../../pages/company/about-us.html">About Us</a></li>
+                    <li><a href="../../pages/industries/mining.html">Industries</a></li>
+                    <li><a href="../../pages/solutions/geospatial-ai.html">Technology</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../pages/company/about-us.html">Our Vision</a></li>
+                    <li><a href="../../pages/company/careers.html">Careers</a></li>
+                    <li><a href="../../pages/company/contact-us.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217"
+                            style="color:inherit;text-decoration:none;">+91 78758 55217</a></li>
+                    <li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075"
+                            style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
+                    <li><i class="ph ph-envelope"></i> info@aerovania.com</li>
+                    <li><i class="ph ph-globe"></i> www.aerovania.com</li>
+                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
     <script src="../../assets/js/script.js"></script>
-    <script>document.querySelectorAll('.tab-btn').forEach(btn=>{btn.addEventListener('click',()=>{const t=btn.dataset.tab;btn.closest('.tabs-layout').querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.closest('.tabs-layout').querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById(t).classList.add('active')})});</script>
+    
 
     <!-- Mobile Nav -->
     <div class="mobile-nav-overlay" id="mobileOverlay"></div>
@@ -287,21 +642,115 @@
         </ul>
         <a href="../../pages/company/contact-us.html" class="mnp-cta">Contact Us</a>
     </div>
+    
+
+    
+
+    
     <script>
-        const mobileBtn = document.querySelector('.mobile-menu-btn');
-        const mobilePanel = document.getElementById('mobilePanel');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-        const mobileClose = document.getElementById('mobileClose');
-        function openMobile() { mobilePanel.classList.add('open'); mobileOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
-        function closeMobile() { mobilePanel.classList.remove('open'); mobileOverlay.classList.remove('open'); document.body.style.overflow=''; }
-        if (mobileBtn) mobileBtn.addEventListener('click', openMobile);
-        if (mobileClose) mobileClose.addEventListener('click', closeMobile);
-        if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobile);
-        function toggleSub(el) {
-            event.preventDefault();
-            const sub = el.nextElementSibling;
-            if (sub) sub.classList.toggle('open');
+    // ── Tab switching with animation ──
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const t = btn.dataset.tab;
+            const layout = btn.closest(".tabs-layout");
+            layout.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+            layout.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+            btn.classList.add("active");
+            document.getElementById(t).classList.add("active");
+        });
+    });
+
+    // ── Scroll reveal ──
+    const revealEls = document.querySelectorAll(".reveal");
+    const ro = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if(e.isIntersecting){e.target.classList.add("visible");ro.unobserve(e.target);} });
+    }, {threshold:0.1});
+    revealEls.forEach(el => ro.observe(el));
+
+    // ── Animated stat counters ──
+    function animCount(el) {
+        const raw = el.dataset.raw || el.textContent.trim();
+        el.dataset.raw = raw;
+        const match = raw.match(/^([^0-9]*)([0-9.]+)(.*)$/);
+        if (!match) return;
+        const pre = match[1], num = parseFloat(match[2]), suf = match[3];
+        const dec = (match[2].indexOf('.') > -1) ? match[2].split('.')[1].length : 0;
+        let startTime = null, dur = 1600;
+        function step(ts) {
+            if (!startTime) startTime = ts;
+            const p = Math.min((ts - startTime) / dur, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = pre + (num * ease).toFixed(dec) + suf;
+            if (p < 1) requestAnimationFrame(step);
         }
+        requestAnimationFrame(step);
+    }
+    const statObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                const numEl = e.target.querySelector(".geo-stat-num");
+                if (numEl && !numEl.dataset.done) { numEl.dataset.done="1"; animCount(numEl); }
+                statObs.unobserve(e.target);
+            }
+        });
+    }, {threshold:0.3});
+    document.querySelectorAll(".geo-stat-item").forEach(el => statObs.observe(el));
+
+    // ── Particle canvas in hero ──
+    (function(){
+        const canvas = document.getElementById("heroCanvas");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        let W, H;
+        const particles = Array.from({length:60},()=>({
+            x:Math.random()*2000, y:Math.random()*800,
+            vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35,
+            r:Math.random()*1.6+.4, o:Math.random()*.55+.1
+        }));
+        function resize(){W=canvas.width=canvas.parentElement.offsetWidth;H=canvas.height=canvas.parentElement.offsetHeight;}
+        resize(); window.addEventListener("resize",resize);
+        function draw(){
+            ctx.clearRect(0,0,W,H);
+            particles.forEach(p=>{
+                p.x+=p.vx; p.y+=p.vy;
+                if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+                ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+                ctx.fillStyle=`rgba(52,192,197,${p.o})`; ctx.fill();
+            });
+            for(let i=0;i<particles.length;i++) for(let j=i+1;j<particles.length;j++){
+                const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+                const d=Math.sqrt(dx*dx+dy*dy);
+                if(d<130){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(52,192,197,${.13*(1-d/130)})`;ctx.lineWidth=.5;ctx.stroke();}
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    })();
+
+    // ── Why-card 3D tilt ──
+    document.querySelectorAll(".why-card").forEach(card=>{
+        card.style.transformStyle="preserve-3d";
+        card.addEventListener("mousemove",e=>{
+            const r=card.getBoundingClientRect();
+            const x=e.clientX-r.left-r.width/2, y=e.clientY-r.top-r.height/2;
+            card.style.transform=`translateY(-5px) rotateX(${-y/22}deg) rotateY(${x/22}deg)`;
+        });
+        card.addEventListener("mouseleave",()=>{card.style.transform="";});
+    });
+
+    // ── Mobile nav ──
+    const mobileBtn=document.querySelector(".mobile-menu-btn");
+    const mobilePanel=document.getElementById("mobilePanel");
+    const mobileOverlay=document.getElementById("mobileOverlay");
+    const mobileClose=document.getElementById("mobileClose");
+    function openMobile(){mobilePanel.classList.add("open");mobileOverlay.classList.add("open");document.body.style.overflow="hidden";}
+    function closeMobile(){mobilePanel.classList.remove("open");mobileOverlay.classList.remove("open");document.body.style.overflow="";}
+    if(mobileBtn)mobileBtn.addEventListener("click",openMobile);
+    if(mobileClose)mobileClose.addEventListener("click",closeMobile);
+    if(mobileOverlay)mobileOverlay.addEventListener("click",closeMobile);
+    function toggleSub(el){event.preventDefault();const sub=el.nextElementSibling;if(sub)sub.classList.toggle("open");}
     </script>
 </body>
+
+</html>
 </html>

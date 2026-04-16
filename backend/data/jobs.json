@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "title": "AI / Computer Vision Engineer",
+    "type": "Full-Time",
+    "location": "Nagpur / Hybrid",
+    "department": "Engineering",
+    "active": true
+  },
+  {
+    "id": "2",
+    "title": "Drone Systems Engineer (Hardware)",
+    "type": "Full-Time",
+    "location": "Nagpur",
+    "department": "Hardware",
+    "active": true
+  },
+  {
+    "id": "3",
+    "title": "GIS & Geospatial Analyst",
+    "type": "Full-Time",
+    "location": "Nagpur / Remote",
+    "department": "Geospatial",
+    "active": true
+  },
+  {
+    "id": "4",
+    "title": "Embedded Systems Developer",
+    "type": "Full-Time",
+    "location": "Nagpur",
+    "department": "Embedded",
+    "active": true
+  },
+  {
+    "id": "5",
+    "title": "Business Development Manager",
+    "type": "Full-Time",
+    "location": "Pan-India",
+    "department": "Sales",
+    "active": true
+  }
+]
