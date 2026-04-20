@@ -434,8 +434,14 @@
             min-height: 520px;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--navy) 0%, #0d1a35 60%, #0a1a2e 100%);
+            /* ... existing properties ... */
+    background: 
+        linear-gradient(90deg, rgba(10, 26, 46, 1) 0%, rgba(10, 26, 46, 0.8) 40%, rgba(10, 26, 46, 0) 100%),
+        url('../../assets/images/Composit Engi/first comp.jpg') no-repeat center right;            background-size: cover; /* Ensures the image fills the space */
+            position: relative; /* Necessary for your existing pseudo-elements */
+
         }
+
         .page-hero::before {
             content: '';
             position: absolute;
@@ -1469,7 +1475,7 @@
     <section class="page-hero">
         <div class="container">
             <div class="hero-eyebrow"><i class="ph ph-cube"></i> Solutions</div>
-            <h1>Composite <span>Engineering</span></h1>
+            <h1>Composite Engineering</h1>
             <p class="hero-sub">From indigenous jute-glass hybrid composites to in-house carbon fibre manufacturing 
                 Aerovania is building India's most capable composite materials R&D and production ecosystem. Lighter,
                 stronger, and sustainably sourced.</p>
@@ -1542,7 +1548,7 @@
             </div>
             <div class="comp-product-grid">
                 <div class="comp-pcard">
-                    <img src="../../assets/images/industry_railways.png" alt="JGHC Composite" class="comp-pcard-img">
+                    <img src="../../assets/images/Composit Engi/comp.png" alt="JGHC Composite" class="comp-pcard-img">
                     <div class="comp-pcard-body">
                         <div class="comp-pcard-tag">JGHC Series  Natural Composite</div>
                         <div class="comp-pcard-title">JUTE-GLASS HYBRID COMPOSITE</div>
@@ -1555,7 +1561,7 @@
                     </div>
                 </div>
                 <div class="comp-pcard">
-                    <img src="../../assets/images/hero_drone_survey.png" alt="Carbon Fibre" class="comp-pcard-img">
+                    <img src="../../assets/images/Composit Engi/IMG-20260415-WA0031.jpg.jpeg" alt="Carbon Fibre" class="comp-pcard-img">
                     <div class="comp-pcard-body">
                         <div class="comp-pcard-tag">CF Series  Carbon Fibre</div>
                         <div class="comp-pcard-title">IN-HOUSE CARBON FIBRE</div>
@@ -1568,7 +1574,7 @@
                     </div>
                 </div>
                 <div class="comp-pcard" style="background:linear-gradient(135deg,rgba(14,34,68,.8),rgba(0,50,70,.8))">
-                    <img src="../../assets/images/hero_lidar_terrain.png" alt="Custom Composites" class="comp-pcard-img"
+                    <img src="../../assets/images/Composit Engi/IMG-20260101-WA0002(1).jpg.jpeg" alt="Custom Composites" class="comp-pcard-img"
                         style="opacity:.7">
                     <div class="comp-pcard-body">
                         <div class="comp-pcard-tag">Custom R&amp;D Bespoke Solutions</div>
