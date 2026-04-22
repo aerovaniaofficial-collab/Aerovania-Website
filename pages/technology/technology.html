@@ -1,13 +1,17 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technology | Aerovania</title>
-    <meta name="description" content="Aerovania's core technology pillars — AI, UAV manufacturing, geospatial intelligence, and advanced composite materials.">
+    <meta name="description"
+        content="Aerovania's core technology pillars — AI, UAV manufacturing, geospatial intelligence, and advanced composite materials.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <style>
@@ -15,7 +19,7 @@
             --black: #050709;
             --dark: #0a0d12;
             --card: #0e1219;
-            --border: rgba(255,255,255,0.07);
+            --border: rgba(255, 255, 255, 0.07);
             --accent: #34C0C5;
             --accent2: #f97316;
             --accent3: #22c55e;
@@ -23,22 +27,31 @@
             --muted: #6b7585;
         }
 
-        *, *::before, *::after { box-sizing: border-box; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
         /* ── body override for dark theme ── */
-        body { background: var(--black); color: var(--text); overflow-x: hidden; }
-
-        /* ── TICKER ── */
+        body {
+            background: var(--black);
+            color: var(--text);
+            overflow-x: hidden;
+        }
         .ticker-wrap {
             background: var(--accent);
             overflow: hidden;
             padding: 0.65rem 0;
+            margin-top: 76px;
         }
+
         .ticker {
             display: flex;
             animation: tickerScroll 30s linear infinite;
             white-space: nowrap;
         }
+
         .ticker-item {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.72rem;
@@ -49,14 +62,27 @@
             font-weight: 500;
             flex-shrink: 0;
         }
-        .ticker-item::before { content: '◆'; margin-right: 1.5rem; }
+
+        .ticker-item::before {
+            content: '◆';
+            margin-right: 1.5rem;
+        }
+
         @keyframes tickerScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* ── SECTION BASE ── */
-        .tech-section { padding: 7rem 0; position: relative; }
+        .tech-section {
+            padding: 7rem 0;
+            position: relative;
+        }
 
         .section-tag {
             font-family: 'JetBrains Mono', monospace;
@@ -69,7 +95,13 @@
             align-items: center;
             gap: 0.8rem;
         }
-        .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+
+        .section-tag::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--accent);
+        }
 
         .section-title {
             font-family: 'Sora', sans-serif;
@@ -80,9 +112,18 @@
             letter-spacing: 0.01em;
             margin-bottom: 1.2rem;
         }
-        .section-title .g { color: var(--accent3); }
-        .section-title .o { color: var(--accent2); }
-        .section-title .c { color: var(--accent); }
+
+        .section-title .g {
+            color: var(--accent3);
+        }
+
+        .section-title .o {
+            color: var(--accent2);
+        }
+
+        .section-title .c {
+            color: var(--accent);
+        }
 
         .section-desc {
             font-size: 1rem;
@@ -107,39 +148,63 @@
             overflow: hidden;
             background: var(--black);
         }
+
         .hero-grid-bg {
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(52,192,197,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(52,192,197,0.04) 1px, transparent 1px);
+                linear-gradient(rgba(52, 192, 197, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(52, 192, 197, 0.04) 1px, transparent 1px);
             background-size: 60px 60px;
             animation: gridShift 20s linear infinite;
         }
+
         @keyframes gridShift {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(60px); }
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(60px);
+            }
         }
+
         .hero-glow {
             position: absolute;
-            width: 700px; height: 700px;
+            width: 700px;
+            height: 700px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(52,192,197,0.12) 0%, transparent 65%);
-            top: -200px; right: -100px;
+            background: radial-gradient(circle, rgba(52, 192, 197, 0.12) 0%, transparent 65%);
+            top: -200px;
+            right: -100px;
             animation: glowPulse 6s ease-in-out infinite;
         }
+
         .hero-glow2 {
             position: absolute;
-            width: 500px; height: 500px;
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 65%);
-            bottom: 0; left: -100px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 65%);
+            bottom: 0;
+            left: -100px;
             animation: glowPulse 8s ease-in-out infinite reverse;
         }
+
         @keyframes glowPulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.7; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
         }
+
         .hero-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
@@ -150,6 +215,7 @@
             opacity: 0;
             animation: fadeUp 0.8s 0.2s forwards;
         }
+
         .hero-title {
             font-family: 'Sora', sans-serif;
             font-size: clamp(3.5rem, 8vw, 7.5rem);
@@ -160,8 +226,15 @@
             opacity: 0;
             animation: fadeUp 0.8s 0.4s forwards;
         }
-        .hero-title .c { color: var(--accent); }
-        .hero-title .o { color: var(--accent2); }
+
+        .hero-title .c {
+            color: var(--accent);
+        }
+
+        .hero-title .o {
+            color: var(--accent2);
+        }
+
         .hero-sub {
             margin-top: 2.5rem;
             font-size: 1.05rem;
@@ -171,6 +244,7 @@
             opacity: 0;
             animation: fadeUp 0.8s 0.6s forwards;
         }
+
         .hero-stats {
             display: flex;
             gap: 3.5rem;
@@ -179,6 +253,7 @@
             opacity: 0;
             animation: fadeUp 0.8s 0.8s forwards;
         }
+
         .hero-stat-num {
             font-family: 'Sora', sans-serif;
             font-size: 2.8rem;
@@ -186,7 +261,11 @@
             color: #fff;
             line-height: 1;
         }
-        .hero-stat-num span { color: var(--accent); }
+
+        .hero-stat-num span {
+            color: var(--accent);
+        }
+
         .hero-stat-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.68rem;
@@ -195,9 +274,9 @@
             text-transform: uppercase;
             margin-top: 0.3rem;
         }
+
         .hero-scroll {
             position: absolute;
-            bottom: 2.5rem;
             left: 0;
             display: flex;
             align-items: center;
@@ -209,23 +288,47 @@
             text-transform: uppercase;
             opacity: 0;
             animation: fadeUp 0.8s 1.2s forwards;
+            padding: 2rem 0rem;
         }
+
         .scroll-line {
-            width: 50px; height: 1px;
+            width: 50px;
+            height: 1px;
             background: var(--accent);
             animation: lineExpand 2s ease-in-out infinite;
         }
+
         @keyframes lineExpand {
-            0%, 100% { width: 50px; opacity: 1; }
-            50% { width: 80px; opacity: 0.5; }
+
+            0%,
+            100% {
+                width: 50px;
+                opacity: 1;
+            }
+
+            50% {
+                width: 80px;
+                opacity: 0.5;
+            }
         }
+
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ── AI SECTION ── */
-        #ai { background: var(--dark); }
+        #ai {
+            background: var(--dark);
+        }
+
         .ai-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -233,11 +336,13 @@
             align-items: start;
             margin-top: 4rem;
         }
+
         .ai-cards {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
         }
+
         .ai-card {
             background: var(--card);
             border: 1px solid var(--border);
@@ -248,26 +353,49 @@
             cursor: default;
             border-radius: 4px;
         }
+
         .ai-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 2px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
             background: var(--accent);
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s;
         }
-        .ai-card:hover::before { transform: scaleX(1); }
-        .ai-card:hover { border-color: rgba(52,192,197,0.3); transform: translateY(-4px); }
-        .ai-card-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
-        .ai-card-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+
+        .ai-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .ai-card:hover {
+            border-color: rgba(52, 192, 197, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .ai-card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .ai-card-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
         .ai-card-desc {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.72rem;
             color: var(--muted);
             line-height: 1.6;
         }
+
         .ai-terminal {
             background: #06080b;
             border: 1px solid var(--border);
@@ -277,6 +405,7 @@
             font-size: 0.78rem;
             border-radius: 0 0 4px 4px;
         }
+
         .terminal-bar {
             display: flex;
             align-items: center;
@@ -285,37 +414,95 @@
             padding-bottom: 0.8rem;
             border-bottom: 1px solid var(--border);
         }
-        .t-dot { width: 8px; height: 8px; border-radius: 50%; }
-        .t-dot.r { background: #ff5f57; }
-        .t-dot.y { background: #febc2e; }
-        .t-dot.g { background: #28c840; }
-        .terminal-label { margin-left: auto; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; }
-        .t-line { margin-bottom: 0.5rem; color: var(--muted); }
-        .t-line .t-green { color: var(--accent3); }
-        .t-line .t-cyan { color: var(--accent); }
-        .t-line .t-orange { color: var(--accent2); }
-        .t-line .t-white { color: #fff; }
+
+        .t-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .t-dot.r {
+            background: #ff5f57;
+        }
+
+        .t-dot.y {
+            background: #febc2e;
+        }
+
+        .t-dot.g {
+            background: #28c840;
+        }
+
+        .terminal-label {
+            margin-left: auto;
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+        }
+
+        .t-line {
+            margin-bottom: 0.5rem;
+            color: var(--muted);
+        }
+
+        .t-line .t-green {
+            color: var(--accent3);
+        }
+
+        .t-line .t-cyan {
+            color: var(--accent);
+        }
+
+        .t-line .t-orange {
+            color: var(--accent2);
+        }
+
+        .t-line .t-white {
+            color: #fff;
+        }
+
         .t-cursor {
-            display: inline-block; width: 8px; height: 14px;
-            background: var(--accent); vertical-align: middle;
+            display: inline-block;
+            width: 8px;
+            height: 14px;
+            background: var(--accent);
+            vertical-align: middle;
             animation: blink 1s step-end infinite;
         }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
 
         /* ── DRONES SECTION ── */
-        #drones { background: var(--black); position: relative; overflow: hidden; }
+        #drones {
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+
         .drone-bg-text {
             position: absolute;
             font-family: 'Sora', sans-serif;
             font-size: 22vw;
             font-weight: 800;
-            color: rgba(255,255,255,0.02);
-            top: 50%; left: 50%;
+            color: rgba(255, 255, 255, 0.02);
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
             white-space: nowrap;
             pointer-events: none;
             letter-spacing: 0.05em;
         }
+
         .drone-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -323,6 +510,7 @@
             margin-top: 4rem;
             background: var(--border);
         }
+
         .drone-cell {
             background: var(--dark);
             padding: 3rem 2.5rem;
@@ -330,16 +518,22 @@
             overflow: hidden;
             transition: background 0.4s;
         }
-        .drone-cell:hover { background: #0f1520; }
+
+        .drone-cell:hover {
+            background: #0f1520;
+        }
+
         .drone-cell-num {
             font-family: 'Sora', sans-serif;
             font-size: 4rem;
             font-weight: 800;
-            color: rgba(255,255,255,0.05);
+            color: rgba(255, 255, 255, 0.05);
             position: absolute;
-            top: 1rem; right: 1.5rem;
+            top: 1rem;
+            right: 1.5rem;
             line-height: 1;
         }
+
         .drone-cell-tag {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
@@ -348,25 +542,58 @@
             text-transform: uppercase;
             margin-bottom: 1rem;
         }
-        .drone-cell-title { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; line-height: 1.3; }
-        .drone-cell-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
-        .drone-cell-bar {
-            margin-top: 1.5rem; height: 2px;
-            background: var(--border);
-            position: relative; overflow: hidden;
+
+        .drone-cell-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
         }
+
+        .drone-cell-desc {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .drone-cell-bar {
+            margin-top: 1.5rem;
+            height: 2px;
+            background: var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
         .drone-cell-bar::after {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
             background: var(--accent2);
             animation: barSlide 3s ease-in-out infinite;
         }
-        @keyframes barSlide { 0% { left: -100%; } 50%, 100% { left: 100%; } }
+
+        @keyframes barSlide {
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 100%;
+            }
+        }
 
         /* ── GEO SECTION ── */
-        #geo { background: var(--dark); position: relative; overflow: hidden; }
+        #geo {
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+
         .geo-layout {
             display: grid;
             grid-template-columns: 1fr 1.4fr;
@@ -374,53 +601,113 @@
             align-items: center;
             margin-top: 4rem;
         }
+
         .geo-map {
             position: relative;
             aspect-ratio: 1;
             max-width: 400px;
         }
+
         .geo-ring {
             position: absolute;
             border-radius: 50%;
             border: 1px solid var(--accent);
         }
-        .geo-ring-1 { inset: 0; opacity: 0.2; animation: ringPulse 3s ease-in-out infinite; }
-        .geo-ring-2 { inset: 15%; opacity: 0.35; animation: ringPulse 3s ease-in-out 0.5s infinite; }
-        .geo-ring-3 { inset: 30%; opacity: 0.55; animation: ringPulse 3s ease-in-out 1s infinite; }
-        @keyframes ringPulse {
-            0%, 100% { transform: scale(1); opacity: 0.35; }
-            50% { transform: scale(1.04); opacity: 0.15; }
+
+        .geo-ring-1 {
+            inset: 0;
+            opacity: 0.2;
+            animation: ringPulse 3s ease-in-out infinite;
         }
+
+        .geo-ring-2 {
+            inset: 15%;
+            opacity: 0.35;
+            animation: ringPulse 3s ease-in-out 0.5s infinite;
+        }
+
+        .geo-ring-3 {
+            inset: 30%;
+            opacity: 0.55;
+            animation: ringPulse 3s ease-in-out 1s infinite;
+        }
+
+        @keyframes ringPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.35;
+            }
+
+            50% {
+                transform: scale(1.04);
+                opacity: 0.15;
+            }
+        }
+
         .geo-center {
-            position: absolute; inset: 42%;
+            position: absolute;
+            inset: 42%;
             background: var(--accent);
             border-radius: 50%;
             animation: glowPulse 2s ease-in-out infinite;
         }
+
         .geo-dot {
             position: absolute;
-            width: 8px; height: 8px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: var(--accent2);
             border: 1px solid var(--accent);
         }
-        .geo-features { display: flex; flex-direction: column; gap: 1.2rem; }
+
+        .geo-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
         .geo-feat {
             display: flex;
             gap: 1.2rem;
             align-items: flex-start;
             padding: 1.4rem;
             border: 1px solid var(--border);
-            background: rgba(52,192,197,0.02);
+            background: rgba(52, 192, 197, 0.02);
             transition: border-color 0.3s, background 0.3s;
         }
-        .geo-feat:hover { border-color: rgba(52,192,197,0.2); background: rgba(52,192,197,0.04); }
-        .geo-feat-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
-        .geo-feat-title { font-size: 0.92rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
-        .geo-feat-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+        .geo-feat:hover {
+            border-color: rgba(52, 192, 197, 0.2);
+            background: rgba(52, 192, 197, 0.04);
+        }
+
+        .geo-feat-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .geo-feat-title {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+
+        .geo-feat-desc {
+            font-size: 0.83rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
 
         /* ── MATERIALS SECTION ── */
-        #materials { background: var(--black); }
+        #materials {
+            background: var(--black);
+        }
+
         .mat-layout {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
@@ -428,19 +715,23 @@
             align-items: start;
             margin-top: 4rem;
         }
+
         .mat-hero-box {
             background: linear-gradient(135deg, #0a1a0f 0%, #050a07 100%);
-            border: 1px solid rgba(34,197,94,0.15);
+            border: 1px solid rgba(34, 197, 94, 0.15);
             padding: 3rem;
             position: relative;
             overflow: hidden;
         }
+
         .mat-hero-box::before {
             content: '';
-            position: absolute; inset: 0;
-            background: radial-gradient(ellipse at top left, rgba(34,197,94,0.07) 0%, transparent 60%);
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top left, rgba(34, 197, 94, 0.07) 0%, transparent 60%);
             pointer-events: none;
         }
+
         .mat-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
@@ -449,6 +740,7 @@
             text-transform: uppercase;
             margin-bottom: 1.5rem;
         }
+
         .mat-big {
             font-family: 'Sora', sans-serif;
             font-size: 3rem;
@@ -457,15 +749,38 @@
             line-height: 1.05;
             margin-bottom: 1.5rem;
         }
-        .mat-big .g { color: var(--accent3); }
-        .mat-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
-        .mat-props { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        .mat-big .g {
+            color: var(--accent3);
+        }
+
+        .mat-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+
+        .mat-props {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
         .mat-prop {
             padding: 1rem;
-            border: 1px solid rgba(34,197,94,0.1);
-            background: rgba(34,197,94,0.03);
+            border: 1px solid rgba(34, 197, 94, 0.1);
+            background: rgba(34, 197, 94, 0.03);
         }
-        .mat-prop-val { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent3); line-height: 1; }
+
+        .mat-prop-val {
+            font-family: 'Sora', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent3);
+            line-height: 1;
+        }
+
         .mat-prop-key {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
@@ -474,7 +789,13 @@
             text-transform: uppercase;
             margin-top: 0.3rem;
         }
-        .mat-pills { display: flex; flex-direction: column; gap: 0.8rem; }
+
+        .mat-pills {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
         .mat-pill {
             display: flex;
             align-items: center;
@@ -484,14 +805,30 @@
             background: var(--card);
             transition: all 0.3s;
         }
-        .mat-pill:hover { border-color: rgba(34,197,94,0.3); background: rgba(34,197,94,0.03); }
-        .mat-pill-name { font-size: 0.88rem; font-weight: 600; color: #fff; }
-        .mat-pill-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem; }
+
+        .mat-pill:hover {
+            border-color: rgba(34, 197, 94, 0.3);
+            background: rgba(34, 197, 94, 0.03);
+        }
+
+        .mat-pill-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .mat-pill-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--muted);
+            margin-top: 0.2rem;
+        }
+
         .mat-pill-badge {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.62rem;
             color: var(--accent3);
-            border: 1px solid rgba(34,197,94,0.3);
+            border: 1px solid rgba(34, 197, 94, 0.3);
             padding: 0.25rem 0.6rem;
             letter-spacing: 0.1em;
             flex-shrink: 0;
@@ -505,14 +842,18 @@
             position: relative;
             overflow: hidden;
         }
+
         .cta-glow {
             position: absolute;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px; height: 300px;
-            background: radial-gradient(ellipse, rgba(52,192,197,0.12) 0%, transparent 70%);
+            width: 600px;
+            height: 300px;
+            background: radial-gradient(ellipse, rgba(52, 192, 197, 0.12) 0%, transparent 70%);
             pointer-events: none;
         }
+
         .cta-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.72rem;
@@ -521,6 +862,7 @@
             text-transform: uppercase;
             margin-bottom: 1.5rem;
         }
+
         .cta-title {
             font-family: 'Sora', sans-serif;
             font-size: clamp(2.8rem, 5.5vw, 5.5rem);
@@ -529,9 +871,26 @@
             line-height: 0.95;
             margin-bottom: 1.5rem;
         }
-        .cta-title span { color: var(--accent); }
-        .cta-sub { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto 3rem; line-height: 1.7; }
-        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .cta-title span {
+            color: var(--accent);
+        }
+
+        .cta-sub {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 480px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         .btn-tech-primary {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.78rem;
@@ -547,7 +906,13 @@
             text-decoration: none;
             display: inline-block;
         }
-        .btn-tech-primary:hover { background: #fff; transform: translateY(-2px); color: #050709; }
+
+        .btn-tech-primary:hover {
+            background: #fff;
+            transform: translateY(-2px);
+            color: #050709;
+        }
+
         .btn-tech-secondary {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.78rem;
@@ -563,27 +928,67 @@
             text-decoration: none;
             display: inline-block;
         }
-        .btn-tech-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+        .btn-tech-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
 
         /* ── REVEAL ── */
-        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-            .ai-layout, .geo-layout, .mat-layout { grid-template-columns: 1fr; gap: 3rem; }
-            .drone-grid { grid-template-columns: 1fr; }
-            .ai-cards { grid-template-columns: 1fr; }
-            .hero-stats { gap: 2rem; }
-            .tech-section { padding: 5rem 0; }
-            #tech-hero { padding: 8rem 0 4rem; }
+
+            .ai-layout,
+            .geo-layout,
+            .mat-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .drone-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .tech-section {
+                padding: 5rem 0;
+            }
+
+            #tech-hero {
+                padding: 8rem 0 4rem;
+            }
         }
+
         @media (max-width: 600px) {
-            .drone-grid { grid-template-columns: 1fr; }
-            .mat-props { grid-template-columns: 1fr 1fr; }
+            .drone-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mat-props {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Header -->
@@ -594,8 +999,10 @@
                         class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
-                <div class="nav-contact-info" style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
-                    <a href="mailto:info@aerovania.com" style="margin-right: 15px; color: inherit; text-decoration: none; ">info@aerovania.com</a>
+                <div class="nav-contact-info"
+                    style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px; color: black;">
+                    <a href="mailto:info@aerovania.com"
+                        style="margin-right: 15px; color: inherit; text-decoration: none; ">info@aerovania.com</a>
                     <a style="margin-right: 15px; color: inherit; text-decoration: none; ">|</a>
                     <a href="tel:+917875855217" style="color: inherit; text-decoration: none;">+91 78758 55217</a>
                 </div>
@@ -707,15 +1114,17 @@
         <div class="hero-grid-bg"></div>
         <div class="hero-glow"></div>
         <div class="hero-glow2"></div>
-        <div class="container" style="position:relative;z-index:2;">
-            <div class="hero-label">Aerovania Pvt Ltd &nbsp;·&nbsp; DPIIT Recognised &nbsp;·&nbsp; ISO 9001:2015 &amp; AS9100C</div>
+        <div class="container" style="position:relative;z-index:2;margin: 0%;">
+            <div class="hero-label">Aerovania Pvt Ltd &nbsp;·&nbsp; DPIIT Recognised &nbsp;·&nbsp; ISO 9001:2015 &amp;
+                AS9100C</div>
             <h1 class="hero-title">
                 ENGINEERING<br>
                 THE FUTURE.<br>
                 <span class="c">SOLVING</span> THE<br>
                 <span class="o">REAL WORLD.</span>
             </h1>
-            <p class="hero-sub">From AI intelligence to airborne precision — Aerovania delivers cutting-edge technology across defence, industry, and sustainability.</p>
+            <p class="hero-sub">From AI intelligence to airborne precision — Aerovania delivers cutting-edge technology
+                across defence, industry, and sustainability.</p>
             <div class="hero-stats">
                 <div>
                     <div class="hero-stat-num">4<span>+</span></div>
@@ -749,29 +1158,34 @@
             <div class="reveal">
                 <div class="section-tag">01 — Artificial Intelligence</div>
                 <h2 class="section-title">INTELLIGENCE<br>AT EVERY LAYER</h2>
-                <p class="section-desc">From raw pixels to decisions — Aerovania's AI stack powers perception, prediction, and autonomous action across industries.</p>
+                <p class="section-desc">From raw pixels to decisions — Aerovania's AI stack powers perception,
+                    prediction, and autonomous action across industries.</p>
             </div>
             <div class="ai-layout reveal">
                 <div class="ai-cards">
                     <div class="ai-card">
                         <span class="ai-card-icon">👁️</span>
                         <div class="ai-card-title">Advanced Computer Vision</div>
-                        <div class="ai-card-desc">Real-time object detection, segmentation, anomaly recognition, and visual intelligence for industrial automation.</div>
+                        <div class="ai-card-desc">Real-time object detection, segmentation, anomaly recognition, and
+                            visual intelligence for industrial automation.</div>
                     </div>
                     <div class="ai-card">
                         <span class="ai-card-icon">🤖</span>
                         <div class="ai-card-title">Agentic AI Systems</div>
-                        <div class="ai-card-desc">Autonomous multi-agent pipelines that plan, reason, act, and learn across complex, multi-step workflows.</div>
+                        <div class="ai-card-desc">Autonomous multi-agent pipelines that plan, reason, act, and learn
+                            across complex, multi-step workflows.</div>
                     </div>
                     <div class="ai-card">
                         <span class="ai-card-icon">🧠</span>
                         <div class="ai-card-title">Custom LLM Models</div>
-                        <div class="ai-card-desc">Domain-specific language models fine-tuned on industrial, defence, and engineering datasets for precise outputs.</div>
+                        <div class="ai-card-desc">Domain-specific language models fine-tuned on industrial, defence, and
+                            engineering datasets for precise outputs.</div>
                     </div>
                     <div class="ai-card">
                         <span class="ai-card-icon">📊</span>
                         <div class="ai-card-title">AI-Powered Dashboards</div>
-                        <div class="ai-card-desc">Intelligent command centers with real-time insights, predictive analytics, and natural language interfaces.</div>
+                        <div class="ai-card-desc">Intelligent command centers with real-time insights, predictive
+                            analytics, and natural language interfaces.</div>
                     </div>
                 </div>
                 <div>
@@ -782,16 +1196,26 @@
                             <div class="t-dot g"></div>
                             <span class="terminal-label">aerovania-ai-engine v2.4.1</span>
                         </div>
-                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-green">SYSTEM</span> Initialising Aerovania AI Stack...</div>
-                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">Loading CV pipeline</span> <span class="t-green">✓ READY</span></div>
-                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">Agentic workflow engine</span> <span class="t-green">✓ ACTIVE</span></div>
-                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">LLM inference server</span> <span class="t-green">✓ ONLINE</span></div>
-                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">Dashboard telemetry</span> <span class="t-green">✓ STREAMING</span></div>
-                        <div class="t-line" style="margin-top:0.8rem;"><span class="t-orange">DETECT</span> Object confidence: <span class="t-white">98.7%</span></div>
-                        <div class="t-line"><span class="t-orange">INFER</span> Anomaly score: <span class="t-white">0.02 / 1.00</span></div>
-                        <div class="t-line"><span class="t-orange">AGENT</span> Tasks queued: <span class="t-white">14</span> | Completed: <span class="t-green">14</span></div>
-                        <div class="t-line"><span class="t-orange">LLM&nbsp;&nbsp;</span> Response latency: <span class="t-white">~0.4s</span></div>
-                        <div class="t-line" style="margin-top:1rem;"><span class="t-cyan">▶</span> All systems nominal. <span class="t-cursor"></span></div>
+                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-green">SYSTEM</span>
+                            Initialising Aerovania AI Stack...</div>
+                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">Loading CV
+                                pipeline</span> <span class="t-green">✓ READY</span></div>
+                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">Agentic workflow
+                                engine</span> <span class="t-green">✓ ACTIVE</span></div>
+                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">LLM inference
+                                server</span> <span class="t-green">✓ ONLINE</span></div>
+                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">Dashboard
+                                telemetry</span> <span class="t-green">✓ STREAMING</span></div>
+                        <div class="t-line" style="margin-top:0.8rem;"><span class="t-orange">DETECT</span> Object
+                            confidence: <span class="t-white">98.7%</span></div>
+                        <div class="t-line"><span class="t-orange">INFER</span> Anomaly score: <span
+                                class="t-white">0.02 / 1.00</span></div>
+                        <div class="t-line"><span class="t-orange">AGENT</span> Tasks queued: <span
+                                class="t-white">14</span> | Completed: <span class="t-green">14</span></div>
+                        <div class="t-line"><span class="t-orange">LLM&nbsp;&nbsp;</span> Response latency: <span
+                                class="t-white">~0.4s</span></div>
+                        <div class="t-line" style="margin-top:1rem;"><span class="t-cyan">▶</span> All systems nominal.
+                            <span class="t-cursor"></span></div>
                     </div>
                 </div>
             </div>
@@ -807,49 +1231,56 @@
             <div class="reveal">
                 <div class="section-tag">02 — UAV Manufacturing</div>
                 <h2 class="section-title">BUILT TO FLY.<br>BUILT TO WIN.</h2>
-                <p class="section-desc">Indigenous drone systems engineered for defence precision and industrial reliability — custom-built from airframe to firmware.</p>
+                <p class="section-desc">Indigenous drone systems engineered for defence precision and industrial
+                    reliability — custom-built from airframe to firmware.</p>
             </div>
             <div class="drone-grid reveal">
                 <div class="drone-cell">
                     <div class="drone-cell-num">01</div>
                     <div class="drone-cell-tag">Defence</div>
                     <div class="drone-cell-title">Tactical UAV Platforms</div>
-                    <div class="drone-cell-desc">Ruggedised, low-signature drones designed for border surveillance, tactical ISR, and defence operations — built to military-grade specifications.</div>
+                    <div class="drone-cell-desc">Ruggedised, low-signature drones designed for border surveillance,
+                        tactical ISR, and defence operations — built to military-grade specifications.</div>
                     <div class="drone-cell-bar"></div>
                 </div>
                 <div class="drone-cell">
                     <div class="drone-cell-num">02</div>
                     <div class="drone-cell-tag">Industrial</div>
                     <div class="drone-cell-title">Commercial Survey Drones</div>
-                    <div class="drone-cell-desc">High-endurance aerial platforms for infrastructure inspection, agriculture mapping, mining surveys, and LiDAR-equipped terrain analysis.</div>
+                    <div class="drone-cell-desc">High-endurance aerial platforms for infrastructure inspection,
+                        agriculture mapping, mining surveys, and LiDAR-equipped terrain analysis.</div>
                     <div class="drone-cell-bar"></div>
                 </div>
                 <div class="drone-cell">
                     <div class="drone-cell-num">03</div>
                     <div class="drone-cell-tag">Custom Build</div>
                     <div class="drone-cell-title">Mission-Specific Engineering</div>
-                    <div class="drone-cell-desc">End-to-end custom UAV development — from aerodynamic frame design to payload integration, sensor fusion, and autonomous flight control.</div>
+                    <div class="drone-cell-desc">End-to-end custom UAV development — from aerodynamic frame design to
+                        payload integration, sensor fusion, and autonomous flight control.</div>
                     <div class="drone-cell-bar"></div>
                 </div>
                 <div class="drone-cell">
                     <div class="drone-cell-num">04</div>
                     <div class="drone-cell-tag">Avionics</div>
                     <div class="drone-cell-title">Intelligent Flight Systems</div>
-                    <div class="drone-cell-desc">AI-enhanced autopilot, obstacle avoidance, swarm coordination, and edge computing onboard for real-time autonomous decision making.</div>
+                    <div class="drone-cell-desc">AI-enhanced autopilot, obstacle avoidance, swarm coordination, and edge
+                        computing onboard for real-time autonomous decision making.</div>
                     <div class="drone-cell-bar"></div>
                 </div>
                 <div class="drone-cell">
                     <div class="drone-cell-num">05</div>
                     <div class="drone-cell-tag">Clients</div>
                     <div class="drone-cell-title">Trusted by Critical Sectors</div>
-                    <div class="drone-cell-desc">Deployed with Indian Railways, NHAI, Coal India, and defence organisations — delivering mission-critical UAV performance where it counts most.</div>
+                    <div class="drone-cell-desc">Deployed with Indian Railways, NHAI, Coal India, and defence
+                        organisations — delivering mission-critical UAV performance where it counts most.</div>
                     <div class="drone-cell-bar"></div>
                 </div>
                 <div class="drone-cell">
                     <div class="drone-cell-num">06</div>
                     <div class="drone-cell-tag">Indigenous</div>
                     <div class="drone-cell-title">Made in India. Built for the World.</div>
-                    <div class="drone-cell-desc">Fully indigenous design and manufacturing under Aerovania's DPIIT-recognised framework — supporting Atmanirbhar Bharat and global export readiness.</div>
+                    <div class="drone-cell-desc">Fully indigenous design and manufacturing under Aerovania's
+                        DPIIT-recognised framework — supporting Atmanirbhar Bharat and global export readiness.</div>
                     <div class="drone-cell-bar"></div>
                 </div>
             </div>
@@ -864,7 +1295,8 @@
             <div class="reveal">
                 <div class="section-tag">03 — Geospatial Intelligence</div>
                 <h2 class="section-title">SEE EVERYTHING.<br>MISS NOTHING.</h2>
-                <p class="section-desc">Advanced geospatial analytics and surveillance intelligence that transforms aerial data into actionable insight at any scale.</p>
+                <p class="section-desc">Advanced geospatial analytics and surveillance intelligence that transforms
+                    aerial data into actionable insight at any scale.</p>
             </div>
             <div class="geo-layout">
                 <div class="geo-map reveal">
@@ -883,28 +1315,32 @@
                         <div class="geo-feat-icon">🛰️</div>
                         <div>
                             <div class="geo-feat-title">LiDAR Point Cloud Analytics</div>
-                            <div class="geo-feat-desc">Millimetre-precision 3D terrain and structure mapping for highways, railways, power lines, and mining operations.</div>
+                            <div class="geo-feat-desc">Millimetre-precision 3D terrain and structure mapping for
+                                highways, railways, power lines, and mining operations.</div>
                         </div>
                     </div>
                     <div class="geo-feat">
                         <div class="geo-feat-icon">📡</div>
                         <div>
                             <div class="geo-feat-title">Real-Time Surveillance Intelligence</div>
-                            <div class="geo-feat-desc">AI-driven perimeter and area surveillance with automated threat detection, tracking, and alert systems.</div>
+                            <div class="geo-feat-desc">AI-driven perimeter and area surveillance with automated threat
+                                detection, tracking, and alert systems.</div>
                         </div>
                     </div>
                     <div class="geo-feat">
                         <div class="geo-feat-icon">🗺️</div>
                         <div>
                             <div class="geo-feat-title">GIS &amp; Spatial Data Platforms</div>
-                            <div class="geo-feat-desc">Custom GIS dashboards and spatial databases integrating multi-source aerial, satellite, and sensor data streams.</div>
+                            <div class="geo-feat-desc">Custom GIS dashboards and spatial databases integrating
+                                multi-source aerial, satellite, and sensor data streams.</div>
                         </div>
                     </div>
                     <div class="geo-feat">
                         <div class="geo-feat-icon">⚡</div>
                         <div>
                             <div class="geo-feat-title">Change Detection &amp; Monitoring</div>
-                            <div class="geo-feat-desc">Temporal comparison of geospatial datasets to detect encroachment, erosion, structural shifts, or unauthorised activity.</div>
+                            <div class="geo-feat-desc">Temporal comparison of geospatial datasets to detect
+                                encroachment, erosion, structural shifts, or unauthorised activity.</div>
                         </div>
                     </div>
                 </div>
@@ -920,13 +1356,16 @@
             <div class="reveal">
                 <div class="section-tag">04 — Advanced Materials R&amp;D</div>
                 <h2 class="section-title">STRENGTH FROM<br><span class="g">NATURE.</span> BUILT<br>FOR TOMORROW.</h2>
-                <p class="section-desc">Aerovania's materials science division pushes the boundaries of aerospace-grade composites — combining natural fibre reinforcements with synthetic precision engineering.</p>
+                <p class="section-desc">Aerovania's materials science division pushes the boundaries of aerospace-grade
+                    composites — combining natural fibre reinforcements with synthetic precision engineering.</p>
             </div>
             <div class="mat-layout">
                 <div class="mat-hero-box reveal">
                     <div class="mat-label">Flagship Innovation — HCM Series</div>
                     <div class="mat-big">HYBRID<br><span class="g">COMPOSITE</span><br>MATERIAL</div>
-                    <div class="mat-desc">Our patented Hybrid Composite Material (HCM) fuses natural fibre reinforcements with advanced synthetic matrices — delivering aerospace-grade mechanical performance at a fraction of the environmental and financial cost.</div>
+                    <div class="mat-desc">Our patented Hybrid Composite Material (HCM) fuses natural fibre
+                        reinforcements with advanced synthetic matrices — delivering aerospace-grade mechanical
+                        performance at a fraction of the environmental and financial cost.</div>
                     <div class="mat-props">
                         <div class="mat-prop">
                             <div class="mat-prop-val">↓40%</div>
@@ -950,42 +1389,48 @@
                     <div class="mat-pill">
                         <div>
                             <div class="mat-pill-name">Natural Fibre Reinforcement</div>
-                            <div class="mat-pill-sub">Eco-sourced, high-tensile natural fibre core for sustainable base structures</div>
+                            <div class="mat-pill-sub">Eco-sourced, high-tensile natural fibre core for sustainable base
+                                structures</div>
                         </div>
                         <div class="mat-pill-badge">BIO-BASED</div>
                     </div>
                     <div class="mat-pill">
                         <div>
                             <div class="mat-pill-name">Synthetic Matrix Integration</div>
-                            <div class="mat-pill-sub">Engineered resin systems for enhanced bonding, durability, and thermal stability</div>
+                            <div class="mat-pill-sub">Engineered resin systems for enhanced bonding, durability, and
+                                thermal stability</div>
                         </div>
                         <div class="mat-pill-badge">PRECISION</div>
                     </div>
                     <div class="mat-pill">
                         <div>
                             <div class="mat-pill-name">Aerospace Structural Panels</div>
-                            <div class="mat-pill-sub">Lightweight airframe panels and bulkheads for UAV and aerospace applications</div>
+                            <div class="mat-pill-sub">Lightweight airframe panels and bulkheads for UAV and aerospace
+                                applications</div>
                         </div>
                         <div class="mat-pill-badge">CERTIFIED</div>
                     </div>
                     <div class="mat-pill">
                         <div>
                             <div class="mat-pill-name">FPV Drone Frames</div>
-                            <div class="mat-pill-sub">HCM-built racing and industrial FPV frames — lightweight, impact-resistant, custom-tuned</div>
+                            <div class="mat-pill-sub">HCM-built racing and industrial FPV frames — lightweight,
+                                impact-resistant, custom-tuned</div>
                         </div>
                         <div class="mat-pill-badge">COMMERCIAL</div>
                     </div>
                     <div class="mat-pill">
                         <div>
                             <div class="mat-pill-name">Industrial Structural Components</div>
-                            <div class="mat-pill-sub">Composite solutions for infrastructure, automotive, and defence OEM requirements</div>
+                            <div class="mat-pill-sub">Composite solutions for infrastructure, automotive, and defence
+                                OEM requirements</div>
                         </div>
                         <div class="mat-pill-badge">OEM READY</div>
                     </div>
                     <div class="mat-pill">
                         <div>
                             <div class="mat-pill-name">Custom R&amp;D Contracts</div>
-                            <div class="mat-pill-sub">Collaborative material development for specific performance envelopes and certifications</div>
+                            <div class="mat-pill-sub">Collaborative material development for specific performance
+                                envelopes and certifications</div>
                         </div>
                         <div class="mat-pill-badge">R&amp;D</div>
                     </div>
@@ -1000,7 +1445,8 @@
         <div class="container reveal" style="position:relative;z-index:1;">
             <div class="cta-eyebrow">Aerovania Pvt Ltd — Nagpur, India</div>
             <h2 class="cta-title">THE WORLD HAS<br>PROBLEMS.<br><span>WE HAVE ANSWERS.</span></h2>
-            <p class="cta-sub">Partner with Aerovania to deploy cutting-edge AI, UAV, geospatial, and materials technology for your industry.</p>
+            <p class="cta-sub">Partner with Aerovania to deploy cutting-edge AI, UAV, geospatial, and materials
+                technology for your industry.</p>
             <div class="cta-buttons">
                 <a href="../../pages/company/contact-us.html" class="btn-tech-primary">Schedule a Discovery Call</a>
                 <a href="../../pages/solutions/geospatial-ai.html" class="btn-tech-secondary">Explore Solutions</a>
@@ -1013,8 +1459,10 @@
         <div class="container footer-grid">
             <div class="footer-col brand-col">
                 <div class="logo">
-                    <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a>
-                    <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div>
+                    <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                            class="footer-logo"></a>
+                    <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
+                    </div>
                 </div>
                 <div class="socials">
                     <a href="#"><i class="ph ph-linkedin-logo"></i></a>
@@ -1041,11 +1489,14 @@
             <div class="footer-col contact-col">
                 <h4>Contact Us</h4>
                 <ul>
-                    <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li>
-                    <li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
+                    <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217"
+                            style="color:inherit;text-decoration:none;">+91 78758 55217</a></li>
+                    <li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075"
+                            style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
                     <li><i class="ph ph-envelope"></i> info@aerovania.com</li>
                     <li><i class="ph ph-globe"></i> www.aerovania.com</li>
-                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li>
+                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra
+                    </li>
                 </ul>
             </div>
         </div>
@@ -1133,8 +1584,8 @@
         const mobilePanel = document.getElementById('mobilePanel');
         const mobileOverlay = document.getElementById('mobileOverlay');
         const mobileClose = document.getElementById('mobileClose');
-        function openMobile() { mobilePanel.classList.add('open'); mobileOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
-        function closeMobile() { mobilePanel.classList.remove('open'); mobileOverlay.classList.remove('open'); document.body.style.overflow=''; }
+        function openMobile() { mobilePanel.classList.add('open'); mobileOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeMobile() { mobilePanel.classList.remove('open'); mobileOverlay.classList.remove('open'); document.body.style.overflow = ''; }
         if (mobileBtn) mobileBtn.addEventListener('click', openMobile);
         if (mobileClose) mobileClose.addEventListener('click', closeMobile);
         if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobile);
@@ -1145,4 +1596,5 @@
         }
     </script>
 </body>
+
 </html>
