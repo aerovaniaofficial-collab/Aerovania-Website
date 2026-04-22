@@ -1,1332 +1,597 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technology | Aerovania</title>
+    <meta name="description" content="Aerovania's core technology pillars — AI, UAV manufacturing, geospatial intelligence, and advanced composite materials.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <style>
         :root {
-            --cyan: #34C0C5;
-            --navy: #0a0e20;
-            --navy2: #0d1226;
+            --black: #050709;
+            --dark: #0a0d12;
+            --card: #0e1219;
+            --border: rgba(255,255,255,0.07);
+            --accent: #34C0C5;
+            --accent2: #f97316;
+            --accent3: #22c55e;
+            --text: #e8ecf0;
+            --muted: #6b7585;
         }
 
-        /* ── SHARED ── */
-        .t-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: .15em;
-            text-transform: uppercase;
-            color: var(--cyan);
-            background: rgba(52, 192, 197, .1);
-            border: 1px solid rgba(52, 192, 197, .28);
-            border-radius: 50px;
-            padding: .35rem .9rem;
-            margin-bottom: 1.25rem;
-        }
+        *, *::before, *::after { box-sizing: border-box; }
 
-        .t-h2 {
-            font-family: 'Sora', sans-serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 0 0 1rem;
-        }
+        /* ── body override for dark theme ── */
+        body { background: var(--black); color: var(--text); overflow-x: hidden; }
 
-        .t-p {
-            font-size: 1rem;
-            line-height: 1.75;
-            color: rgba(255, 255, 255, .6);
-            max-width: 520px;
+        /* ── TICKER ── */
+        .ticker-wrap {
+            background: var(--accent);
+            overflow: hidden;
+            padding: 0.65rem 0;
         }
-
-        .t-p--dark {
-            color: #64748b;
-        }
-
-        .t-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            padding: .75rem 1.6rem;
-            border-radius: 8px;
-            font-size: .9rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all .25s;
-        }
-
-        .t-btn--cyan {
-            background: var(--cyan);
-            color: #000;
-        }
-
-        .t-btn--cyan:hover {
-            background: #2aacb1;
-            transform: translateY(-2px);
-        }
-
-        .t-btn--ghost {
-            border: 1.5px solid rgba(255, 255, 255, .25);
-            color: rgba(255, 255, 255, .8);
-        }
-
-        .t-btn--ghost:hover {
-            border-color: var(--cyan);
-            color: var(--cyan);
-        }
-
-        .t-value-bar {
+        .ticker {
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
+            animation: tickerScroll 30s linear infinite;
+            white-space: nowrap;
+        }
+        .ticker-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: #050709;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0 3rem;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+        .ticker-item::before { content: '◆'; margin-right: 1.5rem; }
+        @keyframes tickerScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        .t-value-pill {
-            font-size: .78rem;
-            font-weight: 600;
-            color: var(--cyan);
-            background: rgba(52, 192, 197, .08);
-            border: 1px solid rgba(52, 192, 197, .2);
-            border-radius: 50px;
-            padding: .3rem .85rem;
+        /* ── SECTION BASE ── */
+        .tech-section { padding: 7rem 0; position: relative; }
+
+        .section-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.4rem, 4.5vw, 4rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.05;
+            letter-spacing: 0.01em;
+            margin-bottom: 1.2rem;
+        }
+        .section-title .g { color: var(--accent3); }
+        .section-title .o { color: var(--accent2); }
+        .section-title .c { color: var(--accent); }
+
+        .section-desc {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 560px;
+            line-height: 1.75;
         }
 
-        /* reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity .7s ease, transform .7s ease;
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
         }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: none;
-        }
-
-        /* ── 1. HERO ── */
-        .tp-hero {
-            position: relative;
+        /* ── HERO ── */
+        #tech-hero {
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            background: var(--navy);
+            flex-direction: column;
+            justify-content: center;
+            padding: 10rem 0 6rem;
+            position: relative;
             overflow: hidden;
+            background: var(--black);
         }
-
-        .tp-hero__grid {
+        .hero-grid-bg {
             position: absolute;
             inset: 0;
-            background-image: linear-gradient(rgba(52, 192, 197, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(52, 192, 197, .06) 1px, transparent 1px);
+            background-image:
+                linear-gradient(rgba(52,192,197,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(52,192,197,0.04) 1px, transparent 1px);
             background-size: 60px 60px;
-            animation: gridMove 20s linear infinite;
+            animation: gridShift 20s linear infinite;
         }
-
-        @keyframes gridMove {
-            from {
-                background-position: 0 0
-            }
-
-            to {
-                background-position: 60px 60px
-            }
+        @keyframes gridShift {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(60px); }
         }
-
-        .tp-hero__glow {
+        .hero-glow {
             position: absolute;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(52, 192, 197, .15) 0%, transparent 65%);
-            top: -200px;
-            right: -100px;
-            pointer-events: none;
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(52,192,197,0.12) 0%, transparent 65%);
+            top: -200px; right: -100px;
+            animation: glowPulse 6s ease-in-out infinite;
         }
-
-        .tp-hero__glow2 {
+        .hero-glow2 {
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(52, 192, 197, .08) 0%, transparent 65%);
-            bottom: -100px;
-            left: 5%;
-            pointer-events: none;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 65%);
+            bottom: 0; left: -100px;
+            animation: glowPulse 8s ease-in-out infinite reverse;
+        }
+        @keyframes glowPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+        .hero-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.2s forwards;
+        }
+        .hero-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 7.5rem);
+            font-weight: 800;
+            line-height: 0.95;
+            color: #fff;
+            max-width: 900px;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.4s forwards;
+        }
+        .hero-title .c { color: var(--accent); }
+        .hero-title .o { color: var(--accent2); }
+        .hero-sub {
+            margin-top: 2.5rem;
+            font-size: 1.05rem;
+            color: var(--muted);
+            max-width: 520px;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.6s forwards;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 3.5rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.8s forwards;
+        }
+        .hero-stat-num {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1;
+        }
+        .hero-stat-num span { color: var(--accent); }
+        .hero-stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 0.3rem;
+        }
+        .hero-scroll {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeUp 0.8s 1.2s forwards;
+        }
+        .scroll-line {
+            width: 50px; height: 1px;
+            background: var(--accent);
+            animation: lineExpand 2s ease-in-out infinite;
+        }
+        @keyframes lineExpand {
+            0%, 100% { width: 50px; opacity: 1; }
+            50% { width: 80px; opacity: 0.5; }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .tp-hero .container {
-            position: relative;
-            z-index: 2;
+        /* ── AI SECTION ── */
+        #ai { background: var(--dark); }
+        .ai-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            padding: 8rem 0 6rem;
+            gap: 5rem;
+            align-items: start;
+            margin-top: 4rem;
         }
-
-        .tp-hero__left {}
-
-        .tp-hero h1 {
-            font-family: 'Sora', sans-serif;
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
-            font-weight: 800;
-            color: #f1f5f9;
-            line-height: 1.08;
-            margin: 0 0 1.25rem;
-        }
-
-        .tp-hero h1 span {
-            color: var(--cyan);
-        }
-
-        .tp-hero__cta {
-            display: flex;
+        .ai-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
         }
-
-        .tp-hero__right {
+        .ai-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 1.8rem;
             position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s, transform 0.3s;
+            cursor: default;
+            border-radius: 4px;
+        }
+        .ai-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+        .ai-card:hover::before { transform: scaleX(1); }
+        .ai-card:hover { border-color: rgba(52,192,197,0.3); transform: translateY(-4px); }
+        .ai-card-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
+        .ai-card-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+        .ai-card-desc {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+        .ai-terminal {
+            background: #06080b;
+            border: 1px solid var(--border);
+            border-top: 2px solid var(--accent);
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            border-radius: 0 0 4px 4px;
+        }
+        .terminal-bar {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border);
         }
-
-        /* drone SVG visual */
-        .drone-vis {
-            position: relative;
-            width: 100%;
-            max-width: 480px;
+        .t-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .t-dot.r { background: #ff5f57; }
+        .t-dot.y { background: #febc2e; }
+        .t-dot.g { background: #28c840; }
+        .terminal-label { margin-left: auto; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; }
+        .t-line { margin-bottom: 0.5rem; color: var(--muted); }
+        .t-line .t-green { color: var(--accent3); }
+        .t-line .t-cyan { color: var(--accent); }
+        .t-line .t-orange { color: var(--accent2); }
+        .t-line .t-white { color: #fff; }
+        .t-cursor {
+            display: inline-block; width: 8px; height: 14px;
+            background: var(--accent); vertical-align: middle;
+            animation: blink 1s step-end infinite;
         }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        .drone-vis__ring {
+        /* ── DRONES SECTION ── */
+        #drones { background: var(--black); position: relative; overflow: hidden; }
+        .drone-bg-text {
             position: absolute;
-            border-radius: 50%;
-            border: 1px solid rgba(52, 192, 197, .2);
-            animation: ringPulse 3s ease-in-out infinite;
-        }
-
-        .drone-vis__ring:nth-child(1) {
-            width: 200px;
-            height: 200px;
-            top: 50%;
-            left: 50%;
+            font-family: 'Sora', sans-serif;
+            font-size: 22vw;
+            font-weight: 800;
+            color: rgba(255,255,255,0.02);
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            animation-delay: 0s;
+            white-space: nowrap;
+            pointer-events: none;
+            letter-spacing: 0.05em;
         }
-
-        .drone-vis__ring:nth-child(2) {
-            width: 320px;
-            height: 320px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: .6s;
-        }
-
-        .drone-vis__ring:nth-child(3) {
-            width: 440px;
-            height: 440px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: 1.2s;
-        }
-
-        @keyframes ringPulse {
-
-            0%,
-            100% {
-                opacity: .3;
-                transform: translate(-50%, -50%) scale(1)
-            }
-
-            50% {
-                opacity: .7;
-                transform: translate(-50%, -50%) scale(1.04)
-            }
-        }
-
-        .drone-vis__core {
-            position: relative;
-            z-index: 2;
-            width: 120px;
-            height: 120px;
-            margin: 160px auto;
-            background: rgba(52, 192, 197, .12);
-            border: 1px solid rgba(52, 192, 197, .4);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--cyan);
-            box-shadow: 0 0 40px rgba(52, 192, 197, .2);
-        }
-
-        .drone-vis__stream {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-            border-radius: 2px;
-            animation: streamFlow 2s linear infinite;
-        }
-
-        .drone-vis__stream:nth-child(4) {
-            width: 80px;
-            top: calc(50% - 1px);
-            left: 0;
-            animation-delay: 0s;
-        }
-
-        .drone-vis__stream:nth-child(5) {
-            width: 60px;
-            top: calc(50% + 20px);
-            left: 10px;
-            animation-delay: .4s;
-        }
-
-        .drone-vis__stream:nth-child(6) {
-            width: 70px;
-            top: calc(50% - 20px);
-            left: 5px;
-            animation-delay: .8s;
-        }
-
-        .drone-vis__stream:nth-child(7) {
-            width: 80px;
-            top: calc(50% - 1px);
-            right: 0;
-            left: auto;
-            animation: streamFlowR 2s linear infinite;
-            animation-delay: .2s;
-        }
-
-        .drone-vis__stream:nth-child(8) {
-            width: 60px;
-            top: calc(50% + 20px);
-            right: 10px;
-            left: auto;
-            animation: streamFlowR 2s linear infinite;
-            animation-delay: .6s;
-        }
-
-        @keyframes streamFlow {
-            from {
-                transform: translateX(-20px);
-                opacity: 0
-            }
-
-            50% {
-                opacity: 1
-            }
-
-            to {
-                transform: translateX(20px);
-                opacity: 0
-            }
-        }
-
-        @keyframes streamFlowR {
-            from {
-                transform: translateX(20px);
-                opacity: 0
-            }
-
-            50% {
-                opacity: 1
-            }
-
-            to {
-                transform: translateX(-20px);
-                opacity: 0
-            }
-        }
-
-        .drone-vis__node {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: var(--cyan);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--cyan);
-            animation: nodePulse 2s ease-in-out infinite;
-        }
-
-        .drone-vis__node:nth-child(9) {
-            top: 30%;
-            left: 15%;
-            animation-delay: 0s;
-        }
-
-        .drone-vis__node:nth-child(10) {
-            top: 60%;
-            left: 20%;
-            animation-delay: .5s;
-        }
-
-        .drone-vis__node:nth-child(11) {
-            top: 25%;
-            right: 18%;
-            animation-delay: 1s;
-        }
-
-        .drone-vis__node:nth-child(12) {
-            top: 65%;
-            right: 15%;
-            animation-delay: 1.5s;
-        }
-
-        @keyframes nodePulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: .6
-            }
-
-            50% {
-                transform: scale(1.6);
-                opacity: 1
-            }
-        }
-
-        @media(max-width:900px) {
-            .tp-hero .container {
-                grid-template-columns: 1fr;
-                padding: 7rem 0 4rem;
-            }
-
-            .tp-hero__right {
-                display: none;
-            }
-        }
-
-        /* ── 2. AI + DRONE — 3-col glass cards ── */
-        .tp-drone {
-            padding: 6rem 0;
-            background: #06090f;
-        }
-
-        .tp-drone__header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .tp-drone__grid {
+        .drone-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            gap: 1.5px;
+            margin-top: 4rem;
+            background: var(--border);
         }
-
-        .glass-card {
-            background: rgba(255, 255, 255, .03);
-            border: 1px solid rgba(255, 255, 255, .08);
-            border-radius: 16px;
-            padding: 2rem;
-            backdrop-filter: blur(12px);
-            transition: transform .3s, box-shadow .3s, border-color .3s;
+        .drone-cell {
+            background: var(--dark);
+            padding: 3rem 2.5rem;
             position: relative;
             overflow: hidden;
+            transition: background 0.4s;
         }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 0%, rgba(52, 192, 197, .1) 0%, transparent 60%);
-            opacity: 0;
-            transition: opacity .3s;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(52, 192, 197, .12);
-            border-color: rgba(52, 192, 197, .3);
-        }
-
-        .glass-card:hover::before {
-            opacity: 1;
-        }
-
-        .glass-card__icon {
-            width: 52px;
-            height: 52px;
-            background: rgba(52, 192, 197, .12);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--cyan);
-            margin-bottom: 1.25rem;
-            transition: background .3s;
-        }
-
-        .glass-card:hover .glass-card__icon {
-            background: var(--cyan);
-            color: #000;
-        }
-
-        .glass-card__title {
+        .drone-cell:hover { background: #0f1520; }
+        .drone-cell-num {
             font-family: 'Sora', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #f1f5f9;
-            margin: 0 0 .6rem;
-        }
-
-        .glass-card__desc {
-            font-size: .875rem;
-            color: rgba(255, 255, 255, .5);
-            line-height: 1.7;
-        }
-
-        @media(max-width:768px) {
-            .tp-drone__grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ── 3. MULTI-SENSOR — horizontal split + stack layers ── */
-        .tp-sensor {
-            padding: 6rem 0;
-            background: var(--navy2);
-        }
-
-        .tp-sensor__inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .tp-sensor__layers {
-            position: relative;
-            height: 320px;
-        }
-
-        .sensor-layer {
+            font-size: 4rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.05);
             position: absolute;
-            left: 0;
-            right: 0;
-            height: 72px;
-            border-radius: 12px;
-            border: 1px solid rgba(52, 192, 197, .2);
-            display: flex;
-            align-items: center;
-            padding: 0 1.25rem;
-            gap: 1rem;
-            font-size: .85rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, .8);
-            backdrop-filter: blur(8px);
-            transition: transform .3s, box-shadow .3s;
+            top: 1rem; right: 1.5rem;
+            line-height: 1;
         }
-
-        .sensor-layer:hover {
-            transform: translateX(8px);
-            box-shadow: 0 8px 30px rgba(52, 192, 197, .15);
-        }
-
-        .sensor-layer:nth-child(1) {
-            top: 0;
-            background: rgba(52, 192, 197, .08);
-            z-index: 4;
-        }
-
-        .sensor-layer:nth-child(2) {
-            top: 84px;
-            background: rgba(52, 192, 197, .06);
-            z-index: 3;
-        }
-
-        .sensor-layer:nth-child(3) {
-            top: 168px;
-            background: rgba(52, 192, 197, .04);
-            z-index: 2;
-        }
-
-        .sensor-layer:nth-child(4) {
-            top: 252px;
-            background: rgba(52, 192, 197, .02);
-            z-index: 1;
-        }
-
-        .sensor-layer__dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        @media(max-width:900px) {
-            .tp-sensor__inner {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ── 4. AI ANALYTICS — Z-pattern ── */
-        .tp-analytics {
-            padding: 6rem 0;
-            background: #06090f;
-        }
-
-        .tp-analytics__row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 5rem;
-        }
-
-        .tp-analytics__row:last-child {
-            margin-bottom: 0;
-        }
-
-        .tp-analytics__row--reverse {
-            direction: rtl;
-        }
-
-        .tp-analytics__row--reverse>* {
-            direction: ltr;
-        }
-
-        .analytics-mockup {
-            background: rgba(255, 255, 255, .03);
-            border: 1px solid rgba(255, 255, 255, .08);
-            border-radius: 16px;
-            padding: 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .analytics-mockup__bar {
-            height: 8px;
-            border-radius: 4px;
-            background: rgba(52, 192, 197, .2);
-            margin-bottom: .75rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .analytics-mockup__bar::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--cyan);
-            border-radius: 4px;
-            animation: barFill 2.5s ease-in-out infinite alternate;
-        }
-
-        .analytics-mockup__bar:nth-child(1)::after {
-            width: 85%;
-        }
-
-        .analytics-mockup__bar:nth-child(2)::after {
-            width: 62%;
-            animation-delay: .3s;
-        }
-
-        .analytics-mockup__bar:nth-child(3)::after {
-            width: 91%;
-            animation-delay: .6s;
-        }
-
-        .analytics-mockup__bar:nth-child(4)::after {
-            width: 47%;
-            animation-delay: .9s;
-        }
-
-        @keyframes barFill {
-            from {
-                opacity: .4
-            }
-
-            to {
-                opacity: 1
-            }
-        }
-
-        .analytics-mockup__label {
-            font-size: .72rem;
-            color: rgba(255, 255, 255, .35);
-            margin-bottom: 1rem;
-            font-weight: 600;
-            letter-spacing: .08em;
+        .drone-cell-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--accent2);
+            letter-spacing: 0.2em;
             text-transform: uppercase;
+            margin-bottom: 1rem;
         }
-
-        .bbox-demo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: .75rem;
-            margin-top: 1rem;
+        .drone-cell-title { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; line-height: 1.3; }
+        .drone-cell-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+        .drone-cell-bar {
+            margin-top: 1.5rem; height: 2px;
+            background: var(--border);
+            position: relative; overflow: hidden;
         }
-
-        .bbox {
-            border: 1.5px solid var(--cyan);
-            border-radius: 6px;
-            padding: .5rem .75rem;
-            font-size: .75rem;
-            color: var(--cyan);
-            position: relative;
-        }
-
-        .bbox::before {
+        .drone-cell-bar::after {
             content: '';
             position: absolute;
-            top: -4px;
-            left: -4px;
-            width: 8px;
-            height: 8px;
-            border-top: 2px solid var(--cyan);
-            border-left: 2px solid var(--cyan);
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: var(--accent2);
+            animation: barSlide 3s ease-in-out infinite;
         }
+        @keyframes barSlide { 0% { left: -100%; } 50%, 100% { left: 100%; } }
 
-        .bbox::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            right: -4px;
-            width: 8px;
-            height: 8px;
-            border-bottom: 2px solid var(--cyan);
-            border-right: 2px solid var(--cyan);
-        }
-
-        @media(max-width:900px) {
-            .tp-analytics__row {
-                grid-template-columns: 1fr;
-            }
-
-            .tp-analytics__row--reverse {
-                direction: ltr;
-            }
-        }
-
-        /* ── 5. GEOSPATIAL — full-width dark map ── */
-        .tp-geo {
-            padding: 6rem 0;
-            background: var(--navy);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tp-geo__map {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 60% 50%, rgba(52, 192, 197, .07) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .tp-geo__lines {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .geo-line {
-            position: absolute;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(52, 192, 197, .4), transparent);
-            animation: geoLine 4s linear infinite;
-        }
-
-        .geo-line:nth-child(1) {
-            width: 60%;
-            top: 30%;
-            animation-delay: 0s;
-        }
-
-        .geo-line:nth-child(2) {
-            width: 40%;
-            top: 50%;
-            animation-delay: 1s;
-        }
-
-        .geo-line:nth-child(3) {
-            width: 70%;
-            top: 70%;
-            animation-delay: 2s;
-        }
-
-        @keyframes geoLine {
-            from {
-                transform: translateX(-100%)
-            }
-
-            to {
-                transform: translateX(200%)
-            }
-        }
-
-        .tp-geo__inner {
-            position: relative;
-            z-index: 2;
+        /* ── GEO SECTION ── */
+        #geo { background: var(--dark); position: relative; overflow: hidden; }
+        .geo-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .geo-overlay {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .geo-marker {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(255, 255, 255, .04);
-            border: 1px solid rgba(255, 255, 255, .08);
-            border-radius: 12px;
-            padding: 1rem 1.25rem;
-            transition: border-color .3s, background .3s;
-        }
-
-        .geo-marker:hover {
-            border-color: rgba(52, 192, 197, .4);
-            background: rgba(52, 192, 197, .06);
-        }
-
-        .geo-marker__dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--cyan);
-            box-shadow: 0 0 10px var(--cyan);
-            flex-shrink: 0;
-        }
-
-        .geo-marker__text {
-            font-size: .875rem;
-            color: rgba(255, 255, 255, .7);
-        }
-
-        .geo-marker__val {
-            margin-left: auto;
-            font-size: .8rem;
-            font-weight: 700;
-            color: var(--cyan);
-        }
-
-        @media(max-width:900px) {
-            .tp-geo__inner {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ── 6. ENGINEERING — split with CAD wireframe ── */
-        .tp-eng {
-            padding: 6rem 0;
-            background: #06090f;
-        }
-
-        .tp-eng__inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.4fr;
             gap: 5rem;
             align-items: center;
+            margin-top: 4rem;
         }
-
-        .cad-vis {
+        .geo-map {
             position: relative;
-            height: 340px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            aspect-ratio: 1;
+            max-width: 400px;
         }
-
-        .cad-vis__frame {
-            width: 220px;
-            height: 220px;
-            border: 1px solid rgba(52, 192, 197, .3);
-            border-radius: 16px;
-            position: relative;
-            animation: cadRotate 12s linear infinite;
-        }
-
-        .cad-vis__frame::before,
-        .cad-vis__frame::after {
-            content: '';
+        .geo-ring {
             position: absolute;
-            border: 1px solid rgba(52, 192, 197, .15);
-            border-radius: 8px;
-        }
-
-        .cad-vis__frame::before {
-            inset: 20px;
-        }
-
-        .cad-vis__frame::after {
-            inset: 40px;
-        }
-
-        @keyframes cadRotate {
-            from {
-                transform: rotateY(0deg) rotateX(10deg)
-            }
-
-            to {
-                transform: rotateY(360deg) rotateX(10deg)
-            }
-        }
-
-        .cad-vis__dot {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: var(--cyan);
             border-radius: 50%;
-            box-shadow: 0 0 8px var(--cyan);
+            border: 1px solid var(--accent);
         }
-
-        .cad-vis__dot:nth-child(2) {
-            top: 10%;
-            left: 10%;
+        .geo-ring-1 { inset: 0; opacity: 0.2; animation: ringPulse 3s ease-in-out infinite; }
+        .geo-ring-2 { inset: 15%; opacity: 0.35; animation: ringPulse 3s ease-in-out 0.5s infinite; }
+        .geo-ring-3 { inset: 30%; opacity: 0.55; animation: ringPulse 3s ease-in-out 1s infinite; }
+        @keyframes ringPulse {
+            0%, 100% { transform: scale(1); opacity: 0.35; }
+            50% { transform: scale(1.04); opacity: 0.15; }
         }
-
-        .cad-vis__dot:nth-child(3) {
-            top: 10%;
-            right: 10%;
+        .geo-center {
+            position: absolute; inset: 42%;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: glowPulse 2s ease-in-out infinite;
         }
-
-        .cad-vis__dot:nth-child(4) {
-            bottom: 10%;
-            left: 10%;
-        }
-
-        .cad-vis__dot:nth-child(5) {
-            bottom: 10%;
-            right: 10%;
-        }
-
-        .cad-vis__line {
+        .geo-dot {
             position: absolute;
-            height: 1px;
-            background: rgba(52, 192, 197, .2);
-            transform-origin: left;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--accent2);
+            border: 1px solid var(--accent);
         }
-
-        .eng-bullets {
+        .geo-features { display: flex; flex-direction: column; gap: 1.2rem; }
+        .geo-feat {
             display: flex;
-            flex-direction: column;
-            gap: .85rem;
-            margin-top: 1.5rem;
+            gap: 1.2rem;
+            align-items: flex-start;
+            padding: 1.4rem;
+            border: 1px solid var(--border);
+            background: rgba(52,192,197,0.02);
+            transition: border-color 0.3s, background 0.3s;
         }
+        .geo-feat:hover { border-color: rgba(52,192,197,0.2); background: rgba(52,192,197,0.04); }
+        .geo-feat-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+        .geo-feat-title { font-size: 0.92rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+        .geo-feat-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
 
-        .eng-bullet {
-            display: flex;
-            align-items: center;
-            gap: .75rem;
-            font-size: .9rem;
-            color: rgba(255, 255, 255, .7);
-        }
-
-        .eng-bullet i {
-            color: var(--cyan);
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-
-        @media(max-width:900px) {
-            .tp-eng__inner {
-                grid-template-columns: 1fr;
-            }
-
-            .cad-vis {
-                height: 200px;
-            }
-        }
-
-        /* ── 7. COMPOSITE — 2x2 grid with texture ── */
-        .tp-composite {
-            padding: 6rem 0;
-            background: var(--navy2);
-        }
-
-        .tp-composite__header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .composite-grid {
+        /* ── MATERIALS SECTION ── */
+        #materials { background: var(--black); }
+        .mat-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: start;
+            margin-top: 4rem;
         }
-
-        .composite-card {
-            border-radius: 16px;
-            padding: 2rem;
+        .mat-hero-box {
+            background: linear-gradient(135deg, #0a1a0f 0%, #050a07 100%);
+            border: 1px solid rgba(34,197,94,0.15);
+            padding: 3rem;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, .07);
-            transition: transform .3s, box-shadow .3s;
         }
-
-        .composite-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, .3);
+        .mat-hero-box::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at top left, rgba(34,197,94,0.07) 0%, transparent 60%);
+            pointer-events: none;
         }
-
-        .composite-card__bg {
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(45deg, rgba(52, 192, 197, .03) 0px, rgba(52, 192, 197, .03) 1px, transparent 1px, transparent 8px);
-            z-index: 0;
+        .mat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--accent3);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
         }
-
-        .composite-card__content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .composite-card__num {
+        .mat-big {
             font-family: 'Sora', sans-serif;
             font-size: 3rem;
             font-weight: 800;
-            color: rgba(52, 192, 197, .08);
-            line-height: 1;
-            margin-bottom: .5rem;
+            color: #fff;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
         }
-
-        .composite-card__title {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #f1f5f9;
-            margin-bottom: .5rem;
+        .mat-big .g { color: var(--accent3); }
+        .mat-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
+        .mat-props { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .mat-prop {
+            padding: 1rem;
+            border: 1px solid rgba(34,197,94,0.1);
+            background: rgba(34,197,94,0.03);
         }
-
-        .composite-card__desc {
-            font-size: .875rem;
-            color: rgba(255, 255, 255, .5);
-            line-height: 1.65;
-        }
-
-        @media(max-width:640px) {
-            .composite-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ── 8. TECH STACK — logo cloud ── */
-        .tp-stack {
-            padding: 6rem 0;
-            background: #06090f;
-        }
-
-        .tp-stack__header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .stack-category {
-            margin-bottom: 2.5rem;
-        }
-
-        .stack-category__label {
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: .14em;
+        .mat-prop-val { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent3); line-height: 1; }
+        .mat-prop-key {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, .3);
-            margin-bottom: 1rem;
-            padding-bottom: .5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            margin-top: 0.3rem;
         }
-
-        .stack-logos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .75rem;
-        }
-
-        .stack-logo {
-            background: rgba(255, 255, 255, .04);
-            border: 1px solid rgba(255, 255, 255, .07);
-            border-radius: 10px;
-            padding: .6rem 1.25rem;
-            font-size: .82rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, .4);
-            transition: color .25s, border-color .25s, background .25s;
-            cursor: default;
-        }
-
-        .stack-logo:hover {
-            color: var(--cyan);
-            border-color: rgba(52, 192, 197, .35);
-            background: rgba(52, 192, 197, .06);
-        }
-
-        /* ── 9. ROADMAP — horizontal timeline ── */
-        .tp-roadmap {
-            padding: 6rem 0;
-            background: var(--navy2);
-            overflow: hidden;
-        }
-
-        .tp-roadmap__header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .timeline {
-            position: relative;
-            display: flex;
-            gap: 0;
-            overflow-x: auto;
-            padding-bottom: 1rem;
-            scrollbar-width: none;
-        }
-
-        .timeline::-webkit-scrollbar {
-            display: none;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 32px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: rgba(255, 255, 255, .08);
-        }
-
-        .timeline__glow {
-            position: absolute;
-            top: 31px;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--cyan), rgba(52, 192, 197, .2));
-            border-radius: 2px;
-            width: 60%;
-            animation: timelineGrow 3s ease-out forwards;
-        }
-
-        @keyframes timelineGrow {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 60%
-            }
-        }
-
-        .tl-step {
-            flex: 0 0 200px;
-            padding: 0 1rem;
-            position: relative;
-        }
-
-        .tl-step__dot {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, .2);
-            background: var(--navy2);
-            margin: 0 auto 1.5rem;
-            position: relative;
-            z-index: 1;
-            transition: border-color .3s, background .3s;
-        }
-
-        .tl-step.active .tl-step__dot {
-            border-color: var(--cyan);
-            background: var(--cyan);
-            box-shadow: 0 0 16px rgba(52, 192, 197, .5);
-        }
-
-        .tl-step__year {
-            font-size: .72rem;
-            font-weight: 700;
-            color: var(--cyan);
-            letter-spacing: .1em;
-            text-align: center;
-            margin-bottom: .5rem;
-        }
-
-        .tl-step__title {
-            font-family: 'Sora', sans-serif;
-            font-size: .9rem;
-            font-weight: 700;
-            color: #f1f5f9;
-            text-align: center;
-            margin-bottom: .4rem;
-        }
-
-        .tl-step__desc {
-            font-size: .78rem;
-            color: rgba(255, 255, 255, .4);
-            text-align: center;
-            line-height: 1.55;
-        }
-
-        /* ── 10. SYSTEM ARCHITECTURE ── */
-        .tp-arch {
-            padding: 6rem 0;
-            background: #06090f;
-        }
-
-        .tp-arch__header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .arch-pipeline {
+        .mat-pills { display: flex; flex-direction: column; gap: 0.8rem; }
+        .mat-pill {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 0;
-            flex-wrap: wrap;
-            row-gap: 2rem;
+            justify-content: space-between;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--border);
+            background: var(--card);
+            transition: all 0.3s;
         }
-
-        .arch-node {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: .75rem;
-            flex: 0 0 120px;
-        }
-
-        .arch-node__icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            background: rgba(52, 192, 197, .1);
-            border: 1px solid rgba(52, 192, 197, .25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            color: var(--cyan);
-            transition: background .3s, box-shadow .3s;
-        }
-
-        .arch-node:hover .arch-node__icon {
-            background: rgba(52, 192, 197, .2);
-            box-shadow: 0 0 24px rgba(52, 192, 197, .25);
-        }
-
-        .arch-node__label {
-            font-size: .78rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, .6);
-            text-align: center;
-        }
-
-        .arch-arrow {
-            display: flex;
-            align-items: center;
-            padding: 0 .5rem;
-            color: rgba(52, 192, 197, .4);
-            font-size: 1.2rem;
+        .mat-pill:hover { border-color: rgba(34,197,94,0.3); background: rgba(34,197,94,0.03); }
+        .mat-pill-name { font-size: 0.88rem; font-weight: 600; color: #fff; }
+        .mat-pill-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem; }
+        .mat-pill-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            color: var(--accent3);
+            border: 1px solid rgba(34,197,94,0.3);
+            padding: 0.25rem 0.6rem;
+            letter-spacing: 0.1em;
             flex-shrink: 0;
         }
 
-        /* ── FINAL STATEMENT ── */
-        .tp-statement {
+        /* ── CTA ── */
+        #tech-cta {
+            background: var(--dark);
+            text-align: center;
             padding: 8rem 0;
-            background: var(--navy);
             position: relative;
             overflow: hidden;
-            text-align: center;
         }
-
-        .tp-statement__grid {
+        .cta-glow {
             position: absolute;
-            inset: 0;
-            background-image: linear-gradient(rgba(52, 192, 197, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(52, 192, 197, .04) 1px, transparent 1px);
-            background-size: 80px 80px;
-            animation: gridMove 25s linear infinite;
-        }
-
-        .tp-statement__glow {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(52, 192, 197, .1) 0%, transparent 65%);
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
+            width: 600px; height: 300px;
+            background: radial-gradient(ellipse, rgba(52,192,197,0.12) 0%, transparent 70%);
             pointer-events: none;
         }
-
-        .tp-statement .container {
-            position: relative;
-            z-index: 2;
+        .cta-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--accent);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
         }
-
-        .tp-statement__quote {
+        .cta-title {
             font-family: 'Sora', sans-serif;
-            font-size: clamp(1.4rem, 3vw, 2.2rem);
-            font-weight: 700;
-            color: #f1f5f9;
-            line-height: 1.5;
-            max-width: 860px;
-            margin: 0 auto 2.5rem;
+            font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 0.95;
+            margin-bottom: 1.5rem;
         }
-
-        .tp-statement__quote span {
-            color: var(--cyan);
-        }
-
-        /* ── WHY IT MATTERS bar ── */
-        .why-bar {
-            background: rgba(52, 192, 197, .06);
-            border-top: 1px solid rgba(52, 192, 197, .15);
-            border-bottom: 1px solid rgba(52, 192, 197, .15);
-            padding: 1.25rem 0;
-        }
-
-        .why-bar__inner {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .why-item {
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-            font-size: .82rem;
+        .cta-title span { color: var(--accent); }
+        .cta-sub { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto 3rem; line-height: 1.7; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-tech-primary {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            background: var(--accent);
+            color: #050709;
+            border: none;
+            padding: 1rem 2.5rem;
+            cursor: pointer;
             font-weight: 600;
-            color: rgb(0, 0, 0);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
+        .btn-tech-primary:hover { background: #fff; transform: translateY(-2px); color: #050709; }
+        .btn-tech-secondary {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 1rem 2.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-tech-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-        .why-item i {
-            color: var(--cyan);
+        /* ── REVEAL ── */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .ai-layout, .geo-layout, .mat-layout { grid-template-columns: 1fr; gap: 3rem; }
+            .drone-grid { grid-template-columns: 1fr; }
+            .ai-cards { grid-template-columns: 1fr; }
+            .hero-stats { gap: 2rem; }
+            .tech-section { padding: 5rem 0; }
+            #tech-hero { padding: 8rem 0 4rem; }
+        }
+        @media (max-width: 600px) {
+            .drone-grid { grid-template-columns: 1fr; }
+            .mat-props { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
-
 <body>
+
     <!-- Header -->
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
+                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                        class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
                 <div class="nav-contact-info" style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
@@ -1414,553 +679,342 @@
         </div>
     </header>
 
-    <!-- ①  HERO -->
-    <section class="tp-hero">
-        <div class="tp-hero__grid"></div>
-        <div class="tp-hero__glow"></div>
-        <div class="tp-hero__glow2"></div>
-        <div class="container">
-            <div class="tp-hero__left reveal">
-                <span class="t-eyebrow"><i class="ph ph-cpu"></i> AI-Powered Aerial Intelligence Stack</span>
-                <h1>The Full-Stack<br>Intelligence <span>Engine</span></h1>
-                <p class="t-p">From drone sensors to boardroom decisions — every layer engineered for precision, scale,
-                    and real-world impact across defence and critical infrastructure.</p>
-                <div class="t-value-bar">
-                    <span class="t-value-pill">70% faster inspections</span>
-                    <span class="t-value-pill">40% higher defect accuracy</span>
-                    <span class="t-value-pill">Real-time intelligence</span>
-                </div>
-                <div class="tp-hero__cta">
-                    <a href="ai-aerial-intelligence-stack.html" class="t-btn t-btn--cyan"><i class="ph ph-stack"></i>
-                        Explore Technology</a>
-                    <a href="../company/contact-us.html" class="t-btn t-btn--ghost">View Use Cases</a>
-                </div>
-            </div>
-            <div class="tp-hero__right">
-                <div class="drone-vis">
-                    <div class="drone-vis__ring"></div>
-                    <div class="drone-vis__ring"></div>
-                    <div class="drone-vis__ring"></div>
-                    <div class="drone-vis__core"><i class="ph ph-drone"></i></div>
-                    <div class="drone-vis__stream"></div>
-                    <div class="drone-vis__stream"></div>
-                    <div class="drone-vis__stream"></div>
-                    <div class="drone-vis__stream"></div>
-                    <div class="drone-vis__stream"></div>
-                    <div class="drone-vis__node"></div>
-                    <div class="drone-vis__node"></div>
-                    <div class="drone-vis__node"></div>
-                    <div class="drone-vis__node"></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- WHY IT MATTERS -->
-    <div class="why-bar">
-        <div class="why-bar__inner">
-            <span class="why-item"><i class="ph ph-check-circle"></i> Reduce inspection time by 70%</span>
-            <span class="why-item"><i class="ph ph-check-circle"></i> Increase defect detection accuracy by 40%</span>
-            <span class="why-item"><i class="ph ph-check-circle"></i> Deploy in under 48 hours</span>
-            <span class="why-item"><i class="ph ph-check-circle"></i> Works in all-weather, day & night</span>
+    <!-- TICKER -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span class="ticker-item">Advanced Computer Vision</span>
+            <span class="ticker-item">Agentic AI Solutions</span>
+            <span class="ticker-item">Defence UAV Systems</span>
+            <span class="ticker-item">Hybrid Composite Materials</span>
+            <span class="ticker-item">LiDAR Analytics</span>
+            <span class="ticker-item">Geospatial Intelligence</span>
+            <span class="ticker-item">Custom LLM Models</span>
+            <span class="ticker-item">Surveillance Systems</span>
+            <span class="ticker-item">Advanced Computer Vision</span>
+            <span class="ticker-item">Agentic AI Solutions</span>
+            <span class="ticker-item">Defence UAV Systems</span>
+            <span class="ticker-item">Hybrid Composite Materials</span>
+            <span class="ticker-item">LiDAR Analytics</span>
+            <span class="ticker-item">Geospatial Intelligence</span>
+            <span class="ticker-item">Custom LLM Models</span>
+            <span class="ticker-item">Surveillance Systems</span>
         </div>
     </div>
 
-    <!-- ②  AI + DRONE INTELLIGENCE — 3-col glass cards -->
-    <section class="tp-drone">
-        <div class="container">
-            <div class="tp-drone__header reveal">
-                <span class="t-eyebrow"><i class="ph ph-drone"></i> AI + Drone Intelligence</span>
-                <h2 class="t-h2" style="color:#f1f5f9;">Autonomous Intelligence,<br>Airborne</h2>
-                <p class="t-p" style="margin:0 auto;">Edge AI meets autonomous flight — detecting, classifying, and
-                    reporting in real time without human intervention.</p>
-            </div>
-            <div class="tp-drone__grid">
-                <div class="glass-card reveal">
-                    <div class="glass-card__icon"><i class="ph ph-path"></i></div>
-                    <div class="glass-card__title">Autonomous Flight Planning</div>
-                    <div class="glass-card__desc">AI-driven mission planning with dynamic obstacle avoidance, adaptive
-                        routing, and geofenced patrol zones.</div>
-                </div>
-                <div class="glass-card reveal">
-                    <div class="glass-card__icon"><i class="ph ph-eye"></i></div>
-                    <div class="glass-card__title">Real-Time Object Detection</div>
-                    <div class="glass-card__desc">120+ computer vision models running at the edge — detecting anomalies,
-                        intrusions, and structural defects mid-flight.</div>
-                </div>
-                <div class="glass-card reveal">
-                    <div class="glass-card__icon"><i class="ph ph-lightning"></i></div>
-                    <div class="glass-card__title">Edge AI Processing</div>
-                    <div class="glass-card__desc">Onboard inference with sub-100ms latency — no cloud dependency for
-                        critical real-time decisions.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY IT MATTERS -->
-    <div class="why-bar">
-        <div class="why-bar__inner">
-            <span class="why-item"><i class="ph ph-check-circle"></i> 3× faster anomaly detection vs manual</span>
-            <span class="why-item"><i class="ph ph-check-circle"></i> Zero connectivity required at the edge</span>
-            <span class="why-item"><i class="ph ph-check-circle"></i> Scales from 1 drone to full swarm</span>
-        </div>
-    </div>
-
-    <!-- ③  MULTI-SENSOR DATA SYSTEMS -->
-    <section class="tp-sensor">
-        <div class="container">
-            <div class="tp-sensor__inner">
-                <div class="reveal">
-                    <span class="t-eyebrow"><i class="ph ph-broadcast"></i> Multi-Sensor Data Systems</span>
-                    <h2 class="t-h2" style="color:#f1f5f9;">Every Layer of Reality,<br>Captured</h2>
-                    <p class="t-p">Fused sensor pipelines that combine RGB, thermal, LiDAR, and radar into a single
-                        coherent intelligence stream.</p>
-                    <div class="t-value-bar">
-                        <span class="t-value-pill">4 sensor modalities</span>
-                        <span class="t-value-pill">Sub-cm accuracy</span>
-                        <span class="t-value-pill">Real-time fusion</span>
-                    </div>
-                    <div style="margin-top:1.75rem;">
-                        <a href="multi-sensor-data-systems.html" class="t-btn t-btn--cyan">Explore Sensors</a>
-                    </div>
-                </div>
-                <div class="tp-sensor__layers reveal">
-                    <div class="sensor-layer">
-                        <span class="sensor-layer__dot" style="background:#34C0C5;box-shadow:0 0 8px #34C0C5;"></span>
-                        <span>RGB Visual Layer — 4K colour imaging</span>
-                    </div>
-                    <div class="sensor-layer">
-                        <span class="sensor-layer__dot" style="background:#f97316;box-shadow:0 0 8px #f97316;"></span>
-                        <span>Thermal Layer — heat signature mapping</span>
-                    </div>
-                    <div class="sensor-layer">
-                        <span class="sensor-layer__dot" style="background:#a78bfa;box-shadow:0 0 8px #a78bfa;"></span>
-                        <span>LiDAR Point Cloud — 3D terrain model</span>
-                    </div>
-                    <div class="sensor-layer">
-                        <span class="sensor-layer__dot" style="background:#34d399;box-shadow:0 0 8px #34d399;"></span>
-                        <span>Radar — all-weather penetration</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ④  AI & ANALYTICS — Z-pattern -->
-    <section class="tp-analytics">
-        <div class="container">
-            <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
-                <span class="t-eyebrow"><i class="ph ph-chart-line-up"></i> AI & Analytics Platform</span>
-                <h2 class="t-h2" style="color:#f1f5f9;">Intelligence You Can<br>Act On</h2>
-            </div>
-            <!-- Row 1: text left, dashboard right -->
-            <div class="tp-analytics__row reveal">
+    <!-- HERO -->
+    <section id="tech-hero">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-glow2"></div>
+        <div class="container" style="position:relative;z-index:2;">
+            <div class="hero-label">Aerovania Pvt Ltd &nbsp;·&nbsp; DPIIT Recognised &nbsp;·&nbsp; ISO 9001:2015 &amp; AS9100C</div>
+            <h1 class="hero-title">
+                ENGINEERING<br>
+                THE FUTURE.<br>
+                <span class="c">SOLVING</span> THE<br>
+                <span class="o">REAL WORLD.</span>
+            </h1>
+            <p class="hero-sub">From AI intelligence to airborne precision — Aerovania delivers cutting-edge technology across defence, industry, and sustainability.</p>
+            <div class="hero-stats">
                 <div>
-                    <h3
-                        style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;margin:0 0 .75rem;">
-                        Live Dashboard & Reporting</h3>
-                    <p class="t-p">Cloud-native analytics with 120+ AI models delivering anomaly detection, change
-                        analysis, and auto-generated compliance reports.</p>
-                    <div class="t-value-bar" style="margin-top:1.25rem;">
-                        <span class="t-value-pill">120+ AI models</span>
-                        <span class="t-value-pill">Auto-reports</span>
-                    </div>
-                    <div style="margin-top:1.5rem;"><a href="ai-analytics-platform.html"
-                            class="t-btn t-btn--cyan">Explore Platform</a></div>
+                    <div class="hero-stat-num">4<span>+</span></div>
+                    <div class="hero-stat-label">Core Tech Pillars</div>
                 </div>
-                <div class="analytics-mockup">
-                    <div class="analytics-mockup__label">Detection Confidence</div>
-                    <div class="analytics-mockup__bar"></div>
-                    <div class="analytics-mockup__bar"></div>
-                    <div class="analytics-mockup__bar"></div>
-                    <div class="analytics-mockup__bar"></div>
-                    <div class="analytics-mockup__label" style="margin-top:1.25rem;">Detected Objects</div>
-                    <div class="bbox-demo">
-                        <div class="bbox">Insulator — 98.2%</div>
-                        <div class="bbox">Crack — 94.7%</div>
-                        <div class="bbox">Corrosion — 91.3%</div>
-                        <div class="bbox">Vegetation — 87.5%</div>
-                    </div>
+                <div>
+                    <div class="hero-stat-num">120<span>+</span></div>
+                    <div class="hero-stat-label">AI Models</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">360<span>°</span></div>
+                    <div class="hero-stat-label">Industry Coverage</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">R<span>&amp;</span>D</div>
+                    <div class="hero-stat-label">Indigenous Innovation</div>
                 </div>
             </div>
-            <!-- Row 2: image left, text right (reversed) -->
-            <div class="tp-analytics__row tp-analytics__row--reverse reveal">
-                <div class="analytics-mockup">
-                    <div class="analytics-mockup__label">Heatmap Analysis</div>
-                    <div
-                        style="height:140px;background:linear-gradient(135deg,rgba(52,192,197,.05),rgba(249,115,22,.15),rgba(52,192,197,.05));border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:.8rem;">
-                        Thermal anomaly overlay</div>
-                    <div class="analytics-mockup__label" style="margin-top:1rem;">Report Generated</div>
-                    <div
-                        style="background:rgba(52,192,197,.06);border:1px solid rgba(52,192,197,.2);border-radius:8px;padding:.75rem 1rem;font-size:.8rem;color:rgba(255,255,255,.6);">
-                        <i class="ph ph-file-pdf" style="color:var(--cyan);"></i> &nbsp;Site_Inspection_Report_2025.pdf
-                        &nbsp;<span style="color:var(--cyan);">✓ Ready</span>
+            <div class="hero-scroll">
+                <div class="scroll-line"></div>
+                Scroll to Explore
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- AI SECTION -->
+    <section id="ai" class="tech-section">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-tag">01 — Artificial Intelligence</div>
+                <h2 class="section-title">INTELLIGENCE<br>AT EVERY LAYER</h2>
+                <p class="section-desc">From raw pixels to decisions — Aerovania's AI stack powers perception, prediction, and autonomous action across industries.</p>
+            </div>
+            <div class="ai-layout reveal">
+                <div class="ai-cards">
+                    <div class="ai-card">
+                        <span class="ai-card-icon">👁️</span>
+                        <div class="ai-card-title">Advanced Computer Vision</div>
+                        <div class="ai-card-desc">Real-time object detection, segmentation, anomaly recognition, and visual intelligence for industrial automation.</div>
+                    </div>
+                    <div class="ai-card">
+                        <span class="ai-card-icon">🤖</span>
+                        <div class="ai-card-title">Agentic AI Systems</div>
+                        <div class="ai-card-desc">Autonomous multi-agent pipelines that plan, reason, act, and learn across complex, multi-step workflows.</div>
+                    </div>
+                    <div class="ai-card">
+                        <span class="ai-card-icon">🧠</span>
+                        <div class="ai-card-title">Custom LLM Models</div>
+                        <div class="ai-card-desc">Domain-specific language models fine-tuned on industrial, defence, and engineering datasets for precise outputs.</div>
+                    </div>
+                    <div class="ai-card">
+                        <span class="ai-card-icon">📊</span>
+                        <div class="ai-card-title">AI-Powered Dashboards</div>
+                        <div class="ai-card-desc">Intelligent command centers with real-time insights, predictive analytics, and natural language interfaces.</div>
                     </div>
                 </div>
                 <div>
-                    <h3
-                        style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;margin:0 0 .75rem;">
-                        AI-Powered Defect Detection</h3>
-                    <p class="t-p">Bounding-box detection, heatmap overlays, and automated PDF reports — turning raw
-                        aerial data into actionable site intelligence.</p>
-                    <div class="t-value-bar" style="margin-top:1.25rem;">
-                        <span class="t-value-pill">40% accuracy gain</span>
-                        <span class="t-value-pill">Zero manual tagging</span>
+                    <div class="ai-terminal">
+                        <div class="terminal-bar">
+                            <div class="t-dot r"></div>
+                            <div class="t-dot y"></div>
+                            <div class="t-dot g"></div>
+                            <span class="terminal-label">aerovania-ai-engine v2.4.1</span>
+                        </div>
+                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-green">SYSTEM</span> Initialising Aerovania AI Stack...</div>
+                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">Loading CV pipeline</span> <span class="t-green">✓ READY</span></div>
+                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">Agentic workflow engine</span> <span class="t-green">✓ ACTIVE</span></div>
+                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">LLM inference server</span> <span class="t-green">✓ ONLINE</span></div>
+                        <div class="t-line"><span class="t-cyan">▶</span> <span class="t-white">Dashboard telemetry</span> <span class="t-green">✓ STREAMING</span></div>
+                        <div class="t-line" style="margin-top:0.8rem;"><span class="t-orange">DETECT</span> Object confidence: <span class="t-white">98.7%</span></div>
+                        <div class="t-line"><span class="t-orange">INFER</span> Anomaly score: <span class="t-white">0.02 / 1.00</span></div>
+                        <div class="t-line"><span class="t-orange">AGENT</span> Tasks queued: <span class="t-white">14</span> | Completed: <span class="t-green">14</span></div>
+                        <div class="t-line"><span class="t-orange">LLM&nbsp;&nbsp;</span> Response latency: <span class="t-white">~0.4s</span></div>
+                        <div class="t-line" style="margin-top:1rem;"><span class="t-cyan">▶</span> All systems nominal. <span class="t-cursor"></span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHY IT MATTERS -->
-    <div class="why-bar">
-        <div class="why-bar__inner">
-            <span class="why-item"><i class="ph ph-check-circle"></i> Reduce report generation time by 80%</span>
-            <span class="why-item"><i class="ph ph-check-circle"></i> Compliance-ready outputs out of the box</span>
-            <span class="why-item"><i class="ph ph-check-circle"></i> Integrates with existing GIS & ERP systems</span>
-        </div>
-    </div>
+    <div class="divider"></div>
 
-    <!-- ⑤  GEOSPATIAL INTELLIGENCE -->
-    <section class="tp-geo">
-        <div class="tp-geo__map"></div>
-        <div class="tp-geo__lines">
-            <div class="geo-line"></div>
-            <div class="geo-line"></div>
-            <div class="geo-line"></div>
-        </div>
+    <!-- DRONES SECTION -->
+    <section id="drones" class="tech-section">
+        <div class="drone-bg-text">UAV</div>
         <div class="container">
-            <div class="tp-geo__inner">
-                <div class="reveal">
-                    <span class="t-eyebrow"><i class="ph ph-globe-hemisphere-west"></i> Geospatial Intelligence</span>
-                    <h2 class="t-h2" style="color:#f1f5f9;">See the World in<br><span
-                            style="color:var(--cyan);">Verified Detail</span></h2>
-                    <p class="t-p">High-resolution mapping, 3D terrain modelling, and GIS-ready corridor intelligence
-                        for infrastructure and environmental monitoring.</p>
-                    <div style="margin-top:1.75rem;"><a href="geospatial-intelligence.html"
-                            class="t-btn t-btn--cyan">Explore Geospatial</a></div>
+            <div class="reveal">
+                <div class="section-tag">02 — UAV Manufacturing</div>
+                <h2 class="section-title">BUILT TO FLY.<br>BUILT TO WIN.</h2>
+                <p class="section-desc">Indigenous drone systems engineered for defence precision and industrial reliability — custom-built from airframe to firmware.</p>
+            </div>
+            <div class="drone-grid reveal">
+                <div class="drone-cell">
+                    <div class="drone-cell-num">01</div>
+                    <div class="drone-cell-tag">Defence</div>
+                    <div class="drone-cell-title">Tactical UAV Platforms</div>
+                    <div class="drone-cell-desc">Ruggedised, low-signature drones designed for border surveillance, tactical ISR, and defence operations — built to military-grade specifications.</div>
+                    <div class="drone-cell-bar"></div>
                 </div>
-                <div class="geo-overlay reveal">
-                    <div class="geo-marker">
-                        <span class="geo-marker__dot"></span>
-                        <span class="geo-marker__text">Power Line Corridor — 142 km</span>
-                        <span class="geo-marker__val">Active</span>
-                    </div>
-                    <div class="geo-marker">
-                        <span class="geo-marker__dot"></span>
-                        <span class="geo-marker__text">3D Terrain Model — 1,200 ha</span>
-                        <span class="geo-marker__val">Rendered</span>
-                    </div>
-                    <div class="geo-marker">
-                        <span class="geo-marker__dot"></span>
-                        <span class="geo-marker__text">Asset Markers — 847 structures</span>
-                        <span class="geo-marker__val">Mapped</span>
-                    </div>
-                    <div class="geo-marker">
-                        <span class="geo-marker__dot"></span>
-                        <span class="geo-marker__text">Change Detection — last 30 days</span>
-                        <span class="geo-marker__val">12 alerts</span>
-                    </div>
+                <div class="drone-cell">
+                    <div class="drone-cell-num">02</div>
+                    <div class="drone-cell-tag">Industrial</div>
+                    <div class="drone-cell-title">Commercial Survey Drones</div>
+                    <div class="drone-cell-desc">High-endurance aerial platforms for infrastructure inspection, agriculture mapping, mining surveys, and LiDAR-equipped terrain analysis.</div>
+                    <div class="drone-cell-bar"></div>
+                </div>
+                <div class="drone-cell">
+                    <div class="drone-cell-num">03</div>
+                    <div class="drone-cell-tag">Custom Build</div>
+                    <div class="drone-cell-title">Mission-Specific Engineering</div>
+                    <div class="drone-cell-desc">End-to-end custom UAV development — from aerodynamic frame design to payload integration, sensor fusion, and autonomous flight control.</div>
+                    <div class="drone-cell-bar"></div>
+                </div>
+                <div class="drone-cell">
+                    <div class="drone-cell-num">04</div>
+                    <div class="drone-cell-tag">Avionics</div>
+                    <div class="drone-cell-title">Intelligent Flight Systems</div>
+                    <div class="drone-cell-desc">AI-enhanced autopilot, obstacle avoidance, swarm coordination, and edge computing onboard for real-time autonomous decision making.</div>
+                    <div class="drone-cell-bar"></div>
+                </div>
+                <div class="drone-cell">
+                    <div class="drone-cell-num">05</div>
+                    <div class="drone-cell-tag">Clients</div>
+                    <div class="drone-cell-title">Trusted by Critical Sectors</div>
+                    <div class="drone-cell-desc">Deployed with Indian Railways, NHAI, Coal India, and defence organisations — delivering mission-critical UAV performance where it counts most.</div>
+                    <div class="drone-cell-bar"></div>
+                </div>
+                <div class="drone-cell">
+                    <div class="drone-cell-num">06</div>
+                    <div class="drone-cell-tag">Indigenous</div>
+                    <div class="drone-cell-title">Made in India. Built for the World.</div>
+                    <div class="drone-cell-desc">Fully indigenous design and manufacturing under Aerovania's DPIIT-recognised framework — supporting Atmanirbhar Bharat and global export readiness.</div>
+                    <div class="drone-cell-bar"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ⑥  ENGINEERING & DESIGN -->
-    <section class="tp-eng">
+    <div class="divider"></div>
+
+    <!-- GEOSPATIAL SECTION -->
+    <section id="geo" class="tech-section">
         <div class="container">
-            <div class="tp-eng__inner">
-                <div class="cad-vis reveal">
-                    <div class="cad-vis__frame">
-                        <div class="cad-vis__dot"></div>
-                        <div class="cad-vis__dot"></div>
-                        <div class="cad-vis__dot"></div>
-                        <div class="cad-vis__dot"></div>
-                    </div>
+            <div class="reveal">
+                <div class="section-tag">03 — Geospatial Intelligence</div>
+                <h2 class="section-title">SEE EVERYTHING.<br>MISS NOTHING.</h2>
+                <p class="section-desc">Advanced geospatial analytics and surveillance intelligence that transforms aerial data into actionable insight at any scale.</p>
+            </div>
+            <div class="geo-layout">
+                <div class="geo-map reveal">
+                    <div class="geo-ring geo-ring-1"></div>
+                    <div class="geo-ring geo-ring-2"></div>
+                    <div class="geo-ring geo-ring-3"></div>
+                    <div class="geo-center"></div>
+                    <div class="geo-dot" style="top:10%;left:48%;"></div>
+                    <div class="geo-dot" style="top:48%;left:88%;"></div>
+                    <div class="geo-dot" style="top:80%;left:60%;"></div>
+                    <div class="geo-dot" style="top:60%;left:8%;"></div>
+                    <div class="geo-dot" style="top:22%;left:25%;background:var(--accent)"></div>
                 </div>
-                <div class="reveal">
-                    <span class="t-eyebrow"><i class="ph ph-pencil-ruler"></i> Engineering & Design</span>
-                    <h2 class="t-h2" style="color:#f1f5f9;">Precision Engineering,<br>Built In-House</h2>
-                    <p class="t-p">Every UAV platform is designed from first principles — CFD-optimised, FEA-validated,
-                        and manufactured for operational extremes.</p>
-                    <div class="eng-bullets">
-                        <div class="eng-bullet"><i class="ph ph-wind"></i> Computational Fluid Dynamics (CFD)
-                            optimisation</div>
-                        <div class="eng-bullet"><i class="ph ph-graph"></i> Finite Element Analysis (FEA) structural
-                            validation</div>
-                        <div class="eng-bullet"><i class="ph ph-drone"></i> Full UAV system design — airframe to
-                            avionics</div>
-                        <div class="eng-bullet"><i class="ph ph-gear"></i> Embedded systems & payload integration</div>
-                        <div class="eng-bullet"><i class="ph ph-recycle"></i> Rapid prototyping & iterative testing
+                <div class="geo-features reveal">
+                    <div class="geo-feat">
+                        <div class="geo-feat-icon">🛰️</div>
+                        <div>
+                            <div class="geo-feat-title">LiDAR Point Cloud Analytics</div>
+                            <div class="geo-feat-desc">Millimetre-precision 3D terrain and structure mapping for highways, railways, power lines, and mining operations.</div>
                         </div>
                     </div>
-                    <div style="margin-top:1.75rem;"><a href="engineering-design.html" class="t-btn t-btn--cyan">Explore
-                            Engineering</a></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ⑦  COMPOSITE MANUFACTURING — 2×2 grid -->
-    <section class="tp-composite">
-        <div class="container">
-            <div class="tp-composite__header reveal">
-                <span class="t-eyebrow"><i class="ph ph-wrench"></i> Composite Manufacturing</span>
-                <h2 class="t-h2" style="color:#f1f5f9;">Materials That Perform<br>Where It Counts</h2>
-                <p class="t-p" style="margin:0 auto;">In-house composite fabrication delivering airframes that are
-                    lighter, stronger, and built for operational endurance.</p>
-            </div>
-            <div class="composite-grid">
-                <div class="composite-card reveal">
-                    <div class="composite-card__bg"></div>
-                    <div class="composite-card__content">
-                        <div class="composite-card__num">01</div>
-                        <div class="composite-card__title">Carbon Fibre Structures</div>
-                        <div class="composite-card__desc">High-strength, low-weight carbon fibre layups engineered for
-                            maximum stiffness-to-weight ratio in demanding environments.</div>
+                    <div class="geo-feat">
+                        <div class="geo-feat-icon">📡</div>
+                        <div>
+                            <div class="geo-feat-title">Real-Time Surveillance Intelligence</div>
+                            <div class="geo-feat-desc">AI-driven perimeter and area surveillance with automated threat detection, tracking, and alert systems.</div>
+                        </div>
                     </div>
-                </div>
-                <div class="composite-card reveal">
-                    <div class="composite-card__bg"></div>
-                    <div class="composite-card__content">
-                        <div class="composite-card__num">02</div>
-                        <div class="composite-card__title">Lightweight Airframes</div>
-                        <div class="composite-card__desc">Sub-2kg airframe designs that extend flight endurance by 40%
-                            while maintaining structural integrity under payload stress.</div>
+                    <div class="geo-feat">
+                        <div class="geo-feat-icon">🗺️</div>
+                        <div>
+                            <div class="geo-feat-title">GIS &amp; Spatial Data Platforms</div>
+                            <div class="geo-feat-desc">Custom GIS dashboards and spatial databases integrating multi-source aerial, satellite, and sensor data streams.</div>
+                        </div>
                     </div>
-                </div>
-                <div class="composite-card reveal">
-                    <div class="composite-card__bg"></div>
-                    <div class="composite-card__content">
-                        <div class="composite-card__num">03</div>
-                        <div class="composite-card__title">Fabrication Techniques</div>
-                        <div class="composite-card__desc">Vacuum infusion, autoclave curing, and resin transfer moulding
-                            — precision processes for consistent, repeatable quality.</div>
-                    </div>
-                </div>
-                <div class="composite-card reveal">
-                    <div class="composite-card__bg"></div>
-                    <div class="composite-card__content">
-                        <div class="composite-card__num">04</div>
-                        <div class="composite-card__title">Rapid Prototyping</div>
-                        <div class="composite-card__desc">From CAD to flying prototype in under 6 weeks — iterative
-                            design cycles that compress development timelines dramatically.</div>
+                    <div class="geo-feat">
+                        <div class="geo-feat-icon">⚡</div>
+                        <div>
+                            <div class="geo-feat-title">Change Detection &amp; Monitoring</div>
+                            <div class="geo-feat-desc">Temporal comparison of geospatial datasets to detect encroachment, erosion, structural shifts, or unauthorised activity.</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHY IT MATTERS -->
-    <div class="why-bar">
-        <div class="why-bar__inner">
-            <span class="why-item"><i class="ph ph-check-circle"></i> 40% lighter than aluminium equivalents</span>
-            <span class="why-item"><i class="ph ph-check-circle"></i> 6-week prototype-to-flight cycle</span>
-            <span class="why-item"><i class="ph ph-check-circle"></i> Fully in-house — no supply chain dependency</span>
-        </div>
-    </div>
+    <div class="divider"></div>
 
-    <!-- ⑧  TECH STACK — logo cloud -->
-    <section class="tp-stack">
+    <!-- MATERIALS SECTION -->
+    <section id="materials" class="tech-section">
         <div class="container">
-            <div class="tp-stack__header reveal">
-                <span class="t-eyebrow"><i class="ph ph-code"></i> Tech Stack</span>
-                <h2 class="t-h2" style="color:#f1f5f9;">Enterprise-Grade<br>Infrastructure</h2>
-                <p class="t-p" style="margin:0 auto;">The full software and hardware stack powering Aerovania's
-                    platforms — from edge compute to cloud orchestration.</p>
-            </div>
             <div class="reveal">
-                <div class="stack-category">
-                    <div class="stack-category__label">AI / ML</div>
-                    <div class="stack-logos">
-                        <span class="stack-logo">PyTorch</span>
-                        <span class="stack-logo">TensorFlow</span>
-                        <span class="stack-logo">YOLO v8</span>
-                        <span class="stack-logo">OpenCV</span>
-                        <span class="stack-logo">ONNX Runtime</span>
-                        <span class="stack-logo">Hugging Face</span>
+                <div class="section-tag">04 — Advanced Materials R&amp;D</div>
+                <h2 class="section-title">STRENGTH FROM<br><span class="g">NATURE.</span> BUILT<br>FOR TOMORROW.</h2>
+                <p class="section-desc">Aerovania's materials science division pushes the boundaries of aerospace-grade composites — combining natural fibre reinforcements with synthetic precision engineering.</p>
+            </div>
+            <div class="mat-layout">
+                <div class="mat-hero-box reveal">
+                    <div class="mat-label">Flagship Innovation — HCM Series</div>
+                    <div class="mat-big">HYBRID<br><span class="g">COMPOSITE</span><br>MATERIAL</div>
+                    <div class="mat-desc">Our patented Hybrid Composite Material (HCM) fuses natural fibre reinforcements with advanced synthetic matrices — delivering aerospace-grade mechanical performance at a fraction of the environmental and financial cost.</div>
+                    <div class="mat-props">
+                        <div class="mat-prop">
+                            <div class="mat-prop-val">↓40%</div>
+                            <div class="mat-prop-key">Weight vs. Metal</div>
+                        </div>
+                        <div class="mat-prop">
+                            <div class="mat-prop-val">↑30%</div>
+                            <div class="mat-prop-key">Cost Efficiency</div>
+                        </div>
+                        <div class="mat-prop">
+                            <div class="mat-prop-val">100%</div>
+                            <div class="mat-prop-key">Customisable</div>
+                        </div>
+                        <div class="mat-prop">
+                            <div class="mat-prop-val">♻</div>
+                            <div class="mat-prop-key">Sustainable Core</div>
+                        </div>
                     </div>
                 </div>
-                <div class="stack-category">
-                    <div class="stack-category__label">Cloud & Infrastructure</div>
-                    <div class="stack-logos">
-                        <span class="stack-logo">AWS</span>
-                        <span class="stack-logo">Kubernetes</span>
-                        <span class="stack-logo">Docker</span>
-                        <span class="stack-logo">Terraform</span>
-                        <span class="stack-logo">PostgreSQL</span>
-                        <span class="stack-logo">Redis</span>
+                <div class="mat-pills reveal">
+                    <div class="mat-pill">
+                        <div>
+                            <div class="mat-pill-name">Natural Fibre Reinforcement</div>
+                            <div class="mat-pill-sub">Eco-sourced, high-tensile natural fibre core for sustainable base structures</div>
+                        </div>
+                        <div class="mat-pill-badge">BIO-BASED</div>
                     </div>
-                </div>
-                <div class="stack-category">
-                    <div class="stack-category__label">MLOps & Data</div>
-                    <div class="stack-logos">
-                        <span class="stack-logo">MLflow</span>
-                        <span class="stack-logo">Apache Kafka</span>
-                        <span class="stack-logo">Apache Spark</span>
-                        <span class="stack-logo">Grafana</span>
-                        <span class="stack-logo">Prometheus</span>
+                    <div class="mat-pill">
+                        <div>
+                            <div class="mat-pill-name">Synthetic Matrix Integration</div>
+                            <div class="mat-pill-sub">Engineered resin systems for enhanced bonding, durability, and thermal stability</div>
+                        </div>
+                        <div class="mat-pill-badge">PRECISION</div>
                     </div>
-                </div>
-                <div class="stack-category">
-                    <div class="stack-category__label">Geospatial & Edge</div>
-                    <div class="stack-logos">
-                        <span class="stack-logo">QGIS</span>
-                        <span class="stack-logo">GDAL</span>
-                        <span class="stack-logo">ROS 2</span>
-                        <span class="stack-logo">NVIDIA Jetson</span>
-                        <span class="stack-logo">MAVLink</span>
-                        <span class="stack-logo">PostGIS</span>
+                    <div class="mat-pill">
+                        <div>
+                            <div class="mat-pill-name">Aerospace Structural Panels</div>
+                            <div class="mat-pill-sub">Lightweight airframe panels and bulkheads for UAV and aerospace applications</div>
+                        </div>
+                        <div class="mat-pill-badge">CERTIFIED</div>
+                    </div>
+                    <div class="mat-pill">
+                        <div>
+                            <div class="mat-pill-name">FPV Drone Frames</div>
+                            <div class="mat-pill-sub">HCM-built racing and industrial FPV frames — lightweight, impact-resistant, custom-tuned</div>
+                        </div>
+                        <div class="mat-pill-badge">COMMERCIAL</div>
+                    </div>
+                    <div class="mat-pill">
+                        <div>
+                            <div class="mat-pill-name">Industrial Structural Components</div>
+                            <div class="mat-pill-sub">Composite solutions for infrastructure, automotive, and defence OEM requirements</div>
+                        </div>
+                        <div class="mat-pill-badge">OEM READY</div>
+                    </div>
+                    <div class="mat-pill">
+                        <div>
+                            <div class="mat-pill-name">Custom R&amp;D Contracts</div>
+                            <div class="mat-pill-sub">Collaborative material development for specific performance envelopes and certifications</div>
+                        </div>
+                        <div class="mat-pill-badge">R&amp;D</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ⑨  FUTURE ROADMAP — horizontal timeline -->
-    <section class="tp-roadmap">
-        <div class="container">
-            <div class="tp-roadmap__header reveal">
-                <span class="t-eyebrow"><i class="ph ph-rocket-launch"></i> Future Roadmap</span>
-                <h2 class="t-h2" style="color:#f1f5f9;">Where We're Headed</h2>
-                <p class="t-p" style="margin:0 auto;">Next-generation capabilities already in development — from swarm
-                    autonomy to satellite-grade intelligence.</p>
-            </div>
-            <div class="timeline reveal">
-                <div class="timeline__glow"></div>
-                <div class="tl-step active">
-                    <div class="tl-step__dot"></div>
-                    <div class="tl-step__year">2024</div>
-                    <div class="tl-step__title">Autonomous Drones</div>
-                    <div class="tl-step__desc">Full autonomous patrol & inspection deployed at scale</div>
-                </div>
-                <div class="tl-step active">
-                    <div class="tl-step__dot"></div>
-                    <div class="tl-step__year">2025</div>
-                    <div class="tl-step__title">Drone Swarms</div>
-                    <div class="tl-step__desc">Coordinated multi-drone missions with shared AI awareness</div>
-                </div>
-                <div class="tl-step active">
-                    <div class="tl-step__dot"></div>
-                    <div class="tl-step__year">2025</div>
-                    <div class="tl-step__title">Digital Twins</div>
-                    <div class="tl-step__desc">Live 3D digital replicas of infrastructure assets</div>
-                </div>
-                <div class="tl-step">
-                    <div class="tl-step__dot"></div>
-                    <div class="tl-step__year">2026</div>
-                    <div class="tl-step__title">Predictive AI</div>
-                <div class="tl-step__desc">Failure prediction 6–12 months before visible degradation</div>
-                </div>
-                <div class="tl-step">
-                    <div class="tl-step__dot"></div>
-                    <div class="tl-step__year">2027</div>
-                    <div class="tl-step__title">Satellite Integration</div>
-                    <div class="tl-step__desc">Fused drone + satellite intelligence for national-scale monitoring</div>
-                </div>
+    <!-- CTA -->
+    <section id="tech-cta">
+        <div class="cta-glow"></div>
+        <div class="container reveal" style="position:relative;z-index:1;">
+            <div class="cta-eyebrow">Aerovania Pvt Ltd — Nagpur, India</div>
+            <h2 class="cta-title">THE WORLD HAS<br>PROBLEMS.<br><span>WE HAVE ANSWERS.</span></h2>
+            <p class="cta-sub">Partner with Aerovania to deploy cutting-edge AI, UAV, geospatial, and materials technology for your industry.</p>
+            <div class="cta-buttons">
+                <a href="../../pages/company/contact-us.html" class="btn-tech-primary">Schedule a Discovery Call</a>
+                <a href="../../pages/solutions/geospatial-ai.html" class="btn-tech-secondary">Explore Solutions</a>
             </div>
         </div>
     </section>
 
-    <!-- ⑩  SYSTEM ARCHITECTURE -->
-    <section class="tp-arch">
-        <div class="container">
-            <div class="tp-arch__header reveal">
-                <span class="t-eyebrow"><i class="ph ph-tree-structure"></i> System Architecture</span>
-                <h2 class="t-h2" style="color:#f1f5f9;">From Drone to Decision</h2>
-                <p class="t-p" style="margin:0 auto;">A modular, cloud-native pipeline that takes raw sensor data and
-                    delivers verified intelligence — in real time.</p>
-            </div>
-            <div class="arch-pipeline reveal">
-                <div class="arch-node">
-                    <div class="arch-node__icon"><i class="ph ph-drone"></i></div>
-                    <div class="arch-node__label">Drone Platform</div>
-                </div>
-                <div class="arch-arrow"><i class="ph ph-arrow-right"></i></div>
-                <div class="arch-node">
-                    <div class="arch-node__icon"><i class="ph ph-broadcast"></i></div>
-                    <div class="arch-node__label">Data Capture</div>
-                </div>
-                <div class="arch-arrow"><i class="ph ph-arrow-right"></i></div>
-                <div class="arch-node">
-                    <div class="arch-node__icon"><i class="ph ph-cloud-arrow-up"></i></div>
-                    <div class="arch-node__label">Cloud Ingestion</div>
-                </div>
-                <div class="arch-arrow"><i class="ph ph-arrow-right"></i></div>
-                <div class="arch-node">
-                    <div class="arch-node__icon"><i class="ph ph-brain"></i></div>
-                    <div class="arch-node__label">AI Processing</div>
-                </div>
-                <div class="arch-arrow"><i class="ph ph-arrow-right"></i></div>
-                <div class="arch-node">
-                    <div class="arch-node__icon"><i class="ph ph-chart-bar"></i></div>
-                    <div class="arch-node__label">Dashboard</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ⭐  FINAL STATEMENT -->
-    <section class="tp-statement">
-        <div class="tp-statement__grid"></div>
-        <div class="tp-statement__glow"></div>
-        <div class="container">
-            <span class="t-eyebrow" style="margin-bottom:2rem;"><i class="ph ph-star"></i> Our Position</span>
-            <p class="tp-statement__quote">
-                "Aerovania is a <span>full-stack aerial intelligence</span> and engineering company — combining AI,
-                advanced UAV systems, and composite manufacturing to solve real-world <span>infrastructure
-                    challenges</span> at scale."
-            </p>
-            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                <a href="../company/contact-us.html" class="t-btn t-btn--cyan"><i class="ph ph-envelope"></i> Start a
-                    Conversation</a>
-                <a href="../platform/ai-aerial-monitoring.html" class="t-btn t-btn--ghost">View Platforms</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer
-    <footer class="footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <img src="../../assets/images/aerovania-logo.png" alt="Aerovania" class="footer-logo">
-                <p>AI-powered aerial intelligence for defence, infrastructure, and environmental monitoring.</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h4>Technology</h4>
-                    <ul>
-                        <li><a href="ai-aerial-intelligence-stack.html">AI Intelligence Stack</a></li>
-                        <li><a href="ai-drone-intelligence.html">AI + Drone Intelligence</a></li>
-                        <li><a href="geospatial-intelligence.html">Geospatial Intelligence</a></li>
-                        <li><a href="tech-stack.html">Tech Stack</a></li>
-                        <li><a href="future-roadmap.html">Future Roadmap</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="../company/about-us.html">About Us</a></li>
-                        <li><a href="../company/careers.html">Careers</a></li>
-                        <li><a href="../company/insights.html">Insights</a></li>
-                        <li><a href="../company/contact-us.html">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Aerovania. All rights reserved.</p>
-        </div>
-    </footer> -->
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-col brand-col">
                 <div class="logo">
-                    <a href="#"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
-                            class="footer-logo"></a>
-                    <div style="font-size: 0.8rem; letter-spacing: 0; color: #64748b; margin-top: 0.5rem;">Turning
-                        Vision into Verified Reality</div>
+                    <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a>
+                    <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div>
                 </div>
                 <div class="socials">
                     <a href="#"><i class="ph ph-linkedin-logo"></i></a>
@@ -1973,7 +1027,7 @@
                 <ul>
                     <li><a href="../../pages/company/about-us.html">About Us</a></li>
                     <li><a href="../../pages/industries/mining.html">Industries</a></li>
-                    <li><a href="../../pages/solutions/geospatial-ai.html">Technology</a></li>
+                    <li><a href="../../pages/solutions/geospatial-ai.html">Solutions</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -1987,11 +1041,11 @@
             <div class="footer-col contact-col">
                 <h4>Contact Us</h4>
                 <ul>
-                    <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li><li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
-
-                     <li><i class="ph ph-envelope"></i> info@aerovania.com</li>
+                    <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li>
+                    <li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
+                    <li><i class="ph ph-envelope"></i> info@aerovania.com</li>
                     <li><i class="ph ph-globe"></i> www.aerovania.com</li>
-                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A & D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li>
+                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li>
                 </ul>
             </div>
         </div>
@@ -1999,13 +1053,29 @@
             <p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p>
         </div>
     </footer>
+
     <script src="../../assets/js/script.js"></script>
     <script>
         // Scroll reveal
-        const obs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealEls.forEach(el => observer.observe(el));
+
+        // Stagger child reveals
+        document.querySelectorAll('.ai-cards, .drone-grid, .mat-pills, .geo-features').forEach(parent => {
+            Array.from(parent.children).forEach((child, i) => {
+                child.style.transitionDelay = `${i * 0.08}s`;
+                child.classList.add('reveal');
+                observer.observe(child);
+            });
+        });
     </script>
 
     <!-- Mobile Nav -->
@@ -2075,5 +1145,4 @@
         }
     </script>
 </body>
-
 </html>

@@ -1,179 +1,294 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IWLARS | Aerovania</title>
-    <meta name="description" content="IWLARS  Intelligent Wide-Area Land and Resource Surveillance platform by Aerovania.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="../../assets/css/styles.css">
-    <style>
-        /* -- CLAYMORPHISM  IWLARS -- */
-        body { background: #f0fdf4; }
-        .clay-blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.4; pointer-events: none; z-index: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IWLARS — Wagon Load Analysis | Aerovania</title>
+<meta name="description" content="IWLARS — Intelligent Wagon Load Analysis & Reporting System. AI-powered LiDAR-based 3D load distribution analysis for Indian Railways freight wagons.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<link rel="stylesheet" href="../../assets/css/styles.css">
+<style>
+:root {
+  --bg: #f5f4f0;
+  --white: #ffffff;
+  --card: #ffffff;
+  --surface: #eeecea;
+  --border: #d8d4ce;
+  --border2: #e8e4de;
+  --ink: #1a1814;
+  --ink2: #3a3630;
+  --muted: #7a7268;
+  --amber: #d4700a;
+  --amber-light: #fff3e0;
+  --amber-mid: #f5a623;
+  --orange: #c85a00;
+  --cyan-d: #0077aa;
+  --green-d: #1a7a3a;
+  --red-d: #c0392b;
+  --blue-d: #1a4a8a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+}
 
-        /* -- HERO -- */
-        .clay-hero {
-            padding: 10rem 0 7rem;
-            background: linear-gradient(135deg, #d1fae5 0%, #cffafe 50%, #fef9c3 100%);
-            position: relative; overflow: hidden;
-        }
-        .clay-hero .container { position: relative; z-index: 2; }
-        .clay-tag {
-            display: inline-block; background: #fff; color: #0d9488;
-            border-radius: 50px; padding: 0.45rem 1.4rem;
-            font-size: 0.82rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-            box-shadow: 0 6px 0 #99f6e4; margin-bottom: 1.75rem;
-        }
-        .clay-hero h1 { font-family: 'Sora', sans-serif; font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800; color: #134e4a; line-height: 1.1; margin-bottom: 1.25rem; }
-        .clay-hero h1 span { color: #0d9488; }
-        .clay-hero p { color: #374151; font-size: 1.15rem; max-width: 620px; line-height: 1.75; margin-bottom: 2.5rem; }
-        .clay-btn-primary {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: #0d9488; color: #fff;
-            font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem;
-            padding: 0.85rem 2.2rem; border-radius: 16px; border: none;
-            box-shadow: 0 8px 0 #0f766e; transition: transform 0.15s, box-shadow 0.15s;
-            cursor: pointer; text-decoration: none;
-        }
-        .clay-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 11px 0 #0f766e; color: #fff; }
-        .clay-btn-primary:active { transform: translateY(4px); box-shadow: 0 4px 0 #0f766e; }
-        .clay-btn-outline {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: #fff; color: #0d9488;
-            font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem;
-            padding: 0.85rem 2.2rem; border-radius: 16px; border: 2px solid #0d9488;
-            box-shadow: 0 8px 0 #99f6e4; transition: transform 0.15s, box-shadow 0.15s;
-            cursor: pointer; text-decoration: none;
-        }
-        .clay-btn-outline:hover { transform: translateY(-3px); box-shadow: 0 11px 0 #99f6e4; color: #0d9488; }
-        .clay-btn-outline:active { transform: translateY(4px); box-shadow: 0 4px 0 #99f6e4; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-        /* -- SECTIONS -- */
-        .clay-section { padding: 6rem 0; position: relative; overflow: hidden; }
-        .clay-s-a { background: #f0fdf4; }
-        .clay-s-b { background: #ecfeff; }
-        .clay-s-c { background: #fefce8; }
-        .clay-s-d { background: #f0fdfa; }
+/* Override global body for this page */
+body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-        .clay-label {
-            display: inline-block; border-radius: 50px;
-            padding: 0.3rem 1rem; font-size: 0.78rem; font-weight: 700;
-            letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1rem;
-        }
-        .clay-s-a .clay-label { background: #d1fae5; color: #065f46; box-shadow: 0 4px 0 #6ee7b7; }
-        .clay-s-b .clay-label { background: #cffafe; color: #0e7490; box-shadow: 0 4px 0 #a5f3fc; }
-        .clay-s-c .clay-label { background: #fef9c3; color: #854d0e; box-shadow: 0 4px 0 #fde68a; }
-        .clay-s-d .clay-label { background: #ccfbf1; color: #0f766e; box-shadow: 0 4px 0 #99f6e4; }
+/* ── LIVE BAR ── */
+.live-bar {
+  background: var(--ink); color: #fff;
+  display: flex; align-items: stretch; overflow-x: auto;
+  scrollbar-width: none;
+}
+.live-bar::-webkit-scrollbar { display: none; }
+.lb-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1.8rem;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+  color: rgba(255,255,255,0.5); letter-spacing: 0.08em;
+  white-space: nowrap; flex-shrink: 0;
+}
+.lb-item .lv { color: #fff; font-weight: 500; }
+.live-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.ld-g { background: #4caf50; animation: ldBlink 1.5s infinite; }
+.ld-a { background: var(--amber-mid); }
+.ld-b { background: #64b5f6; }
+@keyframes ldBlink { 0%,100%{opacity:1} 50%{opacity:0.25} }
 
-        .clay-title { font-family: 'Sora', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: #134e4a; line-height: 1.2; margin-bottom: 1rem; }
-        .clay-desc { color: #4b5563; font-size: 1rem; line-height: 1.75; margin-bottom: 1.75rem; }
-        .clay-center { text-align: center; }
+/* ── HERO ── */
+#hero {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 88vh; align-items: stretch;
+}
+.hero-left {
+  background: var(--white);
+  padding: 5rem 4rem 4rem;
+  display: flex; flex-direction: column; justify-content: center;
+  border-right: 1px solid var(--border);
+}
+.hero-platform-chip {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--amber-light); border: 1px solid rgba(212,112,10,0.2);
+  padding: 0.35rem 0.9rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+  color: var(--amber); letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 1.8rem; width: fit-content;
+}
+.hero-title {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  font-weight: 800; line-height: 1; color: var(--ink);
+  letter-spacing: 0.01em; margin-bottom: 0.5rem;
+}
+.hero-title .hl { color: var(--amber); }
+.hero-subtitle {
+  font-family: 'Sora', sans-serif; font-size: 1rem; font-weight: 500;
+  color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase;
+  margin-bottom: 1.8rem;
+}
+.hero-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.8; max-width: 460px; margin-bottom: 2rem; }
+.kpi-row { display: flex; gap: 2.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+.kpi-m-num { font-family: 'Sora', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--amber); line-height: 1; }
+.kpi-m-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.2rem; }
+.hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.btn-p { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; background: var(--amber); color: #fff; border: none; padding: 0.85rem 2rem; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; font-weight: 500; }
+.btn-p:hover { background: var(--orange); color: #fff; }
+.btn-s { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; background: transparent; color: var(--ink2); border: 1.5px solid var(--border); padding: 0.85rem 2rem; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; font-weight: 500; }
+.btn-s:hover { border-color: var(--amber); color: var(--amber); }
+.hero-right {
+  background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+  padding: 3rem; position: relative; overflow: hidden;
+}
+.system-diagram { width: 100%; max-width: 520px; }
 
-        /* -- SPLIT LAYOUT -- */
-        .clay-split {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 4rem; align-items: center; position: relative; z-index: 2;
-        }
-        @media (max-width: 768px) { .clay-split { grid-template-columns: 1fr; gap: 2.5rem; } }
+/* ── SECTION BASE ── */
+.ws-section { padding: 6rem 0; }
+.ws-section.gray { background: var(--surface); }
+.ws-section.white { background: var(--white); }
+.ws-section.dark { background: var(--ink); color: #fff; }
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--amber);
+  letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.8rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.eyebrow::before { content: ''; width: 18px; height: 1.5px; background: var(--amber); flex-shrink: 0; }
+.sh {
+  font-family: 'Sora', sans-serif; font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800; line-height: 1; letter-spacing: 0.01em; color: var(--ink);
+  margin-bottom: 1rem;
+}
+.ws-section.dark .sh { color: #fff; }
+.sd { font-size: 0.93rem; color: var(--muted); line-height: 1.8; max-width: 580px; }
+.ws-section.dark .sd { color: rgba(255,255,255,0.5); }
+.divider-h { height: 1px; background: var(--border); }
 
-        /* -- IMAGE CARD -- */
-        .clay-img-card {
-            border-radius: 28px; overflow: hidden;
-            min-height: 360px; background: #d1fae5;
-            display: flex; align-items: center; justify-content: center; position: relative;
-            box-shadow: 0 12px 0 #6ee7b7, 0 20px 40px rgba(13,148,136,0.12);
-        }
-        .clay-img-card img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 28px; }
-        .clay-img-card .clay-icon-fallback { font-size: 6rem; color: #6ee7b7; }
-        .clay-s-b .clay-img-card { background: #cffafe; box-shadow: 0 12px 0 #a5f3fc, 0 20px 40px rgba(14,116,144,0.1); }
-        .clay-s-c .clay-img-card { background: #fef9c3; box-shadow: 0 12px 0 #fde68a, 0 20px 40px rgba(133,77,14,0.08); }
+/* ── PROBLEM CARDS ── */
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+.prob-card {
+  background: var(--white); border: 1px solid var(--border);
+  padding: 1.8rem; display: flex; flex-direction: column; gap: 0.8rem;
+  box-shadow: var(--shadow); transition: box-shadow 0.3s, transform 0.3s;
+}
+.prob-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.prob-card-head { display: flex; align-items: center; gap: 0.8rem; }
+.prob-icon { font-size: 1.5rem; }
+.prob-title { font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+.prob-stat { font-family: 'Sora', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--red-d); }
+.prob-body { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+.prob-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--red-d); border: 1px solid rgba(192,57,43,0.2); padding: 0.2rem 0.6rem; background: rgba(192,57,43,0.04); width: fit-content; }
 
-        /* -- CHECK LIST -- */
-        .clay-check-list { list-style: none; margin: 0; padding: 0; }
-        .clay-check-list li {
-            display: flex; align-items: flex-start; gap: 0.85rem;
-            margin-bottom: 1rem; font-size: 0.95rem; color: #374151; line-height: 1.5;
-        }
-        .clay-check-list li .clay-check-icon {
-            width: 28px; height: 28px; background: #d1fae5; border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0; box-shadow: 0 3px 0 #6ee7b7; margin-top: 1px;
-        }
-        .clay-check-list li .clay-check-icon i { font-size: 1rem; color: #065f46; }
-        .clay-s-b .clay-check-list li .clay-check-icon { background: #cffafe; box-shadow: 0 3px 0 #a5f3fc; }
-        .clay-s-b .clay-check-list li .clay-check-icon i { color: #0e7490; }
-        .clay-s-c .clay-check-list li .clay-check-icon { background: #fef9c3; box-shadow: 0 3px 0 #fde68a; }
-        .clay-s-c .clay-check-list li .clay-check-icon i { color: #854d0e; }
+/* ── PIPELINE ── */
+.pipeline-wrap {
+  margin-top: 3.5rem; background: var(--white); border: 1px solid var(--border);
+  padding: 3rem; box-shadow: var(--shadow);
+}
+.pipeline-label { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; text-align: center; margin-bottom: 2.5rem; }
 
-        /* -- PROCESS STEPS -- */
-        .clay-steps {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem; margin-top: 3.5rem; position: relative; z-index: 2;
-        }
-        .clay-step {
-            background: #fff; border-radius: 24px; padding: 2rem 1.5rem; text-align: center;
-            box-shadow: 0 8px 0 #6ee7b7, 0 16px 30px rgba(13,148,136,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .clay-step:hover { transform: translateY(-5px); box-shadow: 0 13px 0 #6ee7b7, 0 20px 35px rgba(13,148,136,0.12); }
-        .clay-step-num {
-            width: 52px; height: 52px; background: #0d9488; color: #fff;
-            border-radius: 16px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem; font-weight: 800; font-family: 'Sora', sans-serif;
-            margin: 0 auto 1.25rem; box-shadow: 0 5px 0 #0f766e;
-        }
-        .clay-step h4 { font-size: 1rem; font-weight: 700; color: #134e4a; margin-bottom: 0.5rem; }
-        .clay-step p { font-size: 0.88rem; color: #6b7280; line-height: 1.55; }
+/* ── LOAD VIS ── */
+.lv-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+.lv-info-title { font-family: 'Sora', sans-serif; font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 0.8rem; }
+.lv-info-body { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 1.5rem; }
+.lv-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); margin-bottom: 1.5rem; }
+.lv-metric { background: rgba(255,255,255,0.03); padding: 1.2rem; }
+.lv-metric-val { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; }
+.lv-metric-key { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
+.thr-title { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: rgba(255,255,255,0.4); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.8rem; }
+.thr-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; font-size: 0.83rem; color: rgba(255,255,255,0.6); }
+.thr-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
-        /* -- STATS -- */
-        .clay-stats-section {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #d1fae5 0%, #cffafe 100%);
-            position: relative; overflow: hidden;
-        }
-        .clay-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.75rem; margin-top: 3rem; position: relative; z-index: 2; }
-        .clay-stat {
-            background: #fff; border-radius: 24px; padding: 2.5rem 1.5rem; text-align: center;
-            box-shadow: 0 8px 0 #6ee7b7, 0 16px 30px rgba(13,148,136,0.08); transition: transform 0.2s;
-        }
-        .clay-stat:hover { transform: translateY(-5px); }
-        .clay-stat .num { font-size: 2.8rem; font-weight: 800; font-family: 'Sora', sans-serif; color: #0d9488; line-height: 1; }
-        .clay-stat .lbl { font-size: 0.82rem; color: #6b7280; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+/* ── TECH STACK ── */
+.tech-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+.arch-stack { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); overflow: hidden; box-shadow: var(--shadow-md); }
+.arch-layer {
+  display: grid; grid-template-columns: 100px 1fr 80px;
+  border-bottom: 1px solid var(--border); align-items: stretch;
+  transition: background 0.2s;
+}
+.arch-layer:last-child { border-bottom: none; }
+.arch-layer:hover { background: rgba(212,112,10,0.02); }
+.arch-layer-tag {
+  background: var(--ink); color: #fff; padding: 1.2rem 0.8rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em;
+  text-transform: uppercase; display: flex; align-items: center;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.arch-layer-content { padding: 1.2rem 1.4rem; }
+.arch-layer-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
+.arch-layer-detail { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: var(--muted); line-height: 1.55; }
+.arch-layer-badge { padding: 1.2rem 0.8rem; display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--border); }
+.badge-chip { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; color: var(--amber); border: 1px solid rgba(212,112,10,0.3); padding: 0.2rem 0.5rem; text-transform: uppercase; letter-spacing: 0.08em; background: var(--amber-light); text-align: center; }
+.tech-specs { display: flex; flex-direction: column; gap: 1.2rem; }
+.spec-card {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 1.5rem; box-shadow: var(--shadow); position: relative; overflow: hidden;
+}
+.spec-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--amber); }
+.spec-card-title { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+.spec-card-body { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--muted); line-height: 1.65; }
+.spec-params { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+.spec-param { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; background: var(--surface); border: 1px solid var(--border); padding: 0.2rem 0.6rem; color: var(--ink2); }
 
-        /* -- CTA -- */
-        .clay-cta {
-            padding: 6rem 0; text-align: center;
-            background: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
-            position: relative; overflow: hidden;
-        }
-        .clay-cta h2 { font-family: 'Sora', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 1rem; position: relative; z-index: 2; }
-        .clay-cta p { color: #ccfbf1; font-size: 1.05rem; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.7; position: relative; z-index: 2; }
-        .clay-btn-white {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: #fff; color: #0d9488;
-            font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem;
-            padding: 0.9rem 2.5rem; border-radius: 16px; border: none;
-            box-shadow: 0 8px 0 #0f766e; transition: transform 0.15s, box-shadow 0.15s;
-            cursor: pointer; text-decoration: none; position: relative; z-index: 2;
-        }
-        .clay-btn-white:hover { transform: translateY(-3px); box-shadow: 0 11px 0 #0f766e; color: #0d9488; }
-        .clay-btn-white:active { transform: translateY(4px); box-shadow: 0 4px 0 #0f766e; }
+/* ── FEATURES ── */
+.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.feat-card {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 2rem; box-shadow: var(--shadow);
+  transition: box-shadow 0.3s, transform 0.3s;
+  position: relative; overflow: hidden;
+}
+.feat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.feat-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--amber); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+.feat-card:hover::after { transform: scaleX(1); }
+.feat-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
+.feat-title { font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+.feat-body { font-size: 0.83rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
+.feat-list { list-style: none; border-top: 1px solid var(--border); padding-top: 1rem; }
+.feat-li { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: var(--muted); padding: 0.3rem 0; border-bottom: 1px solid var(--border2); display: flex; align-items: center; gap: 0.5rem; }
+.feat-li::before { content: '→'; color: var(--amber); }
+.feat-li:last-child { border-bottom: none; }
 
-        @media (max-width: 600px) { .clay-stats-grid, .clay-steps { grid-template-columns: 1fr; } }
-    </style>
+/* ── DEPLOYMENT ── */
+.dep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
+.dep-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--amber); padding: 2.5rem; box-shadow: var(--shadow-md); }
+.dep-org { font-family: 'Sora', sans-serif; font-size: 1.7rem; font-weight: 800; color: var(--ink); line-height: 1.1; margin-bottom: 0.4rem; }
+.dep-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
+.dep-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.dep-field { background: var(--surface); padding: 0.8rem 1rem; border: 1px solid var(--border); }
+.dep-field-k { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.25rem; }
+.dep-field-v { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+.dep-scope-title { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
+.dep-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.84rem; color: var(--ink2); padding: 0.5rem 0; border-bottom: 1px solid var(--border2); }
+.dep-item span { color: var(--amber); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; flex-shrink: 0; margin-top: 0.15rem; }
+.dep-item:last-child { border-bottom: none; }
+.dep-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.dep-kpi { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.2rem; text-align: center; }
+.dep-kpi-v { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; }
+.dep-kpi-k { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.3rem; }
+
+/* ── APPLICATIONS ── */
+.app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
+.app-cell { background: var(--white); padding: 2rem 1.5rem; border-right: 1px solid var(--border); transition: background 0.2s; }
+.app-cell:last-child { border-right: none; }
+.app-cell:hover { background: var(--amber-light); }
+.app-emoji { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.app-title { font-size: 0.92rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
+.app-desc { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: var(--muted); line-height: 1.65; }
+.app-badge { margin-top: 0.8rem; font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: var(--amber); border: 1px solid rgba(212,112,10,0.2); padding: 0.2rem 0.5rem; background: var(--amber-light); display: inline-block; }
+
+/* ── CTA ── */
+#ws-cta { background: var(--amber); padding: 5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.cta-heading { font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; color: #fff; line-height: 1; margin-bottom: 1rem; }
+.cta-sub { font-size: 0.93rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 1.5rem; }
+.cta-items { display: flex; flex-direction: column; gap: 0.6rem; }
+.cta-item { display: flex; align-items: center; gap: 0.7rem; font-size: 0.88rem; color: rgba(255,255,255,0.85); }
+.cta-item::before { content: '✓'; color: #fff; font-weight: 700; flex-shrink: 0; }
+.cta-form-card { background: #fff; padding: 2.5rem; }
+.cf-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem; display: block; }
+.cf-input { width: 100%; background: var(--surface); border: 1px solid var(--border); padding: 0.75rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--ink); margin-bottom: 1rem; outline: none; transition: border-color 0.2s; }
+.cf-input:focus { border-color: var(--amber); }
+.cf-input::placeholder { color: var(--muted); }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.cf-submit { width: 100%; background: var(--amber); color: #fff; border: none; padding: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; font-weight: 500; margin-top: 0.5rem; transition: background 0.2s; }
+.cf-submit:hover { background: var(--orange); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.on { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1000px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .ws-section { padding: 4rem 0; }
+  .tech-layout, .lv-layout, .dep-grid, .feat-grid { grid-template-columns: 1fr; }
+  .app-grid { grid-template-columns: 1fr 1fr; }
+  #ws-cta { grid-template-columns: 1fr; }
+  .live-bar { overflow-x: auto; }
+  .hero-left { padding: 4rem 1.5rem 3rem; }
+}
+@media (max-width: 600px) {
+  .problem-grid { grid-template-columns: 1fr; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .dep-row, .dep-kpis { grid-template-columns: 1fr 1fr; }
+}
+</style>
 </head>
 <body>
 
     <!-- Header -->
-    <!-- Header -->
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
+                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                        class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
                 <div class="nav-contact-info" style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
@@ -261,175 +376,651 @@
         </div>
     </header>
 
+
+    <!-- LIVE BAR -->
+    <div class="live-bar">
+      <div class="lb-item"><div class="live-dot ld-g"></div> System: <span class="lv">OPERATIONAL</span></div>
+      <div class="lb-item"><div class="live-dot ld-a"></div> Active Site: <span class="lv">Baspani Yard, SE Railway</span></div>
+      <div class="lb-item"><div class="live-dot ld-g"></div> Accuracy: <span class="lv">98.7%</span></div>
+      <div class="lb-item"><div class="live-dot ld-b"></div> Scan Cycle: <span class="lv">&lt;3 sec / wagon</span></div>
+      <div class="lb-item"><div class="live-dot ld-a"></div> LiDAR Precision: <span class="lv">±2mm</span></div>
+      <div class="lb-item"><div class="live-dot ld-g"></div> Uptime: <span class="lv">24 / 7</span></div>
+    </div>
+
     <!-- HERO -->
-    <section class="clay-hero">
-        <div class="clay-blob" style="width:500px;height:500px;background:#6ee7b7;top:-150px;right:-100px;"></div>
-        <div class="clay-blob" style="width:380px;height:380px;background:#a5f3fc;bottom:-100px;left:-80px;"></div>
-        <div class="clay-blob" style="width:280px;height:280px;background:#fde68a;top:40%;left:38%;"></div>
-        <div class="container">
-            <div class="clay-tag">Platform</div>
-            <h1>Intelligent Wide-Area<br>Land &amp; Resource Surveillance</h1>
-            <p>IWLARS a persistent, AI-powered monitoring platform for large-scale land, resource, and infrastructure surveillance across remote and critical areas.</p>
-            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-                <a href="../../pages/company/contact-us.html" class="clay-btn-primary"><i class="ph ph-rocket-launch"></i> Request a Demo</a>
-                <a href="#features" class="clay-btn-outline"><i class="ph ph-arrow-down"></i> Platform Features</a>
-            </div>
+    <section id="hero">
+      <div class="hero-left reveal">
+        <div class="hero-platform-chip"><div class="live-dot ld-g"></div>Live Deployed · Indian Railways</div>
+        <h1 class="hero-title">IWLARS<br><span class="hl">PLATFORM</span></h1>
+        <div class="hero-subtitle">Intelligent Wagon Load Analysis &amp; Reporting System</div>
+        <p class="hero-desc">AI-powered LiDAR-based 3D load distribution analysis and automated visual inspection for freight wagons — preventing derailments, ensuring compliance, and eliminating manual yard bottlenecks at Indian Railways loading yards.</p>
+        <div class="kpi-row">
+          <div class="kpi-m"><div class="kpi-m-num">98.7%</div><div class="kpi-m-label">AI Accuracy</div></div>
+          <div class="kpi-m"><div class="kpi-m-num">&lt;3s</div><div class="kpi-m-label">Scan Cycle</div></div>
+          <div class="kpi-m"><div class="kpi-m-num">±2mm</div><div class="kpi-m-label">LiDAR Precision</div></div>
+          <div class="kpi-m"><div class="kpi-m-num">24/7</div><div class="kpi-m-label">Operation</div></div>
         </div>
+        <div class="hero-actions">
+          <a href="#deployment" class="btn-p">View Live Deployment →</a>
+          <a href="#howitworks" class="btn-s">Technical Overview</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <svg class="system-diagram" viewBox="0 0 520 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="igrid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#d8d4ce" stroke-width="0.5"/>
+            </pattern>
+            <linearGradient id="icyanGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#0077aa" stop-opacity="0.15"/>
+              <stop offset="1" stop-color="#0077aa" stop-opacity="0"/>
+            </linearGradient>
+            <filter id="iglow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <rect width="520" height="480" fill="url(#igrid)"/>
+          <rect x="0" y="0" width="520" height="30" fill="#1a1814"/>
+          <text x="16" y="19" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,0.5)" letter-spacing="2">SYSTEM OVERVIEW — IWLARS · REV 2.4</text>
+          <circle cx="496" cy="15" r="5" fill="#4caf50"/>
+          <text x="484" y="19" font-family="JetBrains Mono,monospace" font-size="7" fill="#4caf50" text-anchor="end">LIVE</text>
+          <rect x="50" y="35" width="10" height="120" fill="#3a3630" rx="2"/>
+          <rect x="40" y="150" width="30" height="8" fill="#3a3630" rx="1"/>
+          <rect x="460" y="35" width="10" height="120" fill="#3a3630" rx="2"/>
+          <rect x="450" y="150" width="30" height="8" fill="#3a3630" rx="1"/>
+          <line x1="55" y1="45" x2="465" y2="45" stroke="#3a3630" stroke-width="3"/>
+          <text x="260" y="42" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">OVERHEAD GUIDE RAIL / CABLE</text>
+          <rect x="220" y="48" width="80" height="32" fill="#1a4a8a" rx="3"/>
+          <text x="260" y="68" font-family="JetBrains Mono,monospace" font-size="8" fill="#fff" text-anchor="middle">TROLLEY UNIT</text>
+          <circle cx="230" cy="47" r="5" fill="#5a8abf" stroke="#1a1814" stroke-width="1"/>
+          <circle cx="290" cy="47" r="5" fill="#5a8abf" stroke="#1a1814" stroke-width="1"/>
+          <rect x="254" y="80" width="12" height="24" fill="#3a5a8a" rx="1"/>
+          <rect x="240" y="104" width="40" height="22" fill="#d4700a" rx="3"/>
+          <text x="260" y="119" font-family="JetBrains Mono,monospace" font-size="8" fill="#fff" text-anchor="middle">LiDAR</text>
+          <line x1="310" y1="115" x2="380" y2="100" stroke="#d4700a" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="375" y="88" width="120" height="26" fill="#fff3e0" stroke="#d4700a" stroke-width="1" rx="2"/>
+          <text x="435" y="100" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#d4700a" text-anchor="middle">3D LiDAR SENSOR</text>
+          <text x="435" y="110" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#7a7268" text-anchor="middle">±2mm · 1M+ pts/scan</text>
+          <g opacity="0.6">
+            <line x1="255" y1="126" x2="145" y2="245" stroke="#0077aa" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="258" y1="126" x2="175" y2="252" stroke="#0077aa" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="260" y1="127" x2="210" y2="258" stroke="#0077aa" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="261" y1="127" x2="260" y2="260" stroke="#0077aa" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="262" y1="127" x2="310" y2="258" stroke="#0077aa" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="264" y1="126" x2="350" y2="250" stroke="#0077aa" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="266" y1="126" x2="380" y2="242" stroke="#0077aa" stroke-width="1" stroke-dasharray="4,3"/>
+          </g>
+          <polygon points="260,127 140,248 380,248" fill="url(#icyanGrad)" opacity="0.4"/>
+          <rect x="80" y="340" width="360" height="6" fill="#555" rx="1"/>
+          <rect x="80" y="352" width="360" height="6" fill="#555" rx="1"/>
+          <rect x="110" y="255" width="300" height="85" fill="#3a3630" rx="3"/>
+          <rect x="116" y="255" width="288" height="8" fill="#2a2420"/>
+          <path d="M120,263 C130,248 145,252 160,246 C175,240 185,250 200,244 C215,238 228,248 245,243 C262,238 278,247 295,242 C312,237 325,248 340,243 C355,238 368,249 380,244 C392,239 400,252 404,263 Z" fill="#4a3c2a"/>
+          <circle cx="155" cy="345" r="14" fill="#2a2420" stroke="#555" stroke-width="2"/>
+          <circle cx="155" cy="345" r="6" fill="#555"/>
+          <circle cx="365" cy="345" r="14" fill="#2a2420" stroke="#555" stroke-width="2"/>
+          <circle cx="365" cy="345" r="6" fill="#555"/>
+          <text x="260" y="330" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(255,255,255,0.3)" text-anchor="middle">WGN-4471 · COAL · SE RAILWAY</text>
+          <g fill="#00aadd" opacity="0.8" filter="url(#iglow)">
+            <circle cx="135" cy="254" r="2"/><circle cx="148" cy="249" r="2"/><circle cx="162" cy="254" r="2"/>
+            <circle cx="175" cy="247" r="2"/><circle cx="189" cy="253" r="2"/><circle cx="203" cy="246" r="2"/>
+            <circle cx="218" cy="252" r="2"/><circle cx="232" cy="245" r="2"/><circle cx="246" cy="251" r="2"/>
+            <circle cx="261" cy="244" r="2.5"/><circle cx="276" cy="250" r="2"/><circle cx="290" cy="244" r="2"/>
+            <circle cx="305" cy="250" r="2"/><circle cx="320" cy="244" r="2"/><circle cx="334" cy="250" r="2"/>
+            <circle cx="348" cy="244" r="2"/><circle cx="363" cy="250" r="2"/><circle cx="377" cy="246" r="2"/>
+            <circle cx="391" cy="253" r="2"/>
+          </g>
+          <text x="260" y="385" font-family="JetBrains Mono,monospace" font-size="8" fill="#d4700a" text-anchor="middle">9.0m WAGON LENGTH</text>
+          <rect x="30" y="160" width="90" height="22" fill="rgba(0,119,170,0.1)" stroke="#0077aa" stroke-width="1" rx="2"/>
+          <text x="75" y="175" font-family="JetBrains Mono,monospace" font-size="8" fill="#0077aa" text-anchor="middle">SCAN ZONE</text>
+          <defs>
+            <marker id="igarr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#4caf50"/>
+            </marker>
+          </defs>
+          <path d="M470,115 Q500,115 500,170 Q500,210 490,210" stroke="#4caf50" stroke-width="2" fill="none" marker-end="url(#igarr)" stroke-dasharray="5,3"/>
+          <rect x="390" y="190" width="120" height="36" fill="#e8f5e9" stroke="#4caf50" stroke-width="1" rx="2"/>
+          <text x="450" y="205" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#1a7a3a" text-anchor="middle">EDGE AI SERVER</text>
+          <text x="450" y="217" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#7a7268" text-anchor="middle">CNN · &lt;3s inference</text>
+          <line x1="390" y1="208" x2="340" y2="208" stroke="#4caf50" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <rect x="200" y="198" width="130" height="20" fill="#fff3e0" stroke="#d4700a" stroke-width="1" rx="2"/>
+          <text x="265" y="212" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#d4700a" text-anchor="middle">→ DASHBOARD REPORT</text>
+        </svg>
+      </div>
     </section>
 
-    <!-- SECTION A: Wide-Area Coverage & Continuous Monitoring -->
-    <section id="features" class="clay-section clay-s-a">
-        <div class="clay-blob" style="width:350px;height:350px;background:#6ee7b7;top:-80px;right:-60px;"></div>
-        <div class="container">
-            <div class="clay-split">
-                <div class="clay-img-card reveal stagger-1">
-                    <img src="../../assets/images/iwlars-coverage.jpeg" alt="Wide-Area Coverage"
-                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                    <div class="clay-icon-fallback" style="display:none;width:100%;height:360px;align-items:center;justify-content:center;">
-                        <i class="ph ph-globe-hemisphere-west"></i>
-                    </div>
-                </div>
-                <div class="reveal stagger-2">
-                    <span class="clay-label">Wide-Area Coverage</span>
-                    <h2 class="clay-title">Persistent Surveillance Across Hundreds of km</h2>
-                    <p class="clay-desc">IWLARS deploys coordinated drone fleets and fixed sensor networks to maintain continuous coverage of areas spanning hundreds of square kilometres  including remote, inaccessible, and critical zones.</p>
-                    <ul class="clay-check-list">
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Up to 500 km continuous coverage area</li>
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Coordinated multi-drone fleet operations</li>
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Fixed sensor integration for perimeter zones</li>
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> 24/7 automated surveillance with no coverage gaps</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="divider-h"></div>
+
+    <!-- PROBLEM SECTION -->
+    <section class="ws-section white reveal" id="problem">
+      <div class="container">
+        <div class="eyebrow">Problem Statement</div>
+        <h2 class="sh">WHY MANUAL WAGON<br>INSPECTION FAILS</h2>
+        <p class="sd">Traditional visual inspection of loaded freight wagons is error-prone, slow, and incapable of detecting load imbalances that cause derailments, track damage, and billion-rupee losses across India's freight network.</p>
+        <div class="problem-grid">
+          <div class="prob-card">
+            <div class="prob-card-head"><div class="prob-icon">🚨</div><div class="prob-title">Derailment Risk from Load Imbalance</div></div>
+            <div class="prob-stat">₹200Cr+</div>
+            <div class="prob-body">Asymmetric coal/ore loads shift the wagon's centre of gravity, dramatically increasing derailment probability at curves, gradients, and high-speed sections. A 15%+ lateral imbalance is considered critical.</div>
+            <div class="prob-tag">Safety Critical</div>
+          </div>
+          <div class="prob-card">
+            <div class="prob-card-head"><div class="prob-icon">⚙️</div><div class="prob-title">Accelerated Axle &amp; Track Wear</div></div>
+            <div class="prob-stat">40%</div>
+            <div class="prob-body">Uneven loading accelerates axle fatigue, bogie stress, and ballast degradation. Unbalanced loads cause up to 40% faster infrastructure wear versus properly loaded wagons on the same route.</div>
+            <div class="prob-tag">Infrastructure Damage</div>
+          </div>
+          <div class="prob-card">
+            <div class="prob-card-head"><div class="prob-icon">🕐</div><div class="prob-title">Manual Inspection Bottlenecks</div></div>
+            <div class="prob-stat">~8min</div>
+            <div class="prob-body">A single manual inspector takes 7–10 minutes per wagon — creating serious throughput bottlenecks at high-volume loading yards. A 58-wagon rake requires over 8 hours for full manual inspection coverage.</div>
+            <div class="prob-tag">Operational Inefficiency</div>
+          </div>
+          <div class="prob-card">
+            <div class="prob-card-head"><div class="prob-icon">📋</div><div class="prob-title">Zero Digital Audit Trail</div></div>
+            <div class="prob-stat">0%</div>
+            <div class="prob-body">Paper-based inspection records offer no tamper-proof audit trail, no analytics capability, and no incident correlation. Compliance reporting requires manual data compilation — prone to errors and delay.</div>
+            <div class="prob-tag">Compliance Risk</div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- SECTION B: Geospatial Intelligence -->
-    <section class="clay-section clay-s-b">
-        <div class="clay-blob" style="width:380px;height:380px;background:#a5f3fc;bottom:-80px;left:-60px;"></div>
-        <div class="container">
-            <div class="clay-split">
-                <div class="reveal stagger-1">
-                    <span class="clay-label">Geospatial Intelligence</span>
-                    <h2 class="clay-title">Live GIS Map with Full Spatial Context</h2>
-                    <p class="clay-desc">Every surveillance event is geo-referenced and instantly plotted on a live GIS map. Operators get full spatial context for every alert  with historical overlays, zone boundaries, and change detection layers all in one view.</p>
-                    <ul class="clay-check-list">
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Real-time geo-referenced event plotting</li>
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Custom zone boundaries and exclusion areas</li>
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Historical change detection overlays</li>
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Multi-layer GIS with satellite and drone imagery</li>
-                    </ul>
-                </div>
-                <div class="clay-img-card reveal stagger-2">
-                    <img src="../../assets/images/iwlars-gis.jpeg" alt="Geospatial Intelligence"
-                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                    <div class="clay-icon-fallback" style="display:none;width:100%;height:360px;align-items:center;justify-content:center;color:#a5f3fc;">
-                        <i class="ph ph-map-trifold"></i>
-                    </div>
-                </div>
-            </div>
+    <div class="divider-h"></div>
+
+    <!-- HOW IT WORKS -->
+    <section class="ws-section gray reveal" id="howitworks">
+      <div class="container">
+        <div class="eyebrow">Technology Pipeline</div>
+        <h2 class="sh">HOW IWLARS WORKS</h2>
+        <p class="sd">A 4-stage integrated pipeline from physical LiDAR acquisition to digital intelligence — completed in under 3 seconds per wagon.</p>
+        <div class="pipeline-wrap reveal">
+          <div class="pipeline-label">SYSTEM PIPELINE — END TO END · IWLARS v2.4</div>
+          <svg viewBox="0 0 900 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:300px;">
+            <defs>
+              <marker id="iparr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#d4700a"/>
+              </marker>
+            </defs>
+            <line x1="185" y1="130" x2="715" y2="130" stroke="#d8d4ce" stroke-width="2" stroke-dasharray="6,4"/>
+            <line x1="200" y1="130" x2="265" y2="130" stroke="#d4700a" stroke-width="2" marker-end="url(#iparr)"/>
+            <line x1="405" y1="130" x2="465" y2="130" stroke="#d4700a" stroke-width="2" marker-end="url(#iparr)"/>
+            <line x1="605" y1="130" x2="665" y2="130" stroke="#d4700a" stroke-width="2" marker-end="url(#iparr)"/>
+            <rect x="20" y="60" width="165" height="140" fill="#fff" stroke="#d8d4ce" stroke-width="1.5" rx="4"/>
+            <rect x="20" y="60" width="165" height="6" fill="#1a1814" rx="4"/>
+            <rect x="20" y="60" width="3" height="140" fill="#d4700a" rx="4"/>
+            <text x="110" y="52" font-family="JetBrains Mono,monospace" font-size="9" fill="#d4700a" text-anchor="middle" letter-spacing="1">STAGE 01</text>
+            <text x="110" y="100" font-family="Inter,sans-serif" font-size="28" text-anchor="middle">🚂</text>
+            <text x="110" y="125" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#1a1814" text-anchor="middle">Wagon Entry</text>
+            <text x="110" y="140" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">Trigger sensors detect</text>
+            <text x="110" y="152" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">wagon entry into</text>
+            <text x="110" y="164" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">scan corridor zone</text>
+            <rect x="40" y="178" width="105" height="14" fill="#f5f4f0" stroke="#d8d4ce" stroke-width="1" rx="2"/>
+            <text x="93" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#7a7268" text-anchor="middle">Proximity · RFID Tag</text>
+            <rect x="270" y="60" width="165" height="140" fill="#fff" stroke="#d8d4ce" stroke-width="1.5" rx="4"/>
+            <rect x="270" y="60" width="165" height="6" fill="#0077aa" rx="4"/>
+            <rect x="270" y="60" width="3" height="140" fill="#0077aa" rx="4"/>
+            <text x="355" y="52" font-family="JetBrains Mono,monospace" font-size="9" fill="#0077aa" text-anchor="middle" letter-spacing="1">STAGE 02</text>
+            <text x="355" y="100" font-family="Inter,sans-serif" font-size="28" text-anchor="middle">📡</text>
+            <text x="355" y="125" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#1a1814" text-anchor="middle">LiDAR Point Cloud</text>
+            <text x="355" y="140" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">Trolley traverses wagon.</text>
+            <text x="355" y="152" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">1M+ 3D data points</text>
+            <text x="355" y="164" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">captured at ±2mm res.</text>
+            <rect x="285" y="178" width="140" height="14" fill="#e3f2fd" stroke="#0077aa" stroke-width="1" rx="2"/>
+            <text x="355" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#0077aa" text-anchor="middle">3D SLAM · Multi-return</text>
+            <rect x="470" y="60" width="165" height="140" fill="#fff" stroke="#d8d4ce" stroke-width="1.5" rx="4"/>
+            <rect x="470" y="60" width="165" height="6" fill="#1a7a3a" rx="4"/>
+            <rect x="470" y="60" width="3" height="140" fill="#1a7a3a" rx="4"/>
+            <text x="555" y="52" font-family="JetBrains Mono,monospace" font-size="9" fill="#1a7a3a" text-anchor="middle" letter-spacing="1">STAGE 03</text>
+            <text x="555" y="100" font-family="Inter,sans-serif" font-size="28" text-anchor="middle">🧠</text>
+            <text x="555" y="125" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#1a1814" text-anchor="middle">CNN AI Analysis</text>
+            <text x="555" y="140" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">Load volume, balance</text>
+            <text x="555" y="152" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">ratio &amp; anomaly scored</text>
+            <text x="555" y="164" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">on edge GPU hardware</text>
+            <rect x="480" y="178" width="150" height="14" fill="#e8f5e9" stroke="#1a7a3a" stroke-width="1" rx="2"/>
+            <text x="555" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#1a7a3a" text-anchor="middle">ResNet · CUDA · Edge</text>
+            <rect x="670" y="60" width="210" height="140" fill="#fff3e0" stroke="rgba(212,112,10,0.4)" stroke-width="1.5" rx="4"/>
+            <rect x="670" y="60" width="210" height="6" fill="#d4700a" rx="4"/>
+            <rect x="670" y="60" width="3" height="140" fill="#d4700a" rx="4"/>
+            <text x="775" y="52" font-family="JetBrains Mono,monospace" font-size="9" fill="#d4700a" text-anchor="middle" letter-spacing="1">STAGE 04</text>
+            <text x="775" y="100" font-family="Inter,sans-serif" font-size="28" text-anchor="middle">📊</text>
+            <text x="775" y="125" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#1a1814" text-anchor="middle">Dashboard Report</text>
+            <text x="775" y="140" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">Live metrics, 3D profile,</text>
+            <text x="775" y="152" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">pass/fail verdict &amp;</text>
+            <text x="775" y="164" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">automated PDF report</text>
+            <rect x="685" y="178" width="180" height="14" fill="#fff3e0" stroke="#d4700a" stroke-width="1" rx="2"/>
+            <text x="775" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#d4700a" text-anchor="middle">Web Dashboard · API · Alerts</text>
+            <text x="450" y="270" font-family="JetBrains Mono,monospace" font-size="9" fill="#1a1814" text-anchor="middle">TOTAL CYCLE TIME: &lt; 3 SECONDS PER WAGON  ·  24/7 AUTONOMOUS OPERATION  ·  ZERO CLOUD DEPENDENCY</text>
+          </svg>
         </div>
+      </div>
     </section>
 
-    <!-- SECTION C: AI Alerting & Multi-Sensor Fusion -->
-    <section class="clay-section clay-s-c">
-        <div class="clay-blob" style="width:400px;height:400px;background:#fde68a;top:-80px;right:-60px;"></div>
-        <div class="container">
-            <div class="clay-split">
-                <div class="clay-img-card reveal stagger-1" style="box-shadow:0 12px 0 #fde68a,0 20px 40px rgba(133,77,14,0.08);">
-                    <img src="../../assets/images/iwlars-alerts.jpeg" alt="AI Alerting"
-                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                    <div class="clay-icon-fallback" style="display:none;width:100%;height:360px;align-items:center;justify-content:center;color:#fde68a;">
-                        <i class="ph ph-bell-ringing"></i>
-                    </div>
-                </div>
-                <div class="reveal stagger-2">
-                    <span class="clay-label">AI Alerting &amp; Sensor Fusion</span>
-                    <h2 class="clay-title">Intelligent Alerts from Fused Multi-Sensor Data</h2>
-                    <p class="clay-desc">IWLARS fuses data from drones, fixed cameras, satellite imagery, and IoT sensors into a single intelligence picture. AI classifies every detected event by type and severity, routing alerts to the right teams instantly.</p>
-                    <ul class="clay-check-list">
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> AI event classification by type and severity</li>
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Under 60-second alert response time</li>
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Drone, camera, satellite &amp; IoT data fusion</li>
-                        <li><div class="clay-check-icon"><i class="ph ph-check"></i></div> Role-based alert routing with full event context</li>
-                    </ul>
-                </div>
+    <div class="divider-h"></div>
+
+    <!-- LOAD ANALYSIS VISUAL -->
+    <section id="loadvis" class="ws-section dark reveal">
+      <div class="container">
+        <div class="eyebrow" style="color:var(--amber-mid)">Load Distribution Intelligence</div>
+        <h2 class="sh">3D LOAD PROFILE &amp;<br>WEIGHT DISTRIBUTION</h2>
+        <div class="lv-layout">
+          <div>
+            <svg viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+              <defs>
+                <radialGradient id="ih1" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#f44336" stop-opacity="0.9"/>
+                  <stop offset="60%" stop-color="#ff9800" stop-opacity="0.7"/>
+                  <stop offset="100%" stop-color="#ffeb3b" stop-opacity="0.2"/>
+                </radialGradient>
+                <radialGradient id="ih2" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ff9800" stop-opacity="0.85"/>
+                  <stop offset="60%" stop-color="#ffeb3b" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="#ffeb3b" stop-opacity="0.1"/>
+                </radialGradient>
+                <radialGradient id="ih3" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#4caf50" stop-opacity="0.7"/>
+                  <stop offset="100%" stop-color="#4caf50" stop-opacity="0.1"/>
+                </radialGradient>
+                <linearGradient id="icscale" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#4caf50"/>
+                  <stop offset="40%" stop-color="#ffeb3b"/>
+                  <stop offset="70%" stop-color="#ff9800"/>
+                  <stop offset="100%" stop-color="#f44336"/>
+                </linearGradient>
+              </defs>
+              <rect width="500" height="360" fill="#111"/>
+              <text x="16" y="22" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">TOP-DOWN LOAD HEATMAP — WGN-4471 · COAL</text>
+              <rect x="50" y="40" width="400" height="230" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" rx="4"/>
+              <rect x="60" y="235" width="60" height="25" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1" rx="2"/>
+              <text x="90" y="252" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(255,255,255,0.4)" text-anchor="middle">BOGIE A</text>
+              <rect x="380" y="235" width="60" height="25" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1" rx="2"/>
+              <text x="410" y="252" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(255,255,255,0.4)" text-anchor="middle">BOGIE B</text>
+              <ellipse cx="155" cy="125" rx="85" ry="70" fill="url(#ih1)"/>
+              <ellipse cx="340" cy="155" rx="80" ry="65" fill="url(#ih2)"/>
+              <ellipse cx="260" cy="100" rx="50" ry="40" fill="url(#ih3)"/>
+              <ellipse cx="200" cy="190" rx="45" ry="35" fill="url(#ih3)"/>
+              <line x1="155" y1="55" x2="155" y2="235" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="50" y1="125" x2="450" y2="125" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="3,3"/>
+              <text x="260" y="285" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(255,255,255,0.4)" text-anchor="middle">← WAGON LENGTH AXIS →</text>
+              <line x1="155" y1="120" x2="90" y2="80" stroke="#f44336" stroke-width="1"/>
+              <rect x="0" y="60" width="85" height="18" fill="rgba(244,67,54,0.15)" stroke="#f44336" stroke-width="1" rx="2"/>
+              <text x="43" y="72" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#f44336" text-anchor="middle">HOT ZONE 68%</text>
+              <line x1="340" y1="150" x2="420" y2="120" stroke="#ff9800" stroke-width="1"/>
+              <rect x="415" y="108" width="82" height="18" fill="rgba(255,152,0,0.15)" stroke="#ff9800" stroke-width="1" rx="2"/>
+              <text x="456" y="120" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#ff9800" text-anchor="middle">MID ZONE 24%</text>
+              <line x1="250" y1="40" x2="250" y2="260" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="5,3"/>
+              <text x="150" y="318" font-family="JetBrains Mono,monospace" font-size="9" fill="#aaa" text-anchor="middle">LEFT SIDE: 52%</text>
+              <text x="350" y="318" font-family="JetBrains Mono,monospace" font-size="9" fill="#aaa" text-anchor="middle">RIGHT SIDE: 48%</text>
+              <rect x="320" y="295" width="160" height="10" fill="url(#icscale)" rx="2"/>
+              <text x="320" y="293" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(255,255,255,0.4)">LOW</text>
+              <text x="480" y="293" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(255,255,255,0.4)" text-anchor="end">HIGH</text>
+              <text x="400" y="316" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(255,255,255,0.3)" text-anchor="middle">LOAD DENSITY SCALE</text>
+            </svg>
+          </div>
+          <div class="lv-info">
+            <div class="lv-info-title">AI-Computed Weight Distribution</div>
+            <div class="lv-info-body">The 3D LiDAR point cloud is processed by Aerovania's CNN model to generate a real-time top-down heatmap of cargo density across the wagon floor. This identifies imbalance zones, hotspots, and unsafe distribution patterns before dispatch.</div>
+            <div class="lv-metrics">
+              <div class="lv-metric"><div class="lv-metric-val" style="color:#4caf50">96.2%</div><div class="lv-metric-key">Load Balance Score</div></div>
+              <div class="lv-metric"><div class="lv-metric-val" style="color:#f5a623">52/48</div><div class="lv-metric-key">L/R Weight Ratio</div></div>
+              <div class="lv-metric"><div class="lv-metric-val" style="color:#64b5f6">82.4%</div><div class="lv-metric-key">Fill Level</div></div>
+              <div class="lv-metric"><div class="lv-metric-val" style="color:#4caf50">PASS</div><div class="lv-metric-key">Dispatch Status</div></div>
             </div>
+            <div class="thresholds">
+              <div class="thr-title">Dispatch Thresholds</div>
+              <div class="thr-row"><div class="thr-dot" style="background:#4caf50"></div>Balance ≥ 90% — CLEARED FOR DISPATCH</div>
+              <div class="thr-row"><div class="thr-dot" style="background:#ff9800"></div>Balance 75–89% — REBALANCING RECOMMENDED</div>
+              <div class="thr-row"><div class="thr-dot" style="background:#f44336"></div>Balance &lt; 75% — HOLD — DO NOT DISPATCH</div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- SECTION D: How It Works -->
-    <section class="clay-section clay-s-d">
-        <div class="clay-blob" style="width:300px;height:300px;background:#99f6e4;bottom:-60px;right:-40px;"></div>
-        <div class="container">
-            <div class="clay-center" style="position:relative;z-index:2;">
-                <span class="clay-label">How It Works</span>
-                <h2 class="clay-title">From Sensor to Actionable Intelligence</h2>
+    <div class="divider-h"></div>
+
+    <!-- TECH STACK -->
+    <section class="ws-section white reveal" id="techstack">
+      <div class="container">
+        <div class="eyebrow">System Architecture</div>
+        <h2 class="sh">FULL TECHNOLOGY STACK</h2>
+        <p class="sd">Every layer of IWLARS is engineered for industrial-grade reliability — from the physical sensing hardware to the edge AI inference engine and operator dashboard.</p>
+        <div class="tech-layout">
+          <div>
+            <div class="arch-stack">
+              <div class="arch-layer">
+                <div class="arch-layer-tag">SENSING</div>
+                <div class="arch-layer-content">
+                  <div class="arch-layer-name">Pulley-Guided LiDAR Trolley System</div>
+                  <div class="arch-layer-detail">Motorised overhead cable-guided trolley with 3D LiDAR sensor payload. Traverses full wagon length automatically. Multi-return LiDAR generating 1M+ points per scan at ±2mm spatial accuracy.</div>
+                  <div class="spec-params" style="margin-top:0.5rem;"><span class="spec-param">±2mm resolution</span><span class="spec-param">1M+ pts/scan</span><span class="spec-param">360° coverage</span></div>
+                </div>
+                <div class="arch-layer-badge"><span class="badge-chip">HARDWARE</span></div>
+              </div>
+              <div class="arch-layer">
+                <div class="arch-layer-tag">VISION</div>
+                <div class="arch-layer-content">
+                  <div class="arch-layer-name">Computer Vision Camera Array</div>
+                  <div class="arch-layer-detail">High-resolution industrial cameras mounted alongside LiDAR for RGB visual inspection — detecting wagon body damage, cracks, open hatches, spillage, and coupling anomalies.</div>
+                  <div class="spec-params" style="margin-top:0.5rem;"><span class="spec-param">4K industrial cams</span><span class="spec-param">Structured light</span><span class="spec-param">IR night mode</span></div>
+                </div>
+                <div class="arch-layer-badge"><span class="badge-chip">CV</span></div>
+              </div>
+              <div class="arch-layer">
+                <div class="arch-layer-tag">DATA</div>
+                <div class="arch-layer-content">
+                  <div class="arch-layer-name">3D Point Cloud Processing Engine</div>
+                  <div class="arch-layer-detail">Real-time SLAM-based georeferenced point cloud reconstruction. Sensor fusion pipeline integrates LiDAR + camera data. Outputs volumetric wagon interior model for downstream AI analysis.</div>
+                  <div class="spec-params" style="margin-top:0.5rem;"><span class="spec-param">SLAM positioning</span><span class="spec-param">Sensor fusion</span><span class="spec-param">PCL library</span></div>
+                </div>
+                <div class="arch-layer-badge"><span class="badge-chip">PIPELINE</span></div>
+              </div>
+              <div class="arch-layer">
+                <div class="arch-layer-tag">AI ENGINE</div>
+                <div class="arch-layer-content">
+                  <div class="arch-layer-name">CNN Load Analysis &amp; Inspection Model</div>
+                  <div class="arch-layer-detail">Deep convolutional neural network trained on annotated coal/iron ore load datasets. Computes 3D load heatmap, lateral balance ratio, fill percentage, and anomaly confidence scores with 98.7% accuracy.</div>
+                  <div class="spec-params" style="margin-top:0.5rem;"><span class="spec-param">ResNet backbone</span><span class="spec-param">CUDA accelerated</span><span class="spec-param">98.7% accuracy</span></div>
+                </div>
+                <div class="arch-layer-badge"><span class="badge-chip">AI / ML</span></div>
+              </div>
+              <div class="arch-layer">
+                <div class="arch-layer-tag">COMPUTE</div>
+                <div class="arch-layer-content">
+                  <div class="arch-layer-name">On-Premise Edge AI Server</div>
+                  <div class="arch-layer-detail">All inference executes on site-deployed edge hardware — no cloud latency, no connectivity dependency. NVIDIA GPU-accelerated server in ruggedised industrial enclosure. Results delivered in &lt;3 seconds.</div>
+                  <div class="spec-params" style="margin-top:0.5rem;"><span class="spec-param">NVIDIA GPU</span><span class="spec-param">&lt;3s end-to-end</span><span class="spec-param">IP55 enclosure</span></div>
+                </div>
+                <div class="arch-layer-badge"><span class="badge-chip">EDGE</span></div>
+              </div>
+              <div class="arch-layer">
+                <div class="arch-layer-tag">OUTPUT</div>
+                <div class="arch-layer-content">
+                  <div class="arch-layer-name">Web Dashboard + Reporting + API</div>
+                  <div class="arch-layer-detail">Real-time operator dashboard with 3D load visualisation, historical analytics, automated PDF report generation per wagon, SMS/email alerts for failures, and REST API for SCADA/ERP/TMS integration.</div>
+                  <div class="spec-params" style="margin-top:0.5rem;"><span class="spec-param">REST API</span><span class="spec-param">SCADA ready</span><span class="spec-param">Auto PDF reports</span></div>
+                </div>
+                <div class="arch-layer-badge"><span class="badge-chip">SOFTWARE</span></div>
+              </div>
             </div>
-            <div class="clay-steps">
-                <div class="clay-step reveal stagger-1">
-                    <div class="clay-step-num">1</div>
-                    <h4>Deploy &amp; Configure</h4>
-                    <p>Drone fleets and fixed sensors are deployed across the target area with defined coverage zones and alert boundaries.</p>
-                </div>
-                <div class="clay-step reveal stagger-2">
-                    <div class="clay-step-num">2</div>
-                    <h4>Continuous Data Capture</h4>
-                    <p>Sensors stream live imagery, video, and telemetry 24/7 into the IWLARS platform for real-time processing.</p>
-                </div>
-                <div class="clay-step reveal stagger-3">
-                    <div class="clay-step-num">3</div>
-                    <h4>AI Analysis &amp; Detection</h4>
-                    <p>AI models analyse incoming data, detecting anomalies, intrusions, and changes against defined baselines.</p>
-                </div>
-                <div class="clay-step reveal stagger-4">
-                    <div class="clay-step-num">4</div>
-                    <h4>Alert &amp; Response</h4>
-                    <p>Classified alerts are routed to the right teams with full context, location, and evidence for rapid response.</p>
-                </div>
+          </div>
+          <div class="tech-specs">
+            <div class="spec-card">
+              <div class="spec-card-title">📡 LiDAR Hardware Specifications</div>
+              <div class="spec-card-body">Sensor Type: 3D Multi-return Time-of-Flight LiDAR<br>Spatial Resolution: ±2mm<br>Point Density: 1,000,000+ points per full scan<br>Scan Range: 0.5m – 30m operational<br>Coverage Pattern: 360° horizontal, 120° vertical<br>Mounting: Motorised pulley-guided overhead trolley<br>IP Rating: IP65 dust/moisture proof for yard environment</div>
+              <div class="spec-params"><span class="spec-param">VLP-32C compatible</span><span class="spec-param">100Hz refresh</span><span class="spec-param">IP65 rated</span></div>
             </div>
+            <div class="spec-card">
+              <div class="spec-card-title">🧠 AI Model Parameters</div>
+              <div class="spec-card-body">Architecture: Custom ResNet-based 3D CNN<br>Training Data: 10,000+ annotated wagon scans<br>Commodities: Coal, iron ore, aggregate, ballast<br>Outputs: Load balance %, heatmap, fill level, anomaly flag<br>Inference Time: ~800ms on edge GPU<br>Accuracy: 98.7% on held-out test set<br>Model Updates: Remote OTA with yard-specific retraining support</div>
+              <div class="spec-params"><span class="spec-param">PyTorch framework</span><span class="spec-param">TensorRT optimised</span><span class="spec-param">OTA updates</span></div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-card-title">🔗 Integration &amp; Compliance</div>
+              <div class="spec-card-body">API Protocol: REST / JSON + Webhook callbacks<br>SCADA Integration: Modbus TCP, OPC-UA support<br>Railways TMS: Compatible with Indian Railways FOIS<br>Data Storage: On-premise SQL + file archive<br>Report Format: PDF/A, CSV, JSON<br>Security: Role-based access, audit log, TLS encryption<br>Compliance: Indian Railways load inspection standards</div>
+              <div class="spec-params"><span class="spec-param">IR FOIS ready</span><span class="spec-param">OPC-UA</span><span class="spec-param">TLS 1.3</span></div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- STATS -->
-    <section class="clay-stats-section">
-        <div class="clay-blob" style="width:400px;height:400px;background:#6ee7b7;top:-100px;left:-80px;"></div>
-        <div class="clay-blob" style="width:300px;height:300px;background:#a5f3fc;bottom:-80px;right:-60px;"></div>
-        <div class="container clay-center">
-            <span class="clay-label" style="background:#d1fae5;color:#065f46;box-shadow:0 4px 0 #6ee7b7;">Platform Scale</span>
-            <h2 class="clay-title">Designed for the Largest Challenges</h2>
-            <div class="clay-stats-grid">
-                <div class="clay-stat reveal stagger-1"><div class="num">500km</div><div class="lbl">Max Coverage Area</div></div>
-                <div class="clay-stat reveal stagger-2"><div class="num">24/7</div><div class="lbl">Persistent Surveillance</div></div>
-                <div class="clay-stat reveal stagger-3"><div class="num">&lt;60s</div><div class="lbl">Alert Response Time</div></div>
-                <div class="clay-stat reveal stagger-4"><div class="num">99.5%</div><div class="lbl">Platform Uptime</div></div>
+    <div class="divider-h"></div>
+
+    <!-- FEATURES -->
+    <section class="ws-section gray reveal" id="features">
+      <div class="container">
+        <div class="eyebrow">Platform Capabilities</div>
+        <h2 class="sh">SIX CORE CAPABILITIES</h2>
+        <p class="sd">IWLARS delivers a complete inspection and analytics suite — from raw sensor acquisition to automated compliance documentation.</p>
+        <div class="feat-grid">
+          <div class="feat-card">
+            <span class="feat-icon">📡</span>
+            <div class="feat-title">3D Load Profiling</div>
+            <div class="feat-body">Full volumetric 3D model of cargo inside the wagon — showing surface topology, fill depth map, and mass concentration zones across the entire wagon interior.</div>
+            <ul class="feat-list">
+              <li class="feat-li">±2mm spatial resolution</li>
+              <li class="feat-li">Full interior coverage map</li>
+              <li class="feat-li">Surface topology extraction</li>
+              <li class="feat-li">Volumetric fill calculation</li>
+            </ul>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">⚖️</span>
+            <div class="feat-title">Weight Distribution Analysis</div>
+            <div class="feat-body">AI-computed lateral and longitudinal weight distribution — quantifying imbalance percentages across bogie zones and flagging wagons exceeding safe dispatch thresholds.</div>
+            <ul class="feat-list">
+              <li class="feat-li">L/R balance ratio computation</li>
+              <li class="feat-li">Front/rear distribution check</li>
+              <li class="feat-li">Dynamic safety thresholds</li>
+              <li class="feat-li">Derailment risk scoring</li>
+            </ul>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">👁️</span>
+            <div class="feat-title">Automated Visual Inspection</div>
+            <div class="feat-body">Computer vision scan of wagon body detecting structural damage, cracks, open hatches, coupling anomalies, and cargo spillage — all classified by AI without human involvement.</div>
+            <ul class="feat-list">
+              <li class="feat-li">Crack &amp; damage detection</li>
+              <li class="feat-li">Hatch / door status</li>
+              <li class="feat-li">Spillage &amp; overfill flag</li>
+              <li class="feat-li">Coupling condition check</li>
+            </ul>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">⚡</span>
+            <div class="feat-title">Edge AI Processing</div>
+            <div class="feat-body">Entire inference pipeline runs on-premise edge hardware — zero cloud dependency, sub-3-second results, and full operational continuity in offline or low-connectivity yard environments.</div>
+            <ul class="feat-list">
+              <li class="feat-li">&lt;3 second total cycle</li>
+              <li class="feat-li">No internet required</li>
+              <li class="feat-li">NVIDIA GPU accelerated</li>
+              <li class="feat-li">Fault-tolerant architecture</li>
+            </ul>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">📊</span>
+            <div class="feat-title">Automated Reporting</div>
+            <div class="feat-body">Every scan auto-generates a structured digital record with load metrics, 3D heatmap, pass/fail verdict, timestamp, and wagon ID — archived and accessible for compliance audits.</div>
+            <ul class="feat-list">
+              <li class="feat-li">Per-wagon PDF reports</li>
+              <li class="feat-li">Shift &amp; rake summaries</li>
+              <li class="feat-li">SMS / email alerts</li>
+              <li class="feat-li">Historical trend analytics</li>
+            </ul>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">🔗</span>
+            <div class="feat-title">SCADA / ERP Integration</div>
+            <div class="feat-body">REST API and webhook interfaces for integration with existing Railway SCADA, FOIS, ERP, and freight management platforms — zero disruption to existing yard operations during deployment.</div>
+            <ul class="feat-list">
+              <li class="feat-li">REST API + Webhooks</li>
+              <li class="feat-li">Modbus TCP / OPC-UA</li>
+              <li class="feat-li">IR FOIS compatible</li>
+              <li class="feat-li">Custom integration support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-h"></div>
+
+    <!-- DEPLOYMENT -->
+    <section class="ws-section white reveal" id="deployment">
+      <div class="container">
+        <div class="eyebrow">Live Reference Project</div>
+        <h2 class="sh">DEPLOYED &amp; OPERATIONAL<br>IN THE FIELD</h2>
+        <p class="sd">IWLARS is not a concept — it is a live, commissioned system running at South Eastern Railway's Baspani Yard, CKP Division.</p>
+        <div class="dep-grid">
+          <div class="dep-card">
+            <div class="dep-org">South Eastern Railway<br>CKP Division</div>
+            <div class="dep-sub">AI-Based Automated Visual Wagon Inspection &amp; Load Analysis System — Baspani Yard, Jharkhand</div>
+            <div class="dep-row">
+              <div class="dep-field"><div class="dep-field-k">Contract Value</div><div class="dep-field-v">₹ 39.5 Lakhs</div></div>
+              <div class="dep-field"><div class="dep-field-k">Commissioned</div><div class="dep-field-v">2025</div></div>
+              <div class="dep-field"><div class="dep-field-k">Commodity</div><div class="dep-field-v">Coal / Iron Ore</div></div>
+              <div class="dep-field"><div class="dep-field-k">Client Type</div><div class="dep-field-v">Indian Railways</div></div>
             </div>
+            <div class="dep-scope-title">Project Scope</div>
+            <div class="dep-item"><span>▸</span>Installation of pulley-guided LiDAR trolley infrastructure at Baspani Yard loading corridor</div>
+            <div class="dep-item"><span>▸</span>Custom CNN model training on coal/iron ore wagon load patterns and visual anomaly datasets</div>
+            <div class="dep-item"><span>▸</span>On-premise edge AI server deployment with full redundancy and IP55 enclosure</div>
+            <div class="dep-item"><span>▸</span>Real-time operator dashboard with automated PDF reporting and alert system</div>
+            <div class="dep-item"><span>▸</span>Yard management workflow integration and operator training programme</div>
+          </div>
+          <div>
+            <div class="dep-kpis">
+              <div class="dep-kpi"><div class="dep-kpi-v" style="color:var(--green-d)">98.7%</div><div class="dep-kpi-k">AI Detection Accuracy</div></div>
+              <div class="dep-kpi"><div class="dep-kpi-v" style="color:var(--amber)">&lt;3s</div><div class="dep-kpi-k">Scan Cycle Time</div></div>
+              <div class="dep-kpi"><div class="dep-kpi-v" style="color:var(--blue-d)">±2mm</div><div class="dep-kpi-k">LiDAR Precision</div></div>
+              <div class="dep-kpi"><div class="dep-kpi-v" style="color:var(--amber)">24/7</div><div class="dep-kpi-k">Operational Uptime</div></div>
+            </div>
+            <div style="background:var(--ink);padding:1.5rem;margin-top:0.5rem;">
+              <svg viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%">
+                <text x="10" y="14" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(255,255,255,0.35)" letter-spacing="1.5">CROSS-SECTION VIEW — BASPANI YARD INSTALLATION</text>
+                <rect x="30" y="20" width="340" height="6" fill="#555" rx="2"/>
+                <rect x="170" y="20" width="60" height="20" fill="#1a4a8a" rx="2"/>
+                <text x="200" y="33" font-family="JetBrains Mono,monospace" font-size="7" fill="#aac" text-anchor="middle">TROLLEY</text>
+                <circle cx="178" cy="20" r="4" fill="#4a7abf"/>
+                <circle cx="222" cy="20" r="4" fill="#4a7abf"/>
+                <rect x="195" y="40" width="10" height="20" fill="#3a5a8a"/>
+                <rect x="183" y="60" width="34" height="16" fill="#d4700a" rx="2"/>
+                <text x="200" y="72" font-family="JetBrains Mono,monospace" font-size="7" fill="#fff" text-anchor="middle">LiDAR</text>
+                <line x1="194" y1="76" x2="90" y2="145" stroke="#0077aa" stroke-width="1" stroke-dasharray="3,2" opacity="0.7"/>
+                <line x1="197" y1="76" x2="130" y2="148" stroke="#0077aa" stroke-width="1" stroke-dasharray="3,2" opacity="0.7"/>
+                <line x1="200" y1="76" x2="200" y2="150" stroke="#0077aa" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.9"/>
+                <line x1="203" y1="76" x2="270" y2="148" stroke="#0077aa" stroke-width="1" stroke-dasharray="3,2" opacity="0.7"/>
+                <line x1="206" y1="76" x2="310" y2="145" stroke="#0077aa" stroke-width="1" stroke-dasharray="3,2" opacity="0.7"/>
+                <rect x="80" y="148" width="240" height="55" fill="#3a3630" rx="2"/>
+                <path d="M86,148 C96,135 115,138 135,132 C155,126 172,134 192,128 C212,122 228,132 248,128 C268,124 285,133 305,128 C315,122 312,148 86,148 Z" fill="#4a3c2a"/>
+                <rect x="60" y="203" width="280" height="5" fill="#666" rx="1"/>
+                <circle cx="120" cy="205" r="12" fill="#2a2420" stroke="#666" stroke-width="1.5"/>
+                <circle cx="280" cy="205" r="12" fill="#2a2420" stroke="#666" stroke-width="1.5"/>
+                <g fill="#00aadd" opacity="0.8">
+                  <circle cx="100" cy="131" r="1.5"/><circle cx="116" cy="135" r="1.5"/>
+                  <circle cx="132" cy="129" r="1.5"/><circle cx="150" cy="126" r="1.5"/>
+                  <circle cx="166" cy="132" r="1.5"/><circle cx="182" cy="125" r="1.5"/>
+                  <circle cx="200" cy="121" r="2"/><circle cx="218" cy="130" r="1.5"/>
+                  <circle cx="234" cy="125" r="1.5"/><circle cx="252" cy="121" r="1.5"/>
+                  <circle cx="270" cy="130" r="1.5"/><circle cx="286" cy="125" r="1.5"/>
+                  <circle cx="302" cy="121" r="1.5"/>
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- CTA -->
-    <section class="clay-cta">
-        <div class="clay-blob" style="width:500px;height:500px;background:#0f766e;top:-150px;right:-100px;opacity:0.3;"></div>
-        <div class="clay-blob" style="width:350px;height:350px;background:#0e7490;bottom:-100px;left:-80px;opacity:0.3;"></div>
-        <div class="container reveal">
-            <h2>See IWLARS in Action</h2>
-            <p>Talk to our platform team about deploying IWLARS for your wide-area surveillance and intelligence requirements.</p>
-            <a href="../../pages/company/contact-us.html" class="clay-btn-white"><i class="ph ph-calendar-check"></i> Request a Demo</a>
+    <div class="divider-h"></div>
+
+    <!-- APPLICATIONS -->
+    <section class="ws-section gray reveal" id="applications">
+      <div class="container">
+        <div class="eyebrow">Target Applications</div>
+        <h2 class="sh">DEPLOYABLE ACROSS<br>INDIA'S FREIGHT NETWORK</h2>
+        <div class="app-grid">
+          <div class="app-cell">
+            <span class="app-emoji">🏭</span>
+            <div class="app-title">Coal Loading Yards</div>
+            <div class="app-desc">Thermal power plant sidings, Coal India (WCL, CCL, SECL) loading terminals with high daily wagon throughput.</div>
+            <div class="app-badge">Coal India · Railways</div>
+          </div>
+          <div class="app-cell">
+            <span class="app-emoji">⛏️</span>
+            <div class="app-title">Iron Ore &amp; Mining Sidings</div>
+            <div class="app-desc">NMDC, Tata Steel, and JSW steel plant rail sidings handling iron ore and bulk mineral freight dispatches.</div>
+            <div class="app-badge">Mining · Steel</div>
+          </div>
+          <div class="app-cell">
+            <span class="app-emoji">🚉</span>
+            <div class="app-title">Marshalling Yards</div>
+            <div class="app-desc">Indian Railways formation yards requiring wagon load verification before rake assembly and train dispatch clearance.</div>
+            <div class="app-badge">Indian Railways</div>
+          </div>
+          <div class="app-cell">
+            <span class="app-emoji">🏗️</span>
+            <div class="app-title">Infrastructure Projects</div>
+            <div class="app-desc">NHAI and large infrastructure corridors using material transport wagons for ballast, aggregate, and construction supply.</div>
+            <div class="app-badge">NHAI · NHPC</div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
+    <!-- CTA
+    <section id="ws-cta">
+      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
+        <div class="reveal">
+          <h2 class="cta-heading">READY TO DEPLOY<br>AT YOUR YARD?</h2>
+          <p class="cta-sub">Aerovania will assess your yard, design a custom deployment plan, and have IWLARS operational in 3–6 weeks.</p>
+          <div class="cta-items">
+            <div class="cta-item">Site survey and infrastructure assessment</div>
+            <div class="cta-item">Custom AI model training for your commodity</div>
+            <div class="cta-item">Full installation, commissioning, and training</div>
+            <div class="cta-item">AMC and ongoing technical support</div>
+            <div class="cta-item">Integration with existing yard systems</div>
+          </div>
+        </div>
+        <div class="cta-form-card reveal">
+          <div style="font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);margin-bottom:1.5rem;">Request Deployment Assessment</div>
+          <div class="cf-row">
+            <div><label class="cf-label">Your Name</label><input class="cf-input" type="text" placeholder="Full name"></div>
+            <div><label class="cf-label">Organisation</label><input class="cf-input" type="text" placeholder="Organisation name"></div>
+          </div>
+          <label class="cf-label">Official Email</label>
+          <input class="cf-input" type="email" placeholder="official@railway.gov.in">
+          <label class="cf-label">Yard / Site Location</label>
+          <input class="cf-input" type="text" placeholder="e.g. Bina Yard, CR — Coal loading">
+          <label class="cf-label">Primary Commodity</label>
+          <select class="cf-input" style="cursor:pointer">
+            <option>Coal</option>
+            <option>Iron Ore</option>
+            <option>Aggregate / Ballast</option>
+            <option>Other Bulk Cargo</option>
+          </select>
+          <button class="cf-submit" onclick="this.textContent='Submitting...';setTimeout(()=>this.textContent='Submitted ✓',1200)">Submit Assessment Request →</button>
+        </div>
+      </div>
+    </section> -->
+
     <footer class="footer">
         <div class="container footer-grid">
-            <div class="footer-col brand-col"><div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a><div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div></div><div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div></div>
-            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="../../pages/company/about-us.html">About Us</a></li><li><a href="../../pages/industries/mining.html">Industries</a></li><li><a href="../../pages/solutions/geospatial-ai.html">Technology</a></li></ul></div>
+            <div class="footer-col brand-col">
+                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a>
+                    <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div>
+                </div>
+                <div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div>
+            </div>
+            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="../../pages/company/about-us.html">About Us</a></li><li><a href="../../pages/industries/mining.html">Industries</a></li><li><a href="../../pages/solutions/geospatial-ai.html">Solutions</a></li></ul></div>
             <div class="footer-col"><h4>Company</h4><ul><li><a href="../../pages/company/about-us.html">Our Vision</a></li><li><a href="../../pages/company/careers.html">Careers</a></li><li><a href="../../pages/company/contact-us.html">Contact</a></li></ul></div>
-            <div class="footer-col contact-col"><h4>Contact Us</h4><ul><li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li><li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li><li><i class="ph ph-envelope"></i> info@aerovania.com</li><li><i class="ph ph-globe"></i> www.aerovania.com</li><li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li></ul></div>
+            <div class="footer-col contact-col"><h4>Contact Us</h4><ul>
+                <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li>
+                <li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
+                <li><i class="ph ph-envelope"></i> info@aerovania.com</li>
+                <li><i class="ph ph-globe"></i> www.aerovania.com</li>
+                <li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li>
+            </ul></div>
         </div>
         <div class="footer-bottom text-center"><p>&copy; 2026 Aerovania Pvt Ltd. All Rights Reserved.</p></div>
     </footer>
-
     <script src="../../assets/js/script.js"></script>
+    <script>
+    const els = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    els.forEach(el => obs.observe(el));
+    document.querySelectorAll('.problem-grid, .feat-grid, .app-grid, .dep-kpis').forEach(p => {
+      Array.from(p.children).forEach((c,i) => {
+        c.style.transitionDelay = i * 0.07 + 's';
+        c.classList.add('reveal');
+        obs.observe(c);
+      });
+    });
+    </script>
 
     <!-- Mobile Nav -->
     <div class="mobile-nav-overlay" id="mobileOverlay"></div>
@@ -481,22 +1072,114 @@
         </ul>
         <a href="../../pages/company/contact-us.html" class="mnp-cta">Contact Us</a>
     </div>
+    
+
+    
+
+    
     <script>
-        const mobileBtn = document.querySelector('.mobile-menu-btn');
-        const mobilePanel = document.getElementById('mobilePanel');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-        const mobileClose = document.getElementById('mobileClose');
-        function openMobile() { mobilePanel.classList.add('open'); mobileOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
-        function closeMobile() { mobilePanel.classList.remove('open'); mobileOverlay.classList.remove('open'); document.body.style.overflow=''; }
-        if (mobileBtn) mobileBtn.addEventListener('click', openMobile);
-        if (mobileClose) mobileClose.addEventListener('click', closeMobile);
-        if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobile);
-        function toggleSub(el) {
-            event.preventDefault();
-            const sub = el.nextElementSibling;
-            if (sub) sub.classList.toggle('open');
+    // ── Tab switching with animation ──
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const t = btn.dataset.tab;
+            const layout = btn.closest(".tabs-layout");
+            layout.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+            layout.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+            btn.classList.add("active");
+            document.getElementById(t).classList.add("active");
+        });
+    });
+
+    // ── Scroll reveal ──
+    const revealEls = document.querySelectorAll(".reveal");
+    const ro = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if(e.isIntersecting){e.target.classList.add("visible");ro.unobserve(e.target);} });
+    }, {threshold:0.1});
+    revealEls.forEach(el => ro.observe(el));
+
+    // ── Animated stat counters ──
+    function animCount(el) {
+        const raw = el.dataset.raw || el.textContent.trim();
+        el.dataset.raw = raw;
+        const match = raw.match(/^([^0-9]*)([0-9.]+)(.*)$/);
+        if (!match) return;
+        const pre = match[1], num = parseFloat(match[2]), suf = match[3];
+        const dec = (match[2].indexOf('.') > -1) ? match[2].split('.')[1].length : 0;
+        let startTime = null, dur = 1600;
+        function step(ts) {
+            if (!startTime) startTime = ts;
+            const p = Math.min((ts - startTime) / dur, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = pre + (num * ease).toFixed(dec) + suf;
+            if (p < 1) requestAnimationFrame(step);
         }
+        requestAnimationFrame(step);
+    }
+    const statObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                const numEl = e.target.querySelector(".geo-stat-num");
+                if (numEl && !numEl.dataset.done) { numEl.dataset.done="1"; animCount(numEl); }
+                statObs.unobserve(e.target);
+            }
+        });
+    }, {threshold:0.3});
+    document.querySelectorAll(".geo-stat-item").forEach(el => statObs.observe(el));
+
+    // ── Particle canvas in hero ──
+    (function(){
+        const canvas = document.getElementById("heroCanvas");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        let W, H;
+        const particles = Array.from({length:60},()=>({
+            x:Math.random()*2000, y:Math.random()*800,
+            vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35,
+            r:Math.random()*1.6+.4, o:Math.random()*.55+.1
+        }));
+        function resize(){W=canvas.width=canvas.parentElement.offsetWidth;H=canvas.height=canvas.parentElement.offsetHeight;}
+        resize(); window.addEventListener("resize",resize);
+        function draw(){
+            ctx.clearRect(0,0,W,H);
+            particles.forEach(p=>{
+                p.x+=p.vx; p.y+=p.vy;
+                if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+                ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+                ctx.fillStyle=`rgba(52,192,197,${p.o})`; ctx.fill();
+            });
+            for(let i=0;i<particles.length;i++) for(let j=i+1;j<particles.length;j++){
+                const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+                const d=Math.sqrt(dx*dx+dy*dy);
+                if(d<130){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(52,192,197,${.13*(1-d/130)})`;ctx.lineWidth=.5;ctx.stroke();}
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    })();
+
+    // ── Why-card 3D tilt ──
+    document.querySelectorAll(".why-card").forEach(card=>{
+        card.style.transformStyle="preserve-3d";
+        card.addEventListener("mousemove",e=>{
+            const r=card.getBoundingClientRect();
+            const x=e.clientX-r.left-r.width/2, y=e.clientY-r.top-r.height/2;
+            card.style.transform=`translateY(-5px) rotateX(${-y/22}deg) rotateY(${x/22}deg)`;
+        });
+        card.addEventListener("mouseleave",()=>{card.style.transform="";});
+    });
+
+    // ── Mobile nav ──
+    const mobileBtn=document.querySelector(".mobile-menu-btn");
+    const mobilePanel=document.getElementById("mobilePanel");
+    const mobileOverlay=document.getElementById("mobileOverlay");
+    const mobileClose=document.getElementById("mobileClose");
+    function openMobile(){mobilePanel.classList.add("open");mobileOverlay.classList.add("open");document.body.style.overflow="hidden";}
+    function closeMobile(){mobilePanel.classList.remove("open");mobileOverlay.classList.remove("open");document.body.style.overflow="";}
+    if(mobileBtn)mobileBtn.addEventListener("click",openMobile);
+    if(mobileClose)mobileClose.addEventListener("click",closeMobile);
+    if(mobileOverlay)mobileOverlay.addEventListener("click",closeMobile);
+    function toggleSub(el){event.preventDefault();const sub=el.nextElementSibling;if(sub)sub.classList.toggle("open");}
     </script>
+
 </body>
 </html>
-div>h2></div>""
