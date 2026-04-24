@@ -1,0 +1,384 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Serif+Display:ital@0;1&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.root{font-family:'Outfit',sans-serif;color:var(--color-text-primary)}
+.nav{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.nb{padding:7px 16px;border-radius:20px;border:1.5px solid var(--color-border-secondary);background:var(--color-background-primary);cursor:pointer;font-size:12px;font-weight:600;color:var(--color-text-secondary);transition:all .2s;font-family:'Outfit',sans-serif}
+.nb.on{background:#0c0c14;color:#fff;border-color:#0c0c14}
+.sc{display:none}.sc.on{display:block}
+
+/* ======= DESIGN L: ANIMATED SVG ORBITAL ======= */
+.dl{background:#060916;border-radius:20px;overflow:hidden;padding:0}
+.dl-grid{display:grid;grid-template-columns:1fr 1fr;min-height:500px}
+.dl-left{padding:52px 44px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.dl-kicker{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#38bdf8;font-weight:700;margin-bottom:18px}
+.dl-h2{font-family:'DM Serif Display',serif;font-size:40px;line-height:1.1;color:#fff;margin-bottom:18px}
+.dl-h2 em{color:#38bdf8;font-style:italic}
+.dl-para{font-size:13px;line-height:1.8;color:rgba(255,255,255,.5);margin-bottom:32px;max-width:300px}
+.dl-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.dl-pill{padding:5px 14px;border:1px solid rgba(56,189,248,.25);border-radius:20px;font-size:11px;font-weight:600;color:#7dd3fc}
+.dl-btn{display:inline-flex;align-items:center;gap:8px;background:#38bdf8;color:#060916;padding:12px 24px;border-radius:8px;font-weight:700;font-size:13px;border:none;cursor:pointer;font-family:'Outfit',sans-serif}
+.dl-right{display:flex;align-items:center;justify-content:center;position:relative}
+
+/* ======= DESIGN M: GEOMETRIC DIAMOND GRID ======= */
+.dm{padding:52px 44px;background:#fafafa;border-radius:20px;position:relative;overflow:hidden}
+.dm-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.dm-content{position:relative;z-index:1}
+.dm-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:52px;align-items:end}
+.dm-kicker{font-family:'Syne',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#d85a30;margin-bottom:12px;font-weight:700}
+.dm-h2{font-family:'DM Serif Display',serif;font-size:40px;line-height:1.1;color:#1a0a04}
+.dm-h2 em{color:#d85a30;font-style:italic}
+.dm-sub{font-size:14px;color:#7c4a2f;line-height:1.75}
+.dm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.dm-diamond-wrap{display:flex;align-items:center;justify-content:center;padding:8px;cursor:pointer}
+.dm-diamond{width:130px;height:130px;transform:rotate(45deg);border-radius:6px;display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.4,0,.2,1),box-shadow .35s;position:relative}
+.dm-diamond:hover{transform:rotate(45deg) scale(1.12)}
+.dm-diamond-inner{transform:rotate(-45deg);text-align:center;padding:12px}
+.dmd1{background:#fff7ed;border:2px solid #fed7aa}
+.dmd2{background:#eff6ff;border:2px solid #bfdbfe}
+.dmd3{background:#fdf4ff;border:2px solid #e9d5ff}
+.dmd4{background:#f0fdf4;border:2px solid #bbf7d0}
+.dmd1:hover{background:#ffedd5}
+.dmd2:hover{background:#dbeafe}
+.dmd3:hover{background:#f3e8ff}
+.dmd4:hover{background:#dcfce7}
+.dm-d-val{font-family:'Bebas Neue',sans-serif;font-size:28px;display:block;margin-bottom:2px}
+.dmd1 .dm-d-val{color:#ea580c}.dmd2 .dm-d-val{color:#2563eb}.dmd3 .dm-d-val{color:#9333ea}.dmd4 .dm-d-val{color:#16a34a}
+.dm-d-title{font-size:11px;font-weight:700;line-height:1.3;display:block}
+.dmd1 .dm-d-title{color:#7c2d12}.dmd2 .dm-d-title{color:#1e3a8a}.dmd3 .dm-d-title{color:#581c87}.dmd4 .dm-d-title{color:#14532d}
+.dm-row2{display:grid;grid-template-columns:repeat(3,1fr);margin-top:-16px}
+.dm-stat-row{display:flex;gap:0;margin-top:32px;border-top:1px solid #e5e7eb;padding-top:24px}
+.dm-stat{flex:1;text-align:center;border-right:1px solid #e5e7eb}
+.dm-stat:last-child{border-right:none}
+.dm-stat-val{font-family:'Bebas Neue',sans-serif;font-size:36px;color:#0f0f0f;display:block}
+.dm-stat-label{font-size:12px;color:#9ca3af;font-weight:500}
+
+/* ======= DESIGN N: WAVE MORPH ======= */
+.dn{border-radius:20px;overflow:hidden;background:#0f0a1e;position:relative}
+.dn-wave{position:absolute;bottom:0;left:0;right:0;pointer-events:none}
+.dn-content{position:relative;z-index:2;padding:52px 44px 48px}
+.dn-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px}
+.dn-kicker{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#a78bfa;font-weight:700;margin-bottom:14px}
+.dn-h2{font-family:'DM Serif Display',serif;font-size:42px;color:#fff;line-height:1.1}
+.dn-h2 em{color:#c4b5fd;font-style:italic}
+.dn-para{font-size:14px;color:rgba(255,255,255,.45);line-height:1.75;padding-top:8px}
+.dn-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.dn-card{padding:28px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);cursor:pointer;transition:background .3s,border-color .3s;position:relative;overflow:hidden}
+.dn-card:hover{background:rgba(167,139,250,.08);border-color:rgba(167,139,250,.25)}
+.dn-card-shape{position:absolute;right:-20px;top:-20px;width:80px;height:80px;opacity:.07;transition:opacity .3s,transform .3s}
+.dn-card:hover .dn-card-shape{opacity:.15;transform:rotate(15deg) scale(1.1)}
+.dn-card-num{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:3px;color:rgba(167,139,250,.5);margin-bottom:12px}
+.dn-card-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:8px}
+.dn-card-desc{font-size:12px;color:rgba(255,255,255,.4);line-height:1.65}
+.dn-card-stat{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#a78bfa;margin-top:14px}
+
+/* ======= DESIGN O: CONCENTRIC RINGS ======= */
+.do-wrap{border-radius:20px;overflow:hidden;background:#fff;border:1px solid #f0f0f0}
+.do-top{padding:44px 44px 0;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+.do-h2{font-family:'Syne',sans-serif;font-size:40px;font-weight:800;line-height:1;color:#0c0c14}
+.do-h2 mark{background:#ff3c6e;color:#fff;padding:2px 8px;border-radius:4px}
+.do-sub{font-size:14px;color:#6b7280;line-height:1.75}
+.do-list{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.do-li{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:#374151}
+.do-li-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.do-bottom{display:flex;align-items:center;justify-content:center;padding:28px 44px 40px}
+.do-svg-wrap{position:relative;width:360px;height:360px}
+
+/* hover card label */
+.do-hover-label{position:absolute;background:#0c0c14;color:#fff;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;pointer-events:none;opacity:0;transition:opacity .2s;white-space:nowrap;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+</style>
+
+<div class="root">
+  <div class="nav">
+    <button class="nb on" onclick="sw('l',this)">Design L — SVG Orbital</button>
+    <button class="nb" onclick="sw('m',this)">Design M — Diamond Grid</button>
+    <button class="nb" onclick="sw('n',this)">Design N — Wave Morph</button>
+    <button class="nb" onclick="sw('o',this)">Design O — Concentric Rings</button>
+  </div>
+
+  <!-- DESIGN L: ANIMATED SVG ORBITAL -->
+  <div class="sc on" id="s-l">
+    <div class="dl">
+      <div class="dl-grid">
+        <div class="dl-left">
+          <div class="dl-kicker">What We Do</div>
+          <h2 class="dl-h2">Sky-Born.<br><em>AI-Driven.</em><br>Ground-True.</h2>
+          <p class="dl-para">Aerovania engineers the full stack — from composite UAV airframes orbiting India's critical infrastructure to AI dashboards trusted by government and defence.</p>
+          <div class="dl-pills">
+            <span class="dl-pill">Geospatial</span>
+            <span class="dl-pill">AI Monitoring</span>
+            <span class="dl-pill">Edge Computing</span>
+            <span class="dl-pill">UAV Dev</span>
+          </div>
+          <button class="dl-btn">Explore Solutions →</button>
+        </div>
+        <div class="dl-right">
+          <svg width="320" height="380" viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg">
+
+            <defs>
+              <radialGradient id="cg" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#1e3a5f" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#060916" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <circle cx="160" cy="190" r="100" fill="none" stroke="rgba(56,189,248,0.08)" stroke-width="1"/>
+            <circle cx="160" cy="190" r="70" fill="none" stroke="rgba(56,189,248,0.12)" stroke-width="1"/>
+            <circle cx="160" cy="190" r="42" fill="none" stroke="rgba(56,189,248,0.18)" stroke-width="1"/>
+
+            <ellipse cx="160" cy="190" rx="100" ry="32" fill="none" stroke="rgba(56,189,248,0.06)" stroke-width="1" transform="rotate(-20,160,190)"/>
+            <ellipse cx="160" cy="190" rx="100" ry="32" fill="none" stroke="rgba(56,189,248,0.06)" stroke-width="1" transform="rotate(40,160,190)"/>
+
+            <circle cx="160" cy="190" r="26" fill="#0e2340" stroke="#38bdf8" stroke-width="1.5"/>
+            <circle cx="160" cy="190" r="10" fill="#38bdf8" opacity="0.9">
+              <animate attributeName="r" values="10;13;10" dur="2.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.9;0.5;0.9" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+
+            <g>
+              <animateTransform attributeName="transform" type="rotate" from="0 160 190" to="360 160 190" dur="8s" repeatCount="indefinite"/>
+              <circle cx="260" cy="190" r="12" fill="#0c1f36" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="260" y="194" text-anchor="middle" fill="#38bdf8" font-size="8" font-weight="700" font-family="Outfit,sans-serif">GEO</text>
+            </g>
+
+            <g>
+              <animateTransform attributeName="transform" type="rotate" from="90 160 190" to="450 160 190" dur="12s" repeatCount="indefinite"/>
+              <circle cx="160" cy="90" r="12" fill="#0c1f36" stroke="#7dd3fc" stroke-width="1.5"/>
+              <text x="160" y="94" text-anchor="middle" fill="#7dd3fc" font-size="7" font-weight="700" font-family="Outfit,sans-serif">AI</text>
+            </g>
+
+            <g>
+              <animateTransform attributeName="transform" type="rotate" from="200 160 190" to="560 160 190" dur="6s" repeatCount="indefinite"/>
+              <rect x="225" y="185" width="24" height="14" rx="3" fill="#0c1f36" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="237" y="195" text-anchor="middle" fill="#38bdf8" font-size="7" font-weight="700" font-family="Outfit,sans-serif">UAV</text>
+            </g>
+
+            <g>
+              <animateTransform attributeName="transform" type="rotate" from="300 160 190" to="660 160 190" dur="10s" repeatCount="indefinite"/>
+              <polygon points="160,110 170,128 150,128" fill="none" stroke="#bae6fd" stroke-width="1.5"/>
+              <text x="160" y="143" text-anchor="middle" fill="#bae6fd" font-size="7" font-weight="700" font-family="Outfit,sans-serif">EDGE</text>
+            </g>
+
+            <line x1="160" y1="190" x2="248" y2="190" stroke="rgba(56,189,248,0.15)" stroke-width="1" stroke-dasharray="4 4">
+              <animate attributeName="stroke-dashoffset" from="0" to="-16" dur="1s" repeatCount="indefinite"/>
+            </line>
+
+            <circle cx="160" cy="190" r="130" fill="none" stroke="rgba(56,189,248,0.04)" stroke-width="20"/>
+
+            <text x="160" y="310" text-anchor="middle" fill="rgba(56,189,248,0.25)" font-size="10" font-family="Outfit,sans-serif" letter-spacing="3">AEROVANIA INTELLIGENCE</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN M: GEOMETRIC DIAMOND GRID -->
+  <div class="sc" id="s-m">
+    <div class="dm">
+      <svg class="dm-bg" viewBox="0 0 680 500" preserveAspectRatio="xMidYMid slice">
+        <g opacity="0.04" stroke="#d85a30" stroke-width="1" fill="none">
+          <polygon points="340,0 510,150 440,350 240,350 170,150" transform="rotate(0,340,250)">
+            <animateTransform attributeName="transform" type="rotate" from="0 340 250" to="360 340 250" dur="40s" repeatCount="indefinite"/>
+          </polygon>
+          <polygon points="340,40 490,170 430,330 260,330 200,170" transform="rotate(0,340,250)">
+            <animateTransform attributeName="transform" type="rotate" from="0 340 250" to="-360 340 250" dur="30s" repeatCount="indefinite"/>
+          </polygon>
+          <rect x="200" y="100" width="280" height="280" rx="4" transform="rotate(45,340,240)">
+            <animateTransform attributeName="transform" type="rotate" from="45 340 240" to="405 340 240" dur="20s" repeatCount="indefinite"/>
+          </rect>
+        </g>
+      </svg>
+      <div class="dm-content">
+        <div class="dm-top">
+          <div>
+            <div class="dm-kicker">What We Do</div>
+            <h2 class="dm-h2">Built on<br><em>Precision,</em><br>Proven at Scale</h2>
+          </div>
+          <p class="dm-sub">Aerovania's engineering stack spans every layer — from LiDAR survey to AI dashboard — deployed across India's mines, railways, highways and defence corridors.</p>
+        </div>
+        <div class="dm-grid">
+          <div class="dm-diamond-wrap"><div class="dm-diamond dmd1"><div class="dm-diamond-inner"><span class="dm-d-val">±5mm</span><span class="dm-d-title">Geospatial Mapping</span></div></div></div>
+          <div class="dm-diamond-wrap"><div class="dm-diamond dmd2"><div class="dm-diamond-inner"><span class="dm-d-val">120+</span><span class="dm-d-title">AI Models</span></div></div></div>
+          <div class="dm-diamond-wrap"><div class="dm-diamond dmd3"><div class="dm-diamond-inner"><span class="dm-d-val">100%</span><span class="dm-d-title">Indigenous UAV</span></div></div></div>
+          <div class="dm-diamond-wrap"><div class="dm-diamond dmd4"><div class="dm-diamond-inner"><span class="dm-d-val">&lt;200ms</span><span class="dm-d-title">Edge AI</span></div></div></div>
+        </div>
+        <div class="dm-stat-row">
+          <div class="dm-stat"><span class="dm-stat-val">2K+</span><span class="dm-stat-label">Sq km surveyed</span></div>
+          <div class="dm-stat"><span class="dm-stat-val">20+</span><span class="dm-stat-label">Gov clients</span></div>
+          <div class="dm-stat"><span class="dm-stat-val">25+</span><span class="dm-stat-label">States covered</span></div>
+          <div class="dm-stat"><span class="dm-stat-val">100%</span><span class="dm-stat-label">ISO certified</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN N: WAVE MORPH DARK -->
+  <div class="sc" id="s-n">
+    <div class="dn">
+      <svg class="dn-wave" viewBox="0 0 680 200" preserveAspectRatio="none" style="height:200px">
+        <path fill="rgba(167,139,250,0.06)">
+          <animate attributeName="d" dur="6s" repeatCount="indefinite"
+            values="M0,100 C120,60 240,140 360,100 C480,60 600,140 680,100 L680,200 L0,200Z;
+                    M0,120 C120,80 240,40 360,80 C480,120 600,60 680,100 L680,200 L0,200Z;
+                    M0,80 C120,120 240,60 360,100 C480,140 600,80 680,120 L680,200 L0,200Z;
+                    M0,100 C120,60 240,140 360,100 C480,60 600,140 680,100 L680,200 L0,200Z"/>
+        </path>
+        <path fill="rgba(167,139,250,0.04)">
+          <animate attributeName="d" dur="9s" repeatCount="indefinite"
+            values="M0,140 C100,100 200,160 340,130 C480,100 580,150 680,130 L680,200 L0,200Z;
+                    M0,110 C140,150 260,90 360,120 C460,150 580,100 680,140 L680,200 L0,200Z;
+                    M0,150 C120,120 240,170 360,140 C480,110 580,160 680,120 L680,200 L0,200Z;
+                    M0,140 C100,100 200,160 340,130 C480,100 580,150 680,130 L680,200 L0,200Z"/>
+        </path>
+      </svg>
+      <div class="dn-content">
+        <div class="dn-top">
+          <div>
+            <div class="dn-kicker">What We Do</div>
+            <h2 class="dn-h2">Precision<br>from Above.<br><em>Verified.</em></h2>
+          </div>
+          <p class="dn-para">India's only engineering intelligence company that designs, builds, and operates its own UAVs — then layers 120+ purpose-built AI models on top. Trusted by Indian Railways, Coal India, NHAI and Defence.</p>
+        </div>
+        <div class="dn-cards">
+          <div class="dn-card">
+            <svg class="dn-card-shape" viewBox="0 0 80 80"><polygon points="40,0 80,40 40,80 0,40" fill="#a78bfa"/></svg>
+            <div class="dn-card-num">01 — GEOSPATIAL</div>
+            <div class="dn-card-title">LiDAR Mapping & GIS</div>
+            <div class="dn-card-desc">Survey-grade aerial intelligence at ±5mm — LiDAR, photogrammetry, DGPS across 2,000+ sq km of India.</div>
+            <div class="dn-card-stat">±5mm</div>
+          </div>
+          <div class="dn-card">
+            <svg class="dn-card-shape" viewBox="0 0 80 80"><circle cx="40" cy="40" r="40" fill="#a78bfa"/></svg>
+            <div class="dn-card-num">02 — INTELLIGENCE</div>
+            <div class="dn-card-title">AI-Powered Monitoring</div>
+            <div class="dn-card-desc">120+ models built on real Indian industrial data. Real-time detection of mine violations and infrastructure faults.</div>
+            <div class="dn-card-stat">98.2%</div>
+          </div>
+          <div class="dn-card">
+            <svg class="dn-card-shape" viewBox="0 0 80 80"><rect x="10" y="10" width="60" height="60" rx="6" fill="#a78bfa"/></svg>
+            <div class="dn-card-num">03 — HARDWARE</div>
+            <div class="dn-card-title">Indigenous UAV Dev</div>
+            <div class="dn-card-desc">Carbon fibre airframes designed and built at our DPIIT-recognised Nagpur R&D lab. 100% indigenous.</div>
+            <div class="dn-card-stat">100%</div>
+          </div>
+          <div class="dn-card">
+            <svg class="dn-card-shape" viewBox="0 0 80 80"><polygon points="40,5 75,22 75,58 40,75 5,58 5,22" fill="#a78bfa"/></svg>
+            <div class="dn-card-num">04 — PLATFORMS</div>
+            <div class="dn-card-title">AI Mines & IWLARS</div>
+            <div class="dn-card-desc">Purpose-built intelligence platforms — from drone capture to C-suite dashboards. Drone to decision in real time.</div>
+            <div class="dn-card-stat">1.2M/s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN O: CONCENTRIC RINGS SVG -->
+  <div class="sc" id="s-o">
+    <div class="do-wrap">
+      <div class="do-top">
+        <div>
+          <h2 class="do-h2">What<br>We <mark>Do</mark></h2>
+          <p class="do-sub" style="margin-top:14px">End-to-end aerial intelligence — from composite UAV airframes to AI dashboards — engineered for India's most critical infrastructure environments.</p>
+          <div class="do-list">
+            <div class="do-li"><div class="do-li-dot" style="background:#ff3c6e"></div>Geospatial Mapping & LiDAR</div>
+            <div class="do-li"><div class="do-li-dot" style="background:#f59e0b"></div>Artificial Intelligence</div>
+            <div class="do-li"><div class="do-li-dot" style="background:#6366f1"></div>Indigenous UAV Development</div>
+            <div class="do-li"><div class="do-li-dot" style="background:#10b981"></div>Edge Computing</div>
+            <div class="do-li"><div class="do-li-dot" style="background:#0ea5e9"></div>Intelligence Platforms</div>
+          </div>
+        </div>
+        <div style="font-size:13px;color:#6b7280;line-height:1.8;padding-top:8px">
+          <div style="margin-bottom:12px"><strong style="color:#0c0c14;font-size:22px;font-family:'Bebas Neue',sans-serif;display:block;line-height:1">2,000+</strong><span style="font-size:12px;text-transform:uppercase;letter-spacing:2px">Sq km surveyed</span></div>
+          <div style="margin-bottom:12px"><strong style="color:#0c0c14;font-size:22px;font-family:'Bebas Neue',sans-serif;display:block;line-height:1">20+</strong><span style="font-size:12px;text-transform:uppercase;letter-spacing:2px">Gov & PSU clients</span></div>
+          <div><strong style="color:#0c0c14;font-size:22px;font-family:'Bebas Neue',sans-serif;display:block;line-height:1">25+</strong><span style="font-size:12px;text-transform:uppercase;letter-spacing:2px">States operational</span></div>
+        </div>
+      </div>
+      <div class="do-bottom">
+        <div class="do-svg-wrap">
+          <div class="do-hover-label" id="do-label">Hover a ring</div>
+          <svg width="360" height="360" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+
+            <circle cx="180" cy="180" r="165" fill="none" stroke="#ff3c6e" stroke-width="22" stroke-opacity="0.1" id="or5" style="cursor:pointer;transition:stroke-opacity .3s"/>
+            <circle cx="180" cy="180" r="165" fill="none" stroke="#ff3c6e" stroke-width="22" stroke-opacity="0" stroke-dasharray="60 980" stroke-dashoffset="0">
+              <animateTransform attributeName="transform" type="rotate" from="0 180 180" to="360 180 180" dur="20s" repeatCount="indefinite"/>
+            </circle>
+
+            <circle cx="180" cy="180" r="135" fill="none" stroke="#f59e0b" stroke-width="20" stroke-opacity="0.1" id="or4" style="cursor:pointer;transition:stroke-opacity .3s"/>
+            <circle cx="180" cy="180" r="135" fill="none" stroke="#f59e0b" stroke-width="3" stroke-opacity="0.5" stroke-dasharray="40 810" stroke-dashoffset="100">
+              <animateTransform attributeName="transform" type="rotate" from="0 180 180" to="-360 180 180" dur="14s" repeatCount="indefinite"/>
+            </circle>
+
+            <circle cx="180" cy="180" r="106" fill="none" stroke="#6366f1" stroke-width="18" stroke-opacity="0.1" id="or3" style="cursor:pointer;transition:stroke-opacity .3s"/>
+            <circle cx="180" cy="180" r="106" fill="none" stroke="#6366f1" stroke-width="3" stroke-opacity="0.6" stroke-dasharray="30 636" stroke-dashoffset="200">
+              <animateTransform attributeName="transform" type="rotate" from="0 180 180" to="360 180 180" dur="10s" repeatCount="indefinite"/>
+            </circle>
+
+            <circle cx="180" cy="180" r="78" fill="none" stroke="#10b981" stroke-width="16" stroke-opacity="0.12" id="or2" style="cursor:pointer;transition:stroke-opacity .3s"/>
+            <circle cx="180" cy="180" r="78" fill="none" stroke="#10b981" stroke-width="3" stroke-opacity="0.7" stroke-dasharray="25 465" stroke-dashoffset="0">
+              <animateTransform attributeName="transform" type="rotate" from="0 180 180" to="-360 180 180" dur="7s" repeatCount="indefinite"/>
+            </circle>
+
+            <circle cx="180" cy="180" r="50" fill="none" stroke="#0ea5e9" stroke-width="12" stroke-opacity="0.14" id="or1" style="cursor:pointer;transition:stroke-opacity .3s"/>
+            <circle cx="180" cy="180" r="50" fill="none" stroke="#0ea5e9" stroke-width="12" stroke-opacity="0" stroke-dasharray="20 294" stroke-dashoffset="0">
+              <animateTransform attributeName="transform" type="rotate" from="0 180 180" to="360 180 180" dur="4s" repeatCount="indefinite"/>
+            </circle>
+
+            <circle cx="180" cy="180" r="22" fill="#0c0c14"/>
+            <text x="180" y="177" text-anchor="middle" fill="#fff" font-size="9" font-weight="700" font-family="Outfit,sans-serif">AERO</text>
+            <text x="180" y="189" text-anchor="middle" fill="#38bdf8" font-size="8" font-family="Outfit,sans-serif">VANIA</text>
+
+            <circle cx="180" cy="22" r="8" fill="#ff3c6e" opacity="0.8">
+              <animateTransform attributeName="transform" type="rotate" from="0 180 180" to="360 180 180" dur="20s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="180" cy="52" r="6" fill="#f59e0b" opacity="0.8">
+              <animateTransform attributeName="transform" type="rotate" from="60 180 180" to="420 180 180" dur="14s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="180" cy="80" r="5" fill="#6366f1" opacity="0.8">
+              <animateTransform attributeName="transform" type="rotate" from="120 180 180" to="480 180 180" dur="10s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="180" cy="108" r="4" fill="#10b981" opacity="0.8">
+              <animateTransform attributeName="transform" type="rotate" from="200 180 180" to="560 180 180" dur="7s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="180" cy="136" r="3" fill="#0ea5e9" opacity="0.9">
+              <animateTransform attributeName="transform" type="rotate" from="280 180 180" to="640 180 180" dur="4s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function sw(id,btn){
+  document.querySelectorAll('.sc').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  document.getElementById('s-'+id).classList.add('on');
+  btn.classList.add('on');
+}
+
+const ringData={
+  or1:{label:'Intelligence Platforms · AI Mines & IWLARS',color:'#0ea5e9'},
+  or2:{label:'Edge Computing · <200ms onboard AI',color:'#10b981'},
+  or3:{label:'Indigenous UAV Development · Nagpur R&D',color:'#6366f1'},
+  or4:{label:'Artificial Intelligence · 120+ AI models',color:'#f59e0b'},
+  or5:{label:'Geospatial Mapping · ±5mm LiDAR precision',color:'#ff3c6e'}
+};
+const lbl=document.getElementById('do-label');
+Object.entries(ringData).forEach(([id,data])=>{
+  const el=document.getElementById(id);
+  if(!el)return;
+  el.addEventListener('mouseenter',()=>{
+    el.style.strokeOpacity='0.35';
+    lbl.textContent=data.label;
+    lbl.style.opacity='1';
+    lbl.style.background=data.color;
+  });
+  el.addEventListener('mouseleave',()=>{
+    el.style.strokeOpacity='0.1';
+    lbl.style.opacity='0';
+  });
+});
+</script>
