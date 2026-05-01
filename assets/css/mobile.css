@@ -1,0 +1,325 @@
+/* ============================================================
+   AEROVANIA — GLOBAL MOBILE RESPONSIVE OVERRIDES
+   Targets: ≤768px (phones), ≤900px (tablets)
+   ============================================================ */
+
+/* ── BASE ── */
+@media (max-width: 900px) {
+    .container { padding: 0 1.25rem; }
+    img { max-width: 100%; height: auto; }
+}
+
+/* ── HEADER / NAV ── */
+@media (max-width: 900px) {
+    .header-container {
+        padding: 0.6rem 1.25rem !important;
+        max-width: 100%;
+    }
+    .desktop-nav { display: none !important; }
+    .mobile-menu-btn { display: flex !important; }
+    .nav-logo { height: 44px !important; }
+    .header-actions .btn-dark-solid { display: none; }
+}
+
+/* ── HERO CAROUSEL ── */
+@media (max-width: 768px) {
+    .aero-hero { min-height: 100svh; }
+    .aero-slide__content {
+        padding: 80px 1.25rem 2rem !important;
+        max-width: 100%;
+    }
+    .slide-title { font-size: clamp(1.8rem, 7vw, 2.6rem) !important; }
+    .slide-subtitle { font-size: 1rem !important; }
+    .slide-desc { font-size: 0.9rem !important; }
+    .slide-features { gap: 0.4rem; }
+    .slide-feat { font-size: 0.72rem; padding: 0.35rem 0.7rem; }
+    .slide-dot-nav { left: 0.75rem; }
+    .slide-counter { right: 0.75rem; bottom: 1rem; }
+    .aero-slide__cta { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .aero-progress { width: 90%; bottom: 16px; }
+}
+
+/* ── WHAT WE DO ── */
+@media (max-width: 900px) {
+    .what-we-do { padding: 4rem 0; }
+    .wwd-inner { flex-direction: column !important; gap: 2rem; }
+    .wwd-grid { display: none; }
+    .wwd-text { flex: none; width: 100%; }
+    .wwd-headline { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+}
+
+/* ── DIAMOND GRID (index section 3) ── */
+@media (max-width: 768px) {
+    .wwd-diamond-grid { grid-template-columns: 1fr 1fr !important; }
+    .wwd-top-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; margin-bottom: 2rem !important; }
+    .wwd-stat-row { flex-wrap: wrap; }
+    .wwd-stat-row > div { flex: 1 1 50%; border-right: none !important; padding-bottom: 1rem; }
+}
+
+/* ── CB SECTION (metrics) ── */
+@media (max-width: 900px) {
+    .cb-section { padding: 3rem 1.25rem; }
+    .cb-inner { grid-template-columns: 1fr !important; gap: 2.5rem; }
+    .cb-heading { font-size: clamp(1.5rem, 5vw, 2rem); }
+}
+
+/* ── PLATFORM SECTION ── */
+@media (max-width: 900px) {
+    .plat-section { padding: 4rem 0; }
+    .plat-tabs { flex-wrap: wrap; gap: 0.5rem; }
+    .plat-tab { font-size: 0.78rem; padding: 0.55rem 1rem; }
+    .plat-slide { grid-template-columns: 1fr !important; padding: 1.5rem !important; }
+    .plat-slide__right { aspect-ratio: 16/9; }
+}
+
+/* ── INDUSTRIES / C2 SECTION ── */
+@media (max-width: 900px) {
+    .c2-section { padding: 3rem 1.25rem; }
+    .c2-head { padding: 0 0 2rem; }
+    .c2-head h2 { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+}
+@media (max-width: 768px) {
+    .c2-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+    }
+}
+@media (max-width: 480px) {
+    .c2-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── TRUSTED / CLIENT LOGOS ── */
+@media (max-width: 768px) {
+    .trusted-section { padding: 3rem 1.25rem; }
+    .client-logo-grid { gap: 1rem; }
+    .client-logo-item { height: 70px; padding: 0.75rem 1rem; }
+    .client-logo-item img { height: 44px; }
+}
+
+/* ── TESTIMONIALS ── */
+@media (max-width: 768px) {
+    .testi-slider { max-width: 100%; }
+    .testi-text { font-size: 0.95rem; }
+}
+
+/* ── FOOTER ── */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2rem;
+    }
+    .brand-col { grid-column: 1 / -1; }
+}
+@media (max-width: 540px) {
+    .footer-grid { grid-template-columns: 1fr !important; }
+    .footer-bottom { font-size: 0.78rem; }
+}
+
+/* ── PAGE HERO (solution/industry pages) ── */
+@media (max-width: 768px) {
+    .page-hero {
+        min-height: 480px !important;
+        padding: 6rem 0 3rem !important;
+    }
+    .page-hero h1 { font-size: clamp(2rem, 7vw, 3rem) !important; }
+    .page-hero .hero-sub { font-size: 0.95rem !important; }
+    .hero-cta-row { flex-direction: column; gap: 0.75rem; }
+    .hero-float-badge { display: none !important; }
+    .hero-eyebrow { font-size: 0.68rem !important; }
+}
+
+/* ── INTRO STRIP ── */
+@media (max-width: 900px) {
+    .intro-strip .container {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+    .intro-kpi-grid { grid-template-columns: 1fr 1fr !important; }
+    .intro-strip { padding: 3rem 0 !important; }
+}
+
+/* ── TABS SECTION (capabilities) ── */
+@media (max-width: 900px) {
+    .tabs-section { padding: 4rem 0; }
+    .tabs-layout { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .tab-list { flex-direction: row; flex-wrap: wrap; gap: 0.5rem; }
+    .tab-btn { flex: 1 1 140px; min-width: 130px; }
+    .tab-feat-grid { grid-template-columns: 1fr !important; }
+    .tab-panel-body { padding: 1.5rem !important; }
+    .tab-panel-body h3 { font-size: 1.2rem; }
+}
+
+/* ── WHY SECTION ── */
+@media (max-width: 900px) {
+    .why-section { padding: 4rem 0; }
+    .why-grid { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+}
+@media (max-width: 540px) {
+    .why-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── PROCESS SECTION ── */
+@media (max-width: 900px) {
+    .process-section { padding: 4rem 0; }
+    .process-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 540px) {
+    .process-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── STATS BAND ── */
+@media (max-width: 768px) {
+    .stats-row-section { padding: 3rem 0; }
+    .geo-stats-band { padding: 1rem 0; flex-wrap: wrap; }
+    .geo-stat-sep { display: none; }
+    .geo-stat-item { padding: 1rem 1.5rem; flex: 1 1 45%; }
+    .geo-stat-num { font-size: clamp(2rem, 8vw, 3rem) !important; }
+}
+
+/* ── CTA SECTION ── */
+@media (max-width: 768px) {
+    .section-cta { padding: 4rem 0; }
+    .section-cta h2 { font-size: clamp(1.6rem, 6vw, 2.4rem) !important; }
+    .cta-btn-row { flex-direction: column; align-items: center; gap: 0.75rem; }
+}
+
+/* ── SPLIT SECTIONS (geospatial etc) ── */
+@media (max-width: 900px) {
+    .split-section { padding: 3.5rem 0; }
+    .split-wrap,
+    .split-wrap.reverse {
+        grid-template-columns: 1fr !important;
+        direction: ltr !important;
+        gap: 2rem !important;
+    }
+    .stats-row { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* ── CONTACT PAGE ── */
+@media (max-width: 900px) {
+    .contact-section { padding: 4rem 0; }
+    .contact-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    .form-row { grid-template-columns: 1fr !important; }
+    .neu-hero { padding: 8rem 0 4rem !important; }
+}
+
+/* ── CAREERS PAGE ── */
+@media (max-width: 768px) {
+    .n-split { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    .n-card-grid { grid-template-columns: 1fr !important; }
+    .job-card { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .n-cta-card { padding: 2.5rem 1.5rem; }
+}
+
+/* ── INSIGHTS PAGE ── */
+@media (max-width: 900px) {
+    .featured-card { flex-direction: column !important; }
+    .article-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 540px) {
+    .article-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── TECHNOLOGY PAGE ── */
+@media (max-width: 900px) {
+    #tech-hero { padding: 7rem 0 4rem !important; }
+    .hero-title { font-size: clamp(2.8rem, 10vw, 5rem) !important; }
+    .hero-stats { gap: 2rem; flex-wrap: wrap; }
+    .ai-layout { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    .ai-cards { grid-template-columns: 1fr 1fr !important; }
+    .drone-grid { grid-template-columns: 1fr 1fr !important; }
+    .geo-layout { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    .mat-layout { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    .tech-section { padding: 5rem 0 !important; }
+    .ticker-wrap { margin-top: 76px; }
+}
+@media (max-width: 540px) {
+    .ai-cards { grid-template-columns: 1fr !important; }
+    .drone-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── IWLARS / PLATFORM PAGES ── */
+@media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr !important; }
+    .hero-right { display: none !important; }
+    .hero-left { padding: 4rem 1.25rem 3rem !important; }
+    .kpi-row { flex-wrap: wrap; gap: 1.5rem; }
+    .ws-section { padding: 3.5rem 0 !important; }
+    .lv-layout { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    .tech-layout { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    .feat-grid { grid-template-columns: 1fr 1fr !important; }
+    .dep-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .app-grid { grid-template-columns: 1fr 1fr !important; }
+    #ws-cta .container { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    .problem-grid { grid-template-columns: 1fr !important; }
+    .pipeline-wrap { padding: 1.5rem !important; }
+    .arch-layer { grid-template-columns: 80px 1fr 60px !important; }
+}
+@media (max-width: 540px) {
+    .feat-grid { grid-template-columns: 1fr !important; }
+    .app-grid { grid-template-columns: 1fr !important; }
+    .dep-row { grid-template-columns: 1fr 1fr !important; }
+    .dep-kpis { grid-template-columns: 1fr 1fr !important; }
+    .cf-row { grid-template-columns: 1fr !important; }
+}
+
+/* ── COMPOSITE ENGINEERING ── */
+@media (max-width: 900px) {
+    .comp-products-header { flex-direction: column !important; gap: 1.5rem; }
+    .comp-product-grid { grid-template-columns: 1fr !important; }
+    .comp-props-grid { grid-template-columns: 1fr !important; }
+    .comp-rnd-grid { grid-template-columns: 1fr !important; }
+    .comp-fac-grid { grid-template-columns: 1fr !important; }
+    .comp-ind-grid { grid-template-columns: 1fr 1fr !important; }
+    .comp-process-steps { grid-template-columns: 1fr 1fr !important; }
+    .comp-cta-strip { grid-template-columns: 1fr !important; text-align: center; }
+}
+@media (max-width: 540px) {
+    .comp-ind-grid { grid-template-columns: 1fr !important; }
+    .comp-process-steps { grid-template-columns: 1fr !important; }
+}
+
+/* ── ABOUT / COMPANY PAGES ── */
+@media (max-width: 900px) {
+    .about-hero-grid { grid-template-columns: 1fr !important; }
+    .about-split { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .team-grid { grid-template-columns: 1fr 1fr !important; }
+    .values-grid { grid-template-columns: 1fr 1fr !important; }
+    .milestones-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 540px) {
+    .team-grid { grid-template-columns: 1fr !important; }
+    .values-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── MINING PAGE ── */
+@media (max-width: 900px) {
+    .stats-band-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 540px) {
+    .stats-band-grid { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* ── GENERAL UTILITY ── */
+@media (max-width: 768px) {
+    /* Prevent horizontal overflow */
+    body { overflow-x: hidden; }
+    section { overflow-x: hidden; }
+
+    /* Typography scale-down */
+    h1 { font-size: clamp(1.8rem, 7vw, 3rem) !important; }
+    h2 { font-size: clamp(1.5rem, 5.5vw, 2.4rem) !important; }
+
+    /* Buttons full-width on very small screens */
+    .btn-lg { padding: 0.85rem 1.75rem !important; font-size: 0.95rem !important; }
+
+    /* Hide decorative elements that cause overflow */
+    .drone-bg-text { display: none; }
+    .hero-glow, .hero-glow2 { width: 300px !important; height: 300px !important; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 1rem; }
+    .btn-lg { width: 100%; justify-content: center; }
+    .hero-cta-row .btn { width: 100%; justify-content: center; }
+}
