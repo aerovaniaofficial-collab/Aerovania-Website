@@ -205,6 +205,10 @@
           <label>Department</label>
           <input type="text" id="new-dept" placeholder="e.g. Engineering">
         </div>
+        <div class="field full">
+          <label>Job Description</label>
+          <textarea id="new-desc" rows="3" placeholder="Briefly describe the role, responsibilities, and requirements..." style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:.9rem;resize:vertical;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+        </div>
       </div>
       <div class="form-actions">
         <button class="btn btn-primary" id="add-btn" onclick="addJob()">+ Add Job</button>
@@ -320,6 +324,10 @@
               <label>Department</label>
               <input type="text" id="e-dept-${job.id}" value="${esc(job.department)}">
             </div>
+            <div class="field full">
+              <label>Job Description</label>
+              <textarea id="e-desc-${job.id}" rows="3" style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:.9rem;resize:vertical;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'">${esc(job.description || '')}</textarea>
+            </div>
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
             <label class="toggle-wrap">
@@ -353,6 +361,7 @@
         type: document.getElementById('new-type').value,
         location: document.getElementById('new-location').value.trim(),
         department: document.getElementById('new-dept').value.trim(),
+        description: document.getElementById('new-desc').value.trim(),
       }),
     });
     btn.disabled = false;
@@ -360,6 +369,7 @@
       document.getElementById('new-title').value = '';
       document.getElementById('new-location').value = '';
       document.getElementById('new-dept').value = '';
+      document.getElementById('new-desc').value = '';
       const msg = document.getElementById('add-msg');
       msg.style.display = 'inline';
       setTimeout(() => msg.style.display = 'none', 2500);
@@ -383,6 +393,7 @@
         type: document.getElementById(`e-type-${id}`).value,
         location: document.getElementById(`e-loc-${id}`).value.trim(),
         department: document.getElementById(`e-dept-${id}`).value.trim(),
+        description: document.getElementById(`e-desc-${id}`).value.trim(),
         active: document.getElementById(`e-active-${id}`).checked,
       }),
     });

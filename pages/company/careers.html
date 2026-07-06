@@ -444,6 +444,7 @@
                                 ${job.location ? `<span class="job-tag">${job.location}</span>` : ''}
                                 ${job.department ? `<span class="job-tag">${job.department}</span>` : ''}
                             </div>
+                            ${job.description ? `<p style="margin-top:.75rem;font-size:.9rem;color:var(--neu-muted);line-height:1.6;max-width:640px;">${job.description}</p>` : ''}
                         </div>
                         <button class="neu-btn-accent apply-btn" data-role="${job.title}" style="white-space:nowrap;">
                             <i class="ph ph-arrow-right"></i> Apply Now

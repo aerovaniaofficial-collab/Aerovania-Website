@@ -200,10 +200,10 @@ app.get('/api/admin/jobs', adminAuth, (req, res) => {
 
 // POST — create
 app.post('/api/admin/jobs', adminAuth, (req, res) => {
-  const { title, type, location, department } = req.body;
+  const { title, type, location, department, description } = req.body;
   if (!title) return res.status(400).json({ success: false, error: 'Title is required.' });
   const jobs = readJobs();
-  const job = { id: nextId(jobs), title, type: type || 'Full-Time', location: location || '', department: department || '', active: true };
+  const job = { id: nextId(jobs), title, type: type || 'Full-Time', location: location || '', department: department || '', description: description || '', active: true };
   jobs.push(job);
   writeJobs(jobs);
   res.json({ success: true, job });
