@@ -223,11 +223,8 @@
 </div>
 
 <script>
-  // If served from backend (localhost:3001/admin), API is same origin.
-  // If opened directly as a file or from a different port, set full URL.
-  const API_BASE = window.location.port === '3001'
-    ? ''
-    : 'http://localhost:3001';
+  // Admin panel — always points to the Render backend
+  const API_BASE = 'https://aerovania-website.onrender.com';
   const API = API_BASE + '/api';
   let ADMIN_KEY = '';
 
