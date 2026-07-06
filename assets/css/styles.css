@@ -2705,7 +2705,7 @@ ul {
 }
 
 @media (max-width: 480px) {
-    .stats-grid, .ai-stats-grid { grid-template-columns: 1fr !important; }
+    .stats-grid, .ai-stats-grid { grid-template-columns: 1fr 1fr !important; }
     .ai-pipeline { grid-template-columns: 1fr !important; }
     .section-title, .t-h2, .s-h2, .ai-h2 { font-size: 1.5rem !important; }
     .container { padding: 0 1rem; }

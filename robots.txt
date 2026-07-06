@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Block backend and admin
+Disallow: /backend/
+Disallow: /backend/admin/
+Disallow: /backend/data/
+
+# Block any staging or test files
+Disallow: /*.env
+Disallow: /node_modules/
+
+Sitemap: https://www.aerovania.com/sitemap.xml

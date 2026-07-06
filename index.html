@@ -1,41 +1,114 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aerovania | Engineering Tomorrow's Infrastructure</title>
-    <meta name="description" content="AI-powered monitoring, drone intelligence, and geospatial analytics for critical infrastructure.">
+    <title>Aerovania | Drone Survey, LiDAR Mapping & AI Monitoring — Nagpur, India</title>
+    <meta name="description"
+        content="Aerovania — India's leading aerial intelligence company. IBM-compliant drone surveys, LiDAR mapping, AI-powered mine monitoring, and indigenous UAV development. Trusted by Indian Railways, Coal India, NHAI & Defence. ISO 9001:2015 | AS9100C | DPIIT Recognised.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/mobile.css">
     <style>
-        .wwd-diamond { transform: rotate(45deg); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
-        .wwd-diamond:hover { transform: rotate(45deg) scale(1.12) !important; }
-        .wwd-diamond-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
-        .wwd-top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: end; }
-        .wwd-stat-row { display: flex; gap: 0; margin-top: 3rem; border-top: 1px solid #e5e7eb; padding-top: 2rem; }
+        .wwd-diamond {
+            transform: rotate(45deg);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .wwd-diamond:hover {
+            transform: rotate(45deg) scale(1.12) !important;
+        }
+
+        .wwd-diamond-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .wwd-top-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: end;
+        }
+
+        .wwd-stat-row {
+            display: flex;
+            gap: 0;
+            margin-top: 3rem;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 2rem;
+        }
+
         @media (max-width: 768px) {
-            .wwd-diamond-grid { grid-template-columns: repeat(2,1fr); }
-            .wwd-top-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
-            .wwd-stat-row { flex-wrap: wrap; }
-            .wwd-stat-row > div { flex: 1 1 50%; border-right: none !important; border-bottom: 1px solid #e5e7eb; padding-bottom: 1rem; margin-bottom: 1rem; }
+            .wwd-diamond-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .wwd-top-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .wwd-stat-row {
+                flex-wrap: wrap;
+            }
+
+            .wwd-stat-row>div {
+                flex: 1 1 50%;
+                text-size-adjust: 65%;
+                border-right: none !important;
+                border-bottom: 1px solid #e5e7eb;
+                padding-bottom: 1rem;
+                margin-bottom: 1rem;
+            }
         }
     </style>
+    <link rel="canonical" href="https://www.aerovania.com/">
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aerovania">
+    <meta property="og:title" content="Aerovania — AI-Powered Aerial Intelligence for India's Critical Infrastructure">
+    <meta property="og:description"
+        content="India's leading drone intelligence company. LiDAR surveys, AI monitoring, indigenous UAV development. Trusted by Indian Railways, Coal India, NHAI.">
+    <meta property="og:image" content="https://www.aerovania.com/assets/images/aerovania-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aerovania — AI-Powered Aerial Intelligence for India's Critical Infrastructure">
+    <meta name="twitter:description"
+        content="India's leading drone intelligence company. LiDAR surveys, AI monitoring, indigenous UAV development. Trusted by Indian Railways, Coal India, NHAI.">
+    <meta name="twitter:image" content="https://www.aerovania.com/assets/images/aerovania-logo.png">
+    <!-- Schema.org Organization -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"name":"Aerovania Pvt Ltd","alternateName":"Aerovania","url":"https://www.aerovania.com","logo":"https://www.aerovania.com/assets/images/aerovania-logo.png","description":"India's leading AI-powered aerial intelligence company. Drone surveys, LiDAR analytics, AI monitoring, and indigenous UAV development for government and PSU clients.","foundingDate":"2023","address":{"@type":"PostalAddress","streetAddress":"Plot No. D1/A & D4/2, Wadi Road, MIDC","addressLocality":"Nagpur","addressRegion":"Maharashtra","postalCode":"440023","addressCountry":"IN"},"contactPoint":[{"@type":"ContactPoint","telephone":"+91-78758-55217","contactType":"sales","areaServed":"IN"},{"@type":"ContactPoint","telephone":"+91-98344-91075","contactType":"customer service","areaServed":"IN"}],"email":"info@aerovania.com","knowsAbout":["Drone Survey","LiDAR Mapping","AI Monitoring","UAV Manufacturing","Geospatial Intelligence","Mine Safety Compliance","Railway Inspection"]}
+    </script>
+    <link rel="preload" as="image" href="assets/images/hero_drone_survey.png" fetchpriority="high">
 </head>
+
 <body>
     <!-- Header -->
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
-            
+
             <div class="logo">
-                <a href="index.html"><img src="assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
+                <a href="/"><img src="assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
-                <div class="nav-contact-info" style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
-                    <a href="mailto:info@aerovania.com" style="margin-right: 15px; color: inherit; text-decoration: none; ">info@aerovania.com</a>
+                <div class="nav-contact-info"
+                    style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
+                    <a href="mailto:info@aerovania.com"
+                        style="margin-right: 15px; color: inherit; text-decoration: none; ">info@aerovania.com</a>
                     <a style="margin-right: 15px; color: inherit; text-decoration: none; ">|</a>
                     <a href="tel:+917875855217" style="color: inherit; text-decoration: none;">+91 78758 55217</a>
                 </div>
@@ -45,21 +118,95 @@
                         <a href="#">Solutions <i class="ph ph-caret-down"></i></a>
                         <div class="mega-menu">
                             <div class="mega-menu__grid">
-                                <a href="pages/solutions/geospatial-ai.html" class="mega-item">
-                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><circle cx="24" cy="24" r="16" fill="none" stroke="rgba(52,192,197,0.3)" stroke-width="1.5"></circle><ellipse cx="24" cy="24" rx="16" ry="6" fill="none" stroke="rgba(52,192,197,0.2)" stroke-width="1"></ellipse><circle r="2" fill="#34C0C5"><animateMotion dur="3s" repeatCount="indefinite" path="M24 8 A16 16 0 1 1 23.99 8"></animateMotion></circle><circle cx="24" cy="24" r="3" fill="#34C0C5" opacity="0.8"></circle></svg></div>
-                                    <div><p class="mega-title">Geospatial Mapping</p><p class="mega-desc">LiDAR, 3D terrain &amp; GIS intelligence</p></div>
+                                <a href="pages/solutions/geospatial-ai" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <circle cx="24" cy="24" r="16" fill="none" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1.5"></circle>
+                                            <ellipse cx="24" cy="24" rx="16" ry="6" fill="none"
+                                                stroke="rgba(52,192,197,0.2)" stroke-width="1"></ellipse>
+                                            <circle r="2" fill="#34C0C5">
+                                                <animateMotion dur="3s" repeatCount="indefinite"
+                                                    path="M24 8 A16 16 0 1 1 23.99 8"></animateMotion>
+                                            </circle>
+                                            <circle cx="24" cy="24" r="3" fill="#34C0C5" opacity="0.8"></circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Geospatial Mapping</p>
+                                        <p class="mega-desc">LiDAR, 3D terrain &amp; GIS intelligence</p>
+                                    </div>
                                 </a>
-                                <a href="pages/solutions/artificial-intelligence.html" class="mega-item">
-                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><circle cx="24" cy="16" r="4" fill="rgba(52,192,197,0.7)"><animate attributeName="r" values="4;5.5;4" dur="2s" repeatCount="indefinite"></animate></circle><circle cx="14" cy="30" r="3" fill="rgba(52,192,197,0.6)"><animate attributeName="r" values="3;4.5;3" dur="2s" repeatCount="indefinite" begin="0.4s"></animate></circle><circle cx="34" cy="30" r="3" fill="rgba(52,192,197,0.6)"><animate attributeName="r" values="3;4.5;3" dur="2s" repeatCount="indefinite" begin="0.8s"></animate></circle><line x1="24" y1="16" x2="14" y2="30" stroke="rgba(52,192,197,0.3)" stroke-width="1.5"></line><line x1="24" y1="16" x2="34" y2="30" stroke="rgba(52,192,197,0.3)" stroke-width="1.5"></line><line x1="14" y1="30" x2="34" y2="30" stroke="rgba(52,192,197,0.3)" stroke-width="1.5"></line><circle r="2" fill="#34C0C5"><animateMotion dur="1.5s" repeatCount="indefinite" path="M24 16 L14 30 L34 30 Z"></animateMotion></circle></svg></div>
-                                    <div><p class="mega-title">Artificial Intelligence</p><p class="mega-desc">120+ AI models for industrial detection</p></div>
+                                <a href="pages/solutions/artificial-intelligence" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <circle cx="24" cy="16" r="4" fill="rgba(52,192,197,0.7)">
+                                                <animate attributeName="r" values="4;5.5;4" dur="2s"
+                                                    repeatCount="indefinite"></animate>
+                                            </circle>
+                                            <circle cx="14" cy="30" r="3" fill="rgba(52,192,197,0.6)">
+                                                <animate attributeName="r" values="3;4.5;3" dur="2s"
+                                                    repeatCount="indefinite" begin="0.4s"></animate>
+                                            </circle>
+                                            <circle cx="34" cy="30" r="3" fill="rgba(52,192,197,0.6)">
+                                                <animate attributeName="r" values="3;4.5;3" dur="2s"
+                                                    repeatCount="indefinite" begin="0.8s"></animate>
+                                            </circle>
+                                            <line x1="24" y1="16" x2="14" y2="30" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1.5"></line>
+                                            <line x1="24" y1="16" x2="34" y2="30" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1.5"></line>
+                                            <line x1="14" y1="30" x2="34" y2="30" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1.5"></line>
+                                            <circle r="2" fill="#34C0C5">
+                                                <animateMotion dur="1.5s" repeatCount="indefinite"
+                                                    path="M24 16 L14 30 L34 30 Z"></animateMotion>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Artificial Intelligence</p>
+                                        <p class="mega-desc">120+ AI models for industrial detection</p>
+                                    </div>
                                 </a>
-                                <a href="pages/solutions/embedded-intelligence.html" class="mega-item">
-                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="12" y="12" width="24" height="24" rx="3" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect><circle cx="18" cy="18" r="2.5" fill="rgba(52,192,197,0.7)"></circle><circle cx="30" cy="18" r="2.5" fill="rgba(52,192,197,0.7)"></circle><circle cx="18" cy="30" r="2.5" fill="rgba(52,192,197,0.7)"></circle><circle cx="30" cy="30" r="2.5" fill="rgba(52,192,197,0.7)"></circle><circle cx="24" cy="24" r="3" fill="#34C0C5"><animate attributeName="opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"></animate></circle><line x1="18" y1="18" x2="24" y2="24" stroke="rgba(52,192,197,0.3)" stroke-width="1"></line><line x1="30" y1="18" x2="24" y2="24" stroke="rgba(52,192,197,0.3)" stroke-width="1"></line><line x1="18" y1="30" x2="24" y2="24" stroke="rgba(52,192,197,0.3)" stroke-width="1"></line><line x1="30" y1="30" x2="24" y2="24" stroke="rgba(52,192,197,0.3)" stroke-width="1"></line></svg></div>
-                                    <div><p class="mega-title">Edge Computing</p><p class="mega-desc">Sub-200ms onboard AI inference</p></div>
+                                <a href="pages/solutions/embedded-intelligence" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <rect x="12" y="12" width="24" height="24" rx="3"
+                                                fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)"
+                                                stroke-width="1.5"></rect>
+                                            <circle cx="18" cy="18" r="2.5" fill="rgba(52,192,197,0.7)"></circle>
+                                            <circle cx="30" cy="18" r="2.5" fill="rgba(52,192,197,0.7)"></circle>
+                                            <circle cx="18" cy="30" r="2.5" fill="rgba(52,192,197,0.7)"></circle>
+                                            <circle cx="30" cy="30" r="2.5" fill="rgba(52,192,197,0.7)"></circle>
+                                            <circle cx="24" cy="24" r="3" fill="#34C0C5">
+                                                <animate attributeName="opacity" values="1;0.4;1" dur="1.5s"
+                                                    repeatCount="indefinite"></animate>
+                                            </circle>
+                                            <line x1="18" y1="18" x2="24" y2="24" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1"></line>
+                                            <line x1="30" y1="18" x2="24" y2="24" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1"></line>
+                                            <line x1="18" y1="30" x2="24" y2="24" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1"></line>
+                                            <line x1="30" y1="30" x2="24" y2="24" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1"></line>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Edge Computing</p>
+                                        <p class="mega-desc">Sub-200ms onboard AI inference</p>
+                                    </div>
                                 </a>
-                                <a href="pages/solutions/composite-engineering.html" class="mega-item">
-                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="8" y="20" width="32" height="16" rx="2" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect><path d="M14 20 L18 12 L30 12 L34 20" fill="none" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></path><circle r="2" fill="#34C0C5"><animateMotion dur="2s" repeatCount="indefinite" path="M8 28 L40 28 L40 20 L8 20 Z"></animateMotion></circle></svg></div>
-                                    <div><p class="mega-title">Composite Engineering</p><p class="mega-desc">Advanced UAV airframes and custom solutions</p></div>
+                                <a href="pages/solutions/composite-engineering" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <rect x="8" y="20" width="32" height="16" rx="2" fill="rgba(52,192,197,0.1)"
+                                                stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect>
+                                            <path d="M14 20 L18 12 L30 12 L34 20" fill="none"
+                                                stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></path>
+                                            <circle r="2" fill="#34C0C5">
+                                                <animateMotion dur="2s" repeatCount="indefinite"
+                                                    path="M8 28 L40 28 L40 20 L8 20 Z"></animateMotion>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Composite Engineering</p>
+                                        <p class="mega-desc">Advanced UAV airframes and custom solutions</p>
+                                    </div>
                                 </a>
                             </div>
                         </div>
@@ -69,14 +216,139 @@
                         <a href="#">Industries <i class="ph ph-caret-down"></i></a>
                         <div class="mega-menu mega-menu--wide">
                             <div class="mega-menu__grid mega-menu__grid--3">
-                                <a href="pages/industries/mining.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M8 38 L16 22 L24 30 L32 18 L40 38 Z" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5" stroke-linejoin="round"></path><circle r="2" fill="#34C0C5"><animateMotion dur="3s" repeatCount="indefinite" path="M8 38 L16 22 L24 30 L32 18 L40 38"></animateMotion></circle></svg></div><div><p class="mega-title">Mining</p><p class="mega-desc">Volumetric surveys &amp; AI compliance</p></div></a>
-                                <a href="pages/industries/railway.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="8" y="18" width="32" height="14" rx="2" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect><line x1="8" y1="36" x2="40" y2="36" stroke="rgba(52,192,197,0.3)" stroke-width="2"></line><line x1="8" y1="40" x2="40" y2="40" stroke="rgba(52,192,197,0.3)" stroke-width="2"></line><circle r="2" fill="#34C0C5"><animateMotion dur="2s" repeatCount="indefinite" path="M8 25 L40 25 L8 25"></animateMotion></circle></svg></div><div><p class="mega-title">Railways</p><p class="mega-desc">LiDAR corridor &amp; wagon monitoring</p></div></a>
-                                <a href="pages/industries/highways.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M4 40 L24 8 L44 40" fill="none" stroke="rgba(52,192,197,0.3)" stroke-width="1.5"></path><line x1="4" y1="40" x2="44" y2="40" stroke="rgba(52,192,197,0.4)" stroke-width="2"></line><circle r="2" fill="#34C0C5"><animateMotion dur="2.5s" repeatCount="indefinite" path="M4 40 L24 8 L44 40"></animateMotion></circle></svg></div><div><p class="mega-title">Highways</p><p class="mega-desc">ROW mapping &amp; progress monitoring</p></div></a>
-                                <a href="pages/industries/power-energy.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><polygon points="24,6 28,22 40,22 30,32 34,46 24,36 14,46 18,32 8,22 20,22" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5" stroke-linejoin="round"><animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite"></animate></polygon></svg></div><div><p class="mega-title">Power &amp; Energy</p><p class="mega-desc">Transmission corridor inspection</p></div></a>
-                                <a href="pages/industries/defence-security.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M24 6 L38 12 L38 26 C38 34 31 40 24 43 C17 40 10 34 10 26 L10 12 Z" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></path><circle cx="24" cy="24" r="5" fill="none" stroke="rgba(52,192,197,0.5)" stroke-width="1.5"><animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"></animate></circle><circle cx="24" cy="24" r="3" fill="#34C0C5"></circle></svg></div><div><p class="mega-title">Defence &amp; Security</p><p class="mega-desc">Border &amp; perimeter surveillance</p></div></a>
-                                <a href="pages/industries/environmental-forestry.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M24 8 C16 8 10 16 14 24 C10 24 8 28 12 32 L36 32 C40 28 38 24 34 24 C38 16 32 8 24 8 Z" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></path><line x1="24" y1="32" x2="24" y2="42" stroke="rgba(52,192,197,0.4)" stroke-width="2"></line><circle r="1.5" fill="#34C0C5"><animateMotion dur="2s" repeatCount="indefinite" path="M24 8 C16 8 10 16 14 24 C10 24 8 28 12 32"></animateMotion></circle></svg></div><div><p class="mega-title">Environmental</p><p class="mega-desc">Forest mapping &amp; canopy analysis</p></div></a>
-                                <a href="pages/industries/smart-cities.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="6" y="22" width="10" height="20" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect><rect x="19" y="14" width="10" height="28" fill="rgba(52,192,197,0.15)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect><rect x="32" y="18" width="10" height="24" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect><circle r="1.5" fill="#34C0C5"><animateMotion dur="3s" repeatCount="indefinite" path="M6 42 L16 42 L16 22 L6 22 L6 42"></animateMotion></circle></svg></div><div><p class="mega-title">Smart Cities</p><p class="mega-desc">Urban infrastructure monitoring</p></div></a>
-                                <a href="pages/industries/oil-gas.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><circle cx="24" cy="24" r="10" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></circle><circle cx="24" cy="24" r="2" fill="#34C0C5"></circle><circle r="1.5" fill="#34C0C5"><animateMotion dur="2s" repeatCount="indefinite" path="M24 14 A10 10 0 1 1 23.99 14"></animateMotion></circle></svg></div><div><p class="mega-title">Oil &amp; Gas</p><p class="mega-desc">Pipeline &amp; reservoir surveys</p></div></a>
+                                <a href="pages/industries/mining" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <path d="M8 38 L16 22 L24 30 L32 18 L40 38 Z" fill="rgba(52,192,197,0.1)"
+                                                stroke="rgba(52,192,197,0.4)" stroke-width="1.5"
+                                                stroke-linejoin="round"></path>
+                                            <circle r="2" fill="#34C0C5">
+                                                <animateMotion dur="3s" repeatCount="indefinite"
+                                                    path="M8 38 L16 22 L24 30 L32 18 L40 38"></animateMotion>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Mining</p>
+                                        <p class="mega-desc">Volumetric surveys &amp; AI compliance</p>
+                                    </div>
+                                </a>
+                                <a href="pages/industries/railway" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <rect x="8" y="18" width="32" height="14" rx="2" fill="rgba(52,192,197,0.1)"
+                                                stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect>
+                                            <line x1="8" y1="36" x2="40" y2="36" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="2"></line>
+                                            <line x1="8" y1="40" x2="40" y2="40" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="2"></line>
+                                            <circle r="2" fill="#34C0C5">
+                                                <animateMotion dur="2s" repeatCount="indefinite"
+                                                    path="M8 25 L40 25 L8 25"></animateMotion>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Railways</p>
+                                        <p class="mega-desc">LiDAR corridor &amp; wagon monitoring</p>
+                                    </div>
+                                </a>
+                                <a href="pages/industries/highways" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <path d="M4 40 L24 8 L44 40" fill="none" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1.5"></path>
+                                            <line x1="4" y1="40" x2="44" y2="40" stroke="rgba(52,192,197,0.4)"
+                                                stroke-width="2"></line>
+                                            <circle r="2" fill="#34C0C5">
+                                                <animateMotion dur="2.5s" repeatCount="indefinite"
+                                                    path="M4 40 L24 8 L44 40"></animateMotion>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Highways</p>
+                                        <p class="mega-desc">ROW mapping &amp; progress monitoring</p>
+                                    </div>
+                                </a>
+                                <a href="pages/industries/power-energy" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <polygon points="24,6 28,22 40,22 30,32 34,46 24,36 14,46 18,32 8,22 20,22"
+                                                fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)"
+                                                stroke-width="1.5" stroke-linejoin="round">
+                                                <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s"
+                                                    repeatCount="indefinite"></animate>
+                                            </polygon>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Power &amp; Energy</p>
+                                        <p class="mega-desc">Transmission corridor inspection</p>
+                                    </div>
+                                </a>
+                                <a href="pages/industries/defence-security" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <path d="M24 6 L38 12 L38 26 C38 34 31 40 24 43 C17 40 10 34 10 26 L10 12 Z"
+                                                fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)"
+                                                stroke-width="1.5"></path>
+                                            <circle cx="24" cy="24" r="5" fill="none" stroke="rgba(52,192,197,0.5)"
+                                                stroke-width="1.5">
+                                                <animate attributeName="r" values="5;8;5" dur="2s"
+                                                    repeatCount="indefinite"></animate>
+                                                <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s"
+                                                    repeatCount="indefinite"></animate>
+                                            </circle>
+                                            <circle cx="24" cy="24" r="3" fill="#34C0C5"></circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Defence &amp; Security</p>
+                                        <p class="mega-desc">Border &amp; perimeter surveillance</p>
+                                    </div>
+                                </a>
+                                <a href="pages/industries/environmental-forestry" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <path
+                                                d="M24 8 C16 8 10 16 14 24 C10 24 8 28 12 32 L36 32 C40 28 38 24 34 24 C38 16 32 8 24 8 Z"
+                                                fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)"
+                                                stroke-width="1.5"></path>
+                                            <line x1="24" y1="32" x2="24" y2="42" stroke="rgba(52,192,197,0.4)"
+                                                stroke-width="2"></line>
+                                            <circle r="1.5" fill="#34C0C5">
+                                                <animateMotion dur="2s" repeatCount="indefinite"
+                                                    path="M24 8 C16 8 10 16 14 24 C10 24 8 28 12 32"></animateMotion>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Environmental</p>
+                                        <p class="mega-desc">Forest mapping &amp; canopy analysis</p>
+                                    </div>
+                                </a>
+                                <a href="pages/industries/smart-cities" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <rect x="6" y="22" width="10" height="20" fill="rgba(52,192,197,0.1)"
+                                                stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect>
+                                            <rect x="19" y="14" width="10" height="28" fill="rgba(52,192,197,0.15)"
+                                                stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect>
+                                            <rect x="32" y="18" width="10" height="24" fill="rgba(52,192,197,0.1)"
+                                                stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect>
+                                            <circle r="1.5" fill="#34C0C5">
+                                                <animateMotion dur="3s" repeatCount="indefinite"
+                                                    path="M6 42 L16 42 L16 22 L6 22 L6 42"></animateMotion>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Smart Cities</p>
+                                        <p class="mega-desc">Urban infrastructure monitoring</p>
+                                    </div>
+                                </a>
+                                <a href="pages/industries/oil-gas" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <circle cx="24" cy="24" r="10" fill="rgba(52,192,197,0.1)"
+                                                stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></circle>
+                                            <circle cx="24" cy="24" r="2" fill="#34C0C5"></circle>
+                                            <circle r="1.5" fill="#34C0C5">
+                                                <animateMotion dur="2s" repeatCount="indefinite"
+                                                    path="M24 14 A10 10 0 1 1 23.99 14"></animateMotion>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Oil &amp; Gas</p>
+                                        <p class="mega-desc">Pipeline &amp; reservoir surveys</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </li>
@@ -85,35 +357,149 @@
                         <a href="#">Platform <i class="ph ph-caret-down"></i></a>
                         <div class="mega-menu">
                             <div class="mega-menu__grid">
-                                <a href="pages/platform/ai-aerial-monitoring.html" class="mega-item">
-                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="8" y="12" width="32" height="24" rx="3" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect><line x1="12" y1="20" x2="36" y2="20" stroke="rgba(52,192,197,0.3)" stroke-width="1"></line><rect x="12" y="24" width="8" height="6" rx="1" fill="rgba(52,192,197,0.3)"><animate attributeName="height" values="6;8;6" dur="1.5s" repeatCount="indefinite"></animate></rect><rect x="22" y="22" width="8" height="8" rx="1" fill="rgba(52,192,197,0.4)"><animate attributeName="height" values="8;5;8" dur="1.5s" repeatCount="indefinite" begin="0.3s"></animate></rect><rect x="32" y="25" width="4" height="5" rx="1" fill="rgba(52,192,197,0.3)"><animate attributeName="height" values="5;9;5" dur="1.5s" repeatCount="indefinite" begin="0.6s"></animate></rect></svg></div>
-                                    <div><p class="mega-title">AI Mines Analytics</p><p class="mega-desc">Real-time mine monitoring &amp; compliance</p></div>
+                                <a href="pages/platform/ai-aerial-monitoring" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <rect x="8" y="12" width="32" height="24" rx="3" fill="rgba(52,192,197,0.1)"
+                                                stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect>
+                                            <line x1="12" y1="20" x2="36" y2="20" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1"></line>
+                                            <rect x="12" y="24" width="8" height="6" rx="1" fill="rgba(52,192,197,0.3)">
+                                                <animate attributeName="height" values="6;8;6" dur="1.5s"
+                                                    repeatCount="indefinite"></animate>
+                                            </rect>
+                                            <rect x="22" y="22" width="8" height="8" rx="1" fill="rgba(52,192,197,0.4)">
+                                                <animate attributeName="height" values="8;5;8" dur="1.5s"
+                                                    repeatCount="indefinite" begin="0.3s"></animate>
+                                            </rect>
+                                            <rect x="32" y="25" width="4" height="5" rx="1" fill="rgba(52,192,197,0.3)">
+                                                <animate attributeName="height" values="5;9;5" dur="1.5s"
+                                                    repeatCount="indefinite" begin="0.6s"></animate>
+                                            </rect>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">AI Mines Analytics</p>
+                                        <p class="mega-desc">Real-time mine monitoring &amp; compliance</p>
+                                    </div>
                                 </a>
-                                <a href="pages/platform/iwlars.html" class="mega-item">
-                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="6" y="20" width="36" height="14" rx="2" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect><line x1="6" y1="36" x2="42" y2="36" stroke="rgba(52,192,197,0.3)" stroke-width="2"></line><circle cx="14" cy="36" r="3" fill="rgba(52,192,197,0.3)" stroke="rgba(52,192,197,0.5)" stroke-width="1"><animateTransform attributeName="transform" type="rotate" values="0 14 36;360 14 36" dur="1s" repeatCount="indefinite"></animateTransform></circle><circle cx="34" cy="36" r="3" fill="rgba(52,192,197,0.3)" stroke="rgba(52,192,197,0.5)" stroke-width="1"><animateTransform attributeName="transform" type="rotate" values="0 34 36;360 34 36" dur="1s" repeatCount="indefinite"></animateTransform></circle><circle r="2" fill="#34C0C5"><animateMotion dur="2s" repeatCount="indefinite" path="M6 27 L42 27 L6 27"></animateMotion></circle></svg></div>
-                                    <div><p class="mega-title">IWLARS</p><p class="mega-desc">LiDAR wagon load analysis &amp; reporting</p></div>
+                                <a href="pages/platform/iwlars" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <rect x="6" y="20" width="36" height="14" rx="2" fill="rgba(52,192,197,0.1)"
+                                                stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect>
+                                            <line x1="6" y1="36" x2="42" y2="36" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="2"></line>
+                                            <circle cx="14" cy="36" r="3" fill="rgba(52,192,197,0.3)"
+                                                stroke="rgba(52,192,197,0.5)" stroke-width="1">
+                                                <animateTransform attributeName="transform" type="rotate"
+                                                    values="0 14 36;360 14 36" dur="1s" repeatCount="indefinite">
+                                                </animateTransform>
+                                            </circle>
+                                            <circle cx="34" cy="36" r="3" fill="rgba(52,192,197,0.3)"
+                                                stroke="rgba(52,192,197,0.5)" stroke-width="1">
+                                                <animateTransform attributeName="transform" type="rotate"
+                                                    values="0 34 36;360 34 36" dur="1s" repeatCount="indefinite">
+                                                </animateTransform>
+                                            </circle>
+                                            <circle r="2" fill="#34C0C5">
+                                                <animateMotion dur="2s" repeatCount="indefinite"
+                                                    path="M6 27 L42 27 L6 27"></animateMotion>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">IWLARS</p>
+                                        <p class="mega-desc">LiDAR wagon load analysis &amp; reporting</p>
+                                    </div>
                                 </a>
                             </div>
                         </div>
                     </li>
                     <!-- TECHNOLOGY -->
-                    <li><a href="pages/technology/technology.html">Technology</a></li>
+                    <li><a href="pages/technology/technology">Technology</a></li>
                     <!-- COMPANY -->
                     <li class="has-dropdown">
                         <a href="#">Company <i class="ph ph-caret-down"></i></a>
                         <div class="mega-menu">
                             <div class="mega-menu__grid">
-                                <a href="pages/company/about-us.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><circle cx="16" cy="16" r="6" fill="rgba(52,192,197,0.6)"></circle><circle cx="32" cy="16" r="6" fill="rgba(52,192,197,0.4)"></circle><path d="M6 40 C6 30 10 26 16 26 C22 26 26 30 26 40" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></path><path d="M22 40 C22 30 26 26 32 26 C38 26 42 30 42 40" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.3)" stroke-width="1.5"></path><circle r="1.5" fill="#34C0C5"><animateMotion dur="2s" repeatCount="indefinite" path="M16 26 L32 26 L16 26"></animateMotion></circle></svg></div><div><p class="mega-title">About Us</p><p class="mega-desc">Our story, mission &amp; team</p></div></a>
-                                <a href="pages/company/careers.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="10" y="18" width="28" height="20" rx="2" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect><path d="M18 18 L18 14 C18 12 20 10 24 10 C28 10 30 12 30 14 L30 18" fill="none" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></path><circle cx="24" cy="28" r="3" fill="#34C0C5"><animate attributeName="r" values="3;4;3" dur="1.5s" repeatCount="indefinite"></animate></circle></svg></div><div><p class="mega-title">Careers</p><p class="mega-desc">Join the Aerovania team</p></div></a>
-                                <a href="pages/company/insights.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="8" y="8" width="32" height="32" rx="3" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect><line x1="14" y1="16" x2="34" y2="16" stroke="rgba(52,192,197,0.5)" stroke-width="2"></line><line x1="14" y1="22" x2="28" y2="22" stroke="rgba(52,192,197,0.3)" stroke-width="1.5"></line><line x1="14" y1="28" x2="32" y2="28" stroke="rgba(52,192,197,0.3)" stroke-width="1.5"></line><circle r="1.5" fill="#34C0C5"><animateMotion dur="2s" repeatCount="indefinite" path="M14 16 L34 16 L28 22 L32 28"></animateMotion></circle></svg></div><div><p class="mega-title">Insights</p><p class="mega-desc">News, articles &amp; updates</p></div></a>
-                                <a href="pages/company/aerovania-foundation.html" class="mega-item"><div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M24 8 C24 8 10 16 10 28 C10 36 16 42 24 42 C32 42 38 36 38 28 C38 16 24 8 24 8 Z" fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></path><path d="M24 18 C20 22 18 26 20 30 C22 34 26 34 28 30 C30 26 28 22 24 18 Z" fill="rgba(52,192,197,0.3)"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"></animate></path></svg></div><div><p class="mega-title">Foundation</p><p class="mega-desc">Our social impact initiatives</p></div></a>
+                                <a href="pages/company/about-us" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <circle cx="16" cy="16" r="6" fill="rgba(52,192,197,0.6)"></circle>
+                                            <circle cx="32" cy="16" r="6" fill="rgba(52,192,197,0.4)"></circle>
+                                            <path d="M6 40 C6 30 10 26 16 26 C22 26 26 30 26 40"
+                                                fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)"
+                                                stroke-width="1.5"></path>
+                                            <path d="M22 40 C22 30 26 26 32 26 C38 26 42 30 42 40"
+                                                fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1.5"></path>
+                                            <circle r="1.5" fill="#34C0C5">
+                                                <animateMotion dur="2s" repeatCount="indefinite"
+                                                    path="M16 26 L32 26 L16 26"></animateMotion>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">About Us</p>
+                                        <p class="mega-desc">Our story, mission &amp; team</p>
+                                    </div>
+                                </a>
+                                <a href="pages/company/careers" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <rect x="10" y="18" width="28" height="20" rx="2"
+                                                fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)"
+                                                stroke-width="1.5"></rect>
+                                            <path d="M18 18 L18 14 C18 12 20 10 24 10 C28 10 30 12 30 14 L30 18"
+                                                fill="none" stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></path>
+                                            <circle cx="24" cy="28" r="3" fill="#34C0C5">
+                                                <animate attributeName="r" values="3;4;3" dur="1.5s"
+                                                    repeatCount="indefinite"></animate>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Careers</p>
+                                        <p class="mega-desc">Join the Aerovania team</p>
+                                    </div>
+                                </a>
+                                <a href="pages/company/insights" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <rect x="8" y="8" width="32" height="32" rx="3" fill="rgba(52,192,197,0.1)"
+                                                stroke="rgba(52,192,197,0.4)" stroke-width="1.5"></rect>
+                                            <line x1="14" y1="16" x2="34" y2="16" stroke="rgba(52,192,197,0.5)"
+                                                stroke-width="2"></line>
+                                            <line x1="14" y1="22" x2="28" y2="22" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1.5"></line>
+                                            <line x1="14" y1="28" x2="32" y2="28" stroke="rgba(52,192,197,0.3)"
+                                                stroke-width="1.5"></line>
+                                            <circle r="1.5" fill="#34C0C5">
+                                                <animateMotion dur="2s" repeatCount="indefinite"
+                                                    path="M14 16 L34 16 L28 22 L32 28"></animateMotion>
+                                            </circle>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Insights</p>
+                                        <p class="mega-desc">News, articles &amp; updates</p>
+                                    </div>
+                                </a>
+                                <a href="pages/company/aerovania-foundation" class="mega-item">
+                                    <div class="mega-icon"><svg viewBox="0 0 48 48" width="32" height="32">
+                                            <path
+                                                d="M24 8 C24 8 10 16 10 28 C10 36 16 42 24 42 C32 42 38 36 38 28 C38 16 24 8 24 8 Z"
+                                                fill="rgba(52,192,197,0.1)" stroke="rgba(52,192,197,0.4)"
+                                                stroke-width="1.5"></path>
+                                            <path d="M24 18 C20 22 18 26 20 30 C22 34 26 34 28 30 C30 26 28 22 24 18 Z"
+                                                fill="rgba(52,192,197,0.3)">
+                                                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s"
+                                                    repeatCount="indefinite"></animate>
+                                            </path>
+                                        </svg></div>
+                                    <div>
+                                        <p class="mega-title">Foundation</p>
+                                        <p class="mega-desc">Our social impact initiatives</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="pages/company/contact-us.html" class="btn btn-dark-solid">Contact Us</a>
+                <a href="pages/company/contact-us" class="btn btn-dark-solid">Contact Us</a>
                 <button class="mobile-menu-btn"><i class="ph ph-list"></i></button>
             </div>
         </div>
@@ -125,7 +511,8 @@
         <!-- Slide 1: Geospatial Mapping -->
         <div class="aero-slide aero-slide--active" data-index="0">
             <div class="aero-slide__bg">
-                <video autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;">
+                <video autoplay loop muted playsinline
+                    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;">
                     <source src="assets/video/Geo Mapping.mp4" type="video/mp4">
                 </video>
             </div>
@@ -134,20 +521,22 @@
                 <div class="slide-tag">India's First Engineering Intelligence Company</div>
                 <h1 class="slide-title">Geospatial Mapping</h1>
                 <h2 class="slide-subtitle">Precision Data Capture &amp; Intelligence</h2>
-                <p class="slide-desc">Advanced drone surveys, LiDAR mapping, and photogrammetry delivering survey-grade geospatial intelligence for infrastructure planning and monitoring.</p>
+                <p class="slide-desc">Advanced drone surveys, LiDAR mapping, and photogrammetry delivering survey-grade
+                    geospatial intelligence for infrastructure planning and monitoring.</p>
                 <div class="slide-features">
                     <span class="slide-feat">&plusmn;5mm Survey Precision</span>
                     <span class="slide-feat">High-Density Point Clouds</span>
                     <span class="slide-feat">Real-time Processing</span>
                 </div>
-                <a href="pages/company/contact-us.html" class="slide-cta-btn">Request Demo</a>
+                <a href="pages/company/contact-us" class="slide-cta-btn">Request Demo</a>
             </div>
         </div>
 
         <!-- Slide 2: AI Mines Analytics -->
         <div class="aero-slide" data-index="1">
             <div class="aero-slide__bg">
-                <video autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;">
+                <video autoplay loop muted playsinline
+                    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;">
                     <source src="assets/video/mines.mp4" type="video/mp4">
                 </video>
             </div>
@@ -156,13 +545,14 @@
                 <div class="slide-tag">AI Mines Analytics</div>
                 <h1 class="slide-title">Turning Vision into<br>Verified Reality</h1>
                 <h2 class="slide-subtitle">Real-Time Mine Intelligence</h2>
-                <p class="slide-desc">AI-powered aerial intelligence for defence, infrastructure, and environmental monitoring from drone to decision in real time.</p>
+                <p class="slide-desc">AI-powered aerial intelligence for defence, infrastructure, and environmental
+                    monitoring from drone to decision in real time.</p>
                 <div class="slide-features">
                     <span class="slide-feat">120+ AI Models</span>
                     <span class="slide-feat">98.2% Accuracy</span>
                     <span class="slide-feat">Live Dashboard</span>
                 </div>
-                <a href="pages/company/contact-us.html" class="slide-cta-btn">Request Demo</a>
+                <a href="pages/company/contact-us" class="slide-cta-btn">Request Demo</a>
             </div>
         </div>
 
@@ -172,18 +562,21 @@
             <iframe id="lidar-iframe" src="" data-src="assets/video/lidar_train_wagon_analysis_system.html"
                 style="position:absolute;inset:0;width:100%;height:100%;border:none;z-index:1;pointer-events:none;"
                 scrolling="no" tabindex="-1"></iframe>
-            <div class="aero-slide__overlay" style="background:linear-gradient(90deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.3) 60%,rgba(0,0,0,0) 100%);"></div>
+            <div class="aero-slide__overlay"
+                style="background:linear-gradient(90deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.3) 60%,rgba(0,0,0,0) 100%);">
+            </div>
             <div class="aero-slide__content">
                 <div class="slide-tag">IWLARS Platform</div>
                 <h1 class="slide-title">Intelligent Wagon<br>Load Analysis</h1>
                 <h2 class="slide-subtitle">LiDAR-Powered Stability Intelligence</h2>
-                <p class="slide-desc">Pulley-guided LiDAR trolley system for automated wagon load scanning  3D point cloud capture, weight distribution heatmaps, and derailment risk assessment.</p>
+                <p class="slide-desc">Pulley-guided LiDAR trolley system for automated wagon load scanning 3D point
+                    cloud capture, weight distribution heatmaps, and derailment risk assessment.</p>
                 <div class="slide-features">
                     <span class="slide-feat">1.2M+ pts/sec</span>
                     <span class="slide-feat">&plusmn;5mm Accuracy</span>
                     <span class="slide-feat">Auto-Report</span>
                 </div>
-                <a href="pages/company/contact-us.html" class="slide-cta-btn">Request Demo</a>
+                <a href="pages/company/contact-us" class="slide-cta-btn">Request Demo</a>
             </div>
         </div>
 
@@ -200,76 +593,105 @@
     </section>
     <!-- What We Do — Diamond Grid -->
     <section style="padding:6rem 0;background:#fafafa;position:relative;overflow:hidden;">
-        <svg style="position:absolute;inset:0;pointer-events:none;z-index:0;" viewBox="0 0 680 500" preserveAspectRatio="xMidYMid slice">
+        <svg style="position:absolute;inset:0;pointer-events:none;z-index:0;" viewBox="0 0 680 500"
+            preserveAspectRatio="xMidYMid slice">
             <g opacity="0.04" stroke="#34C0C5" stroke-width="1" fill="none">
                 <polygon points="340,0 510,150 440,350 240,350 170,150" transform="rotate(0,340,250)">
-                    <animateTransform attributeName="transform" type="rotate" from="0 340 250" to="360 340 250" dur="40s" repeatCount="indefinite"/>
+                    <animateTransform attributeName="transform" type="rotate" from="0 340 250" to="360 340 250"
+                        dur="40s" repeatCount="indefinite" />
                 </polygon>
                 <polygon points="340,40 490,170 430,330 260,330 200,170" transform="rotate(0,340,250)">
-                    <animateTransform attributeName="transform" type="rotate" from="0 340 250" to="-360 340 250" dur="30s" repeatCount="indefinite"/>
+                    <animateTransform attributeName="transform" type="rotate" from="0 340 250" to="-360 340 250"
+                        dur="30s" repeatCount="indefinite" />
                 </polygon>
                 <rect x="200" y="100" width="280" height="280" rx="4" transform="rotate(45,340,240)">
-                    <animateTransform attributeName="transform" type="rotate" from="45 340 240" to="405 340 240" dur="20s" repeatCount="indefinite"/>
+                    <animateTransform attributeName="transform" type="rotate" from="45 340 240" to="405 340 240"
+                        dur="20s" repeatCount="indefinite" />
                 </rect>
             </g>
         </svg>
         <div class="container" style="position:relative;z-index:1;">
             <div class="wwd-top-grid">
                 <div>
-                    <div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#34C0C5;margin-bottom:12px;font-weight:700;">What We Do</div>
-                    <h2 style="font-family:'Sora',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.1;color:#0a0e20;">Built on<br><span style="color:#34C0C5;">Precision,</span><br>Proven at Scale</h2>
+                    <div
+                        style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#34C0C5;margin-bottom:12px;font-weight:700;">
+                        What We Do</div>
+                    <h2
+                        style="font-family:'Sora',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.1;color:#0a0e20;">
+                        Built on<br><span style="color:#34C0C5;">Precision,</span><br>Proven at Scale</h2>
                 </div>
-                <p style="font-size:14px;color:#475569;line-height:1.75;">Aerovania's engineering stack spans every layer — from LiDAR survey to AI dashboard — deployed across India's mines, railways, highways and defence corridors.</p>
+                <p style="font-size:14px;color:#475569;line-height:1.75;">Aerovania's engineering stack spans every
+                    layer — from LiDAR survey to AI dashboard — deployed across India's mines, railways, highways and
+                    defence corridors.</p>
             </div>
             <div class="wwd-diamond-grid">
                 <div style="display:flex;align-items:center;justify-content:center;padding:8px;cursor:pointer;">
-                    <div class="wwd-diamond" style="width:130px;height:130px;transform:rotate(45deg);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#fff7ed;border:2px solid #fed7aa;">
+                    <div class="wwd-diamond"
+                        style="width:130px;height:130px;transform:rotate(45deg);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#fff7ed;border:2px solid #fed7aa;">
                         <div style="transform:rotate(-45deg);text-align:center;padding:12px;">
-                            <span style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;display:block;margin-bottom:2px;color:#ea580c;">±5mm</span>
-                            <span style="font-size:11px;font-weight:700;line-height:1.3;display:block;color:#7c2d12;">Geospatial Mapping</span>
+                            <span
+                                style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;display:block;margin-bottom:2px;color:#ea580c;">±5mm</span>
+                            <span
+                                style="font-size:11px;font-weight:700;line-height:1.3;display:block;color:#7c2d12;">Geospatial
+                                Mapping</span>
                         </div>
                     </div>
                 </div>
                 <div style="display:flex;align-items:center;justify-content:center;padding:8px;cursor:pointer;">
-                    <div class="wwd-diamond" style="width:130px;height:130px;transform:rotate(45deg);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#eff6ff;border:2px solid #bfdbfe;">
+                    <div class="wwd-diamond"
+                        style="width:130px;height:130px;transform:rotate(45deg);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#eff6ff;border:2px solid #bfdbfe;">
                         <div style="transform:rotate(-45deg);text-align:center;padding:12px;">
-                            <span style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;display:block;margin-bottom:2px;color:#2563eb;">120+</span>
-                            <span style="font-size:11px;font-weight:700;line-height:1.3;display:block;color:#1e3a8a;">AI Models</span>
+                            <span
+                                style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;display:block;margin-bottom:2px;color:#2563eb;">120+</span>
+                            <span style="font-size:11px;font-weight:700;line-height:1.3;display:block;color:#1e3a8a;">AI
+                                Models</span>
                         </div>
                     </div>
                 </div>
                 <div style="display:flex;align-items:center;justify-content:center;padding:8px;cursor:pointer;">
-                    <div class="wwd-diamond" style="width:130px;height:130px;transform:rotate(45deg);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#fdf4ff;border:2px solid #e9d5ff;">
+                    <div class="wwd-diamond"
+                        style="width:130px;height:130px;transform:rotate(45deg);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#fdf4ff;border:2px solid #e9d5ff;">
                         <div style="transform:rotate(-45deg);text-align:center;padding:12px;">
-                            <span style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;display:block;margin-bottom:2px;color:#9333ea;">100%</span>
-                            <span style="font-size:11px;font-weight:700;line-height:1.3;display:block;color:#581c87;">Indigenous UAV</span>
+                            <span
+                                style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;display:block;margin-bottom:2px;color:#9333ea;">100%</span>
+                            <span
+                                style="font-size:11px;font-weight:700;line-height:1.3;display:block;color:#581c87;">Indigenous
+                                UAV</span>
                         </div>
                     </div>
                 </div>
                 <div style="display:flex;align-items:center;justify-content:center;padding:8px;cursor:pointer;">
-                    <div class="wwd-diamond" style="width:130px;height:130px;transform:rotate(45deg);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#f0fdf4;border:2px solid #bbf7d0;">
+                    <div class="wwd-diamond"
+                        style="width:130px;height:130px;transform:rotate(45deg);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#f0fdf4;border:2px solid #bbf7d0;">
                         <div style="transform:rotate(-45deg);text-align:center;padding:12px;">
-                            <span style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;display:block;margin-bottom:2px;color:#16a34a;">&lt;200ms</span>
-                            <span style="font-size:11px;font-weight:700;line-height:1.3;display:block;color:#14532d;">Edge AI</span>
+                            <span
+                                style="font-family:'Sora',sans-serif;font-size:28px;font-weight:800;display:block;margin-bottom:2px;color:#16a34a;">&lt;200ms</span>
+                            <span
+                                style="font-size:11px;font-weight:700;line-height:1.3;display:block;color:#14532d;">Edge
+                                AI</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="wwd-stat-row">
                 <div style="flex:1;text-align:center;border-right:1px solid #e5e7eb;">
-                    <span style="font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:#0a0e20;display:block;">2K+</span>
+                    <span
+                        style="font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:#0a0e20;display:block;">2K+</span>
                     <span style="font-size:12px;color:#9ca3af;font-weight:500;">Sq km surveyed</span>
                 </div>
                 <div style="flex:1;text-align:center;border-right:1px solid #e5e7eb;">
-                    <span style="font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:#0a0e20;display:block;">20+</span>
+                    <span
+                        style="font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:#0a0e20;display:block;">20+</span>
                     <span style="font-size:12px;color:#9ca3af;font-weight:500;">Gov clients</span>
                 </div>
                 <div style="flex:1;text-align:center;border-right:1px solid #e5e7eb;">
-                    <span style="font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:#0a0e20;display:block;">25+</span>
+                    <span
+                        style="font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:#0a0e20;display:block;">25+</span>
                     <span style="font-size:12px;color:#9ca3af;font-weight:500;">States covered</span>
                 </div>
                 <div style="flex:1;text-align:center;">
-                    <span style="font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:#0a0e20;display:block;">100%</span>
+                    <span
+                        style="font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:#0a0e20;display:block;">100%</span>
                     <span style="font-size:12px;color:#9ca3af;font-weight:500;">ISO certified</span>
                 </div>
             </div>
@@ -280,7 +702,7 @@
         <div class="container wwd-inner">
             <div class="wwd-grid reveal">
                 <div class="wwd-box stagger-1">
-                    <img src="assets/images/Precision.png" alt="Aerovania" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:19px;">
+                    <img loading="lazy" src="assets/images/Precision.png" alt="Aerovania" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:19px;">
                 </div>
             </div>
             <div class="wwd-text reveal stagger-2">
@@ -302,39 +724,64 @@
             <div class="cb-left">
                 <div class="cb-label">WHY AEROVANIA</div>
                 <h2 class="cb-heading">Metrics that prove our <span>engineering edge</span></h2>
-                <p class="cb-sub">From DPIIT-recognised R&amp;D labs in Nagpur to live AI deployments with Coal India &mdash; every number below reflects a real project, a real client, and a real outcome delivered with zero safety incidents.</p>
-                <a href="pages/company/about-us.html" class="cb-cta-btn">View Case Studies &rarr;</a>
+                <p class="cb-sub">From DPIIT-recognised R&amp;D labs in Nagpur to live AI deployments with Coal India
+                    &mdash; every number below reflects a real project, a real client, and a real outcome delivered with
+                    zero safety incidents.</p>
+                <a href="pages/company/about-us" class="cb-cta-btn">View Case Studies &rarr;</a>
             </div>
             <div class="cb-right">
                 <div class="cb-metric">
-                   <div class="cb-meta"><span class="cb-name">Sq. Km surveyed across India</span><span class="cb-val">2000<span style="color:#00a693;">+</span></span></div>
-                    <div class="cb-track"><div class="cb-fill" id="bf1" style="background:#00a693;"></div></div>
-                    <div class="cb-desc">Drone survey - RGB/LiDAR/Thermal &middot; DGPS &middot; Bathymetry &middot; GIS</div>
+                    <div class="cb-meta"><span class="cb-name">Sq. Km surveyed across India</span><span
+                            class="cb-val">2000<span style="color:#00a693;">+</span></span></div>
+                    <div class="cb-track">
+                        <div class="cb-fill" id="bf1" style="background:#00a693;"></div>
+                    </div>
+                    <div class="cb-desc">Drone survey - RGB/LiDAR/Thermal &middot; DGPS &middot; Bathymetry &middot; GIS
+                    </div>
                 </div>
                 <div class="cb-metric">
-                    <div class="cb-meta"><span class="cb-name">Government &amp; PSU clients</span><span class="cb-val">20<span style="color:#3b6fd4;">+</span></span></div>
-                    <div class="cb-track"><div class="cb-fill" id="bf2" style="background:#3b6fd4;"></div></div>
-                    <div class="cb-desc">Indian Railways &middot; NHAI &middot; NHIDCL &middot; Coal India &middot; NTPC &middot; NHPC &middot; GSI &middot; HAL</div>
+                    <div class="cb-meta"><span class="cb-name">Government &amp; PSU clients</span><span
+                            class="cb-val">20<span style="color:#3b6fd4;">+</span></span></div>
+                    <div class="cb-track">
+                        <div class="cb-fill" id="bf2" style="background:#3b6fd4;"></div>
+                    </div>
+                    <div class="cb-desc">Indian Railways &middot; NHAI &middot; NHIDCL &middot; Coal India &middot; NTPC
+                        &middot; NHPC &middot; GSI &middot; HAL</div>
                 </div>
                 <div class="cb-metric">
-                    <div class="cb-meta"><span class="cb-name">LiDAR precision accuracy</span><span class="cb-val">&plusmn;5<span style="color:#c96b20;">mm</span></span></div>
-                    <div class="cb-track"><div class="cb-fill" id="bf3" style="background:#c96b20;"></div></div>
-                    <div class="cb-desc">Consistently achieved under controlled survey conditions with ground control</div>
+                    <div class="cb-meta"><span class="cb-name">LiDAR precision accuracy</span><span
+                            class="cb-val">&plusmn;5<span style="color:#c96b20;">mm</span></span></div>
+                    <div class="cb-track">
+                        <div class="cb-fill" id="bf3" style="background:#c96b20;"></div>
+                    </div>
+                    <div class="cb-desc">Consistently achieved under controlled survey conditions with ground control
+                    </div>
                 </div>
                 <div class="cb-metric">
-                    <div class="cb-meta"><span class="cb-name">Pan-India operational states</span><span class="cb-val">25<span style="color:#6b4fd4;">+</span></span></div>
-                    <div class="cb-track"><div class="cb-fill" id="bf4" style="background:#6b4fd4;"></div></div>
-                    <div class="cb-desc">Mountains &middot; mines &middot; forests &middot; highways &mdash; from Himalayan corridors to coastal belts</div>
+                    <div class="cb-meta"><span class="cb-name">Pan-India operational states</span><span
+                            class="cb-val">25<span style="color:#6b4fd4;">+</span></span></div>
+                    <div class="cb-track">
+                        <div class="cb-fill" id="bf4" style="background:#6b4fd4;"></div>
+                    </div>
+                    <div class="cb-desc">Mountains &middot; mines &middot; forests &middot; highways &mdash; from
+                        Himalayan corridors to coastal belts</div>
                 </div>
                 <div class="cb-metric">
-                    <div class="cb-meta"><span class="cb-name">ISO-certified quality operations</span><span class="cb-val" style="color:#1a8c5c;">100%</span></div>
-                    <div class="cb-track"><div class="cb-fill" id="bf5" style="background:#1a8c5c;"></div></div>
+                    <div class="cb-meta"><span class="cb-name">ISO-certified quality operations</span><span
+                            class="cb-val" style="color:#1a8c5c;">100%</span></div>
+                    <div class="cb-track">
+                        <div class="cb-fill" id="bf5" style="background:#1a8c5c;"></div>
+                    </div>
                     <div class="cb-desc">Zero safety incidents maintained across every project delivered to date</div>
                 </div>
                 <div class="cb-metric">
-                    <div class="cb-meta"><span class="cb-name">Core technology service verticals</span><span class="cb-val" style="color:#00a693;">6</span></div>
-                    <div class="cb-track"><div class="cb-fill" id="bf6" style="background:#00a693;"></div></div>
-                    <div class="cb-desc">Drone Survey &middot; AI  &middot; Edge Computing &middot; UAV Dev &middot; Infrastructure Monitoring &middot; Training</div>
+                    <div class="cb-meta"><span class="cb-name">Core technology service verticals</span><span
+                            class="cb-val" style="color:#00a693;">6</span></div>
+                    <div class="cb-track">
+                        <div class="cb-fill" id="bf6" style="background:#00a693;"></div>
+                    </div>
+                    <div class="cb-desc">Drone Survey &middot; AI &middot; Edge Computing &middot; UAV Dev &middot;
+                        Infrastructure Monitoring &middot; Training</div>
                 </div>
             </div>
         </div>
@@ -342,13 +789,14 @@
 
 
 
-<!-- Service Platforms -->
+    <!-- Service Platforms -->
     <section class="plat-section">
         <div class="container">
             <div class="plat-header reveal">
                 <p class="plat-label">Our Platforms</p>
-              <h2 class="plat-heading">Platforms Built for<br>Real-World Operations.</h2>
-                <p class="plat-sub">From mine compliance to railway load analysis — purpose-built intelligence for India's critical infrastructure.</p>
+                <h2 class="plat-heading">Platforms Built for<br>Real-World Operations.</h2>
+                <p class="plat-sub">From mine compliance to railway load analysis — purpose-built intelligence for
+                    India's critical infrastructure.</p>
             </div>
             <!-- Tabs -->
             <div class="plat-tabs reveal">
@@ -368,11 +816,15 @@
                     <div class="plat-slide__left">
                         <span class="plat-slide__eyebrow">Platform 01</span>
                         <h3 class="plat-slide__title">AI Driven Aerial Monitoring &amp; Analytics</h3>
-                        <p class="plat-slide__desc">A comprehensive AI-powered analytics platform for mine operations — real-time violation detection, geospatial site intelligence, video surveillance, and role-based access control.</p>
+                        <p class="plat-slide__desc">A comprehensive AI-powered analytics platform for mine operations —
+                            real-time violation detection, geospatial site intelligence, video surveillance, and
+                            role-based access control.</p>
                         <ul class="plat-slide__list">
-                            <li><i class="ph ph-check-circle"></i> Live KPIs, violation statistics &amp; trend charts</li>
-                            <li><i class="ph ph-check-circle"></i> Interactive geospatial map with violation markers</li>
-                           <li><i class="ph ph-check-circle"></i> Detects 23+ mine safety violations in real time</li>
+                            <li><i class="ph ph-check-circle"></i> Live KPIs, violation statistics &amp; trend charts
+                            </li>
+                            <li><i class="ph ph-check-circle"></i> Interactive geospatial map with violation markers
+                            </li>
+                            <li><i class="ph ph-check-circle"></i> Detects 23+ mine safety violations in real time</li>
                             <li><i class="ph ph-check-circle"></i> Role-based access &amp; ATR document management</li>
                         </ul>
                         <div class="plat-slide__pills">
@@ -380,10 +832,12 @@
                             <span>98.2% Accuracy</span>
                             <span>Real-time</span>
                         </div>
-                        <a href="pages/platform/ai-aerial-monitoring.html" class="plat-slide__cta">Explore Platform &rarr;</a>
+                        <a href="pages/platform/ai-aerial-monitoring" class="plat-slide__cta">Explore Platform
+                            &rarr;</a>
                     </div>
                     <div class="plat-slide__right">
-                        <img src="assets/images/analytics-dashboard.jpeg" alt="AI Mines Analytics Dashboard">
+                        <img loading="lazy" src="assets/images/analytics-dashboard.jpeg"
+                            alt="AI Mines Analytics Dashboard">
                     </div>
                 </div>
 
@@ -391,8 +845,11 @@
                 <div class="plat-slide">
                     <div class="plat-slide__left">
                         <span class="plat-slide__eyebrow">Platform 02</span>
-                        <h3 class="plat-slide__title">IWLARS — Intelligent Wagon Load Analysis &amp; Reporting System</h3>
-                        <p class="plat-slide__desc">Pulley-guided LiDAR trolley system for automated wagon load scanning — 3D point cloud capture, weight distribution heatmaps, and derailment risk assessment in real time.</p>
+                        <h3 class="plat-slide__title">IWLARS — Intelligent Wagon Load Analysis &amp; Reporting System
+                        </h3>
+                        <p class="plat-slide__desc">Pulley-guided LiDAR trolley system for automated wagon load scanning
+                            — 3D point cloud capture, weight distribution heatmaps, and derailment risk assessment in
+                            real time.</p>
                         <ul class="plat-slide__list">
                             <li><i class="ph ph-check-circle"></i> LiDAR point cloud capture at 20Hz rotation</li>
                             <li><i class="ph ph-check-circle"></i> 3D weight distribution heatmap per wagon</li>
@@ -400,14 +857,14 @@
                             <li><i class="ph ph-check-circle"></i> Automated engineer stability report generation</li>
                         </ul>
                         <div class="plat-slide__pills">
-                           <span>1.2M pts/sec</span>
+                            <span>1.2M pts/sec</span>
                             <span>&plusmn;5mm accuracy</span>
                             <span>Auto-report</span>
                         </div>
-                        <a href="pages/platform/iwlars.html" class="plat-slide__cta">Explore IWLARS &rarr;</a>
+                        <a href="pages/platform/iwlars" class="plat-slide__cta">Explore IWLARS &rarr;</a>
                     </div>
                     <div class="plat-slide__right plat-slide__right--dark">
-                        <img src="assets/images/Platform/IWLARS.png" alt="IWLARS LiDAR Platform">
+                        <img loading="lazy" src="assets/images/Platform/IWLARS.png" alt="IWLARS LiDAR Platform">
                     </div>
                 </div>
 
@@ -419,98 +876,138 @@
     <section class="c2-section">
         <div class="c2-head">
             <h2>Industries we <em>serve</em></h2>
-            <p>Precision aerial intelligence across India's critical sectors &mdash; government-trusted, mission-proven</p>
+            <p>Precision aerial intelligence across India's critical sectors &mdash; government-trusted, mission-proven
+            </p>
             <div class="c2-line"></div>
         </div>
         <div class="c2-grid">
-            <a href="pages/industries/railway.html" class="c2-card">
+            <a href="pages/industries/railway" class="c2-card">
                 <div class="c2-top">
-                    <img src="assets/images/industry_railways.png" alt="Railways">
+                    <img loading="lazy" src="assets/images/industry_railways.png" alt="Railways">
                 </div>
                 <div class="c2-body">
                     <div class="c2-title">Railways</div>
-                    <div class="c2-desc">Corridor surveys, Track Alignment, ESP, LiDAR wagon load analysis, Bridge inspection and Track condition assessment</div>
-                    <div class="c2-tags"><span class="c2-tag" style="background:#e4f7f5;color:#006e65;">LiDAR</span><span class="c2-tag" style="background:#e4f7f5;color:#006e65;">Corridor Survey</span><span class="c2-tag" style="background:#e4f7f5;color:#006e65;">Bridge Inspection</span><span class="c2-tag">Track Assessment</span></div>
+                    <div class="c2-desc">Corridor surveys, Track Alignment, ESP, LiDAR wagon load analysis, Bridge
+                        inspection and Track condition assessment</div>
+                    <div class="c2-tags"><span class="c2-tag"
+                            style="background:#e4f7f5;color:#006e65;">LiDAR</span><span class="c2-tag"
+                            style="background:#e4f7f5;color:#006e65;">Corridor Survey</span><span class="c2-tag"
+                            style="background:#e4f7f5;color:#006e65;">Bridge Inspection</span><span class="c2-tag">Track
+                            Assessment</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">Indian Railways &#10003;</span><span class="c2-arr">&#8594;</span></div>
+                <div class="c2-footer"><span class="c2-client">Indian Railways &#10003;</span><span
+                        class="c2-arr">&#8594;</span></div>
             </a>
-            <a href="pages/industries/mining.html" class="c2-card">
+            <a href="pages/industries/mining" class="c2-card">
                 <div class="c2-top">
-                    <img src="assets/images/industry_mining.jpeg" alt="Mining">
+                    <img loading="lazy" src="assets/images/industry_mining.jpeg" alt="Mining">
                 </div>
                 <div class="c2-body">
                     <div class="c2-title">Mining </div>
-                    <div class="c2-desc">IBM compliant Drone survey, Pit progression mapping, Stockpile calculations and AI-powered compliance monitoring.</div>
-                    <div class="c2-tags"><span class="c2-tag" style="background:#fff4ec;color:#9a4e14;">Stockpile Volume</span><span class="c2-tag" style="background:#fff4ec;color:#9a4e14;">Pit Mapping</span><span class="c2-tag" style="background:#fff4ec;color:#9a4e14;">AI Compliance</span><span class="c2-tag">DGPS</span></div>
+                    <div class="c2-desc">IBM compliant Drone survey, Pit progression mapping, Stockpile calculations and
+                        AI-powered compliance monitoring.</div>
+                    <div class="c2-tags"><span class="c2-tag" style="background:#fff4ec;color:#9a4e14;">Stockpile
+                            Volume</span><span class="c2-tag" style="background:#fff4ec;color:#9a4e14;">Pit
+                            Mapping</span><span class="c2-tag" style="background:#fff4ec;color:#9a4e14;">AI
+                            Compliance</span><span class="c2-tag">DGPS</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">Coal India WCL &middot; CCL &#10003;</span><span class="c2-arr" style="color:#c96b20;">&#8594;</span></div>
+                <div class="c2-footer"><span class="c2-client">Coal India WCL &middot; CCL &#10003;</span><span
+                        class="c2-arr" style="color:#c96b20;">&#8594;</span></div>
             </a>
-            <a href="pages/industries/highways.html" class="c2-card">
+            <a href="pages/industries/highways" class="c2-card">
                 <div class="c2-top">
-                    <img src="assets/images/Expressways-in-Ahmedabad_0_1200.jpg.webp" alt="Highways">
+                    <img loading="lazy" src="assets/images/Expressways-in-Ahmedabad_0_1200.jpg.webp" alt="Highways">
                 </div>
                 <div class="c2-body">
                     <div class="c2-title">Highways</div>
-                    <div class="c2-desc">Topographic Aerial surveys, Construction progress monitoring, and highway corridor mapping.</div>
-                    <div class="c2-tags"><span class="c2-tag" style="background:#eef3ff;color:#2a56b0;">Corridor Mapping</span><span class="c2-tag" style="background:#eef3ff;color:#2a56b0;">Progress Monitoring</span><span class="c2-tag">Topographic Survey</span></div>
+                    <div class="c2-desc">Topographic Aerial surveys, Construction progress monitoring, and highway
+                        corridor mapping.</div>
+                    <div class="c2-tags"><span class="c2-tag" style="background:#eef3ff;color:#2a56b0;">Corridor
+                            Mapping</span><span class="c2-tag" style="background:#eef3ff;color:#2a56b0;">Progress
+                            Monitoring</span><span class="c2-tag">Topographic Survey</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">NHAI &middot; NHIDCL Empanelled &#10003;</span><span class="c2-arr" style="color:#3b6fd4;">&#8594;</span></div>
+                <div class="c2-footer"><span class="c2-client">NHAI &middot; NHIDCL Empanelled &#10003;</span><span
+                        class="c2-arr" style="color:#3b6fd4;">&#8594;</span></div>
             </a>
-            <a href="pages/industries/power-energy.html" class="c2-card">
+            <a href="pages/industries/power-energy" class="c2-card">
                 <div class="c2-top">
-                    <img src="assets/images/Solar.jpeg" alt="Energy">
+                    <img loading="lazy" src="assets/images/Solar.jpeg" alt="Energy">
                 </div>
                 <div class="c2-body">
                     <div class="c2-title">Energy &amp; Power</div>
-                    <div class="c2-desc">Inspection of Power Transmission line &middot; Solar Field &middot; Wind Turbine and Hydroelectric project monitoring</div>
-                    <div class="c2-tags"><span class="c2-tag" style="background:#eafaf3;color:#146046;">Transmission Inspection</span><span class="c2-tag" style="background:#eafaf3;color:#146046;">Solar &amp; Wind</span><span class="c2-tag">LiDAR</span></div>
+                    <div class="c2-desc">Inspection of Power Transmission line &middot; Solar Field &middot; Wind
+                        Turbine and Hydroelectric project monitoring</div>
+                    <div class="c2-tags"><span class="c2-tag" style="background:#eafaf3;color:#146046;">Transmission
+                            Inspection</span><span class="c2-tag" style="background:#eafaf3;color:#146046;">Solar &amp;
+                            Wind</span><span class="c2-tag">LiDAR</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">NHPC &middot; NTPC &#10003;</span><span class="c2-arr" style="color:#1a8c5c;">&#8594;</span></div>
+                <div class="c2-footer"><span class="c2-client">NHPC &middot; NTPC &#10003;</span><span class="c2-arr"
+                        style="color:#1a8c5c;">&#8594;</span></div>
             </a>
 
-            <a href="pages/industries/defence-security.html" class="c2-card">
+            <a href="pages/industries/defence-security" class="c2-card">
                 <div class="c2-top">
-                    <img src="assets/images/Secirity/Security.jpeg" alt="Defence">
+                    <img loading="lazy" src="assets/images/Secirity/Security.jpeg" alt="Defence">
                 </div>
                 <div class="c2-body">
                     <div class="c2-title">Defence & Security </div>
-                    <div class="c2-desc">Land Boundary assessment, Border Security, Loitering Munitions, Intelligence Surveillance and Reconnaissance</div>
-                    <div class="c2-tags"><span class="c2-tag" style="background:#f0eeff;color:#4a30a8;">Boundary Mapping</span><span class="c2-tag" style="background:#f0eeff;color:#4a30a8;">ISR</span><span class="c2-tag" style="background:#f0eeff;color:#4a30a8;">Border Security</span><span class="c2-tag">DPIIT</span></div>
+                    <div class="c2-desc">Land Boundary assessment, Border Security, Loitering Munitions, Intelligence
+                        Surveillance and Reconnaissance</div>
+                    <div class="c2-tags"><span class="c2-tag" style="background:#f0eeff;color:#4a30a8;">Boundary
+                            Mapping</span><span class="c2-tag" style="background:#f0eeff;color:#4a30a8;">ISR</span><span
+                            class="c2-tag" style="background:#f0eeff;color:#4a30a8;">Border Security</span><span
+                            class="c2-tag">DPIIT</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">Defence Estates Organization &middot; &#10003;</span><span class="c2-arr" style="color:#6b4fd4;">&#8594;</span></div>
+                <div class="c2-footer"><span class="c2-client">Defence Estates Organization &middot;
+                        &#10003;</span><span class="c2-arr" style="color:#6b4fd4;">&#8594;</span></div>
             </a>
-            <a href="pages/industries/environmental-forestry.html" class="c2-card">
+            <a href="pages/industries/environmental-forestry" class="c2-card">
                 <div class="c2-top">
-                    <img src="assets/images/Forest.jpeg" alt="Forestry">
+                    <img loading="lazy" src="assets/images/Forest.jpeg" alt="Forestry">
                 </div>
                 <div class="c2-body">
                     <div class="c2-title">Forestry & Environment</div>
-                    <div class="c2-desc">Vegetation mapping, forest boundary delineation, canopy analysis, and wildlife habitat assessment and conservation </div>
-                    <div class="c2-tags"><span class="c2-tag" style="background:#eafaf3;color:#1a5c1e;">Canopy Analysis</span><span class="c2-tag" style="background:#eafaf3;color:#1a5c1e;">Vegetation Mapping</span><span class="c2-tag" style="background:#eafaf3;color:#1a5c1e;">Habitat Assessment</span><span class="c2-tag">UAV</span></div>
+                    <div class="c2-desc">Vegetation mapping, forest boundary delineation, canopy analysis, and wildlife
+                        habitat assessment and conservation </div>
+                    <div class="c2-tags"><span class="c2-tag" style="background:#eafaf3;color:#1a5c1e;">Canopy
+                            Analysis</span><span class="c2-tag" style="background:#eafaf3;color:#1a5c1e;">Vegetation
+                            Mapping</span><span class="c2-tag" style="background:#eafaf3;color:#1a5c1e;">Habitat
+                            Assessment</span><span class="c2-tag">UAV</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">Maharashtra Forest Dept. &#10003;</span><span class="c2-arr" style="color:#2e7d32;">&#8594;</span></div>
+                <div class="c2-footer"><span class="c2-client">Maharashtra Forest Dept. &#10003;</span><span
+                        class="c2-arr" style="color:#2e7d32;">&#8594;</span></div>
             </a>
-            <a href="pages/industries/smart-cities.html" class="c2-card">
+            <a href="pages/industries/smart-cities" class="c2-card">
                 <div class="c2-top">
-                    <img src="assets/images/Cities.webp" alt="Infrastructure">
+                    <img loading="lazy" src="assets/images/Cities.webp" alt="Infrastructure">
                 </div>
                 <div class="c2-body">
                     <div class="c2-title">Smart cities & Urban Planning</div>
-                   <div class="c2-desc">Urban 3D mapping, infrastructure asset inventory and smart city planning with high-resolution aerial surveys.</div>
-                    <div class="c2-tags"><span class="c2-tag" style="background:#fff8e6;color:#8a5c08;">3D Mapping</span><span class="c2-tag" style="background:#fff8e6;color:#8a5c08;">Asset Inventory</span><span class="c2-tag" style="background:#fff8e6;color:#8a5c08;">Urban Planning</span><span class="c2-tag">DTM</span></div>
+                    <div class="c2-desc">Urban 3D mapping, infrastructure asset inventory and smart city planning with
+                        high-resolution aerial surveys.</div>
+                    <div class="c2-tags"><span class="c2-tag" style="background:#fff8e6;color:#8a5c08;">3D
+                            Mapping</span><span class="c2-tag" style="background:#fff8e6;color:#8a5c08;">Asset
+                            Inventory</span><span class="c2-tag" style="background:#fff8e6;color:#8a5c08;">Urban
+                            Planning</span><span class="c2-tag">DTM</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">State PWDs &middot; &#10003;</span><span class="c2-arr" style="color:#b07a10;">&#8594;</span></div>
+                <div class="c2-footer"><span class="c2-client">State PWDs &middot; &#10003;</span><span class="c2-arr"
+                        style="color:#b07a10;">&#8594;</span></div>
             </a>
-            <a href="pages/industries/oil-gas.html" class="c2-card">
+            <a href="pages/industries/oil-gas" class="c2-card">
                 <div class="c2-top">
-                    <img src="assets/images/Oil-and-Gas-storage.jpg.jpeg" alt="Water Resources">
+                    <img loading="lazy" src="assets/images/Oil-and-Gas-storage.jpg.jpeg" alt="Water Resources">
                 </div>
                 <div class="c2-body">
                     <div class="c2-title">Oil & Gas</div>
-                  <div class="c2-desc">Pipeline surveys, reservoir volumetrics, and refinery inspection using thermal &amp; LiDAR drones.</div>
-                    <div class="c2-tags"><span class="c2-tag" style="background:#fcebeb;color:#7a1f1f;">Pipeline Survey</span><span class="c2-tag" style="background:#fcebeb;color:#7a1f1f;">Reservoir Volumetrics</span><span class="c2-tag" style="background:#fcebeb;color:#7a1f1f;">Thermal Inspection</span><span class="c2-tag">LiDAR</span></div>
+                    <div class="c2-desc">Pipeline surveys, reservoir volumetrics, and refinery inspection using thermal
+                        &amp; LiDAR drones.</div>
+                    <div class="c2-tags"><span class="c2-tag" style="background:#fcebeb;color:#7a1f1f;">Pipeline
+                            Survey</span><span class="c2-tag" style="background:#fcebeb;color:#7a1f1f;">Reservoir
+                            Volumetrics</span><span class="c2-tag" style="background:#fcebeb;color:#7a1f1f;">Thermal
+                            Inspection</span><span class="c2-tag">LiDAR</span></div>
                 </div>
-                <div class="c2-footer"><span class="c2-client">Available for Deployment</span><span class="c2-arr" style="color:#a32d2d;">&#8594;</span></div>
+                <div class="c2-footer"><span class="c2-client">Available for Deployment</span><span class="c2-arr"
+                        style="color:#a32d2d;">&#8594;</span></div>
             </a>
         </div>
     </section>
@@ -519,32 +1016,50 @@
     <section class="trusted-section">
         <div class="container trusted-inner">
             <h2 class="section-title text-trust text-center reveal">Trusted By Industry Leaders</h2>
-            <p style="text-align:center;color:rgb(0, 0, 0);font-size:.9rem;margin-top:.5rem;margin-bottom:2.5rem;">Government bodies, PSUs, and enterprises across India</p>
+            <p style="text-align:center;color:rgb(0, 0, 0);font-size:.9rem;margin-top:.5rem;margin-bottom:2.5rem;">
+                Government bodies, PSUs, and enterprises across India</p>
 
             <!-- Logo grid -->
             <div class="client-logo-grid">
-                <div class="client-logo-item"><img src="assets/images/clients/client-1-1.png" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/client-1.jpg.jpeg" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/client-2.jpg.jpeg" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/client-2.png" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/client-3.jpg.jpeg" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/client-3.png" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/client-4.jpg.jpeg" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/client-4.png" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/client-5.jpg.jpeg" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/client-5.png" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/client-6.jpg.jpeg" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/download.jpg.jpeg" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/GKZPwj5XkAAAG9u.jpg.jpeg" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/client-img-2.png" alt="Client"></div>
-                <div class="client-logo-item"><img src="assets/images/clients/western_coalfields_ltd__logo.jpg.jpeg" alt="Western Coalfields Limited"></div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-1-1.png"
+                        alt="Client"></div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-1.jpg.jpeg"
+                        alt="Client"></div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-2.jpg.jpeg"
+                        alt="Client"></div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-2.png" alt="Client">
+                </div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-3.jpg.jpeg"
+                        alt="Client"></div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-3.png" alt="Client">
+                </div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-4.jpg.jpeg"
+                        alt="Client"></div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-4.png" alt="Client">
+                </div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-5.jpg.jpeg"
+                        alt="Client"></div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-5.png" alt="Client">
+                </div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-6.jpg.jpeg"
+                        alt="Client"></div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/download.jpg.jpeg"
+                        alt="Client"></div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/GKZPwj5XkAAAG9u.jpg.jpeg"
+                        alt="Client"></div>
+                <div class="client-logo-item"><img loading="lazy" src="assets/images/clients/client-img-2.png"
+                        alt="Client"></div>
+                <div class="client-logo-item"><img loading="lazy"
+                        src="assets/images/clients/western_coalfields_ltd__logo.jpg.jpeg"
+                        alt="Western Coalfields Limited"></div>
             </div>
 
             <div class="testi-slider reveal stagger-2">
                 <div class="testi-track" id="testiTrack">
                     <div class="testi-slide">
                         <i class="ph-fill ph-quotes testi-quote"></i>
-                        <p class="testi-text">"Aerovania's drone and AI monitoring solutions have significantly improved infrastructure monitoring and operational efficiency."</p>
+                        <p class="testi-text">"Aerovania's drone and AI monitoring solutions have significantly improved
+                            infrastructure monitoring and operational efficiency."</p>
                         <div class="testi-author">
                             <div class="testi-avatar"><i class="ph ph-buildings"></i></div>
                             <div>
@@ -555,7 +1070,8 @@
                     </div>
                     <div class="testi-slide">
                         <i class="ph-fill ph-quotes testi-quote"></i>
-                        <p class="testi-text">"The real-time aerial intelligence platform cut our site inspection time by over 60%. What used to take days now takes hours &mdash; with far greater accuracy."</p>
+                        <p class="testi-text">"The real-time aerial intelligence platform cut our site inspection time
+                            by over 60%. What used to take days now takes hours &mdash; with far greater accuracy."</p>
                         <div class="testi-author">
                             <div class="testi-avatar"><i class="ph ph-hard-hat"></i></div>
                             <div>
@@ -566,7 +1082,8 @@
                     </div>
                     <div class="testi-slide">
                         <i class="ph-fill ph-quotes testi-quote"></i>
-                        <p class="testi-text">"Aerovania's LiDAR and geospatial mapping gave us corridor intelligence we simply couldn't get any other way. The 3D terrain models are exceptional."</p>
+                        <p class="testi-text">"Aerovania's LiDAR and geospatial mapping gave us corridor intelligence we
+                            simply couldn't get any other way. The 3D terrain models are exceptional."</p>
                         <div class="testi-author">
                             <div class="testi-avatar"><i class="ph ph-train"></i></div>
                             <div>
@@ -577,7 +1094,8 @@
                     </div>
                     <div class="testi-slide">
                         <i class="ph-fill ph-quotes testi-quote"></i>
-                        <p class="testi-text">"Deploying Aerovania's AI surveillance system across our border corridor transformed our situational awareness. The all-weather capability is a game changer."</p>
+                        <p class="testi-text">"Deploying Aerovania's AI surveillance system across our border corridor
+                            transformed our situational awareness. The all-weather capability is a game changer."</p>
                         <div class="testi-author">
                             <div class="testi-avatar"><i class="ph ph-shield-check"></i></div>
                             <div>
@@ -588,9 +1106,11 @@
                     </div>
                 </div>
                 <div class="testi-controls">
-                    <button class="testi-btn" id="testiPrev" aria-label="Previous"><i class="ph ph-arrow-left"></i></button>
+                    <button class="testi-btn" id="testiPrev" aria-label="Previous"><i
+                            class="ph ph-arrow-left"></i></button>
                     <div class="testi-dots" id="testiDots"></div>
-                    <button class="testi-btn" id="testiNext" aria-label="Next"><i class="ph ph-arrow-right"></i></button>
+                    <button class="testi-btn" id="testiNext" aria-label="Next"><i
+                            class="ph ph-arrow-right"></i></button>
                 </div>
             </div>
         </div>
@@ -603,7 +1123,7 @@
                 <p class="why-choose__label">Why Choose Us</p>
                 <h2 class="why-choose__heading">Aerial Intelligence,<br><em>Engineered</em><br>to Perform.</h2>
                 <p class="why-choose__sub">We don't just deploy drones &mdash; we architect end-to-end intelligence systems. Aerovania brings together AI engineers, UAV specialists, and domain experts under one roof to deliver outcomes that matter.</p>
-                <a href="pages/company/about-us.html" class="why-choose__cta">Our Story &nbsp;&rarr;</a>
+                <a href="pages/company/about-us" class="why-choose__cta">Our Story &nbsp;&rarr;</a>
             </div>
             <div class="why-choose__right reveal">
                 <div class="why-item-row">
@@ -642,10 +1162,11 @@
     <section class="cta-section">
         <div class="container cta-inner text-center reveal">
             <h2 class="cta-title">Let's Build the Future of<br>Infrastructure Intelligence</h2>
-            <p class="cta-desc">Discover how Aerovania's AI-powered monitoring and drones can transform your operations.</p>
+            <p class="cta-desc">Discover how Aerovania's AI-powered monitoring and drones can transform your operations.
+            </p>
             <div class="cta-buttons">
-                <a href="pages/company/contact-us.html" class="btn btn-cyan">Contact Us</a>
-                <a href="pages/company/contact-us.html" class="btn btn-outline-cyan">Request Demo</a>
+                <a href="pages/company/contact-us" class="btn btn-cyan">Contact Us</a>
+                <a href="pages/company/contact-us" class="btn btn-outline-cyan">Request Demo</a>
             </div>
         </div>
     </section>
@@ -655,8 +1176,10 @@
         <div class="container footer-grid">
             <div class="footer-col brand-col">
                 <div class="logo">
-                    <a href="index.html"><img src="assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a>
-                    <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div>
+                    <a href="/"><img src="assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                            class="footer-logo"></a>
+                    <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
+                    </div>
                 </div>
                 <div class="socials">
                     <a href="#"><i class="ph ph-linkedin-logo"></i></a>
@@ -667,27 +1190,30 @@
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="pages/company/about-us.html">About Us</a></li>
-                    <li><a href="pages/industries/mining.html">Industries</a></li>
-                    <li><a href="pages/technology/technology.html">Technology</a></li>
+                    <li><a href="pages/company/about-us">About Us</a></li>
+                    <li><a href="pages/industries/mining">Industries</a></li>
+                    <li><a href="pages/technology/technology">Technology</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="pages/company/about-us.html">Our Vision</a></li>
-                    <li><a href="pages/company/careers.html">Careers</a></li>
-                    <li><a href="pages/company/contact-us.html">Contact</a></li>
+                    <li><a href="pages/company/about-us">Our Vision</a></li>
+                    <li><a href="pages/company/careers">Careers</a></li>
+                    <li><a href="pages/company/contact-us">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col contact-col">
                 <h4>Contact Us</h4>
                 <ul>
-                    <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li>
-                    <li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
+                    <li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217"
+                            style="color:inherit;text-decoration:none;">+91 78758 55217</a></li>
+                    <li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075"
+                            style="color:inherit;text-decoration:none;">+91 98344 91075</a></li>
                     <li><i class="ph ph-envelope"></i> info@aerovania.com</li>
                     <li><i class="ph ph-globe"></i> www.aerovania.com</li>
-                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li>
+                    <li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra
+                    </li>
                 </ul>
             </div>
         </div>
@@ -708,44 +1234,44 @@
             <li>
                 <a href="#" onclick="toggleSub(this)">SOLUTIONS <i class="ph ph-caret-down"></i></a>
                 <div class="mnp-sub">
-                    <a href="pages/solutions/geospatial-ai.html">Geospatial Mapping</a>
-                    <a href="pages/solutions/artificial-intelligence.html">Artificial Intelligence</a>
-                    <a href="pages/solutions/embedded-intelligence.html">Edge Computing</a>
-                    <a href="pages/solutions/composite-engineering.html">Composite Engineering</a>
+                    <a href="pages/solutions/geospatial-ai">Geospatial Mapping</a>
+                    <a href="pages/solutions/artificial-intelligence">Artificial Intelligence</a>
+                    <a href="pages/solutions/embedded-intelligence">Edge Computing</a>
+                    <a href="pages/solutions/composite-engineering">Composite Engineering</a>
                 </div>
             </li>
             <li>
                 <a href="#" onclick="toggleSub(this)">INDUSTRIES <i class="ph ph-caret-down"></i></a>
                 <div class="mnp-sub">
-                    <a href="pages/industries/mining.html">Mining</a>
-                    <a href="pages/industries/highways.html">Highways</a>
-                    <a href="pages/industries/railway.html">Railway</a>
-                    <a href="pages/industries/power-energy.html">Power &amp; Energy</a>
-                    <a href="pages/industries/smart-cities.html">Smart Cities</a>
-                    <a href="pages/industries/oil-gas.html">Oil &amp; Gas</a>
-                    <a href="pages/industries/environmental-forestry.html">Environmental &amp; Forestry</a>
-                    <a href="pages/industries/defence-security.html">Defence &amp; Security</a>
+                    <a href="pages/industries/mining">Mining</a>
+                    <a href="pages/industries/highways">Highways</a>
+                    <a href="pages/industries/railway">Railway</a>
+                    <a href="pages/industries/power-energy">Power &amp; Energy</a>
+                    <a href="pages/industries/smart-cities">Smart Cities</a>
+                    <a href="pages/industries/oil-gas">Oil &amp; Gas</a>
+                    <a href="pages/industries/environmental-forestry">Environmental &amp; Forestry</a>
+                    <a href="pages/industries/defence-security">Defence &amp; Security</a>
                 </div>
             </li>
             <li>
                 <a href="#" onclick="toggleSub(this)">PLATFORM <i class="ph ph-caret-down"></i></a>
                 <div class="mnp-sub">
-                    <a href="pages/platform/ai-aerial-monitoring.html">AI Mines Analytics</a>
-                    <a href="pages/platform/iwlars.html">IWLARS</a>
+                    <a href="pages/platform/ai-aerial-monitoring">AI Mines Analytics</a>
+                    <a href="pages/platform/iwlars">IWLARS</a>
                 </div>
             </li>
-            <li><a href="pages/technology/technology.html">TECHNOLOGY</a></li>
+            <li><a href="pages/technology/technology">TECHNOLOGY</a></li>
             <li>
                 <a href="#" onclick="toggleSub(this)">COMPANY <i class="ph ph-caret-down"></i></a>
                 <div class="mnp-sub">
-                    <a href="pages/company/about-us.html">About Us</a>
-                    <a href="pages/company/careers.html">Careers</a>
-                    <a href="pages/company/insights.html">Insights</a>
-                    <a href="pages/company/aerovania-foundation.html">Foundation</a>
+                    <a href="pages/company/about-us">About Us</a>
+                    <a href="pages/company/careers">Careers</a>
+                    <a href="pages/company/insights">Insights</a>
+                    <a href="pages/company/aerovania-foundation">Foundation</a>
                 </div>
             </li>
         </ul>
-        <a href="pages/company/contact-us.html" class="mnp-cta">Contact Us</a>
+        <a href="pages/company/contact-us" class="mnp-cta">Contact Us</a>
     </div>
     <script>
         // Mobile nav
@@ -753,8 +1279,8 @@
         const mobilePanel = document.getElementById('mobilePanel');
         const mobileOverlay = document.getElementById('mobileOverlay');
         const mobileClose = document.getElementById('mobileClose');
-        function openMobile() { mobilePanel.classList.add('open'); mobileOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
-        function closeMobile() { mobilePanel.classList.remove('open'); mobileOverlay.classList.remove('open'); document.body.style.overflow=''; }
+        function openMobile() { mobilePanel.classList.add('open'); mobileOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeMobile() { mobilePanel.classList.remove('open'); mobileOverlay.classList.remove('open'); document.body.style.overflow = ''; }
         if (mobileBtn) mobileBtn.addEventListener('click', openMobile);
         if (mobileClose) mobileClose.addEventListener('click', closeMobile);
         if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobile);
@@ -799,8 +1325,8 @@
             if (!section) return;
             const obs = new IntersectionObserver(entries => {
                 if (entries[0].isIntersecting) {
-                    setBar('bf1', 82, 100);  setBar('bf2', 60, 250);
-                    setBar('bf3', 95, 400);  setBar('bf4', 70, 550);
+                    setBar('bf1', 82, 100); setBar('bf2', 60, 250);
+                    setBar('bf3', 95, 400); setBar('bf4', 70, 550);
                     setBar('bf5', 100, 700); setBar('bf6', 75, 850);
                     obs.disconnect();
                 }
@@ -820,8 +1346,6 @@
         });
     </script>
 </body>
+
 </html>
-
-
-
 
