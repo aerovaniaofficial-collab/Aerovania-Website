@@ -429,7 +429,7 @@
             successEl.style.display = 'none';
             errorEl.style.display = 'none';
             try {
-                const res = await fetch(`${BACKEND}/api/careers`, {
+                const res = await fetch('/api/careers.php', {
                     method: 'POST',
                     body: new FormData(this),
                 });
@@ -443,7 +443,7 @@
                     errorEl.style.display = 'block';
                 }
             } catch {
-                errorEl.textContent = 'Server is waking up — please wait 30 seconds and try again.';
+                errorEl.textContent = 'Could not reach the server. Please check your connection and try again.';
                 errorEl.style.display = 'block';
             } finally {
                 btn.disabled = false;

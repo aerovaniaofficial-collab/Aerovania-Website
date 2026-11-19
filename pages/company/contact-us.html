@@ -267,10 +267,8 @@
     </footer>
     <script src="../../assets/js/script.js"></script>
     <script>
-        const BACKEND = 'https://aerovania-website.onrender.com';
 
         // Wake up the backend on page load (Render free tier cold start prevention)
-        fetch(`${BACKEND}/api/health`).catch(() => {});
 
         document.getElementById('contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -293,7 +291,7 @@
             };
 
             try {
-                const res = await fetch(`${BACKEND}/api/contact`, {
+                const res = await fetch('/api/contact.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data),
@@ -307,7 +305,7 @@
                     errorEl.style.display = 'block';
                 }
             } catch {
-                errorEl.textContent = 'Server is waking up — please wait 30 seconds and try again.';
+                errorEl.textContent = 'Could not reach the server. Please check your connection and try again.';
                 errorEl.style.display = 'block';
             } finally {
                 btn.disabled = false;
