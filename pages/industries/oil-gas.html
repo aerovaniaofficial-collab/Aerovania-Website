@@ -1,20 +1,20 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oil & Gas | Aerovania</title>
-    <meta name="description" content="Pipeline surveys, reservoir volumetrics, and refinery inspection using thermal and LiDAR drones.">
+    <title>Oil & Gas Pipeline Survey & Inspection | Aerovania</title>
+    <meta name="description" content="Aerial pipeline surveys, thermal leak detection, reservoir volumetrics, and refinery inspection for oil and gas infrastructure.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/mobile.css">
     <style>
         :root{--cyan:#34C0C5;--cyan2:#29a8ad;--navy:#0a0e20;--navy2:#0d1226;--navy3:#060c1a}
 
-        /* ══ HERO ══ */
+        /* -- HERO -- */
         .page-hero{position:relative;overflow:hidden;min-height:600px;display:flex;align-items:center;
             background:linear-gradient(135deg,var(--navy) 0%,#0b1630 55%,#091220 100%)}
         .page-hero-bg{position:absolute;inset:0;background-image:url('../../assets/images/Industries/Oil\ and\ Gas.png');background-size:cover;background-position:center 60%;z-index:0;transform:scale(1.04);transition:transform 8s ease-in-out}
@@ -55,7 +55,7 @@
         .hfb2{right:4%;top:52%;animation-delay:.9s}
         .hfb3{right:18%;top:74%;animation-delay:1.6s}
 
-        /* ══ INTRO STRIP ══ */
+        /* -- INTRO STRIP -- */
         .intro-strip{background:var(--navy3);padding:4.5rem 0;position:relative;overflow:hidden;
             border-bottom:1px solid rgba(52,192,197,.12)}
         .intro-strip::before{content:'';position:absolute;inset:0;
@@ -87,7 +87,7 @@
             line-height:1;text-shadow:0 0 20px rgba(52,192,197,.3)}
         .kpi-desc{font-size:.75rem;color:#64748b;margin-top:.25rem;line-height:1.4}
 
-        /* ══ TABS ══ */
+        /* -- TABS -- */
         .tabs-section{background:#f4f7fb;padding:5.5rem 0;position:relative}
         .tabs-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
             background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
@@ -138,7 +138,7 @@
         .tab-feat-item:hover{background:rgba(52,192,197,.06)}
         .tab-feat-item i{color:var(--cyan);font-size:1.05rem;margin-top:.1rem;flex-shrink:0}
 
-        /* ══ WHY ══ */
+        /* -- WHY -- */
         .why-section{background:#fff;padding:5.5rem 0;position:relative;overflow:hidden}
         .why-section::after{content:'';position:absolute;width:500px;height:500px;
             background:radial-gradient(circle,rgba(52,192,197,.05) 0%,transparent 70%);
@@ -159,7 +159,7 @@
         .why-card h3{font-size:1rem;font-weight:700;color:#0a0e20;margin:0 0 .65rem}
         .why-card p{font-size:.88rem;color:#475569;line-height:1.7;margin:0}
 
-        /* ══ PROCESS ══ */
+        /* -- PROCESS -- */
         .process-section{background:#f4f7fb;padding:5.5rem 0;position:relative}
         .process-section::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
             background:linear-gradient(90deg,transparent,rgba(52,192,197,.4),transparent)}
@@ -177,7 +177,7 @@
         .process-step h4{font-size:1rem;font-weight:700;color:#0a0e20;margin:0 0 .5rem}
         .process-step p{font-size:.85rem;color:#475569;line-height:1.65;margin:0}
 
-        /* ══ STATS BAND ══ */
+        /* -- STATS BAND -- */
         .stats-row-section{background:linear-gradient(135deg,#060c1a 0%,#0a1628 100%);
             padding:4.5rem 0;position:relative;overflow:hidden}
         .stats-row-section::before{content:'';position:absolute;width:700px;height:350px;
@@ -200,7 +200,7 @@
         .geo-stat-lbl{font-size:.78rem;color:#64748b;margin-top:.3rem;text-align:center}
         .geo-stat-sep{width:1px;height:60px;background:rgba(52,192,197,.2);flex-shrink:0}
 
-        /* ══ CTA ══ */
+        /* -- CTA -- */
         .section-cta{background:linear-gradient(135deg,#060c1a 0%,#0b1a2e 100%);
             position:relative;overflow:hidden;padding:5rem 0;text-align:center}
         .section-cta::before{content:'';position:absolute;width:600px;height:400px;
@@ -218,13 +218,13 @@
             transition:all .3s}
         .btn-ghost-cyan:hover{border-color:rgba(52,192,197,.45);color:var(--cyan)}
 
-        /* ══ REVEAL ANIMATIONS ══ */
+        /* -- REVEAL ANIMATIONS -- */
         .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
         .reveal.visible{opacity:1;transform:none}
         .stagger-1{transition-delay:.1s}.stagger-2{transition-delay:.2s}.stagger-3{transition-delay:.3s}
         .stagger-4{transition-delay:.4s}.stagger-5{transition-delay:.5s}.stagger-6{transition-delay:.6s}
 
-        /* ══ RESPONSIVE ══ */
+        /* -- RESPONSIVE -- */
         @media(max-width:900px){
             .tabs-layout{grid-template-columns:1fr}
             .tab-list{flex-wrap:wrap}
@@ -244,13 +244,32 @@
             .geo-stat-item{padding:1rem 1.5rem}
         }
     </style>
-</head>
+    <link rel="icon" type="image/png" href="../../assets/images/Aero.png">
+    <link rel="apple-touch-icon" href="../../assets/images/Aero.png">
+    <link rel="canonical" href="https://www.aerovania.com/pages/industries/oil-gas.html">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aerovania">
+    <meta property="og:title" content="Oil & Gas | Aerovania  Pipeline Survey & Reservoir Monitoring">
+    <meta property="og:description" content="Aerial pipeline surveys, thermal leak detection, reservoir volumetrics, and refinery inspection for oil and gas infrastructure.">
+    <meta property="og:image" content="https://www.aerovania.com/assets/images/Oil-and-Gas-storage.jpg.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Oil & Gas | Aerovania  Pipeline Survey & Reservoir Monitoring">
+    <meta name="twitter:description" content="Aerial pipeline surveys, thermal leak detection, reservoir volumetrics, and refinery inspection for oil and gas infrastructure.">
+    <meta name="twitter:image" content="https://www.aerovania.com/assets/images/Oil-and-Gas-storage.jpg.jpeg"></head>
 <body>
     <!-- Header -->
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                <a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
                         class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
@@ -340,7 +359,7 @@
     </header>
 
     
-    <!-- ── HERO ── -->
+    <!-- -- HERO -- -->
     <section class="page-hero">
         <div class="page-hero-bg"></div>
         <div class="page-hero-overlay"></div>
@@ -357,12 +376,12 @@
     </div>
     <div class="hero-float-badge hfb3" style="animation-delay:1.8s">
         <i class="ph ph-waves"></i>
-        <div><div class="fb-val">±5mm</div><div class="fb-lbl">LiDAR Accuracy</div></div>
+        <div><div class="fb-val">5mm</div><div class="fb-lbl">LiDAR Accuracy</div></div>
     </div>
         <div class="container">
             <div class="hero-eyebrow"><i class="ph ph-drop"></i> Oil & Gas Inspection Intelligence</div>
             <h1>Safer Pipeline Inspection from Above</h1>
-            <p class="hero-sub">Pipeline surveys, reservoir volumetrics, and refinery inspection using thermal and LiDAR drones — no shutdowns, no scaffolding, no confined-space entry.</p>
+            <p class="hero-sub">Pipeline surveys, reservoir volumetrics, and refinery inspection using thermal and LiDAR drones  no shutdowns, no scaffolding, no confined-space entry.</p>
             <div class="hero-cta-row">
                 <a href="../../pages/company/contact-us.html" class="btn btn-primary btn-lg">Talk to an Expert</a>
                 <a href="#capabilities" class="btn btn-outline-cyan">Explore Capabilities</a>
@@ -370,13 +389,13 @@
         </div>
     </section>
 
-    <!-- ── INTRO ── -->
+    <!-- -- INTRO -- -->
     <section class="intro-strip">
         <div class="container">
             <div class="intro-text-block reveal">
                 <div class="intro-strip-eyebrow"><i class="ph ph-drop"></i>Oil & Gas Inspection Intelligence</div>
                 <h2>Safer Pipeline Inspection <span>from Above</span></h2>
-                <p>Aerovania delivers drone-based pipeline surveys, reservoir volumetrics, and thermal refinery inspections — replacing dangerous manual inspections with faster, safer, and more accurate aerial intelligence.</p>
+                <p>Aerovania delivers drone-based pipeline surveys, reservoir volumetrics, and thermal refinery inspections  replacing dangerous manual inspections with faster, safer, and more accurate aerial intelligence.</p>
                 <div class="intro-trust-row">
                     <div class="intro-trust-badge"><i class="ph ph-lightning"></i>Zero Shutdown</div>
                     <div class="intro-trust-badge"><i class="ph ph-file-text"></i>PNGRB Compliant</div>
@@ -392,7 +411,7 @@
         </div>
     </section>
 
-    <!-- ── CAPABILITIES ── -->
+    <!-- -- CAPABILITIES -- -->
     <section id="capabilities" class="tabs-section">
         <div class="container">
             <div class="section-head reveal">
@@ -411,12 +430,12 @@
                 <div class="tab-panel active" id="t1">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Oil-and-Gas/pipeline.jpg" alt="Pipeline Survey">
+                            <img loading="lazy" src="../../assets/images/Oil-and-Gas/pipeline.jpg" alt="Pipeline Survey">
                             <div class="panel-badge"><i class="ph-pipe"></i><span>Pipeline Survey Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Pipeline Survey</h3>
-                            <p>LiDAR and visual drone surveys of pipeline corridors detect encroachments, third-party damage, corrosion, and right-of-way violations — covering hundreds of kilometres per day without ground access.</p>
+                            <p>LiDAR and visual drone surveys of pipeline corridors detect encroachments, third-party damage, corrosion, and right-of-way violations  covering hundreds of kilometres per day without ground access.</p>
                             <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Corridor encroachment detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Third-party damage identification</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>ROW violation mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>GIS-ready outputs</div></div>
                         </div>
                     </div>
@@ -424,12 +443,12 @@
                 <div class="tab-panel" id="t2">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Oil-and-Gas/Thermal.jpeg" alt="Thermal Leak Detection">
+                            <img loading="lazy" src="../../assets/images/Oil-and-Gas/Thermal.jpeg" alt="Thermal Leak Detection">
                             <div class="panel-badge"><i class="ph-thermometer"></i><span>Thermal Scan Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Thermal Leak Detection</h3>
-                            <p>Thermal drone surveys detect pipeline leaks, hotspots, and insulation failures along above-ground pipelines and at facilities — identifying issues before they become safety incidents.</p>
+                            <p>Thermal drone surveys detect pipeline leaks, hotspots, and insulation failures along above-ground pipelines and at facilities  identifying issues before they become safety incidents.</p>
                             <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Pipeline leak detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Insulation failure mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Hotspot identification</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Automated alert reports</div></div>
                         </div>
                     </div>
@@ -437,12 +456,12 @@
                 <div class="tab-panel" id="t3">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Oil-and-Gas/Resorvior.jpg" alt="Reservoir Volumetrics">
+                            <img loading="lazy" src="../../assets/images/Oil-and-Gas/Resorvior.jpg" alt="Reservoir Volumetrics">
                             <div class="panel-badge"><i class="ph-cylinder"></i><span>Volumetric Survey Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Reservoir Volumetrics</h3>
-                            <p>Drone-based volumetric surveys of oil storage tanks, earthen reservoirs, and containment berms provide accurate inventory data — replacing manual dipping and unsafe confined-space entry.</p>
+                            <p>Drone-based volumetric surveys of oil storage tanks, earthen reservoirs, and containment berms provide accurate inventory data  replacing manual dipping and unsafe confined-space entry.</p>
                             <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Tank & reservoir volumes</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Berm condition mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Inventory reconciliation</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>No confined-space entry</div></div>
                         </div>
                     </div>
@@ -450,12 +469,12 @@
                 <div class="tab-panel" id="t4">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Oil-and-Gas/refinery.jpeg" alt="Refinery Inspection">
+                            <img loading="lazy" src="../../assets/images/Oil-and-Gas/refinery.jpeg" alt="Refinery Inspection">
                             <div class="panel-badge"><i class="ph-factory"></i><span>Refinery Inspection Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Refinery Inspection</h3>
-                            <p>Thermal and visual drone inspection of refinery structures — flare stacks, cooling towers, storage tanks, and process units — detecting corrosion, hotspots, and structural defects without scaffolding.</p>
+                            <p>Thermal and visual drone inspection of refinery structures  flare stacks, cooling towers, storage tanks, and process units  detecting corrosion, hotspots, and structural defects without scaffolding.</p>
                             <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Flare stack inspection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Cooling tower assessment</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Corrosion detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>No scaffolding required</div></div>
                         </div>
                     </div>
@@ -463,12 +482,12 @@
                 <div class="tab-panel" id="t5">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Oil-and-Gas/oil.jpg" alt="Environmental Compliance">
+                            <img loading="lazy" src="../../assets/images/Oil-and-Gas/oil.jpg" alt="Environmental Compliance">
                             <div class="panel-badge"><i class="ph-leaf"></i><span>Compliance Monitoring Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Environmental Compliance</h3>
-                            <p>Regular drone surveys monitor oil and gas facilities for environmental compliance — detecting spills, vegetation damage, and land contamination for regulatory reporting and remediation planning.</p>
+                            <p>Regular drone surveys monitor oil and gas facilities for environmental compliance  detecting spills, vegetation damage, and land contamination for regulatory reporting and remediation planning.</p>
                             <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Spill detection & mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Vegetation damage monitoring</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Land contamination mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Regulatory compliance reports</div></div>
                         </div>
                     </div>
@@ -478,7 +497,7 @@
         </div>
     </section>
 
-    <!-- ── WHY AEROVANIA ── -->
+    <!-- -- WHY AEROVANIA -- -->
     <section class="why-section">
         <div class="container">
             <div class="section-head reveal" style="text-align:center;margin-bottom:3rem">
@@ -489,15 +508,15 @@
             <div class="why-grid">
             <div class="why-card reveal stagger-1"><div class="why-icon"><i class="ph ph-lightning"></i></div><h3>Zero Shutdown Required</h3><p>Drone inspections of pipelines, refineries, and storage facilities require no process shutdown or production interruption.</p></div>
             <div class="why-card reveal stagger-2"><div class="why-icon"><i class="ph ph-thermometer"></i></div><h3>Thermal Leak Detection</h3><p>Thermal cameras detect pipeline leaks, insulation failures, and hotspots before they become safety or environmental incidents.</p></div>
-            <div class="why-card reveal stagger-3"><div class="why-icon"><i class="ph ph-waves"></i></div><h3>LiDAR Pipeline Survey</h3><p>LiDAR surveys map pipeline corridors with ±5mm accuracy — detecting encroachments and ROW violations across hundreds of kilometres.</p></div>
+            <div class="why-card reveal stagger-3"><div class="why-icon"><i class="ph ph-waves"></i></div><h3>LiDAR Pipeline Survey</h3><p>LiDAR surveys map pipeline corridors with 5mm accuracy  detecting encroachments and ROW violations across hundreds of kilometres.</p></div>
             <div class="why-card reveal stagger-4"><div class="why-icon"><i class="ph ph-brain"></i></div><h3>AI Defect Analysis</h3><p>Machine learning models automatically classify corrosion, structural defects, and environmental violations from drone imagery.</p></div>
             <div class="why-card reveal stagger-5"><div class="why-icon"><i class="ph ph-file-text"></i></div><h3>Regulatory Compliance</h3><p>Automated inspection reports meet PNGRB, MoEFCC, and oil company regulatory documentation requirements.</p></div>
-            <div class="why-card reveal stagger-6"><div class="why-icon"><i class="ph ph-rocket"></i></div><h3>Rapid Deployment</h3><p>Field-deployable drone systems operational within hours — designed for rapid response to pipeline incidents and spills.</p></div>
+            <div class="why-card reveal stagger-6"><div class="why-icon"><i class="ph ph-rocket"></i></div><h3>Rapid Deployment</h3><p>Field-deployable drone systems operational within hours  designed for rapid response to pipeline incidents and spills.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- ── HOW IT WORKS ── -->
+    <!-- -- HOW IT WORKS -- -->
     <section class="process-section">
         <div class="container">
             <div class="section-head reveal" style="text-align:center;margin-bottom:0">
@@ -513,7 +532,7 @@
         </div>
     </section>
 
-    <!-- ── STATS ── -->
+    <!-- -- STATS -- -->
     <section class="stats-row-section">
         <div class="container">
             <div class="geo-stats-header reveal">
@@ -526,14 +545,14 @@
                 <div class="geo-stat-sep"></div>
                 <div class="geo-stat-item"><span class="geo-stat-num">Thermal</span><span class="geo-stat-unit">Detection</span><span class="geo-stat-lbl">Leak ID</span></div>
                 <div class="geo-stat-sep"></div>
-                <div class="geo-stat-item"><span class="geo-stat-num">±5</span><span class="geo-stat-unit">mm</span><span class="geo-stat-lbl">LiDAR Accuracy</span></div>
+                <div class="geo-stat-item"><span class="geo-stat-num">5</span><span class="geo-stat-unit">mm</span><span class="geo-stat-lbl">LiDAR Accuracy</span></div>
                 <div class="geo-stat-sep"></div>
                 <div class="geo-stat-item"><span class="geo-stat-num">AI-Powered</span><span class="geo-stat-unit">Analysis</span><span class="geo-stat-lbl">Pipeline Reports</span></div>
             </div>
         </div>
     </section>
 
-    <!-- ── CTA ── -->
+    <!-- -- CTA -- -->
     <section class="section-cta">
         <div class="container reveal">
             <h2>Modernise Your <span>Pipeline Inspections</span></h2>
@@ -548,7 +567,7 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-col brand-col">
-                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png"
+                <div class="logo"><a href="/"><img src="../../assets/images/aerovania-logo.png"
                             alt="Aerovania Logo" class="footer-logo"></a>
                     <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
                     </div>
@@ -649,7 +668,7 @@
 
     
     <script>
-    // ── Tab switching with animation ──
+    // -- Tab switching with animation --
     document.querySelectorAll(".tab-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const t = btn.dataset.tab;
@@ -661,14 +680,14 @@
         });
     });
 
-    // ── Scroll reveal ──
+    // -- Scroll reveal --
     const revealEls = document.querySelectorAll(".reveal");
     const ro = new IntersectionObserver((entries) => {
         entries.forEach(e => { if(e.isIntersecting){e.target.classList.add("visible");ro.unobserve(e.target);} });
     }, {threshold:0.1});
     revealEls.forEach(el => ro.observe(el));
 
-    // ── Animated stat counters ──
+    // -- Animated stat counters --
     function animCount(el) {
         const raw = el.dataset.raw || el.textContent.trim();
         el.dataset.raw = raw;
@@ -697,7 +716,7 @@
     }, {threshold:0.3});
     document.querySelectorAll(".geo-stat-item").forEach(el => statObs.observe(el));
 
-    // ── Particle canvas in hero ──
+    // -- Particle canvas in hero --
     (function(){
         const canvas = document.getElementById("heroCanvas");
         if (!canvas) return;
@@ -728,7 +747,7 @@
         draw();
     })();
 
-    // ── Why-card 3D tilt ──
+    // -- Why-card 3D tilt --
     document.querySelectorAll(".why-card").forEach(card=>{
         card.style.transformStyle="preserve-3d";
         card.addEventListener("mousemove",e=>{
@@ -739,7 +758,7 @@
         card.addEventListener("mouseleave",()=>{card.style.transform="";});
     });
 
-    // ── Mobile nav ──
+    // -- Mobile nav --
     const mobileBtn=document.querySelector(".mobile-menu-btn");
     const mobilePanel=document.getElementById("mobilePanel");
     const mobileOverlay=document.getElementById("mobileOverlay");
@@ -755,6 +774,13 @@
 
 </html>
 </html>
+
+
+
+
+
+
+
 
 
 

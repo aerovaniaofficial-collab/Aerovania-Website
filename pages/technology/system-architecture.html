@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/mobile.css">
     <style>
@@ -80,13 +80,23 @@
         @media(max-width:900px) { .tabs-layout{grid-template-columns:1fr} .tab-list{flex-direction:row;flex-wrap:wrap} .tab-btn{flex:1;min-width:140px} .why-grid{grid-template-columns:1fr 1fr} .stats-band-grid{grid-template-columns:repeat(2,1fr)} .intro-strip .container{grid-template-columns:1fr} .tab-feat-grid{grid-template-columns:1fr} }
         @media(max-width:540px) { .why-grid{grid-template-columns:1fr} .stats-band-grid{grid-template-columns:1fr 1fr} }
     </style>
-</head>
+    <link rel="icon" type="image/png" href="../../assets/images/Aero.png">
+    <link rel="apple-touch-icon" href="../../assets/images/Aero.png">
+    <link rel="canonical" href="https://www.aerovania.com/pages/technology/system-architecture.html">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script></head>
 <body>
     <!-- Header -->
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
+                <a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
                 <div class="nav-contact-info" style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
@@ -218,7 +228,7 @@
                 <div class="tab-panels">
                     <div class="tab-panel active" id="t1">
                         <div class="tab-panel-inner">
-                            <div class="tab-panel-img"><img src="../../assets/images/hero_drone_survey.png" alt="Acquisition Layer"><div class="panel-badge"><i class="ph ph-drone"></i><span>Acquisition Layer</span></div></div>
+                            <div class="tab-panel-img"><img loading="lazy" src="../../assets/images/hero_drone_survey.png" alt="Acquisition Layer"><div class="panel-badge"><i class="ph ph-drone"></i><span>Acquisition Layer</span></div></div>
                             <div class="tab-panel-body">
                                 <h3>Hardware &amp; Sensor Acquisition</h3>
                                 <p>Purpose-built drone platforms carry modular sensor payloads  LiDAR, RGB, multispectral, thermal, and hyperspectral  matched to each mission profile and operating environment.</p>
@@ -233,7 +243,7 @@
                     </div>
                     <div class="tab-panel" id="t2">
                         <div class="tab-panel-inner">
-                            <div class="tab-panel-img"><img src="../../assets/images/hero_lidar_terrain.png" alt="Processing Layer"><div class="panel-badge"><i class="ph ph-cpu"></i><span>Processing Pipeline</span></div></div>
+                            <div class="tab-panel-img"><img loading="lazy" src="../../assets/images/hero_lidar_terrain.png" alt="Processing Layer"><div class="panel-badge"><i class="ph ph-cpu"></i><span>Processing Pipeline</span></div></div>
                             <div class="tab-panel-body">
                                 <h3>Edge &amp; Cloud Processing Pipeline</h3>
                                 <p>Raw sensor data flows through a multi-stage pipeline  photogrammetry, point cloud fusion, orthorectification, and data calibration  producing verified, analysis-ready outputs at scale.</p>
@@ -248,7 +258,7 @@
                     </div>
                     <div class="tab-panel" id="t3">
                         <div class="tab-panel-inner">
-                            <div class="tab-panel-img"><img src="../../assets/images/hero_ai_monitoring.png" alt="AI Analytics"><div class="panel-badge"><i class="ph ph-brain"></i><span>AI Analytics Active</span></div></div>
+                            <div class="tab-panel-img"><img loading="lazy" src="../../assets/images/hero_ai_monitoring.png" alt="AI Analytics"><div class="panel-badge"><i class="ph ph-brain"></i><span>AI Analytics Active</span></div></div>
                             <div class="tab-panel-body">
                                 <h3>AI &amp; Analytics Intelligence</h3>
                                 <p>Computer vision models, change detection algorithms, and predictive analytics extract actionable intelligence from processed data  running on-device for real-time results or at cloud scale for large datasets.</p>
@@ -263,7 +273,7 @@
                     </div>
                     <div class="tab-panel" id="t4">
                         <div class="tab-panel-inner">
-                            <div class="tab-panel-img"><img src="../../assets/images/hero_ai_dashboard.png" alt="Delivery Layer"><div class="panel-badge"><i class="ph ph-map-trifold"></i><span>GIS Delivery</span></div></div>
+                            <div class="tab-panel-img"><img loading="lazy" src="../../assets/images/hero_ai_dashboard.png" alt="Delivery Layer"><div class="panel-badge"><i class="ph ph-map-trifold"></i><span>GIS Delivery</span></div></div>
                             <div class="tab-panel-body">
                                 <h3>GIS-Ready Intelligence Delivery</h3>
                                 <p>Processed intelligence is delivered as GIS-ready files, web dashboards, API feeds, or custom client portals  integrated directly into your existing workflows and systems.</p>
@@ -322,7 +332,7 @@
 
     <footer class="footer">
         <div class="container footer-grid">
-            <div class="footer-col brand-col"><div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a><div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div></div><div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div></div>
+            <div class="footer-col brand-col"><div class="logo"><a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a><div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div></div><div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div></div>
             <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="../../pages/company/about-us.html">About Us</a></li><li><a href="../../pages/industries/mining.html">Industries</a></li><li><a href="../../pages/solutions/geospatial-ai.html">Solutions</a></li></ul></div>
             <div class="footer-col"><h4>Company</h4><ul><li><a href="../../pages/company/about-us.html">Our Vision</a></li><li><a href="../../pages/company/careers.html">Careers</a></li><li><a href="../../pages/company/contact-us.html">Contact</a></li></ul></div>
             <div class="footer-col contact-col"><h4>Contact Us</h4><ul><li><i class="ph ph-phone"></i> <strong>Business:</strong> <a href="tel:+917875855217" style="color:inherit;text-decoration:none;">+91 78758 55217</a></li><li><i class="ph ph-phone"></i> <strong>Customer:</strong> <a href="tel:+919834491075" style="color:inherit;text-decoration:none;">+91 98344 91075</a></li><li><i class="ph ph-envelope"></i> info@aerovania.com</li><li><i class="ph ph-globe"></i> www.aerovania.com</li><li><i class="ph ph-map-pin"></i> Plot No. D1/A &amp; D4/2, Wadi Road, MIDC, Nagpur, Maharashtra</li></ul></div>
@@ -400,5 +410,10 @@
     </script>
 </body>
 </html>
+
+
+
+
+
 
 

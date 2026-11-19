@@ -5,6 +5,7 @@
     "type": "Full-Time",
     "location": "Nagpur / Hybrid",
     "department": "Engineering",
+    "description": "Build and deploy AI/ML models for real-time aerial image analysis. You'll work on object detection, segmentation, and classification pipelines using Python, PyTorch/TensorFlow, and OpenCV — integrated directly into our drone intelligence stack.",
     "active": true
   },
   {
@@ -13,6 +14,7 @@
     "type": "Full-Time",
     "location": "Nagpur",
     "department": "Hardware",
+    "description": "Design, build, and test UAV platforms including airframes, propulsion systems, and flight controllers. You'll collaborate with embedded and software teams to deliver reliable drone systems for industrial survey applications.",
     "active": true
   },
   {
@@ -21,6 +23,7 @@
     "type": "Full-Time",
     "location": "Nagpur / Remote",
     "department": "Geospatial",
+    "description": "Process LiDAR point clouds, orthomosaics, and satellite imagery into actionable geospatial intelligence. Proficiency in QGIS, ArcGIS, or similar tools required. Experience with photogrammetry software (Pix4D, Agisoft) is a plus.",
     "active": true
   },
   {
@@ -29,6 +32,7 @@
     "type": "Full-Time",
     "location": "Nagpur",
     "department": "Embedded",
+    "description": "Develop low-latency firmware and edge computing solutions for onboard drone processors. Work with C/C++, ROS, and custom hardware interfaces to enable real-time AI inference at sub-200ms speeds.",
     "active": true
   },
   {
@@ -37,6 +41,7 @@
     "type": "Full-Time",
     "location": "Pan-India",
     "department": "Sales",
+    "description": "Drive revenue growth by identifying and closing opportunities in mining, railways, highways, and energy sectors. You'll manage the full sales cycle — from prospecting and demos to proposals and contracts — for our drone survey and AI monitoring solutions.",
     "active": true
   }
 ]

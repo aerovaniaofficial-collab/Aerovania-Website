@@ -1,6 +1,8 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8"></head>
+<head><meta charset="UTF-8">    <link rel="icon" type="image/png" href="../../assets/images/Aero.png">
+    <link rel="apple-touch-icon" href="../../assets/images/Aero.png">    <link rel="canonical" href="https://www.aerovania.com/assets/video/lidar_train_wagon_analysis_system.html">
+</head>
 <body>
 <style>
   * {
@@ -103,7 +105,7 @@
   <div id="overlay-stats">
     <div>Scan coverage &nbsp;<span class="val" id="sv">0%</span></div>
     <div>Points captured &nbsp;<span class="val" id="pc">0</span></div>
-    <div>Load variance &nbsp;<span class="val" id="lv">â€”</span></div>
+    <div>Load variance &nbsp;<span class="val" id="lv">—</span></div>
     <div>Status &nbsp;<span class="val" id="st">SCANNING</span></div>
   </div>
   <div id="progress-bar" style="width:0%"></div>
@@ -116,7 +118,7 @@
   canvas.width = W; canvas.height = H;
 
   let frame = 0;
-  const TOTAL_FRAMES = 200; // 5s at 30fps â€” scene1: 0-74, scene3: 75-149
+  const TOTAL_FRAMES = 200; // 5s at 30fps — scene1: 0-74, scene3: 75-149
   let sceneLabel = document.getElementById('scene-label');
   let sceneNum = document.getElementById('scene-num');
   let progressBar = document.getElementById('progress-bar');
@@ -153,8 +155,8 @@
   function getScene(f) {
     const t = f / TOTAL_FRAMES;
     // Only show scene 1 (first 50%) and scene 3 (last 50%)
-    if (t < 0.5) return { id: 1, t: t / 0.5, label: 'AERIAL OVERVIEW â€” PULLEY TROLLEY SYSTEM', num: '01 / 02' };
-    return { id: 3, t: (t - 0.5) / 0.5, label: '3D POINT CLOUD â€” WAGON LOAD MAP', num: '02 / 02' };
+    if (t < 0.5) return { id: 1, t: t / 0.5, label: 'AERIAL OVERVIEW — PULLEY TROLLEY SYSTEM', num: '01 / 02' };
+    return { id: 3, t: (t - 0.5) / 0.5, label: '3D POINT CLOUD — WAGON LOAD MAP', num: '02 / 02' };
   }
 
   // --- SCENE 1: Aerial View ---
@@ -291,13 +293,13 @@
     ctx.fillText('PULLEY-GUIDED LIDAR TROLLEY SYSTEM', 20, 500);
     ctx.fillStyle = 'rgba(0,200,255,0.4)';
     ctx.font = '10px monospace';
-    ctx.fillText('Coal / Iron Ore Loading Site  â€”  Automated Load Stability Inspection', 20, 514);
+    ctx.fillText('Coal / Iron Ore Loading Site  —  Automated Load Stability Inspection', 20, 514);
 
     scanProgress = Math.floor(t * 100);
     pointCount = Math.floor(t * 24800);
     setStat(svEl, scanProgress + '%');
     setStat(pcEl, pointCount.toLocaleString());
-    setStat(lvEl, 'Â±4.2 t');
+    setStat(lvEl, '±4.2 t');
     setStat(stEl, 'SCANNING');
   }
 
@@ -415,7 +417,7 @@
 
     setStat(svEl, Math.floor(t * 100) + '%');
     setStat(pcEl, Math.floor(t * 32000).toLocaleString());
-    setStat(lvEl, 'Â±3.8 t');
+    setStat(lvEl, '±3.8 t');
     setStat(stEl, t > 0.9 ? 'COMPLETE' : 'SCANNING');
   }
 
@@ -475,7 +477,7 @@
     sorted.forEach(p => {
       let pos = iso(p.x, p.y, p.z);
       let h = (p.z - wHt) / 8;
-      // Color by height: blueâ†’cyanâ†’greenâ†’yellowâ†’red
+      // Color by height: blue?cyan?green?yellow?red
       let hue = 240 - h * 240;
       ctx.fillStyle = `hsl(${hue},100%,60%)`;
       ctx.beginPath(); ctx.arc(pos.px, pos.py, 1.2, 0, Math.PI * 2); ctx.fill();
@@ -492,7 +494,7 @@
 
     // Labels
     ctx.fillStyle = 'rgba(0,200,255,0.8)'; ctx.font = '11px monospace';
-    ctx.fillText('3D LIDAR POINT CLOUD â€” WAGON LOAD SURFACE', 20, 30);
+    ctx.fillText('3D LIDAR POINT CLOUD — WAGON LOAD SURFACE', 20, 30);
     ctx.fillStyle = 'rgba(0,200,255,0.4)'; ctx.font = '10px monospace';
     ctx.fillText(`Points rendered: ${sorted.length.toLocaleString()}`, 20, 48);
 
@@ -508,7 +510,7 @@
 
     setStat(svEl, '100%');
     setStat(pcEl, sorted.length.toLocaleString());
-    setStat(lvEl, 'Â±3.1 t');
+    setStat(lvEl, '±3.1 t');
     setStat(stEl, 'PROCESSING');
   }
 
@@ -519,7 +521,7 @@
     ctx.fillRect(0, 0, W, H);
 
     ctx.fillStyle = 'rgba(0,200,255,0.8)'; ctx.font = '500 13px var(--font-sans, monospace)';
-    ctx.fillText('WAGON WEIGHT DISTRIBUTION â€” STABILITY ANALYSIS', 24, 32);
+    ctx.fillText('WAGON WEIGHT DISTRIBUTION — STABILITY ANALYSIS', 24, 32);
 
     // Draw 3 wagons side by side
     const cols = 5, rows = 3;
@@ -645,9 +647,9 @@
     ctx.beginPath(); ctx.moveTo(0, 44); ctx.lineTo(W, 44); ctx.stroke();
 
     ctx.fillStyle = '#00c8ff'; ctx.font = '500 12px monospace';
-    ctx.fillText('â–¶  SMART WAGON LOAD INSPECTOR  v2.4', 16, 27);
+    ctx.fillText('?  SMART WAGON LOAD INSPECTOR  v2.4', 16, 27);
     ctx.fillStyle = 'rgba(0,255,150,0.8)'; ctx.font = '10px monospace';
-    ctx.fillText('â— LIVE', 540, 27);
+    ctx.fillText('? LIVE', 540, 27);
     ctx.fillStyle = 'rgba(0,200,255,0.5)';
     let d = new Date(); ctx.fillText(d.toTimeString().slice(0, 8), 590, 27);
 
@@ -732,7 +734,7 @@
     // Engineer view - bottom area
     ctx.fillStyle = 'rgba(0,15,30,0.85)'; ctx.fillRect(14, 318, 652, 150);
     ctx.strokeStyle = 'rgba(0,150,200,0.3)'; ctx.lineWidth = 1; ctx.strokeRect(14, 318, 652, 150);
-    ctx.fillStyle = 'rgba(0,200,255,0.5)'; ctx.font = '9px monospace'; ctx.fillText('INSPECTION REPORT â€” AUTOMATED DERAILMENT RISK ASSESSMENT', 24, 333);
+    ctx.fillStyle = 'rgba(0,200,255,0.5)'; ctx.font = '9px monospace'; ctx.fillText('INSPECTION REPORT — AUTOMATED DERAILMENT RISK ASSESSMENT', 24, 333);
 
     // Engineer silhouette (simple)
     let eX = 580, eY = 340;
@@ -744,12 +746,12 @@
 
     // Report lines
     const reportLines = [
-      { c: 'rgba(0,255,150,0.8)', t: 'âœ”  Scan complete â€” 32,480 points captured across W-03' },
-      { c: 'rgba(0,255,150,0.8)', t: 'âœ”  Load surface mapped â€” peak height: 1.38m at cell [2,3]' },
-      { c: 'rgba(0,255,150,0.8)', t: 'âœ”  Weight distribution: 96.2% balanced (threshold 90%)' },
-      { c: 'rgba(255,220,0,0.8)', t: 'âš   Minor asymmetry detected â€” CoG offset: 4cm rightward' },
-      { c: 'rgba(0,255,150,0.8)', t: 'âœ”  Derailment risk index: 0.08 (SAFE â€” limit 0.35)' },
-      { c: 'rgba(0,255,150,0.8)', t: 'âœ”  Clearance check passed â€” no oversize load detected' }
+      { c: 'rgba(0,255,150,0.8)', t: '?  Scan complete — 32,480 points captured across W-03' },
+      { c: 'rgba(0,255,150,0.8)', t: '?  Load surface mapped — peak height: 1.38m at cell [2,3]' },
+      { c: 'rgba(0,255,150,0.8)', t: '?  Weight distribution: 96.2% balanced (threshold 90%)' },
+      { c: 'rgba(255,220,0,0.8)', t: '?  Minor asymmetry detected — CoG offset: 4cm rightward' },
+      { c: 'rgba(0,255,150,0.8)', t: '?  Derailment risk index: 0.08 (SAFE — limit 0.35)' },
+      { c: 'rgba(0,255,150,0.8)', t: '?  Clearance check passed — no oversize load detected' }
     ];
     let showLines = Math.min(reportLines.length, Math.floor(t * reportLines.length * 1.4));
     reportLines.slice(0, showLines).forEach((l, i) => {
@@ -763,7 +765,7 @@
   function drawAll() {
     ctx.clearRect(0, 0, W, H);
     let scene = getScene(frame);
-    if (sceneLabel) sceneLabel.textContent = 'SCENE ' + scene.id + ' â€” ' + scene.label;
+    if (sceneLabel) sceneLabel.textContent = 'SCENE ' + scene.id + ' — ' + scene.label;
     if (sceneNum) sceneNum.textContent = scene.num;
     if (progressBar) progressBar.style.width = (frame / TOTAL_FRAMES * 100).toFixed(1) + '%';
 
@@ -799,3 +801,4 @@
 
 </body>
 </html>
+

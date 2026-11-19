@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mining | Aerovania</title>
+    <title>Mining Drone Survey & AI Compliance Monitoring | Aerovania</title>
     <meta name="description"
         content="AI-powered drone intelligence for open-cast mining  volumetric surveys, stockpile management, and safety monitoring.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,13 +12,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/mobile.css">
     <style>
         :root{--cyan:#34C0C5;--cyan2:#29a8ad;--navy:#0a0e20;--navy2:#0d1226;--navy3:#060c1a}
 
-        /* ══ HERO ══ */
+        /* -- HERO -- */
         .page-hero{position:relative;overflow:hidden;min-height:600px;display:flex;align-items:center;
             background:linear-gradient(135deg,var(--navy) 0%,#0b1630 55%,#091220 100%)}
         .page-hero-bg{position:absolute;inset:0;background-image:url('../../assets/images/Industries/mining.jpg');background-size:cover;background-position:center 60%;z-index:0;transform:scale(1.04);transition:transform 8s ease-in-out}
@@ -60,7 +60,7 @@
         .hfb2{right:5%;top:55%;animation-delay:.8s}
         .hfb3{right:20%;top:75%;animation-delay:1.4s}
 
-        /* ══ INTRO STRIP ══ */
+        /* -- INTRO STRIP -- */
         .intro-strip{background:var(--navy3);padding:4.5rem 0;position:relative;overflow:hidden;
             border-bottom:1px solid rgba(52,192,197,.12)}
         .intro-strip::before{content:'';position:absolute;inset:0;
@@ -96,7 +96,7 @@
             line-height:1;text-shadow:0 0 20px rgba(52,192,197,.3)}
         .kpi-desc{font-size:.75rem;color:#64748b;margin-top:.25rem;line-height:1.4}
 
-        /* ══ TABS SECTION ══ */
+        /* -- TABS SECTION -- */
         .tabs-section{background:#f4f7fb;padding:5.5rem 0;position:relative}
         .tabs-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
             background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
@@ -156,7 +156,7 @@
         .tab-feat-item:hover{background:rgba(52,192,197,.06)}
         .tab-feat-item i{color:var(--cyan);font-size:1.05rem;margin-top:.1rem;flex-shrink:0}
 
-        /* ══ WHY SECTION ══ */
+        /* -- WHY SECTION -- */
         .why-section{background:#fff;padding:5.5rem 0;position:relative;overflow:hidden}
         .why-section::after{content:'';position:absolute;width:500px;height:500px;
             background:radial-gradient(circle,rgba(52,192,197,.05) 0%,transparent 70%);
@@ -179,7 +179,7 @@
         .why-card h3{font-size:1rem;font-weight:700;color:#0a0e20;margin:0 0 .65rem}
         .why-card p{font-size:.88rem;color:#475569;line-height:1.7;margin:0}
 
-        /* ══ STATS ROW (geo-style) ══ */
+        /* -- STATS ROW (geo-style) -- */
         .stats-row-section{background:linear-gradient(135deg,#060c1a 0%,#0a1628 100%);
             padding:4.5rem 0;position:relative;overflow:hidden}
         .stats-row-section::before{content:'';position:absolute;width:700px;height:350px;
@@ -206,7 +206,7 @@
         .geo-stat-lbl{font-size:.78rem;color:#64748b;margin-top:.3rem;text-align:center}
         .geo-stat-sep{width:1px;height:60px;background:rgba(52,192,197,.2);flex-shrink:0}
 
-        /* ══ PROCESS SECTION ══ */
+        /* -- PROCESS SECTION -- */
         .process-section{background:#f4f7fb;padding:5.5rem 0;position:relative}
         .process-section::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
             background:linear-gradient(90deg,transparent,rgba(52,192,197,.4),transparent)}
@@ -231,7 +231,7 @@
             width:20px;height:20px;display:flex;align-items:center;justify-content:center}
         .process-connector i{color:rgba(52,192,197,.4);font-size:1rem}
 
-        /* ══ SECTION CTA ══ */
+        /* -- SECTION CTA -- */
         .section-cta{background:linear-gradient(135deg,#060c1a 0%,#0b1a2e 100%);
             position:relative;overflow:hidden;padding:5rem 0;text-align:center}
         .section-cta::before{content:'';position:absolute;width:600px;height:400px;
@@ -245,7 +245,7 @@
             line-height:1.75}
         .cta-btn-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
 
-        /* ══ REVEAL ANIMATIONS ══ */
+        /* -- REVEAL ANIMATIONS -- */
         .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
         .reveal.visible{opacity:1;transform:none}
         .stagger-1{transition-delay:.1s}
@@ -255,7 +255,7 @@
         .stagger-5{transition-delay:.5s}
         .stagger-6{transition-delay:.6s}
 
-        /* ══ MEDIA QUERIES ══ */
+        /* -- MEDIA QUERIES -- */
         @media(max-width:900px){
             .tabs-layout{grid-template-columns:1fr}
             .tab-list{flex-wrap:wrap}
@@ -276,6 +276,26 @@
         }
 
     </style>
+    <link rel="icon" type="image/png" href="../../assets/images/Aero.png">
+    <link rel="apple-touch-icon" href="../../assets/images/Aero.png">
+    <link rel="canonical" href="https://www.aerovania.com/pages/industries/mining.html">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aerovania">
+    <meta property="og:title" content="Mining | Aerovania  IBM-Compliant Drone Surveys & AI Compliance Monitoring">
+    <meta property="og:description" content="IBM-compliant drone surveys, stockpile calculations, pit progression mapping, and AI-powered compliance monitoring for Coal India WCL & CCL.">
+    <meta property="og:image" content="https://www.aerovania.com/assets/images/industry_mining.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mining | Aerovania  IBM-Compliant Drone Surveys & AI Compliance Monitoring">
+    <meta name="twitter:description" content="IBM-compliant drone surveys, stockpile calculations, pit progression mapping, and AI-powered compliance monitoring for Coal India WCL & CCL.">
+    <meta name="twitter:image" content="https://www.aerovania.com/assets/images/industry_mining.jpeg">    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aerovania.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://www.aerovania.com/pages/industries/mining.html"},{"@type":"ListItem","position":3,"name":"Mining","item":"https://www.aerovania.com/pages/industries/mining.html"}]}</script>
 </head>
 
 <body>
@@ -283,7 +303,7 @@
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                <a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
                         class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
@@ -461,7 +481,7 @@
             <div class="section-head reveal">
                 <span class="eyebrow">Capabilities</span>
                 <h2>What We Deliver for Mining Operations</h2>
-                <p>IBM-compliant drone surveys, pit progression mapping, stockpile calculations, and AI-powered compliance monitoring — trusted by Coal India WCL &amp; CCL.</p>
+                <p>IBM-compliant drone surveys, pit progression mapping, stockpile calculations, and AI-powered compliance monitoring  trusted by Coal India WCL &amp; CCL.</p>
             </div>
             <div class="tabs-layout">
                 <div class="tab-list">
@@ -505,12 +525,12 @@
                     <div class="tab-panel active" id="t1">
                         <div class="tab-panel-inner">
                             <div class="tab-panel-img">
-                                <img src="../../assets/images/industry_mining.jpeg" alt="IBM Drone Survey">
+                                <img loading="lazy" src="../../assets/images/industry_mining.jpeg" alt="IBM Drone Survey">
                                 <div class="panel-badge"><i class="ph ph-drone"></i><span>Survey Active</span></div>
                             </div>
                             <div class="tab-panel-body">
                                 <h3>IBM-Compliant Drone Survey</h3>
-                                <p>Aerovania conducts IBM (Indian Bureau of Mines) compliant drone surveys across open-cast and underground mine sites — replacing slow ground-based survey teams with faster, safer, and more accurate aerial data collection that meets statutory reporting requirements.</p>
+                                <p>Aerovania conducts IBM (Indian Bureau of Mines) compliant drone surveys across open-cast and underground mine sites  replacing slow ground-based survey teams with faster, safer, and more accurate aerial data collection that meets statutory reporting requirements.</p>
                                 <div class="tab-feat-grid">
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>IBM statutory compliance</div>
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>2cm survey accuracy</div>
@@ -523,12 +543,12 @@
                     <div class="tab-panel" id="t2">
                         <div class="tab-panel-inner">
                             <div class="tab-panel-img">
-                                <img src="../../assets/images/Industries/IBM-Compliant-Drone-Survey.jpg" alt="Stockpile Calculations">
+                                <img loading="lazy" src="../../assets/images/Industries/IBM-Compliant-Drone-Survey.jpg" alt="Stockpile Calculations">
                                 <div class="panel-badge"><i class="ph ph-cube"></i><span>3D Stockpile Model</span></div>
                             </div>
                             <div class="tab-panel-body">
                                 <h3>Stockpile Volume Calculations</h3>
-                                <p>Accurate 3D volumetric models of coal and ore stockpiles, waste dumps, and overburden generated from drone data in hours. Replace manual tape-and-GPS surveys with sub-centimetre photogrammetry — trusted by Coal India subsidiaries WCL and CCL.</p>
+                                <p>Accurate 3D volumetric models of coal and ore stockpiles, waste dumps, and overburden generated from drone data in hours. Replace manual tape-and-GPS surveys with sub-centimetre photogrammetry  trusted by Coal India subsidiaries WCL and CCL.</p>
                                 <div class="tab-feat-grid">
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>2cm volumetric accuracy</div>
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Automated cut/fill calculations</div>
@@ -541,12 +561,12 @@
                     <div class="tab-panel" id="t3">
                         <div class="tab-panel-inner">
                             <div class="tab-panel-img">
-                                <img src="../../assets/images/Industries/pit-mining.jpg" alt="Pit Progression Mapping">
+                                <img loading="lazy" src="../../assets/images/Industries/pit-mining.jpg" alt="Pit Progression Mapping">
                                 <div class="panel-badge"><i class="ph ph-chart-line-up"></i><span>Pit Analysis Active</span></div>
                             </div>
                             <div class="tab-panel-body">
                                 <h3>Pit Progression Mapping</h3>
-                                <p>Regular drone surveys track open-pit excavation progress against mine plans — providing mine managers with accurate, up-to-date pit geometry, bench levels, and overburden removal data for production planning and statutory reporting.</p>
+                                <p>Regular drone surveys track open-pit excavation progress against mine plans  providing mine managers with accurate, up-to-date pit geometry, bench levels, and overburden removal data for production planning and statutory reporting.</p>
                                 <div class="tab-feat-grid">
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Pit geometry &amp; bench mapping</div>
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Overburden volume tracking</div>
@@ -559,12 +579,12 @@
                     <div class="tab-panel" id="t4">
                         <div class="tab-panel-inner">
                             <div class="tab-panel-img">
-                                <img src="../../assets/images/Industries/ccl-image.jpg" alt="AI Compliance Monitoring">
+                                <img loading="lazy" src="../../assets/images/Industries/ccl-image.jpg" alt="AI Compliance Monitoring">
                                 <div class="panel-badge"><i class="ph ph-warning"></i><span>AI Monitoring Active</span></div>
                             </div>
                             <div class="tab-panel-body">
                                 <h3>AI-Powered Compliance Monitoring</h3>
-                                <p>Aerovania's AI Mines Analytics platform detects 23+ mine safety violations in real time — PPE non-compliance, exclusion zone breaches, unauthorised access, and hazardous conditions — delivering live KPIs and ATR reports to safety officers.</p>
+                                <p>Aerovania's AI Mines Analytics platform detects 23+ mine safety violations in real time  PPE non-compliance, exclusion zone breaches, unauthorised access, and hazardous conditions  delivering live KPIs and ATR reports to safety officers.</p>
                                 <div class="tab-feat-grid">
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Detects 23+ violation types</div>
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Live KPIs &amp; violation statistics</div>
@@ -577,12 +597,12 @@
                     <div class="tab-panel" id="t5">
                         <div class="tab-panel-inner">
                             <div class="tab-panel-img">
-                                <img src="../../assets/images/Geospetial/GIS-Integration.png" alt="DGPS GIS Output">
+                                <img loading="lazy" src="../../assets/images/Geospetial/GIS-Integration.png" alt="DGPS GIS Output">
                                 <div class="panel-badge"><i class="ph ph-map-trifold"></i><span>GIS Output Ready</span></div>
                             </div>
                             <div class="tab-panel-body">
                                 <h3>GIS-Ready Deliverables</h3>
-                                <p>All survey outputs are delivered in GIS-ready formats compatible with IBM reporting, mine planning software, and government portals — including DXF, GeoTIFF, Shapefile, and LAS point cloud formats.</p>
+                                <p>All survey outputs are delivered in GIS-ready formats compatible with IBM reporting, mine planning software, and government portals  including DXF, GeoTIFF, Shapefile, and LAS point cloud formats.</p>
                                 <div class="tab-feat-grid">
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>DGPS-accurate georeferencing</div>
                                     <div class="tab-feat-item"><i class="ph ph-check-circle"></i>DXF, GeoTIFF &amp; Shapefile output</div>
@@ -700,7 +720,7 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-col brand-col">
-                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png"
+                <div class="logo"><a href="/"><img src="../../assets/images/aerovania-logo.png"
                             alt="Aerovania Logo" class="footer-logo"></a>
                     <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
                     </div>
@@ -801,7 +821,7 @@
 
     
     <script>
-    // ── Tab switching with animation ──
+    // -- Tab switching with animation --
     document.querySelectorAll(".tab-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const t = btn.dataset.tab;
@@ -813,14 +833,14 @@
         });
     });
 
-    // ── Scroll reveal ──
+    // -- Scroll reveal --
     const revealEls = document.querySelectorAll(".reveal");
     const ro = new IntersectionObserver((entries) => {
         entries.forEach(e => { if(e.isIntersecting){e.target.classList.add("visible");ro.unobserve(e.target);} });
     }, {threshold:0.1});
     revealEls.forEach(el => ro.observe(el));
 
-    // ── Animated stat counters ──
+    // -- Animated stat counters --
     function animCount(el) {
         const raw = el.dataset.raw || el.textContent.trim();
         el.dataset.raw = raw;
@@ -849,7 +869,7 @@
     }, {threshold:0.3});
     document.querySelectorAll(".geo-stat-item").forEach(el => statObs.observe(el));
 
-    // ── Particle canvas in hero ──
+    // -- Particle canvas in hero --
     (function(){
         const canvas = document.getElementById("heroCanvas");
         if (!canvas) return;
@@ -880,7 +900,7 @@
         draw();
     })();
 
-    // ── Why-card 3D tilt ──
+    // -- Why-card 3D tilt --
     document.querySelectorAll(".why-card").forEach(card=>{
         card.style.transformStyle="preserve-3d";
         card.addEventListener("mousemove",e=>{
@@ -891,7 +911,7 @@
         card.addEventListener("mouseleave",()=>{card.style.transform="";});
     });
 
-    // ── Mobile nav ──
+    // -- Mobile nav --
     const mobileBtn=document.querySelector(".mobile-menu-btn");
     const mobilePanel=document.getElementById("mobilePanel");
     const mobileOverlay=document.getElementById("mobileOverlay");
@@ -906,6 +926,14 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
 
 
 

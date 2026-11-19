@@ -1,4 +1,4 @@
-﻿/* =========================================================================
+/* =========================================================================
    VARIABLES & DESIGN SYSTEM
    ========================================================================= */
 :root {
@@ -394,7 +394,7 @@ ul {
     padding: 1rem;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+    transition: all 0.8s cubic-bezier(0.16,1,0.3,1);
     z-index: 200;
     min-width: 588px;
 }
@@ -525,7 +525,7 @@ ul {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 2s ease;
     z-index: 1;
     display: flex;
     align-items: center;
@@ -538,7 +538,7 @@ ul {
     background-position: center;
     z-index: 0;
     transform: scale(1.04);
-    transition: transform 7s ease-in-out;
+    transition: transform 15s ease-in-out;
 }
 .aero-slide--active .aero-slide__bg { transform: scale(1); }
 .aero-slide__overlay {
@@ -644,6 +644,25 @@ ul {
 .slide-cta-btn:active {
     transform: translateY(-1px) scale(1.01);
     box-shadow: 0 4px 14px rgba(52,192,197,0.4);
+}
+.slide-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+}
+.slide-cta-btn--outline {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.55);
+    color: #fff;
+    box-shadow: none;
+}
+.slide-cta-btn--outline::before { display: none; }
+.slide-cta-btn--outline:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: #34C0C5;
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(52,192,197,0.25);
 }
 .slide-dot-nav {
     position: absolute;
@@ -1991,6 +2010,7 @@ ul {
 
 .reveal.active {
     opacity: 1;
+    transition: all 1.5s ease;
     transform: translateY(0);
 }
 
@@ -2705,7 +2725,7 @@ ul {
 }
 
 @media (max-width: 480px) {
-    .stats-grid, .ai-stats-grid { grid-template-columns: 1fr !important; }
+    .stats-grid, .ai-stats-grid { grid-template-columns: 1fr 1fr !important; }
     .ai-pipeline { grid-template-columns: 1fr !important; }
     .section-title, .t-h2, .s-h2, .ai-h2 { font-size: 1.5rem !important; }
     .container { padding: 0 1rem; }

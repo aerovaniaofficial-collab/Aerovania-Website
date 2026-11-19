@@ -1,139 +1,200 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- Sticky Header ---
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+document.addEventListener("DOMContentLoaded", () => {
 
-    // --- Hero Carousel ---
-    const slides = document.querySelectorAll('.aero-slide');
-    const dots   = document.querySelectorAll('.slide-dot');
-    const counter = document.getElementById('slideCounter');
-    const SLIDE_DURATION = 5000;
+    /* -----------------------------
+       Sticky header
+    ------------------------------ */
+
+    const header = document.getElementById("header");
+
+    let scrollTimeout;
+
+    window.addEventListener(
+        "scroll",
+        () => {
+            clearTimeout(scrollTimeout);
+
+            scrollTimeout = setTimeout(() => {
+                if (window.scrollY > 50) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            }, 50);
+        },
+        { passive: true }
+    );
+
+    /* -----------------------------
+       Hero carousel
+    ------------------------------ */
+
+    const slides = document.querySelectorAll(".aero-slide");
+    const dots = document.querySelectorAll(".slide-dot");
+    const counter = document.getElementById("slideCounter");
+
+    const SLIDE_DURATION = 12000;
+
     let current = 0;
     let timer;
 
+    function playSlideVideo(video) {
+        if (!video) return;
+
+        video.playbackRate = 0.75;
+
+        video.play().catch(() => {});
+    }
+
     function showSlide(index) {
-        slides[current].classList.remove('aero-slide--active');
-        dots[current].classList.remove('slide-dot--active');
+        slides[current]?.classList.remove("aero-slide--active");
+        dots[current]?.classList.remove("slide-dot--active");
+
         current = index;
-        slides[current].classList.add('aero-slide--active');
-        dots[current].classList.add('slide-dot--active');
-        if (counter) counter.textContent = (current + 1) + ' / ' + slides.length;
-        // restart video from beginning for the active slide
-        const activeVideo = slides[current].querySelector('video');
-        if (activeVideo) {
-            activeVideo.currentTime = 0;
-            activeVideo.play().catch(() => {});
+
+        slides[current]?.classList.add("aero-slide--active");
+        dots[current]?.classList.add("slide-dot--active");
+
+        if (counter) {
+            counter.textContent = `${current + 1} / ${slides.length}`;
         }
-        // lazy-load lidar iframe on slide 3, restart every time
+
+        const video = slides[current]?.querySelector("video");
+
+        if (video) {
+            playSlideVideo(video);
+        }
+
         if (current === 2) {
-            const iframe = document.getElementById('lidar-iframe');
-            if (iframe) {
-                const src = iframe.dataset.src;
-                iframe.src = '';
-                requestAnimationFrame(() => {
-                    iframe.src = src;
-                });
+            const iframe = document.getElementById("lidar-iframe");
+
+            if (iframe && iframe.src !== iframe.dataset.src) {
+                iframe.src = iframe.dataset.src;
             }
         }
+
         clearTimeout(timer);
-        timer = setTimeout(() => showSlide((current + 1) % slides.length), SLIDE_DURATION);
+
+        timer = setTimeout(() => {
+            showSlide((current + 1) % slides.length);
+        }, SLIDE_DURATION);
     }
 
     if (slides.length) {
-        dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
-        // restart first slide video on load
-        const firstVideo = slides[0].querySelector('video');
-        if (firstVideo) { firstVideo.currentTime = 0; firstVideo.play().catch(() => {}); }
-        timer = setTimeout(() => showSlide(1), SLIDE_DURATION);
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                showSlide(i);
+            });
+        });
+
+        showSlide(0);
     }
 
-    // --- Scroll Reveal Animations ---
-    const revealElements = document.querySelectorAll('.reveal');
-    
-    const revealOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
+    /* -----------------------------
+       Reveal animation
+    ------------------------------ */
 
-    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, revealOptions);
+    const revealElements = document.querySelectorAll(".reveal");
 
-    revealElements.forEach(el => {
-        revealOnScroll.observe(el);
+    const revealObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add("active");
+                    }, 250);
+
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.15,
+            rootMargin: "0px"
+        }
+    );
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
     });
 
-    // --- Number Counter Animation ---
-    const counters = document.querySelectorAll('.counter');
-    let hasCounted = false;
+    /* -----------------------------
+       Counter animation
+    ------------------------------ */
 
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !hasCounted) {
-                hasCounted = true;
-                counters.forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    const duration = 2000; // ms
-                    const increment = target / (duration / 16); // 60fps
-                    
-                    let current = 0;
-                    
-                    const updateCounter = () => {
-                        current += increment;
-                        if (current < target) {
-                            counter.innerText = Math.ceil(current);
-                            requestAnimationFrame(updateCounter);
-                        } else {
-                            counter.innerText = target;
-                        }
-                    };
-                    
-                    updateCounter();
-                });
+    const counters = document.querySelectorAll(".counter");
+
+    function animateCounter(counter) {
+        const target = Number(counter.dataset.target);
+
+        const duration = 5000;
+
+        let start = null;
+
+        function step(timestamp) {
+            if (!start) {
+                start = timestamp;
             }
-        });
-    }, { threshold: 0.5 });
 
-    const metricsSection = document.querySelector('.metrics-section');
-    if (metricsSection) {
-        counterObserver.observe(metricsSection);
+            const progress = Math.min(
+                (timestamp - start) / duration,
+                1
+            );
+
+            counter.textContent = Math.floor(
+                target * progress
+            );
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+        }
+
+        requestAnimationFrame(step);
     }
 
-    // --- Smooth Scrolling for Anchor Links ---
+    const metricSection = document.querySelector(
+        ".metrics-section"
+    );
+
+    if (metricSection) {
+        const observer = new IntersectionObserver(
+            entries => {
+                if (entries[0].isIntersecting) {
+                    counters.forEach(animateCounter);
+                    observer.disconnect();
+                }
+            },
+            {
+                threshold: 0.5
+            }
+        );
+
+        observer.observe(metricSection);
+    }
+
+    /* -----------------------------
+       Smooth scrolling
+    ------------------------------ */
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if(targetElement) {
-                e.preventDefault();
-                // Close mobile menu if open (placeholder for mobile menu logic)
-                
-                const headerHeight = header.offsetHeight;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+        anchor.addEventListener("click", function (e) {
+            const targetId = this.getAttribute("href");
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
+            if (targetId === "#") return;
+
+            const target = document.querySelector(targetId);
+
+            if (!target) return;
+
+            e.preventDefault();
+
+            const targetPosition =
+                target.offsetTop - header.offsetHeight;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+            });
         });
     });
-
 });

@@ -1,20 +1,20 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Railway | Aerovania</title>
-    <meta name="description" content="Corridor surveys, track alignment, IWLARS wagon load analysis, bridge inspection and track condition assessment.">
+    <title>Railway LiDAR Survey & Wagon Load Analysis | Aerovania  Indian Railways</title>
+    <meta name="description" content="LiDAR corridor surveys, IWLARS wagon load analysis, bridge inspection, and track condition assessment for Indian Railways. 5mm accuracy, zero track closures.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/mobile.css">
     <style>
         :root{--cyan:#34C0C5;--cyan2:#29a8ad;--navy:#0a0e20;--navy2:#0d1226;--navy3:#060c1a}
 
-        /* ══ HERO ══ */
+        /* -- HERO -- */
         .page-hero{position:relative;overflow:hidden;min-height:600px;display:flex;align-items:center;
             background:linear-gradient(135deg,var(--navy) 0%,#0b1630 55%,#091220 100%)}
         .page-hero-bg{position:absolute;inset:0;background-image:url('../../assets/images/industry_railways.png');background-size:cover;background-position:center 60%;z-index:0;transform:scale(1.04);transition:transform 8s ease-in-out}
@@ -55,7 +55,7 @@
         .hfb2{right:4%;top:52%;animation-delay:.9s}
         .hfb3{right:18%;top:74%;animation-delay:1.6s}
 
-        /* ══ INTRO STRIP ══ */
+        /* -- INTRO STRIP -- */
         .intro-strip{background:var(--navy3);padding:4.5rem 0;position:relative;overflow:hidden;
             border-bottom:1px solid rgba(52,192,197,.12)}
         .intro-strip::before{content:'';position:absolute;inset:0;
@@ -87,7 +87,7 @@
             line-height:1;text-shadow:0 0 20px rgba(52,192,197,.3)}
         .kpi-desc{font-size:.75rem;color:#64748b;margin-top:.25rem;line-height:1.4}
 
-        /* ══ TABS ══ */
+        /* -- TABS -- */
         .tabs-section{background:#f4f7fb;padding:5.5rem 0;position:relative}
         .tabs-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
             background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
@@ -138,7 +138,7 @@
         .tab-feat-item:hover{background:rgba(52,192,197,.06)}
         .tab-feat-item i{color:var(--cyan);font-size:1.05rem;margin-top:.1rem;flex-shrink:0}
 
-        /* ══ WHY ══ */
+        /* -- WHY -- */
         .why-section{background:#fff;padding:5.5rem 0;position:relative;overflow:hidden}
         .why-section::after{content:'';position:absolute;width:500px;height:500px;
             background:radial-gradient(circle,rgba(52,192,197,.05) 0%,transparent 70%);
@@ -159,7 +159,7 @@
         .why-card h3{font-size:1rem;font-weight:700;color:#0a0e20;margin:0 0 .65rem}
         .why-card p{font-size:.88rem;color:#475569;line-height:1.7;margin:0}
 
-        /* ══ PROCESS ══ */
+        /* -- PROCESS -- */
         .process-section{background:#f4f7fb;padding:5.5rem 0;position:relative}
         .process-section::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
             background:linear-gradient(90deg,transparent,rgba(52,192,197,.4),transparent)}
@@ -177,7 +177,7 @@
         .process-step h4{font-size:1rem;font-weight:700;color:#0a0e20;margin:0 0 .5rem}
         .process-step p{font-size:.85rem;color:#475569;line-height:1.65;margin:0}
 
-        /* ══ STATS BAND ══ */
+        /* -- STATS BAND -- */
         .stats-row-section{background:linear-gradient(135deg,#060c1a 0%,#0a1628 100%);
             padding:4.5rem 0;position:relative;overflow:hidden}
         .stats-row-section::before{content:'';position:absolute;width:700px;height:350px;
@@ -200,7 +200,7 @@
         .geo-stat-lbl{font-size:.78rem;color:#64748b;margin-top:.3rem;text-align:center}
         .geo-stat-sep{width:1px;height:60px;background:rgba(52,192,197,.2);flex-shrink:0}
 
-        /* ══ CTA ══ */
+        /* -- CTA -- */
         .section-cta{background:linear-gradient(135deg,#060c1a 0%,#0b1a2e 100%);
             position:relative;overflow:hidden;padding:5rem 0;text-align:center}
         .section-cta::before{content:'';position:absolute;width:600px;height:400px;
@@ -218,13 +218,13 @@
             transition:all .3s}
         .btn-ghost-cyan:hover{border-color:rgba(52,192,197,.45);color:var(--cyan)}
 
-        /* ══ REVEAL ANIMATIONS ══ */
+        /* -- REVEAL ANIMATIONS -- */
         .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
         .reveal.visible{opacity:1;transform:none}
         .stagger-1{transition-delay:.1s}.stagger-2{transition-delay:.2s}.stagger-3{transition-delay:.3s}
         .stagger-4{transition-delay:.4s}.stagger-5{transition-delay:.5s}.stagger-6{transition-delay:.6s}
 
-        /* ══ RESPONSIVE ══ */
+        /* -- RESPONSIVE -- */
         @media(max-width:900px){
             .tabs-layout{grid-template-columns:1fr}
             .tab-list{flex-wrap:wrap}
@@ -244,13 +244,33 @@
             .geo-stat-item{padding:1rem 1.5rem}
         }
     </style>
+    <link rel="icon" type="image/png" href="../../assets/images/Aero.png">
+    <link rel="apple-touch-icon" href="../../assets/images/Aero.png">
+    <link rel="canonical" href="https://www.aerovania.com/pages/industries/railway.html">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aerovania">
+    <meta property="og:title" content="Railways | Aerovania  LiDAR Corridor Survey & Wagon Load Analysis">
+    <meta property="og:description" content="LiDAR corridor surveys, IWLARS wagon load analysis, bridge inspection, and track condition assessment for Indian Railways.">
+    <meta property="og:image" content="https://www.aerovania.com/assets/images/industry_railways.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Railways | Aerovania  LiDAR Corridor Survey & Wagon Load Analysis">
+    <meta name="twitter:description" content="LiDAR corridor surveys, IWLARS wagon load analysis, bridge inspection, and track condition assessment for Indian Railways.">
+    <meta name="twitter:image" content="https://www.aerovania.com/assets/images/industry_railways.png">    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aerovania.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://www.aerovania.com/pages/industries/railway.html"},{"@type":"ListItem","position":3,"name":"Railways","item":"https://www.aerovania.com/pages/industries/railway.html"}]}</script>
 </head>
 <body>
     <!-- Header -->
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                <a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
                         class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
@@ -340,7 +360,7 @@
     </header>
 
     
-    <!-- ── HERO ── -->
+    <!-- -- HERO -- -->
     <section class="page-hero">
         <div class="page-hero-bg"></div>
         <div class="page-hero-overlay"></div>
@@ -348,7 +368,7 @@
         
     <div class="hero-float-badge hfb1" style="animation-delay:0s">
         <i class="ph ph-ruler"></i>
-        <div><div class="fb-val">±5mm</div><div class="fb-lbl">Corridor Accuracy</div></div>
+        <div><div class="fb-val">5mm</div><div class="fb-lbl">Corridor Accuracy</div></div>
     </div>
     <div class="hero-float-badge hfb2" style="animation-delay:1s">
         <i class="ph ph-cube"></i>
@@ -361,7 +381,7 @@
         <div class="container">
             <div class="hero-eyebrow"><i class="ph ph-train"></i> Railway Corridor Intelligence</div>
             <h1>Precision Intelligence for India's Rail Network</h1>
-            <p class="hero-sub">Corridor surveys, track alignment, IWLARS wagon load analysis, bridge inspection and track condition assessment — zero track closures required.</p>
+            <p class="hero-sub">Corridor surveys, track alignment, IWLARS wagon load analysis, bridge inspection and track condition assessment  zero track closures required.</p>
             <div class="hero-cta-row">
                 <a href="../../pages/company/contact-us.html" class="btn btn-primary btn-lg">Talk to an Expert</a>
                 <a href="#capabilities" class="btn btn-outline-cyan">Explore Capabilities</a>
@@ -369,21 +389,21 @@
         </div>
     </section>
 
-    <!-- ── INTRO ── -->
+    <!-- -- INTRO -- -->
     <section class="intro-strip">
         <div class="container">
             <div class="intro-text-block reveal">
                 <div class="intro-strip-eyebrow"><i class="ph ph-train"></i>Railway Corridor Intelligence</div>
                 <h2>Precision Intelligence for <span>India's Rail Network</span></h2>
-                <p>Aerovania delivers LiDAR-powered corridor surveys, wagon load analysis, and AI-based track monitoring for Indian Railways — reducing inspection time and improving safety across thousands of kilometres of track.</p>
+                <p>Aerovania delivers LiDAR-powered corridor surveys, wagon load analysis, and AI-based track monitoring for Indian Railways  reducing inspection time and improving safety across thousands of kilometres of track.</p>
                 <div class="intro-trust-row">
-                    <div class="intro-trust-badge"><i class="ph ph-ruler"></i>±5mm Accuracy</div>
+                    <div class="intro-trust-badge"><i class="ph ph-ruler"></i>5mm Accuracy</div>
                     <div class="intro-trust-badge"><i class="ph ph-train"></i>Zero Track Closures</div>
                     <div class="intro-trust-badge"><i class="ph ph-cube"></i>IWLARS Platform</div>
                 </div>
             </div>
             <div class="intro-kpi-grid reveal stagger-2">
-                <div class="intro-kpi-card"><div class="kpi-icon"><i class="ph ph-ruler"></i></div><div class="kpi-body"><div class="kpi-val">±5mm</div><div class="kpi-desc">Corridor Accuracy</div></div></div>
+                <div class="intro-kpi-card"><div class="kpi-icon"><i class="ph ph-ruler"></i></div><div class="kpi-body"><div class="kpi-val">5mm</div><div class="kpi-desc">Corridor Accuracy</div></div></div>
                 <div class="intro-kpi-card"><div class="kpi-icon"><i class="ph ph-cube"></i></div><div class="kpi-body"><div class="kpi-val">IWLARS</div><div class="kpi-desc">Wagon Analysis</div></div></div>
                 <div class="intro-kpi-card"><div class="kpi-icon"><i class="ph ph-map-trifold"></i></div><div class="kpi-body"><div class="kpi-val">LiDAR</div><div class="kpi-desc">Point Cloud</div></div></div>
                 <div class="intro-kpi-card"><div class="kpi-icon"><i class="ph ph-bell-ringing"></i></div><div class="kpi-body"><div class="kpi-val">Real-Time</div><div class="kpi-desc">Track Alerts</div></div></div>
@@ -391,7 +411,7 @@
         </div>
     </section>
 
-    <!-- ── CAPABILITIES ── -->
+    <!-- -- CAPABILITIES -- -->
     <section id="capabilities" class="tabs-section">
         <div class="container">
             <div class="section-head reveal">
@@ -412,38 +432,38 @@
                 <div class="tab-panel active" id="t2">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Industries/Corridor.png" alt="Wagon Load Analysis (IWLARS)">
+                            <img loading="lazy" src="../../assets/images/Industries/Corridor.png" alt="Wagon Load Analysis (IWLARS)">
                             <div class="panel-badge"><i class="ph-cube"></i><span>IWLARS Scan Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Wagon Load Analysis (IWLARS)</h3>
-                            <p>Pulley-guided LiDAR trolley system scans wagon loads in real time — generating 3D point clouds, weight distribution heatmaps, and derailment risk scores for every wagon before departure.</p>
-                            <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>32,000+ points per scan</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>±5mm load accuracy</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Automated stability report</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Derailment risk index</div></div>
+                            <p>Pulley-guided LiDAR trolley system scans wagon loads in real time  generating 3D point clouds, weight distribution heatmaps, and derailment risk scores for every wagon before departure.</p>
+                            <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>32,000+ points per scan</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>5mm load accuracy</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Automated stability report</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Derailment risk index</div></div>
                         </div>
                     </div>
                 </div>
                 <div class="tab-panel" id="t1">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Railway/Rail-track-arial-view.jpg" alt="Corridor Survey">
+                            <img loading="lazy" src="../../assets/images/Railway/Rail-track-arial-view.jpg" alt="Corridor Survey">
                             <div class="panel-badge"><i class="ph-map-trifold"></i><span>LiDAR Corridor Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Corridor Survey</h3>
-                            <p>High-density LiDAR point cloud surveys of railway corridors capturing track geometry, clearances, and infrastructure assets with ±5mm accuracy across hundreds of kilometres in a single mission.</p>
-                            <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>±5mm corridor accuracy</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Track geometry extraction</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Clearance envelope mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Asset inventory generation</div></div>
+                            <p>High-density LiDAR point cloud surveys of railway corridors capturing track geometry, clearances, and infrastructure assets with 5mm accuracy across hundreds of kilometres in a single mission.</p>
+                            <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>5mm corridor accuracy</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Track geometry extraction</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Clearance envelope mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Asset inventory generation</div></div>
                         </div>
                     </div>
                 </div>
                 <div class="tab-panel" id="t3">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Railway/Bridge.png" alt="Bridge Inspection">
+                            <img loading="lazy" src="../../assets/images/Railway/Bridge.png" alt="Bridge Inspection">
                             <div class="panel-badge"><i class="ph-bridge"></i><span>Bridge Scan Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Bridge Inspection</h3>
-                            <p>Drone-based visual and LiDAR inspection of railway bridges, culverts, and underpasses — detecting cracks, spalling, and structural deformation without track closures or scaffolding.</p>
+                            <p>Drone-based visual and LiDAR inspection of railway bridges, culverts, and underpasses  detecting cracks, spalling, and structural deformation without track closures or scaffolding.</p>
                             <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Crack & spalling detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>3D structural models</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>No track closure needed</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Automated defect reports</div></div>
                         </div>
                     </div>
@@ -451,12 +471,12 @@
                 <div class="tab-panel" id="t4">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Railway/track-inspection.webp" alt="Track Condition Assessment">
+                            <img loading="lazy" src="../../assets/images/Railway/track-inspection.webp" alt="Track Condition Assessment">
                             <div class="panel-badge"><i class="ph-chart-line-up"></i><span>Track Analysis Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Track Condition Assessment</h3>
-                            <p>AI-powered analysis of track geometry data identifies rail defects, misalignments, and wear patterns — enabling predictive maintenance scheduling before failures occur.</p>
+                            <p>AI-powered analysis of track geometry data identifies rail defects, misalignments, and wear patterns  enabling predictive maintenance scheduling before failures occur.</p>
                             <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Rail defect detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Geometry deviation alerts</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Predictive maintenance data</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Historical trend analysis</div></div>
                         </div>
                     </div>
@@ -464,7 +484,7 @@
                 <div class="tab-panel" id="t5">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Railway/ESP-Rail.jpg" alt="ESP & ROW Mapping">
+                            <img loading="lazy" src="../../assets/images/Railway/ESP-Rail.jpg" alt="ESP & ROW Mapping">
                             <div class="panel-badge"><i class="ph-map-pin"></i><span>ROW Survey Active</span></div>
                         </div>
                         <div class="tab-panel-body">
@@ -477,12 +497,12 @@
                 <div class="tab-panel" id="t6">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Railway/Rail-tunnel.jpg" alt="Tunnel Inspection">
+                            <img loading="lazy" src="../../assets/images/Railway/Rail-tunnel.jpg" alt="Tunnel Inspection">
                             <div class="panel-badge"><i class="ph ph-tunnel"></i><span>Tunnel Scan Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Tunnel Inspection</h3>
-                            <p>LiDAR-equipped drones perform full interior scans of railway tunnels — capturing wall profiles, lining deformation, crack mapping, and clearance measurements without halting train operations or deploying inspection teams into confined spaces.</p>
+                            <p>LiDAR-equipped drones perform full interior scans of railway tunnels  capturing wall profiles, lining deformation, crack mapping, and clearance measurements without halting train operations or deploying inspection teams into confined spaces.</p>
                             <div class="tab-feat-grid">
                                 <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Full tunnel wall profile scan</div>
                                 <div class="tab-feat-item"><i class="ph ph-check-circle"></i>Lining deformation detection</div>
@@ -497,26 +517,26 @@
         </div>
     </section>
 
-    <!-- ── WHY AEROVANIA ── -->
+    <!-- -- WHY AEROVANIA -- -->
     <section class="why-section">
         <div class="container">
             <div class="section-head reveal" style="text-align:center;margin-bottom:3rem">
                 <span style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:.75rem">Why Aerovania</span>
                 <h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#0a0e20;margin:0 0 .75rem">The Railway Intelligence Advantage</h2>
-                <p style="color:#475569;font-size:1rem;max-width:600px;margin:0 auto">Purpose-built for Indian Railways — not adapted from general survey tools.</p>
+                <p style="color:#475569;font-size:1rem;max-width:600px;margin:0 auto">Purpose-built for Indian Railways  not adapted from general survey tools.</p>
             </div>
             <div class="why-grid">
-            <div class="why-card reveal stagger-1"><div class="why-icon"><i class="ph ph-ruler"></i></div><h3>Sub-5mm Accuracy</h3><p>±5mm corridor accuracy across LiDAR surveys meeting the precision demands of Indian Railways track geometry and clearance standards.</p></div>
-            <div class="why-card reveal stagger-2"><div class="why-icon"><i class="ph ph-train"></i></div><h3>Zero Track Closures</h3><p>Drone and trolley-based surveys operate without track possession — no disruption to train operations or scheduling.</p></div>
-            <div class="why-card reveal stagger-3"><div class="why-icon"><i class="ph ph-cube"></i></div><h3>IWLARS Platform</h3><p>Purpose-built pulley-guided LiDAR trolley for wagon load analysis — the only system of its kind for Indian Railways.</p></div>
+            <div class="why-card reveal stagger-1"><div class="why-icon"><i class="ph ph-ruler"></i></div><h3>Sub-5mm Accuracy</h3><p>5mm corridor accuracy across LiDAR surveys meeting the precision demands of Indian Railways track geometry and clearance standards.</p></div>
+            <div class="why-card reveal stagger-2"><div class="why-icon"><i class="ph ph-train"></i></div><h3>Zero Track Closures</h3><p>Drone and trolley-based surveys operate without track possession  no disruption to train operations or scheduling.</p></div>
+            <div class="why-card reveal stagger-3"><div class="why-icon"><i class="ph ph-cube"></i></div><h3>IWLARS Platform</h3><p>Purpose-built pulley-guided LiDAR trolley for wagon load analysis  the only system of its kind for Indian Railways.</p></div>
             <div class="why-card reveal stagger-4"><div class="why-icon"><i class="ph ph-brain"></i></div><h3>AI Defect Detection</h3><p>Machine learning models detect track defects, misalignments, and wear patterns from survey data automatically.</p></div>
             <div class="why-card reveal stagger-5"><div class="why-icon"><i class="ph ph-file-text"></i></div><h3>Regulatory Reports</h3><p>Automated survey reports meet Indian Railways inspection and compliance documentation requirements.</p></div>
-            <div class="why-card reveal stagger-6"><div class="why-icon"><i class="ph ph-map-pin"></i></div><h3>Pan-India Operations</h3><p>Operational capability across all Indian Railways zones — from mountain corridors to coastal mainlines.</p></div>
+            <div class="why-card reveal stagger-6"><div class="why-icon"><i class="ph ph-map-pin"></i></div><h3>Pan-India Operations</h3><p>Operational capability across all Indian Railways zones  from mountain corridors to coastal mainlines.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- ── HOW IT WORKS ── -->
+    <!-- -- HOW IT WORKS -- -->
     <section class="process-section">
         <div class="container">
             <div class="section-head reveal" style="text-align:center;margin-bottom:0">
@@ -524,7 +544,7 @@
                 <h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;color:#0a0e20;margin:0">From Survey to Intelligence</h2>
             </div>
             <div class="process-grid">
-            <div class="process-step reveal stagger-1"><div class="process-step-num">01</div><div class="process-step-icon"><i class="ph ph-map-trifold"></i></div><h4>Corridor Survey</h4><p>LiDAR surveys map the full railway corridor at ±5mm accuracy.</p></div>
+            <div class="process-step reveal stagger-1"><div class="process-step-num">01</div><div class="process-step-icon"><i class="ph ph-map-trifold"></i></div><h4>Corridor Survey</h4><p>LiDAR surveys map the full railway corridor at 5mm accuracy.</p></div>
             <div class="process-step reveal stagger-2"><div class="process-step-num">02</div><div class="process-step-icon"><i class="ph ph-cube"></i></div><h4>IWLARS Scan</h4><p>Pulley-guided LiDAR trolley scans wagon loads generating stability reports.</p></div>
             <div class="process-step reveal stagger-3"><div class="process-step-num">03</div><div class="process-step-icon"><i class="ph ph-bridge"></i></div><h4>Bridge Inspection</h4><p>Drones inspect bridges and culverts detecting cracks and spalling.</p></div>
             <div class="process-step reveal stagger-4"><div class="process-step-num">04</div><div class="process-step-icon"><i class="ph ph-file-text"></i></div><h4>IR Compliance</h4><p>Indian Railways compliant survey and inspection reports delivered instantly.</p></div>
@@ -532,7 +552,7 @@
         </div>
     </section>
 
-    <!-- ── STATS ── -->
+    <!-- -- STATS -- -->
     <section class="stats-row-section">
         <div class="container">
             <div class="geo-stats-header reveal">
@@ -541,7 +561,7 @@
                 <div class="geo-stats-line"></div>
             </div>
             <div class="geo-stats-band reveal">
-                <div class="geo-stat-item"><span class="geo-stat-num">±5</span><span class="geo-stat-unit">mm</span><span class="geo-stat-lbl">Corridor Accuracy</span></div>
+                <div class="geo-stat-item"><span class="geo-stat-num">5</span><span class="geo-stat-unit">mm</span><span class="geo-stat-lbl">Corridor Accuracy</span></div>
                 <div class="geo-stat-sep"></div>
                 <div class="geo-stat-item"><span class="geo-stat-num">32K+</span><span class="geo-stat-unit">Points</span><span class="geo-stat-lbl">Per Scan</span></div>
                 <div class="geo-stat-sep"></div>
@@ -552,7 +572,7 @@
         </div>
     </section>
 
-    <!-- ── CTA ── -->
+    <!-- -- CTA -- -->
     <section class="section-cta">
         <div class="container reveal">
             <h2>Modernise Your <span>Railway Inspection</span></h2>
@@ -567,7 +587,7 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-col brand-col">
-                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png"
+                <div class="logo"><a href="/"><img src="../../assets/images/aerovania-logo.png"
                             alt="Aerovania Logo" class="footer-logo"></a>
                     <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
                     </div>
@@ -668,7 +688,7 @@
 
     
     <script>
-    // ── Tab switching with animation ──
+    // -- Tab switching with animation --
     document.querySelectorAll(".tab-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const t = btn.dataset.tab;
@@ -680,14 +700,14 @@
         });
     });
 
-    // ── Scroll reveal ──
+    // -- Scroll reveal --
     const revealEls = document.querySelectorAll(".reveal");
     const ro = new IntersectionObserver((entries) => {
         entries.forEach(e => { if(e.isIntersecting){e.target.classList.add("visible");ro.unobserve(e.target);} });
     }, {threshold:0.1});
     revealEls.forEach(el => ro.observe(el));
 
-    // ── Animated stat counters ──
+    // -- Animated stat counters --
     function animCount(el) {
         const raw = el.dataset.raw || el.textContent.trim();
         el.dataset.raw = raw;
@@ -716,7 +736,7 @@
     }, {threshold:0.3});
     document.querySelectorAll(".geo-stat-item").forEach(el => statObs.observe(el));
 
-    // ── Particle canvas in hero ──
+    // -- Particle canvas in hero --
     (function(){
         const canvas = document.getElementById("heroCanvas");
         if (!canvas) return;
@@ -747,7 +767,7 @@
         draw();
     })();
 
-    // ── Why-card 3D tilt ──
+    // -- Why-card 3D tilt --
     document.querySelectorAll(".why-card").forEach(card=>{
         card.style.transformStyle="preserve-3d";
         card.addEventListener("mousemove",e=>{
@@ -758,7 +778,7 @@
         card.addEventListener("mouseleave",()=>{card.style.transform="";});
     });
 
-    // ── Mobile nav ──
+    // -- Mobile nav --
     const mobileBtn=document.querySelector(".mobile-menu-btn");
     const mobilePanel=document.getElementById("mobilePanel");
     const mobileOverlay=document.getElementById("mobileOverlay");
@@ -774,6 +794,14 @@
 
 </html>
 </html>
+
+
+
+
+
+
+
+
 
 
 

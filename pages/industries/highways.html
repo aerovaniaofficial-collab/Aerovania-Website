@@ -1,20 +1,20 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Highways | Aerovania</title>
-    <meta name="description" content="Topographic aerial surveys, construction progress monitoring and highway corridor mapping for NHAI and state highway authorities.">
+    <title>Highway Drone Survey & Corridor Mapping | Aerovania  NHAI Empanelled</title>
+    <meta name="description" content="NHAI empanelled drone-based topographic surveys, ROW corridor mapping, and construction progress monitoring. 10x faster than ground surveys. Sub-5cm accuracy.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/mobile.css">
     <style>
         :root{--cyan:#34C0C5;--cyan2:#29a8ad;--navy:#0a0e20;--navy2:#0d1226;--navy3:#060c1a}
 
-        /* ══ HERO ══ */
+        /* -- HERO -- */
         .page-hero{position:relative;overflow:hidden;min-height:600px;display:flex;align-items:center;
             background:linear-gradient(135deg,var(--navy) 0%,#0b1630 55%,#091220 100%)}
         .page-hero::after{content:'';position:absolute;inset:0;
@@ -58,7 +58,7 @@
         .hfb2{right:4%;top:52%;animation-delay:.9s}
         .hfb3{right:18%;top:74%;animation-delay:1.6s}
 
-        /* ══ INTRO STRIP ══ */
+        /* -- INTRO STRIP -- */
         .intro-strip{background:var(--navy3);padding:4.5rem 0;position:relative;overflow:hidden;
             border-bottom:1px solid rgba(52,192,197,.12)}
         .intro-strip::before{content:'';position:absolute;inset:0;
@@ -90,7 +90,7 @@
             line-height:1;text-shadow:0 0 20px rgba(52,192,197,.3)}
         .kpi-desc{font-size:.75rem;color:#64748b;margin-top:.25rem;line-height:1.4}
 
-        /* ══ TABS ══ */
+        /* -- TABS -- */
         .tabs-section{background:#f4f7fb;padding:5.5rem 0;position:relative}
         .tabs-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
             background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
@@ -141,7 +141,7 @@
         .tab-feat-item:hover{background:rgba(52,192,197,.06)}
         .tab-feat-item i{color:var(--cyan);font-size:1.05rem;margin-top:.1rem;flex-shrink:0}
 
-        /* ══ WHY ══ */
+        /* -- WHY -- */
         .why-section{background:#fff;padding:5.5rem 0;position:relative;overflow:hidden}
         .why-section::after{content:'';position:absolute;width:500px;height:500px;
             background:radial-gradient(circle,rgba(52,192,197,.05) 0%,transparent 70%);
@@ -162,7 +162,7 @@
         .why-card h3{font-size:1rem;font-weight:700;color:#0a0e20;margin:0 0 .65rem}
         .why-card p{font-size:.88rem;color:#475569;line-height:1.7;margin:0}
 
-        /* ══ PROCESS ══ */
+        /* -- PROCESS -- */
         .process-section{background:#f4f7fb;padding:5.5rem 0;position:relative}
         .process-section::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
             background:linear-gradient(90deg,transparent,rgba(52,192,197,.4),transparent)}
@@ -180,7 +180,7 @@
         .process-step h4{font-size:1rem;font-weight:700;color:#0a0e20;margin:0 0 .5rem}
         .process-step p{font-size:.85rem;color:#475569;line-height:1.65;margin:0}
 
-        /* ══ STATS BAND ══ */
+        /* -- STATS BAND -- */
         .stats-row-section{background:linear-gradient(135deg,#060c1a 0%,#0a1628 100%);
             padding:4.5rem 0;position:relative;overflow:hidden}
         .stats-row-section::before{content:'';position:absolute;width:700px;height:350px;
@@ -203,7 +203,7 @@
         .geo-stat-lbl{font-size:.78rem;color:#64748b;margin-top:.3rem;text-align:center}
         .geo-stat-sep{width:1px;height:60px;background:rgba(52,192,197,.2);flex-shrink:0}
 
-        /* ══ CTA ══ */
+        /* -- CTA -- */
         .section-cta{background:linear-gradient(135deg,#060c1a 0%,#0b1a2e 100%);
             position:relative;overflow:hidden;padding:5rem 0;text-align:center}
         .section-cta::before{content:'';position:absolute;width:600px;height:400px;
@@ -221,13 +221,13 @@
             transition:all .3s}
         .btn-ghost-cyan:hover{border-color:rgba(52,192,197,.45);color:var(--cyan)}
 
-        /* ══ REVEAL ANIMATIONS ══ */
+        /* -- REVEAL ANIMATIONS -- */
         .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
         .reveal.visible{opacity:1;transform:none}
         .stagger-1{transition-delay:.1s}.stagger-2{transition-delay:.2s}.stagger-3{transition-delay:.3s}
         .stagger-4{transition-delay:.4s}.stagger-5{transition-delay:.5s}.stagger-6{transition-delay:.6s}
 
-        /* ══ RESPONSIVE ══ */
+        /* -- RESPONSIVE -- */
         @media(max-width:900px){
             .tabs-layout{grid-template-columns:1fr}
             .tab-list{flex-wrap:wrap}
@@ -247,13 +247,26 @@
             .geo-stat-item{padding:1rem 1.5rem}
         }
     </style>
+    <link rel="icon" type="image/png" href="../../assets/images/Aero.png">
+    <link rel="apple-touch-icon" href="../../assets/images/Aero.png">
+    <link rel="canonical" href="https://www.aerovania.com/pages/industries/highways.html">
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aerovania">
+    <meta property="og:title" content="Highways | Aerovania  NHAI Empanelled Drone Survey & Corridor Mapping">
+    <meta property="og:description" content="NHAI empanelled drone-based topographic surveys, ROW corridor mapping, and construction progress monitoring. 10x faster than ground surveys.">
+    <meta property="og:image" content="https://www.aerovania.com/assets/images/Expressways-in-Ahmedabad_0_1200.jpg.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Highways | Aerovania  NHAI Empanelled Drone Survey & Corridor Mapping">
+    <meta name="twitter:description" content="NHAI empanelled drone-based topographic surveys, ROW corridor mapping, and construction progress monitoring. 10x faster than ground surveys.">
+    <meta name="twitter:image" content="https://www.aerovania.com/assets/images/Expressways-in-Ahmedabad_0_1200.jpg.webp">    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aerovania.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://www.aerovania.com/pages/industries/highways.html"},{"@type":"ListItem","position":3,"name":"Highways","item":"https://www.aerovania.com/pages/industries/highways.html"}]}</script>
 </head>
 <body>
     <!-- Header -->
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                <a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
                         class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
@@ -343,7 +356,7 @@
     </header>
 
     
-    <!-- ── HERO ── -->
+    <!-- -- HERO -- -->
     <section class="page-hero">
         <div class="page-hero-bg"></div>
         <canvas id="heroCanvas"></canvas>
@@ -363,7 +376,7 @@
         <div class="container">
             <div class="hero-eyebrow"><i class="ph ph-road-horizon"></i> Highway Corridor Intelligence</div>
             <h1>Smarter Highway Surveys from Above</h1>
-            <p class="hero-sub">Topographic aerial surveys, construction progress monitoring, and highway corridor mapping for NHAI and state highway authorities — 10x faster than ground surveys.</p>
+            <p class="hero-sub">Topographic aerial surveys, construction progress monitoring, and highway corridor mapping for NHAI and state highway authorities  10x faster than ground surveys.</p>
             <div class="hero-cta-row">
                 <a href="../../pages/company/contact-us.html" class="btn btn-primary btn-lg">Talk to an Expert</a>
                 <a href="#capabilities" class="btn btn-outline-cyan">Explore Capabilities</a>
@@ -371,13 +384,13 @@
         </div>
     </section>
 
-    <!-- ── INTRO ── -->
+    <!-- -- INTRO -- -->
     <section class="intro-strip">
         <div class="container">
             <div class="intro-text-block reveal">
                 <div class="intro-strip-eyebrow"><i class="ph ph-road-horizon"></i>Highway Corridor Intelligence</div>
                 <h2>Smarter Highway Surveys <span>from Above</span></h2>
-                <p>Aerovania delivers drone-based topographic surveys, corridor mapping, and construction progress monitoring for national and state highways — replacing slow ground surveys with fast, accurate aerial intelligence.</p>
+                <p>Aerovania delivers drone-based topographic surveys, corridor mapping, and construction progress monitoring for national and state highways  replacing slow ground surveys with fast, accurate aerial intelligence.</p>
                 <div class="intro-trust-row">
                     <div class="intro-trust-badge"><i class="ph ph-certificate"></i>NHAI Empanelled</div>
                     <div class="intro-trust-badge"><i class="ph ph-clock"></i>10x Faster Surveys</div>
@@ -393,7 +406,7 @@
         </div>
     </section>
 
-    <!-- ── CAPABILITIES ── -->
+    <!-- -- CAPABILITIES -- -->
     <section id="capabilities" class="tabs-section">
         <div class="container">
             <div class="section-head reveal">
@@ -412,12 +425,12 @@
                 <div class="tab-panel active" id="t1">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Geospetial/Precision-mapping.png" alt="Topographic Survey">
+                            <img loading="lazy" src="../../assets/images/Geospetial/Precision-mapping.png" alt="Topographic Survey">
                             <div class="panel-badge"><i class="ph-drone"></i><span>Survey Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Topographic Survey</h3>
-                            <p>High-resolution drone surveys capture sub-5cm topographic data across highway corridors — replacing weeks of ground survey with hours of aerial data collection for DPR and alignment studies.</p>
+                            <p>High-resolution drone surveys capture sub-5cm topographic data across highway corridors  replacing weeks of ground survey with hours of aerial data collection for DPR and alignment studies.</p>
                             <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Sub-5cm ground resolution</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>RTK GNSS georeferencing</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>DEM & DTM generation</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>GIS-ready outputs</div></div>
                         </div>
                     </div>
@@ -425,12 +438,12 @@
                 <div class="tab-panel" id="t2">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/hIGHWAY/corridor-mapping.webp" alt="Corridor Mapping">
+                            <img loading="lazy" src="../../assets/images/hIGHWAY/corridor-mapping.webp" alt="Corridor Mapping">
                             <div class="panel-badge"><i class="ph-map-trifold"></i><span>Corridor Mapping Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Corridor Mapping</h3>
-                            <p>LiDAR-based corridor surveys map the full highway right-of-way — capturing road geometry, drainage, utilities, and encroachments along the alignment for design and asset management.</p>
+                            <p>LiDAR-based corridor surveys map the full highway right-of-way  capturing road geometry, drainage, utilities, and encroachments along the alignment for design and asset management.</p>
                             <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Full ROW mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Utility & drainage capture</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Encroachment detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Cross-section extraction</div></div>
                         </div>
                     </div>
@@ -438,12 +451,12 @@
                 <div class="tab-panel" id="t3">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/hIGHWAY/Highway-Bridge.png" alt="Progress Monitoring">
+                            <img loading="lazy" src="../../assets/images/hIGHWAY/Highway-Bridge.png" alt="Progress Monitoring">
                             <div class="panel-badge"><i class="ph-chart-bar"></i><span>Progress Monitoring Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Progress Monitoring</h3>
-                            <p>Regular drone surveys track construction progress against project plans — providing contractors and project managers with accurate, up-to-date earthwork volumes and schedule adherence data.</p>
+                            <p>Regular drone surveys track construction progress against project plans  providing contractors and project managers with accurate, up-to-date earthwork volumes and schedule adherence data.</p>
                             <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Earthwork volume tracking</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Structure completion mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Schedule vs actual comparison</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Automated progress reports</div></div>
                         </div>
                     </div>
@@ -451,12 +464,12 @@
                 <div class="tab-panel" id="t4">
                     <div class="tab-panel-inner">
                         <div class="tab-panel-img">
-                            <img src="../../assets/images/Geospetial/Quilaity.jpeg" alt="Quality Inspection">
+                            <img loading="lazy" src="../../assets/images/Geospetial/Quilaity.jpeg" alt="Quality Inspection">
                             <div class="panel-badge"><i class="ph-magnifying-glass"></i><span>Quality Inspection Active</span></div>
                         </div>
                         <div class="tab-panel-body">
                             <h3>Quality Inspection</h3>
-                            <p>AI-powered analysis of drone imagery detects pavement defects, surface irregularities, and construction quality issues — enabling early intervention before defects become costly repairs.</p>
+                            <p>AI-powered analysis of drone imagery detects pavement defects, surface irregularities, and construction quality issues  enabling early intervention before defects become costly repairs.</p>
                             <div class="tab-feat-grid"><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Pavement defect detection</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Surface irregularity mapping</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Quality compliance reports</div><div class="tab-feat-item"><i class="ph ph-check-circle"></i>Historical condition tracking</div></div>
                         </div>
                     </div>
@@ -465,7 +478,7 @@
         </div>
     </section>
 
-    <!-- ── WHY AEROVANIA ── -->
+    <!-- -- WHY AEROVANIA -- -->
     <section class="why-section">
         <div class="container">
             <div class="section-head reveal" style="text-align:center;margin-bottom:3rem">
@@ -484,7 +497,7 @@
         </div>
     </section>
 
-    <!-- ── HOW IT WORKS ── -->
+    <!-- -- HOW IT WORKS -- -->
     <section class="process-section">
         <div class="container">
             <div class="section-head reveal" style="text-align:center;margin-bottom:0">
@@ -500,7 +513,7 @@
         </div>
     </section>
 
-    <!-- ── STATS ── -->
+    <!-- -- STATS -- -->
     <section class="stats-row-section">
         <div class="container">
             <div class="geo-stats-header reveal">
@@ -520,7 +533,7 @@
         </div>
     </section>
 
-    <!-- ── CTA ── -->
+    <!-- -- CTA -- -->
     <section class="section-cta">
         <div class="container reveal">
             <h2>Accelerate Your <span>Highway Project</span></h2>
@@ -535,7 +548,7 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-col brand-col">
-                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png"
+                <div class="logo"><a href="/"><img src="../../assets/images/aerovania-logo.png"
                             alt="Aerovania Logo" class="footer-logo"></a>
                     <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
                     </div>
@@ -636,7 +649,7 @@
 
     
     <script>
-    // ── Tab switching with animation ──
+    // -- Tab switching with animation --
     document.querySelectorAll(".tab-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const t = btn.dataset.tab;
@@ -648,14 +661,14 @@
         });
     });
 
-    // ── Scroll reveal ──
+    // -- Scroll reveal --
     const revealEls = document.querySelectorAll(".reveal");
     const ro = new IntersectionObserver((entries) => {
         entries.forEach(e => { if(e.isIntersecting){e.target.classList.add("visible");ro.unobserve(e.target);} });
     }, {threshold:0.1});
     revealEls.forEach(el => ro.observe(el));
 
-    // ── Animated stat counters ──
+    // -- Animated stat counters --
     function animCount(el) {
         const raw = el.dataset.raw || el.textContent.trim();
         el.dataset.raw = raw;
@@ -684,7 +697,7 @@
     }, {threshold:0.3});
     document.querySelectorAll(".geo-stat-item").forEach(el => statObs.observe(el));
 
-    // ── Particle canvas in hero ──
+    // -- Particle canvas in hero --
     (function(){
         const canvas = document.getElementById("heroCanvas");
         if (!canvas) return;
@@ -715,7 +728,7 @@
         draw();
     })();
 
-    // ── Why-card 3D tilt ──
+    // -- Why-card 3D tilt --
     document.querySelectorAll(".why-card").forEach(card=>{
         card.style.transformStyle="preserve-3d";
         card.addEventListener("mousemove",e=>{
@@ -726,7 +739,7 @@
         card.addEventListener("mouseleave",()=>{card.style.transform="";});
     });
 
-    // ── Mobile nav ──
+    // -- Mobile nav --
     const mobileBtn=document.querySelector(".mobile-menu-btn");
     const mobilePanel=document.getElementById("mobilePanel");
     const mobileOverlay=document.getElementById("mobileOverlay");
@@ -742,5 +755,12 @@
 
 </html>
 </html>
+
+
+
+
+
+
+
 
 

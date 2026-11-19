@@ -1,14 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IWLARS — Wagon Load Analysis | Aerovania</title>
-<meta name="description" content="IWLARS — Intelligent Wagon Load Analysis & Reporting System. AI-powered LiDAR-based 3D load distribution analysis for Indian Railways freight wagons.">
+<title>IWLARS — Wagon Load Analysis System | Aerovania — Indian Railways</title>
+<meta name="description" content="Intelligent Wagon Load Analysis & Reporting System. LiDAR-based 3D load distribution analysis. 98.7% AI accuracy, <3s scan cycle. Deployed at SE Railway.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/mobile.css">
 <style>
@@ -41,7 +41,7 @@ html { scroll-behavior: smooth; }
 /* Override global body for this page */
 body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-/* ── LIVE BAR ── */
+/* -- LIVE BAR -- */
 .live-bar {
   background: var(--ink); color: #fff;
   display: flex; align-items: stretch; overflow-x: auto;
@@ -63,7 +63,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 .ld-b { background: #64b5f6; }
 @keyframes ldBlink { 0%,100%{opacity:1} 50%{opacity:0.25} }
 
-/* ── HERO ── */
+/* -- HERO -- */
 #hero {
   display: grid; grid-template-columns: 1fr 1fr;
   min-height: 88vh; align-items: stretch;
@@ -110,7 +110,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 }
 .system-diagram { width: 100%; max-width: 520px; }
 
-/* ── SECTION BASE ── */
+/* -- SECTION BASE -- */
 .ws-section { padding: 6rem 0; }
 .ws-section.gray { background: var(--surface); }
 .ws-section.white { background: var(--white); }
@@ -131,7 +131,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 .ws-section.dark .sd { color: rgba(255,255,255,0.5); }
 .divider-h { height: 1px; background: var(--border); }
 
-/* ── PROBLEM CARDS ── */
+/* -- PROBLEM CARDS -- */
 .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
 .prob-card {
   background: var(--white); border: 1px solid var(--border);
@@ -146,14 +146,14 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 .prob-body { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
 .prob-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--red-d); border: 1px solid rgba(192,57,43,0.2); padding: 0.2rem 0.6rem; background: rgba(192,57,43,0.04); width: fit-content; }
 
-/* ── PIPELINE ── */
+/* -- PIPELINE -- */
 .pipeline-wrap {
   margin-top: 3.5rem; background: var(--white); border: 1px solid var(--border);
   padding: 3rem; box-shadow: var(--shadow);
 }
 .pipeline-label { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; text-align: center; margin-bottom: 2.5rem; }
 
-/* ── LOAD VIS ── */
+/* -- LOAD VIS -- */
 .lv-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
 .lv-info-title { font-family: 'Sora', sans-serif; font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 0.8rem; }
 .lv-info-body { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 1.5rem; }
@@ -165,7 +165,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 .thr-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; font-size: 0.83rem; color: rgba(255,255,255,0.6); }
 .thr-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
-/* ── TECH STACK ── */
+/* -- TECH STACK -- */
 .tech-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
 .arch-stack { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); overflow: hidden; box-shadow: var(--shadow-md); }
 .arch-layer {
@@ -197,7 +197,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 .spec-params { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
 .spec-param { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; background: var(--surface); border: 1px solid var(--border); padding: 0.2rem 0.6rem; color: var(--ink2); }
 
-/* ── FEATURES ── */
+/* -- FEATURES -- */
 .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
 .feat-card {
   background: var(--card); border: 1px solid var(--border);
@@ -213,10 +213,10 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 .feat-body { font-size: 0.83rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
 .feat-list { list-style: none; border-top: 1px solid var(--border); padding-top: 1rem; }
 .feat-li { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: var(--muted); padding: 0.3rem 0; border-bottom: 1px solid var(--border2); display: flex; align-items: center; gap: 0.5rem; }
-.feat-li::before { content: '→'; color: var(--amber); }
+.feat-li::before { content: '?'; color: var(--amber); }
 .feat-li:last-child { border-bottom: none; }
 
-/* ── DEPLOYMENT ── */
+/* -- DEPLOYMENT -- */
 .dep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
 .dep-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--amber); padding: 2.5rem; box-shadow: var(--shadow-md); }
 .dep-org { font-family: 'Sora', sans-serif; font-size: 1.7rem; font-weight: 800; color: var(--ink); line-height: 1.1; margin-bottom: 0.4rem; }
@@ -234,7 +234,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 .dep-kpi-v { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; }
 .dep-kpi-k { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.3rem; }
 
-/* ── APPLICATIONS ── */
+/* -- APPLICATIONS -- */
 .app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
 .app-cell { background: var(--white); padding: 2rem 1.5rem; border-right: 1px solid var(--border); transition: background 0.2s; }
 .app-cell:last-child { border-right: none; }
@@ -244,13 +244,13 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 .app-desc { font-family: 'JetBrains Mono', monospace; font-size: 0.63rem; color: var(--muted); line-height: 1.65; }
 .app-badge { margin-top: 0.8rem; font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: var(--amber); border: 1px solid rgba(212,112,10,0.2); padding: 0.2rem 0.5rem; background: var(--amber-light); display: inline-block; }
 
-/* ── CTA ── */
+/* -- CTA -- */
 #ws-cta { background: var(--amber); padding: 5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
 .cta-heading { font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; color: #fff; line-height: 1; margin-bottom: 1rem; }
 .cta-sub { font-size: 0.93rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 1.5rem; }
 .cta-items { display: flex; flex-direction: column; gap: 0.6rem; }
 .cta-item { display: flex; align-items: center; gap: 0.7rem; font-size: 0.88rem; color: rgba(255,255,255,0.85); }
-.cta-item::before { content: '✓'; color: #fff; font-weight: 700; flex-shrink: 0; }
+.cta-item::before { content: '?'; color: #fff; font-weight: 700; flex-shrink: 0; }
 .cta-form-card { background: #fff; padding: 2.5rem; }
 .cf-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem; display: block; }
 .cf-input { width: 100%; background: var(--surface); border: 1px solid var(--border); padding: 0.75rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--ink); margin-bottom: 1rem; outline: none; transition: border-color 0.2s; }
@@ -260,11 +260,11 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 .cf-submit { width: 100%; background: var(--amber); color: #fff; border: none; padding: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; font-weight: 500; margin-top: 0.5rem; transition: background 0.2s; }
 .cf-submit:hover { background: var(--orange); }
 
-/* ── REVEAL ── */
+/* -- REVEAL -- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.on { opacity: 1; transform: none; }
 
-/* ── RESPONSIVE ── */
+/* -- RESPONSIVE -- */
 @media (max-width: 1000px) {
   #hero { grid-template-columns: 1fr; }
   .hero-right { display: none; }
@@ -281,6 +281,19 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
   .dep-row, .dep-kpis { grid-template-columns: 1fr 1fr; }
 }
 </style>
+    <link rel="icon" type="image/png" href="../../assets/images/Aero.png">
+    <link rel="apple-touch-icon" href="../../assets/images/Aero.png">
+    <link rel="canonical" href="https://www.aerovania.com/pages/platform/iwlars.html">
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aerovania">
+    <meta property="og:title" content="IWLARS | Aerovania — Intelligent Wagon Load Analysis & Reporting System">
+    <meta property="og:description" content="LiDAR-based 3D wagon load analysis for Indian Railways. 98.7% AI accuracy, <3s scan cycle, deployed at SE Railway Baspani Yard.">
+    <meta property="og:image" content="https://www.aerovania.com/assets/images/Platform/IWLARS.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IWLARS | Aerovania — Intelligent Wagon Load Analysis & Reporting System">
+    <meta name="twitter:description" content="LiDAR-based 3D wagon load analysis for Indian Railways. 98.7% AI accuracy, <3s scan cycle, deployed at SE Railway Baspani Yard.">
+    <meta name="twitter:image" content="https://www.aerovania.com/assets/images/Platform/IWLARS.png">    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aerovania.com/"},{"@type":"ListItem","position":2,"name":"Platform","item":"https://www.aerovania.com/pages/platform/iwlars.html"},{"@type":"ListItem","position":3,"name":"IWLARS","item":"https://www.aerovania.com/pages/platform/iwlars.html"}]}</script>
 </head>
 <body>
 
@@ -288,7 +301,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                <a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
                         class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
@@ -384,21 +397,21 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
       <div class="lb-item"><div class="live-dot ld-a"></div> Active Site: <span class="lv">Baspani Yard, SE Railway</span></div>
       <div class="lb-item"><div class="live-dot ld-g"></div> Accuracy: <span class="lv">98.7%</span></div>
       <div class="lb-item"><div class="live-dot ld-b"></div> Scan Cycle: <span class="lv">&lt;3 sec / wagon</span></div>
-      <div class="lb-item"><div class="live-dot ld-a"></div> LiDAR Precision: <span class="lv">±2mm</span></div>
+      <div class="lb-item"><div class="live-dot ld-a"></div> LiDAR Precision: <span class="lv">≤2mm</span></div>
       <div class="lb-item"><div class="live-dot ld-g"></div> Uptime: <span class="lv">24 / 7</span></div>
     </div>
 
     <!-- HERO -->
     <section id="hero">
       <div class="hero-left reveal">
-        <div class="hero-platform-chip"><div class="live-dot ld-g"></div>Live Deployed · Indian Railways</div>
+        <div class="hero-platform-chip"><div class="live-dot ld-g"></div>Live Deployed — Indian Railways</div>
         <h1 class="hero-title">IWLARS<br><span class="hl">PLATFORM</span></h1>
         <div class="hero-subtitle">Intelligent Wagon Load Analysis &amp; Reporting System</div>
         <p class="hero-desc">AI-powered LiDAR-based 3D load distribution analysis and automated visual inspection for freight wagons — preventing derailments, ensuring compliance, and eliminating manual yard bottlenecks at Indian Railways loading yards.</p>
         <div class="kpi-row">
           <div class="kpi-m"><div class="kpi-m-num">98.7%</div><div class="kpi-m-label">AI Accuracy</div></div>
           <div class="kpi-m"><div class="kpi-m-num">&lt;3s</div><div class="kpi-m-label">Scan Cycle</div></div>
-          <div class="kpi-m"><div class="kpi-m-num">±2mm</div><div class="kpi-m-label">LiDAR Precision</div></div>
+          <div class="kpi-m"><div class="kpi-m-num">≤2mm</div><div class="kpi-m-label">LiDAR Precision</div></div>
           <div class="kpi-m"><div class="kpi-m-num">24/7</div><div class="kpi-m-label">Operation</div></div>
         </div>
         <div class="hero-actions">
@@ -423,7 +436,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
           </defs>
           <rect width="520" height="480" fill="url(#igrid)"/>
           <rect x="0" y="0" width="520" height="30" fill="#1a1814"/>
-          <text x="16" y="19" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,0.5)" letter-spacing="2">SYSTEM OVERVIEW — IWLARS · REV 2.4</text>
+          <text x="16" y="19" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,0.5)" letter-spacing="2">SYSTEM OVERVIEW — IWLARS — REV 2.4</text>
           <circle cx="496" cy="15" r="5" fill="#4caf50"/>
           <text x="484" y="19" font-family="JetBrains Mono,monospace" font-size="7" fill="#4caf50" text-anchor="end">LIVE</text>
           <rect x="50" y="35" width="10" height="120" fill="#3a3630" rx="2"/>
@@ -442,7 +455,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
           <line x1="310" y1="115" x2="380" y2="100" stroke="#d4700a" stroke-width="1" stroke-dasharray="3,2"/>
           <rect x="375" y="88" width="120" height="26" fill="#fff3e0" stroke="#d4700a" stroke-width="1" rx="2"/>
           <text x="435" y="100" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#d4700a" text-anchor="middle">3D LiDAR SENSOR</text>
-          <text x="435" y="110" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#7a7268" text-anchor="middle">±2mm · 1M+ pts/scan</text>
+          <text x="435" y="110" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#7a7268" text-anchor="middle">≤2mm — 1M+ pts/scan</text>
           <g opacity="0.6">
             <line x1="255" y1="126" x2="145" y2="245" stroke="#0077aa" stroke-width="1" stroke-dasharray="4,3"/>
             <line x1="258" y1="126" x2="175" y2="252" stroke="#0077aa" stroke-width="1" stroke-dasharray="4,3"/>
@@ -462,7 +475,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
           <circle cx="155" cy="345" r="6" fill="#555"/>
           <circle cx="365" cy="345" r="14" fill="#2a2420" stroke="#555" stroke-width="2"/>
           <circle cx="365" cy="345" r="6" fill="#555"/>
-          <text x="260" y="330" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(255,255,255,0.3)" text-anchor="middle">WGN-4471 · COAL · SE RAILWAY</text>
+          <text x="260" y="330" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(255,255,255,0.3)" text-anchor="middle">WGN-4471 — COAL — SE RAILWAY</text>
           <g fill="#00aadd" opacity="0.8" filter="url(#iglow)">
             <circle cx="135" cy="254" r="2"/><circle cx="148" cy="249" r="2"/><circle cx="162" cy="254" r="2"/>
             <circle cx="175" cy="247" r="2"/><circle cx="189" cy="253" r="2"/><circle cx="203" cy="246" r="2"/>
@@ -483,10 +496,10 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
           <path d="M470,115 Q500,115 500,170 Q500,210 490,210" stroke="#4caf50" stroke-width="2" fill="none" marker-end="url(#igarr)" stroke-dasharray="5,3"/>
           <rect x="390" y="190" width="120" height="36" fill="#e8f5e9" stroke="#4caf50" stroke-width="1" rx="2"/>
           <text x="450" y="205" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#1a7a3a" text-anchor="middle">EDGE AI SERVER</text>
-          <text x="450" y="217" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#7a7268" text-anchor="middle">CNN · &lt;3s inference</text>
+          <text x="450" y="217" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#7a7268" text-anchor="middle">CNN — &lt;3s inference</text>
           <line x1="390" y1="208" x2="340" y2="208" stroke="#4caf50" stroke-width="1.5" stroke-dasharray="4,2"/>
           <rect x="200" y="198" width="130" height="20" fill="#fff3e0" stroke="#d4700a" stroke-width="1" rx="2"/>
-          <text x="265" y="212" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#d4700a" text-anchor="middle">→ DASHBOARD REPORT</text>
+          <text x="265" y="212" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#d4700a" text-anchor="middle">📊 DASHBOARD REPORT</text>
         </svg>
       </div>
     </section>
@@ -501,21 +514,21 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
         <p class="sd">Traditional visual inspection of loaded freight wagons is error-prone, slow, and incapable of detecting load imbalances that cause derailments, track damage, and billion-rupee losses across India's freight network.</p>
         <div class="problem-grid">
           <div class="prob-card">
-            <div class="prob-card-head"><div class="prob-icon">🚨</div><div class="prob-title">Derailment Risk from Load Imbalance</div></div>
-            <div class="prob-stat">₹200Cr+</div>
+            <div class="prob-card-head"><div class="prob-icon">⚠️</div><div class="prob-title">Derailment Risk from Load Imbalance</div></div>
+            <div class="prob-stat">?200Cr+</div>
             <div class="prob-body">Asymmetric coal/ore loads shift the wagon's centre of gravity, dramatically increasing derailment probability at curves, gradients, and high-speed sections. A 15%+ lateral imbalance is considered critical.</div>
             <div class="prob-tag">Safety Critical</div>
           </div>
           <div class="prob-card">
-            <div class="prob-card-head"><div class="prob-icon">⚙️</div><div class="prob-title">Accelerated Axle &amp; Track Wear</div></div>
+            <div class="prob-card-head"><div class="prob-icon">🔧</div><div class="prob-title">Accelerated Axle &amp; Track Wear</div></div>
             <div class="prob-stat">40%</div>
             <div class="prob-body">Uneven loading accelerates axle fatigue, bogie stress, and ballast degradation. Unbalanced loads cause up to 40% faster infrastructure wear versus properly loaded wagons on the same route.</div>
             <div class="prob-tag">Infrastructure Damage</div>
           </div>
           <div class="prob-card">
-            <div class="prob-card-head"><div class="prob-icon">🕐</div><div class="prob-title">Manual Inspection Bottlenecks</div></div>
+            <div class="prob-card-head"><div class="prob-icon">👷</div><div class="prob-title">Manual Inspection Bottlenecks</div></div>
             <div class="prob-stat">~8min</div>
-            <div class="prob-body">A single manual inspector takes 7–10 minutes per wagon — creating serious throughput bottlenecks at high-volume loading yards. A 58-wagon rake requires over 8 hours for full manual inspection coverage.</div>
+            <div class="prob-body">A single manual inspector takes 7—10 minutes per wagon — creating serious throughput bottlenecks at high-volume loading yards. A 58-wagon rake requires over 8 hours for full manual inspection coverage.</div>
             <div class="prob-tag">Operational Inefficiency</div>
           </div>
           <div class="prob-card">
@@ -537,7 +550,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
         <h2 class="sh">HOW IWLARS WORKS</h2>
         <p class="sd">A 4-stage integrated pipeline from physical LiDAR acquisition to digital intelligence — completed in under 3 seconds per wagon.</p>
         <div class="pipeline-wrap reveal">
-          <div class="pipeline-label">SYSTEM PIPELINE — END TO END · IWLARS v2.4</div>
+          <div class="pipeline-label">SYSTEM PIPELINE — END TO END — IWLARS v2.4</div>
           <svg viewBox="0 0 900 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:300px;">
             <defs>
               <marker id="iparr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -552,13 +565,13 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
             <rect x="20" y="60" width="165" height="6" fill="#1a1814" rx="4"/>
             <rect x="20" y="60" width="3" height="140" fill="#d4700a" rx="4"/>
             <text x="110" y="52" font-family="JetBrains Mono,monospace" font-size="9" fill="#d4700a" text-anchor="middle" letter-spacing="1">STAGE 01</text>
-            <text x="110" y="100" font-family="Inter,sans-serif" font-size="28" text-anchor="middle">🚂</text>
+            <text x="110" y="100" font-family="Inter,sans-serif" font-size="28" text-anchor="middle">🚃</text>
             <text x="110" y="125" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#1a1814" text-anchor="middle">Wagon Entry</text>
             <text x="110" y="140" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">Trigger sensors detect</text>
             <text x="110" y="152" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">wagon entry into</text>
             <text x="110" y="164" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">scan corridor zone</text>
             <rect x="40" y="178" width="105" height="14" fill="#f5f4f0" stroke="#d8d4ce" stroke-width="1" rx="2"/>
-            <text x="93" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#7a7268" text-anchor="middle">Proximity · RFID Tag</text>
+            <text x="93" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#7a7268" text-anchor="middle">Proximity — RFID Tag</text>
             <rect x="270" y="60" width="165" height="140" fill="#fff" stroke="#d8d4ce" stroke-width="1.5" rx="4"/>
             <rect x="270" y="60" width="165" height="6" fill="#0077aa" rx="4"/>
             <rect x="270" y="60" width="3" height="140" fill="#0077aa" rx="4"/>
@@ -567,9 +580,9 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
             <text x="355" y="125" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#1a1814" text-anchor="middle">LiDAR Point Cloud</text>
             <text x="355" y="140" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">Trolley traverses wagon.</text>
             <text x="355" y="152" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">1M+ 3D data points</text>
-            <text x="355" y="164" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">captured at ±2mm res.</text>
+            <text x="355" y="164" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">captured at ≤2mm res.</text>
             <rect x="285" y="178" width="140" height="14" fill="#e3f2fd" stroke="#0077aa" stroke-width="1" rx="2"/>
-            <text x="355" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#0077aa" text-anchor="middle">3D SLAM · Multi-return</text>
+            <text x="355" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#0077aa" text-anchor="middle">3D SLAM — Multi-return</text>
             <rect x="470" y="60" width="165" height="140" fill="#fff" stroke="#d8d4ce" stroke-width="1.5" rx="4"/>
             <rect x="470" y="60" width="165" height="6" fill="#1a7a3a" rx="4"/>
             <rect x="470" y="60" width="3" height="140" fill="#1a7a3a" rx="4"/>
@@ -580,7 +593,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
             <text x="555" y="152" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">ratio &amp; anomaly scored</text>
             <text x="555" y="164" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">on edge GPU hardware</text>
             <rect x="480" y="178" width="150" height="14" fill="#e8f5e9" stroke="#1a7a3a" stroke-width="1" rx="2"/>
-            <text x="555" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#1a7a3a" text-anchor="middle">ResNet · CUDA · Edge</text>
+            <text x="555" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#1a7a3a" text-anchor="middle">ResNet — CUDA — Edge</text>
             <rect x="670" y="60" width="210" height="140" fill="#fff3e0" stroke="rgba(212,112,10,0.4)" stroke-width="1.5" rx="4"/>
             <rect x="670" y="60" width="210" height="6" fill="#d4700a" rx="4"/>
             <rect x="670" y="60" width="3" height="140" fill="#d4700a" rx="4"/>
@@ -591,8 +604,8 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
             <text x="775" y="152" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">pass/fail verdict &amp;</text>
             <text x="775" y="164" font-family="JetBrains Mono,monospace" font-size="8" fill="#7a7268" text-anchor="middle">automated PDF report</text>
             <rect x="685" y="178" width="180" height="14" fill="#fff3e0" stroke="#d4700a" stroke-width="1" rx="2"/>
-            <text x="775" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#d4700a" text-anchor="middle">Web Dashboard · API · Alerts</text>
-            <text x="450" y="270" font-family="JetBrains Mono,monospace" font-size="9" fill="#1a1814" text-anchor="middle">TOTAL CYCLE TIME: &lt; 3 SECONDS PER WAGON  ·  24/7 AUTONOMOUS OPERATION  ·  ZERO CLOUD DEPENDENCY</text>
+            <text x="775" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#d4700a" text-anchor="middle">Web Dashboard — API — Alerts</text>
+            <text x="450" y="270" font-family="JetBrains Mono,monospace" font-size="9" fill="#1a1814" text-anchor="middle">TOTAL CYCLE TIME: &lt; 3 SECONDS PER WAGON  —  24/7 AUTONOMOUS OPERATION  —  ZERO CLOUD DEPENDENCY</text>
           </svg>
         </div>
       </div>
@@ -631,7 +644,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
                 </linearGradient>
               </defs>
               <rect width="500" height="360" fill="#111"/>
-              <text x="16" y="22" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">TOP-DOWN LOAD HEATMAP — WGN-4471 · COAL</text>
+              <text x="16" y="22" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">TOP-DOWN LOAD HEATMAP — WGN-4471 — COAL</text>
               <rect x="50" y="40" width="400" height="230" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" rx="4"/>
               <rect x="60" y="235" width="60" height="25" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1" rx="2"/>
               <text x="90" y="252" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(255,255,255,0.4)" text-anchor="middle">BOGIE A</text>
@@ -670,8 +683,8 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
             </div>
             <div class="thresholds">
               <div class="thr-title">Dispatch Thresholds</div>
-              <div class="thr-row"><div class="thr-dot" style="background:#4caf50"></div>Balance ≥ 90% — CLEARED FOR DISPATCH</div>
-              <div class="thr-row"><div class="thr-dot" style="background:#ff9800"></div>Balance 75–89% — REBALANCING RECOMMENDED</div>
+              <div class="thr-row"><div class="thr-dot" style="background:#4caf50"></div>Balance = 90% — CLEARED FOR DISPATCH</div>
+              <div class="thr-row"><div class="thr-dot" style="background:#ff9800"></div>Balance 75—89% — REBALANCING RECOMMENDED</div>
               <div class="thr-row"><div class="thr-dot" style="background:#f44336"></div>Balance &lt; 75% — HOLD — DO NOT DISPATCH</div>
             </div>
           </div>
@@ -694,8 +707,8 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
                 <div class="arch-layer-tag">SENSING</div>
                 <div class="arch-layer-content">
                   <div class="arch-layer-name">Pulley-Guided LiDAR Trolley System</div>
-                  <div class="arch-layer-detail">Motorised overhead cable-guided trolley with 3D LiDAR sensor payload. Traverses full wagon length automatically. Multi-return LiDAR generating 1M+ points per scan at ±2mm spatial accuracy.</div>
-                  <div class="spec-params" style="margin-top:0.5rem;"><span class="spec-param">±2mm resolution</span><span class="spec-param">1M+ pts/scan</span><span class="spec-param">360° coverage</span></div>
+                  <div class="arch-layer-detail">Motorised overhead cable-guided trolley with 3D LiDAR sensor payload. Traverses full wagon length automatically. Multi-return LiDAR generating 1M+ points per scan at ≤2mm spatial accuracy.</div>
+                  <div class="spec-params" style="margin-top:0.5rem;"><span class="spec-param">≤2mm resolution</span><span class="spec-param">1M+ pts/scan</span><span class="spec-param">360— coverage</span></div>
                 </div>
                 <div class="arch-layer-badge"><span class="badge-chip">HARDWARE</span></div>
               </div>
@@ -749,7 +762,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
           <div class="tech-specs">
             <div class="spec-card">
               <div class="spec-card-title">📡 LiDAR Hardware Specifications</div>
-              <div class="spec-card-body">Sensor Type: 3D Multi-return Time-of-Flight LiDAR<br>Spatial Resolution: ±2mm<br>Point Density: 1,000,000+ points per full scan<br>Scan Range: 0.5m – 30m operational<br>Coverage Pattern: 360° horizontal, 120° vertical<br>Mounting: Motorised pulley-guided overhead trolley<br>IP Rating: IP65 dust/moisture proof for yard environment</div>
+              <div class="spec-card-body">Sensor Type: 3D Multi-return Time-of-Flight LiDAR<br>Spatial Resolution: ≤2mm<br>Point Density: 1,000,000+ points per full scan<br>Scan Range: 0.5m — 30m operational<br>Coverage Pattern: 360— horizontal, 120— vertical<br>Mounting: Motorised pulley-guided overhead trolley<br>IP Rating: IP65 dust/moisture proof for yard environment</div>
               <div class="spec-params"><span class="spec-param">VLP-32C compatible</span><span class="spec-param">100Hz refresh</span><span class="spec-param">IP65 rated</span></div>
             </div>
             <div class="spec-card">
@@ -777,11 +790,11 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
         <p class="sd">IWLARS delivers a complete inspection and analytics suite — from raw sensor acquisition to automated compliance documentation.</p>
         <div class="feat-grid">
           <div class="feat-card">
-            <span class="feat-icon">📡</span>
+            <span class="feat-icon">📦</span>
             <div class="feat-title">3D Load Profiling</div>
             <div class="feat-body">Full volumetric 3D model of cargo inside the wagon — showing surface topology, fill depth map, and mass concentration zones across the entire wagon interior.</div>
             <ul class="feat-list">
-              <li class="feat-li">±2mm spatial resolution</li>
+              <li class="feat-li">≤2mm spatial resolution</li>
               <li class="feat-li">Full interior coverage map</li>
               <li class="feat-li">Surface topology extraction</li>
               <li class="feat-li">Volumetric fill calculation</li>
@@ -821,7 +834,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
             </ul>
           </div>
           <div class="feat-card">
-            <span class="feat-icon">📊</span>
+            <span class="feat-icon">📄</span>
             <div class="feat-title">Automated Reporting</div>
             <div class="feat-body">Every scan auto-generates a structured digital record with load metrics, 3D heatmap, pass/fail verdict, timestamp, and wagon ID — archived and accessible for compliance audits.</div>
             <ul class="feat-list">
@@ -832,7 +845,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
             </ul>
           </div>
           <div class="feat-card">
-            <span class="feat-icon">🔗</span>
+            <span class="feat-icon">🔌</span>
             <div class="feat-title">SCADA / ERP Integration</div>
             <div class="feat-body">REST API and webhook interfaces for integration with existing Railway SCADA, FOIS, ERP, and freight management platforms — zero disruption to existing yard operations during deployment.</div>
             <ul class="feat-list">
@@ -865,17 +878,17 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
               <div class="dep-field"><div class="dep-field-k">Client Type</div><div class="dep-field-v">Indian Railways</div></div>
             </div>
             <div class="dep-scope-title">Project Scope</div>
-            <div class="dep-item"><span>▸</span>Installation of pulley-guided LiDAR trolley infrastructure at Baspani Yard loading corridor</div>
-            <div class="dep-item"><span>▸</span>Custom CNN model training on coal/iron ore wagon load patterns and visual anomaly datasets</div>
-            <div class="dep-item"><span>▸</span>On-premise edge AI server deployment with full redundancy and IP55 enclosure</div>
-            <div class="dep-item"><span>▸</span>Real-time operator dashboard with automated PDF reporting and alert system</div>
-            <div class="dep-item"><span>▸</span>Yard management workflow integration and operator training programme</div>
+            <div class="dep-item"><span>✓</span>Installation of pulley-guided LiDAR trolley infrastructure at Baspani Yard loading corridor</div>
+            <div class="dep-item"><span>✓</span>Custom CNN model training on coal/iron ore wagon load patterns and visual anomaly datasets</div>
+            <div class="dep-item"><span>✓</span>On-premise edge AI server deployment with full redundancy and IP55 enclosure</div>
+            <div class="dep-item"><span>✓</span>Real-time operator dashboard with automated PDF reporting and alert system</div>
+            <div class="dep-item"><span>✓</span>Yard management workflow integration and operator training programme</div>
           </div>
           <div>
             <div class="dep-kpis">
               <div class="dep-kpi"><div class="dep-kpi-v" style="color:var(--green-d)">98.7%</div><div class="dep-kpi-k">AI Detection Accuracy</div></div>
               <div class="dep-kpi"><div class="dep-kpi-v" style="color:var(--amber)">&lt;3s</div><div class="dep-kpi-k">Scan Cycle Time</div></div>
-              <div class="dep-kpi"><div class="dep-kpi-v" style="color:var(--blue-d)">±2mm</div><div class="dep-kpi-k">LiDAR Precision</div></div>
+              <div class="dep-kpi"><div class="dep-kpi-v" style="color:var(--blue-d)">≤2mm</div><div class="dep-kpi-k">LiDAR Precision</div></div>
               <div class="dep-kpi"><div class="dep-kpi-v" style="color:var(--amber)">24/7</div><div class="dep-kpi-k">Operational Uptime</div></div>
             </div>
             <div style="background:var(--ink);padding:1.5rem;margin-top:0.5rem;">
@@ -924,19 +937,19 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
         <h2 class="sh">DEPLOYABLE ACROSS<br>INDIA'S FREIGHT NETWORK</h2>
         <div class="app-grid">
           <div class="app-cell">
-            <span class="app-emoji">🏭</span>
+            <span class="app-emoji">⛏️</span>
             <div class="app-title">Coal Loading Yards</div>
             <div class="app-desc">Thermal power plant sidings, Coal India (WCL, CCL, SECL) loading terminals with high daily wagon throughput.</div>
-            <div class="app-badge">Coal India · Railways</div>
+            <div class="app-badge">Coal India — Railways</div>
           </div>
           <div class="app-cell">
-            <span class="app-emoji">⛏️</span>
+            <span class="app-emoji">🏭</span>
             <div class="app-title">Iron Ore &amp; Mining Sidings</div>
             <div class="app-desc">NMDC, Tata Steel, and JSW steel plant rail sidings handling iron ore and bulk mineral freight dispatches.</div>
-            <div class="app-badge">Mining · Steel</div>
+            <div class="app-badge">Mining — Steel</div>
           </div>
           <div class="app-cell">
-            <span class="app-emoji">🚉</span>
+            <span class="app-emoji">🚂</span>
             <div class="app-title">Marshalling Yards</div>
             <div class="app-desc">Indian Railways formation yards requiring wagon load verification before rake assembly and train dispatch clearance.</div>
             <div class="app-badge">Indian Railways</div>
@@ -945,7 +958,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
             <span class="app-emoji">🏗️</span>
             <div class="app-title">Infrastructure Projects</div>
             <div class="app-desc">NHAI and large infrastructure corridors using material transport wagons for ballast, aggregate, and construction supply.</div>
-            <div class="app-badge">NHAI · NHPC</div>
+            <div class="app-badge">NHAI — NHPC</div>
           </div>
         </div>
       </div>
@@ -956,7 +969,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
       <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
         <div class="reveal">
           <h2 class="cta-heading">READY TO DEPLOY<br>AT YOUR YARD?</h2>
-          <p class="cta-sub">Aerovania will assess your yard, design a custom deployment plan, and have IWLARS operational in 3–6 weeks.</p>
+          <p class="cta-sub">Aerovania will assess your yard, design a custom deployment plan, and have IWLARS operational in 3—6 weeks.</p>
           <div class="cta-items">
             <div class="cta-item">Site survey and infrastructure assessment</div>
             <div class="cta-item">Custom AI model training for your commodity</div>
@@ -982,7 +995,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
             <option>Aggregate / Ballast</option>
             <option>Other Bulk Cargo</option>
           </select>
-          <button class="cf-submit" onclick="this.textContent='Submitting...';setTimeout(()=>this.textContent='Submitted ✓',1200)">Submit Assessment Request →</button>
+          <button class="cf-submit" onclick="this.textContent='Submitting...';setTimeout(()=>this.textContent='Submitted ✓',1200)">Submit Assessment Request ?</button>
         </div>
       </div>
     </section> -->
@@ -990,7 +1003,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-col brand-col">
-                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a>
+                <div class="logo"><a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="footer-logo"></a>
                     <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality</div>
                 </div>
                 <div class="socials"><a href="#"><i class="ph ph-linkedin-logo"></i></a><a href="#"><i class="ph ph-twitter-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a></div>
@@ -1079,7 +1092,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 
     
     <script>
-    // ── Tab switching with animation ──
+    // -- Tab switching with animation --
     document.querySelectorAll(".tab-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const t = btn.dataset.tab;
@@ -1091,14 +1104,14 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
         });
     });
 
-    // ── Scroll reveal ──
+    // -- Scroll reveal --
     const revealEls = document.querySelectorAll(".reveal");
     const ro = new IntersectionObserver((entries) => {
         entries.forEach(e => { if(e.isIntersecting){e.target.classList.add("visible");ro.unobserve(e.target);} });
     }, {threshold:0.1});
     revealEls.forEach(el => ro.observe(el));
 
-    // ── Animated stat counters ──
+    // -- Animated stat counters --
     function animCount(el) {
         const raw = el.dataset.raw || el.textContent.trim();
         el.dataset.raw = raw;
@@ -1127,7 +1140,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
     }, {threshold:0.3});
     document.querySelectorAll(".geo-stat-item").forEach(el => statObs.observe(el));
 
-    // ── Particle canvas in hero ──
+    // -- Particle canvas in hero --
     (function(){
         const canvas = document.getElementById("heroCanvas");
         if (!canvas) return;
@@ -1158,7 +1171,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
         draw();
     })();
 
-    // ── Why-card 3D tilt ──
+    // -- Why-card 3D tilt --
     document.querySelectorAll(".why-card").forEach(card=>{
         card.style.transformStyle="preserve-3d";
         card.addEventListener("mousemove",e=>{
@@ -1169,7 +1182,7 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
         card.addEventListener("mouseleave",()=>{card.style.transform="";});
     });
 
-    // ── Mobile nav ──
+    // -- Mobile nav --
     const mobileBtn=document.querySelector(".mobile-menu-btn");
     const mobilePanel=document.getElementById("mobilePanel");
     const mobileOverlay=document.getElementById("mobileOverlay");
@@ -1184,5 +1197,11 @@ body { background: var(--bg) !important; color: var(--ink); font-family: 'Inter'
 
 </body>
 </html>
+
+
+
+
+
+
 
 

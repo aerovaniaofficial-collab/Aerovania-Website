@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,17 +12,28 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
-    <link rel="stylesheet" href="../../assets/css/mobile.css">
-</head>
+    <link rel="stylesheet" href="../../assets/css/mobile.css">    <link rel="icon" type="image/png" href="../../assets/images/Aero.png">
+    <link rel="apple-touch-icon" href="../../assets/images/Aero.png">
+    <link rel="canonical" href="https://www.aerovania.com/pages/solutions/composite-engineering.html">
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aerovania">
+    <meta property="og:title" content="Composite Engineering | Aerovania — Advanced UAV Airframes & Custom Solutions">
+    <meta property="og:description" content="Indigenous composite material R&D and manufacturing. Hybrid composite materials, carbon fibre UAV airframes, and structural panels.">
+    <meta property="og:image" content="https://www.aerovania.com/assets/images/aerovania-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Composite Engineering | Aerovania — Advanced UAV Airframes & Custom Solutions">
+    <meta name="twitter:description" content="Indigenous composite material R&D and manufacturing. Hybrid composite materials, carbon fibre UAV airframes, and structural panels.">
+    <meta name="twitter:image" content="https://www.aerovania.com/assets/images/aerovania-logo.png"></head>
 
 <body>
     <!-- Header -->
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
+                <a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo"
                         class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
@@ -426,7 +437,7 @@
 
     <style>
 
-        /* ── PAGE HERO ── */
+        /* -- PAGE HERO -- */
         :root { --cyan: #34C0C5; --navy: #0a0e20; --navy2: #0d1226; }
 
         .page-hero {
@@ -477,7 +488,7 @@
         .page-hero .hero-sub { font-size: 1rem; color: #aaaaaa; line-height: 1.75; max-width: 600px; margin: 0 0 2rem; }
         .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-        /* ── INTRO STRIP ── */
+        /* -- INTRO STRIP -- */
         .intro-strip {
             background: #fff;
             padding: 4.5rem 0;
@@ -544,10 +555,15 @@
             .intro-kpi-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 540px) {
-            .intro-kpi-grid { grid-template-columns: 1fr; }
+            .intro-kpi-grid { grid-template-columns: 1fr !important; }
         }
-
-        /* ── COMP VARS ── */
+        @media (max-width: 768px) {
+            .page-hero .container {
+                padding: 1rem 8px 0.5rem;
+            }
+            .intro-kpi-grid { grid-template-columns: 1fr !important; }
+        }
+        /* -- COMP VARS -- */
         :root {
             --comp-black: #04060A;
             --comp-navy: #0A1628;
@@ -1549,9 +1565,9 @@
             </div>
             <div class="comp-product-grid">
                 <div class="comp-pcard">
-                    <img src="../../assets/images/Composit-Engi/comp.png" alt="Natural Fibre Composite" class="comp-pcard-img">
+                    <img loading="lazy" src="../../assets/images/Composit-Engi/comp.png" alt="Natural Fibre Composite" class="comp-pcard-img">
                     <div class="comp-pcard-body">
-                        <div class="comp-pcard-tag">NFHC Series · Natural Composite</div>
+                        <div class="comp-pcard-tag">NFHC Series — Natural Composite</div>
                         <div class="comp-pcard-title">HYBRID COMPOSITE MANUFACTURING</div>
                         <p class="comp-pcard-desc">Our flagship proprietary material combining natural plant fibre reinforcement with glass fibre hybrid layers and synthetic resin matrix. Near carbon-fibre
                             structural performance with exceptional sustainability credentials.</p>
@@ -1561,7 +1577,7 @@
                     </div>
                 </div>
                 <div class="comp-pcard">
-                    <img src="../../assets/images/Composit-Engi/IMG-20260415-WA0031.jpg.jpeg" alt="Carbon Fibre" class="comp-pcard-img">
+                    <img loading="lazy" src="../../assets/images/Composit-Engi/IMG-20260415-WA0031.jpg.jpeg" alt="Carbon Fibre" class="comp-pcard-img">
                     <div class="comp-pcard-body">
                         <div class="comp-pcard-tag">CF Series  Carbon Fibre</div>
                         <div class="comp-pcard-title">CARBON FIBRE MANUFACTURING</div>
@@ -1574,7 +1590,7 @@
                     </div>
                 </div>
                 <div class="comp-pcard" style="background:linear-gradient(135deg,rgba(14,34,68,.8),rgba(0,50,70,.8))">
-                    <img src="../../assets/images/Composit-Engi/IMG-20260101-WA0002-1.jpg.jpeg" alt="Custom Composites" class="comp-pcard-img"
+                    <img loading="lazy" src="../../assets/images/Composit-Engi/IMG-20260101-WA0002-1.jpg.jpeg" alt="Custom Composites" class="comp-pcard-img"
                         style="opacity:.7">
                     <div class="comp-pcard-body">
                         <div class="comp-pcard-tag">Custom R&amp;D Bespoke Solutions</div>
@@ -1626,7 +1642,7 @@
                     <div class="comp-bar-track">
                         <div class="comp-bar-fill" style="width:0%;background:var(--comp-amblt)" data-w="100"></div>
                     </div>
-                    <div class="comp-bar-val">115% ↑</div>
+                    <div class="comp-bar-val">115% ✓</div>
                 </div>
                 <div class="comp-bar-row">
                     <div class="comp-bar-label">Biodegradability</div>
@@ -1838,12 +1854,12 @@
                     </div>
                 </div>
                 <div>
-                    <img src="../../assets/images/Composit-Engi/IMG-20260415-WA0016.jpg.jpeg" alt="R&D Laboratory" class="comp-rnd-img"
+                    <img loading="lazy" src="../../assets/images/Composit-Engi/IMG-20260415-WA0016.jpg.jpeg" alt="R&D Laboratory" class="comp-rnd-img"
                         style="margin-bottom:4px">
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:0">
-                    <img src="../../assets/images/Composit-Engi/Drone-Frame.jpeg" alt="Carbon Fibre Process"
+                    <img loading="lazy" src="../../assets/images/Composit-Engi/Drone-Frame.jpeg" alt="Carbon Fibre Process"
                             class="comp-rnd-img" style="aspect-ratio:1/1">
-                        <img src="../../assets/images/Composit-Engi/Frame-Accembly.jpeg" alt="Composite Manufacturing"
+                        <img loading="lazy" src="../../assets/images/Composit-Engi/Frame-Accembly.jpeg" alt="Composite Manufacturing"
                             class="comp-rnd-img" style="aspect-ratio:1/1">
                 </div>
                 </div>
@@ -1863,7 +1879,7 @@
                 </div>
                 <div class="comp-ind-card"><span class="comp-ind-icon">🚗</span><div class="comp-ind-title">AUTOMOBILES</div>
                     <div class="comp-ind-desc">Body panels, bumper reinforcements, door liners and floor panels.
-                        Lightweighting solutions reducing vehicle weight by 20–35%.</div>
+                        Lightweighting solutions reducing vehicle weight by 20—35%.</div>
                 </div>
                 <div class="comp-ind-card"><span class="comp-ind-icon">🚂</span><div class="comp-ind-title">RAILWAYS</div>
                     <div class="comp-ind-desc">Coach interior cladding, false ceiling modules, luggage racks and
@@ -1873,7 +1889,7 @@
                     <div class="comp-ind-desc">Tactical UAV structural components, blast-resistant panels, antenna
                         enclosures and sensor housing for ruggedised field deployment.</div>
                 </div>
-               <div class="comp-ind-card"><span class="comp-ind-icon">🏏</span><div class="comp-ind-title">RECREATION</div>
+               <div class="comp-ind-card"><span class="comp-ind-icon">🏄</span><div class="comp-ind-title">RECREATION</div>
                     <div class="comp-ind-desc">High-performance equipment frames, protective gear shells, and
                         lightweight structural components for demanding physical applications requiring impact
                         resistance and durability.</div>
@@ -1889,9 +1905,9 @@
             <h2 class="comp-sec-title" style="color:var(--comp-white)">MANUFACTURING <span>FACILITY</span></h2>
             <div class="comp-fac-grid">
                 <div class="comp-fac-image-wrap">
-                    <img src="../../assets/images/Composit-Engi/IMG-20260415-WA0031.jpg.jpeg" alt="Manufacturing Facility"
+                    <img loading="lazy" src="../../assets/images/Composit-Engi/IMG-20260415-WA0031.jpg.jpeg" alt="Manufacturing Facility"
                         class="comp-fac-image">
-                    <div class="comp-fac-tag">Live R&amp;D Facility · Nagpur, India</div>
+                    <div class="comp-fac-tag">Live R&amp;D Facility — Nagpur, India</div>
                 </div>
                 <div class="comp-fac-right">
                     <div class="comp-fac-stat">
@@ -1909,7 +1925,7 @@
                             <div class="comp-fac-stat-lbl">Vacuum Infusion &amp; Autoclave System</div>
                             <div class="comp-fac-stat-desc">Full vacuum infusion setup with resin metering, bagging
                                 infrastructure and pressure vessel curing. Supports complex geometry components up to
-                                1.5m × 1.5m.</div>
+                                1.5m — 1.5m.</div>
                         </div>
                     </div>
                     <div class="comp-fac-stat">
@@ -1973,7 +1989,7 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-col brand-col">
-                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png"
+                <div class="logo"><a href="/"><img src="../../assets/images/aerovania-logo.png"
                             alt="Aerovania Logo" class="footer-logo"></a>
                     <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
                     </div>
@@ -2086,6 +2102,11 @@
 </body>
 
 </html>
+
+
+
+
+
 
 
 
