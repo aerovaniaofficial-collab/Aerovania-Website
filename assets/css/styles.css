@@ -130,7 +130,7 @@ ul {
     color: var(--bg-dark);
 }
 
-/* =========================================================================
+﻿/* =========================================================================
    HEADER & NAVIGATION
    ========================================================================= */
 .glass-header {
@@ -394,7 +394,7 @@ ul {
     padding: 1rem;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 200;
     min-width: 588px;
 }
@@ -467,12 +467,12 @@ ul {
     min-width: 200px;
     background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0,0,0,0.05);
     padding: 0.5rem;
     opacity: 0;
     visibility: hidden;
     transform: translateY(8px);
-    transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 200;
     display: flex;
     flex-direction: column;
@@ -506,11 +506,11 @@ ul {
 .desktop-nav .dropdown-menu a::after { display: none !important; }
 
 .desktop-nav .dropdown-menu a:hover {
-    background: rgba(52,192,197,0.08) !important;
+    background: rgba(52, 192, 197, 0.08) !important;
     color: var(--primary-cyan) !important;
 }
 
-/* =========================================================================
+﻿/* =========================================================================
    HERO CAROUSEL � Reference slide style
    ========================================================================= */
 .aero-hero {
@@ -525,7 +525,7 @@ ul {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 2s ease;
     z-index: 1;
     display: flex;
     align-items: center;
@@ -538,7 +538,7 @@ ul {
     background-position: center;
     z-index: 0;
     transform: scale(1.04);
-    transition: transform 7s ease-in-out;
+    transition: transform 15s ease-in-out;
 }
 .aero-slide--active .aero-slide__bg { transform: scale(1); }
 .aero-slide__overlay {
@@ -644,6 +644,25 @@ ul {
 .slide-cta-btn:active {
     transform: translateY(-1px) scale(1.01);
     box-shadow: 0 4px 14px rgba(52,192,197,0.4);
+}
+.slide-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+}
+.slide-cta-btn--outline {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.55);
+    color: #fff;
+    box-shadow: none;
+}
+.slide-cta-btn--outline::before { display: none; }
+.slide-cta-btn--outline:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: #34C0C5;
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(52,192,197,0.25);
 }
 .slide-dot-nav {
     position: absolute;
@@ -1538,7 +1557,7 @@ ul {
     margin-top: 5px;
 }
 
-@media(max-width:768px) {
+@media (max-width: 768px) {
     .cb-inner {
         grid-template-columns: 1fr;
     }
@@ -1830,7 +1849,7 @@ ul {
     line-height: 1.65;
 }
 
-@media (max-width: 900px) {
+@media(max-width:900px) {
     .why-choose__inner {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -1980,7 +1999,7 @@ ul {
     }
 }
 
-/* =========================================================================
+﻿/* =========================================================================
    SCROLL REVEAL ANIMATIONS
    ========================================================================= */
 .reveal {
@@ -1991,6 +2010,7 @@ ul {
 
 .reveal.active {
     opacity: 1;
+    transition: all 1.5s ease;
     transform: translateY(0);
 }
 
@@ -2024,7 +2044,7 @@ ul {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* =========================================================================
+﻿/* =========================================================================
    INNER PAGE � ALTERNATING DARK / LIGHT SECTION SYSTEM
    ========================================================================= */
 
@@ -2056,7 +2076,7 @@ ul {
     display: inline-block;
     background: rgba(52, 192, 197, 0.15);
     color: var(--primary-cyan);
-    border: 1px solid rgba(52, 192, 197, 0.3);
+    border: 1px solid rgba(52,192,197,0.3);
     padding: 0.4rem 1.2rem;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -2167,7 +2187,7 @@ ul {
 .card-icon {
     width: 56px;
     height: 56px;
-    background: rgba(52, 192, 197, 0.1);
+    background: rgba(52,192,197,0.1);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -2512,12 +2532,12 @@ ul {
     }
 }
 
-/* =========================================================================
+﻿/* =========================================================================
    MOBILE RESPONSIVE � COMPREHENSIVE
    ========================================================================= */
 
 /* -- NAV / HEADER -- */
-@media (max-width: 900px) {
+@media(max-width:900px) {
     .desktop-nav { display: none; }
     .mobile-menu-btn { display: flex !important; }
     .header-container { padding: 0.4rem 0.75rem; gap: 0.5rem; }
@@ -2659,7 +2679,7 @@ ul {
     .why-item-desc { font-size: 0.8rem; }
 }
 
-/* -- CTA -- */
+/* CTA */
 @media (max-width: 768px) {
     .cta-section { padding: 3rem 0; }
     .cta-title { font-size: 1.6rem; }
@@ -2672,13 +2692,13 @@ ul {
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
     .footer-logo { height: 60px; }
 }
-@media (max-width: 480px) {
+@media(max-width:480px) {
     .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .brand-col { grid-column: 1; }
 }
 
 /* -- MEGA MENU � hide on mobile (handled by mobile panel) -- */
-@media (max-width: 900px) {
+@media(max-width:900px) {
     .mega-menu, .dropdown-menu { display: none !important; }
 }
 
@@ -2704,7 +2724,7 @@ ul {
     .tl-step__dot { margin: 0 0 0.75rem; }
 }
 
-@media (max-width: 480px) {
+@media(max-width:480px) {
     .stats-grid, .ai-stats-grid { grid-template-columns: 1fr 1fr !important; }
     .ai-pipeline { grid-template-columns: 1fr !important; }
     .section-title, .t-h2, .s-h2, .ai-h2 { font-size: 1.5rem !important; }

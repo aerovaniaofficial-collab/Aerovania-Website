@@ -33,7 +33,7 @@
     .slide-desc { font-size: 0.9rem !important; }
     .slide-features { gap: 0.4rem; }
     .slide-feat { font-size: 0.72rem; padding: 0.35rem 0.7rem; }
-    .slide-dot-nav { left: 0.75rem; }
+    .slide-dot-nav {display: none; left: 0.75rem; }
     .slide-counter { right: 0.75rem; bottom: 1rem; }
     .aero-slide__cta { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
     .aero-progress { width: 90%; bottom: 16px; }
@@ -222,7 +222,7 @@
 
 /* ── TECHNOLOGY PAGE ── */
 @media (max-width: 900px) {
-    #tech-hero { padding: 7rem 0 4rem !important; }
+    #tech-hero { padding: 0rem 0 15rem !important; }
     .hero-title { font-size: clamp(2.8rem, 10vw, 5rem) !important; }
     .hero-stats { gap: 2rem; flex-wrap: wrap; }
     .ai-layout { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
@@ -232,6 +232,9 @@
     .mat-layout { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
     .tech-section { padding: 5rem 0 !important; }
     .ticker-wrap { margin-top: 76px; }
+}
+@media (max-width: 768px) {
+    #tech-hero { padding: 0rem 0 16rem 0 !important; }
 }
 @media (max-width: 540px) {
     .ai-cards { grid-template-columns: 1fr !important; }
