@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/mobile.css">
     <style>
@@ -171,7 +171,7 @@
             transition-delay: .45s;
         }
 
-        /* ── HERO ── */
+        /* -- HERO -- */
         .ai-hero {
             position: relative;
             min-height: 100vh;
@@ -252,7 +252,7 @@
             overflow: visible;
         }
 
-        /* ── WHY BAR ── */
+        /* -- WHY BAR -- */
         .why-bar {
             background: rgba(52, 192, 197, .06);
             border-top: 1px solid rgba(52, 192, 197, .15);
@@ -280,7 +280,7 @@
             color: var(--cyan);
         }
 
-        /* ── CAPABILITIES GRID ── */
+        /* -- CAPABILITIES GRID -- */
         .cap-section {
             padding: 6rem 0;
             background: #06090f;
@@ -360,12 +360,19 @@
         }
 
         @media(max-width:768px) {
+            .ai-hero .container {    
+                display: block;
+                padding: 74px 7px 0px 7px;
+            }
+            .why-bar{
+                display: none;
+            }
             .cap-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* ── SPLIT: INDUSTRIAL ── */
+        /* -- SPLIT: INDUSTRIAL -- */
         .ind-section {
             padding: 6rem 0;
             background: var(--navy2);
@@ -464,7 +471,7 @@
             color: rgba(255, 255, 255, .5);
         }
 
-        /* ── PIPELINE ── */
+        /* -- PIPELINE -- */
         .pipe-section {
             padding: 6rem 0;
             background: #06090f;
@@ -525,7 +532,7 @@
             flex-shrink: 0;
         }
 
-        /* ── STATS ── */
+        /* -- STATS -- */
         .stats-section {
             padding: 5rem 0;
             background: var(--navy2);
@@ -574,11 +581,12 @@
 
         @media(max-width:768px) {
             .stats-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr !important;
+                gap: 27px;
             }
         }
 
-        /* ── USE CASES ── */
+        /* -- USE CASES -- */
         .uc-section {
             padding: 6rem 0;
             background: var(--navy);
@@ -693,7 +701,7 @@
             transform: rotate(-45deg);
         }
 
-        /* ── CTA ── */
+        /* -- CTA -- */
         .ai-cta {
             padding: 7rem 0;
             background: var(--navy2);
@@ -753,14 +761,26 @@
             flex-wrap: wrap;
         }
     </style>
-</head>
+    <link rel="icon" type="image/png" href="../../assets/images/Aero.png">
+    <link rel="apple-touch-icon" href="../../assets/images/Aero.png">
+    <link rel="canonical" href="https://www.aerovania.com/pages/solutions/artificial-intelligence.html">
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aerovania">
+    <meta property="og:title" content="Artificial Intelligence | Aerovania  120+ AI Models for Industrial Detection">
+    <meta property="og:description" content="120+ purpose-built AI models for real-time detection of mine violations, infrastructure defects, and safety hazards. 98.2% accuracy.">
+    <meta property="og:image" content="https://www.aerovania.com/assets/images/aerovania-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Artificial Intelligence | Aerovania  120+ AI Models for Industrial Detection">
+    <meta name="twitter:description" content="120+ purpose-built AI models for real-time detection of mine violations, infrastructure defects, and safety hazards. 98.2% accuracy.">
+    <meta name="twitter:image" content="https://www.aerovania.com/assets/images/aerovania-logo.png"></head>
 
 <body>
     <!-- Header -->
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
+                <a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
                 <div class="nav-contact-info" style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
@@ -857,7 +877,7 @@
             <div class="reveal">
                 <span class="s-eyebrow"><i class="ph ph-brain"></i> Artificial Intelligence</span>
                 <h1 class="s-h1">Intelligence That<br>Thinks <span>Faster</span><br>Than Risk</h1>
-                <p class="s-p">Industrial-grade computer vision, real-time anomaly detection, and predictive analytics —
+                <p class="s-p">Industrial-grade computer vision, real-time anomaly detection, and predictive analytics 
                     giving your infrastructure a mind of its own.</p>
                 <div class="s-pills">
                     <span class="s-pill">98% detection accuracy</span>
@@ -950,7 +970,7 @@
         <div class="why-bar__inner">
             <span class="why-item"><i class="ph ph-check-circle"></i> 40% higher defect detection accuracy</span>
             <span class="why-item"><i class="ph ph-check-circle"></i> Works in dust, fog & low-light</span>
-            <span class="why-item"><i class="ph ph-check-circle"></i> Edge-deployable — no cloud dependency</span>
+            <span class="why-item"><i class="ph ph-check-circle"></i> Edge-deployable  no cloud dependency</span>
             <span class="why-item"><i class="ph ph-check-circle"></i> Explainable AI for regulatory compliance</span>
         </div>
     </div>
@@ -961,7 +981,7 @@
             <div class="cap-section__header reveal">
                 <span class="s-eyebrow"><i class="ph ph-cpu"></i> Core Capabilities</span>
                 <h2 class="s-h2">AI That Thinks in <span>Real Time</span></h2>
-                <p class="s-p" style="margin:0 auto;">Proprietary models trained on millions of industrial data points —
+                <p class="s-p" style="margin:0 auto;">Proprietary models trained on millions of industrial data points 
                     accuracy that generic solutions can't match.</p>
             </div>
             <div class="cap-grid">
@@ -1085,7 +1105,7 @@
             <div class="pipe-section__header reveal">
                 <span class="s-eyebrow"><i class="ph ph-path"></i> AI Pipeline</span>
                 <h2 class="s-h2">From Raw Data to <span>Verified Intelligence</span></h2>
-                <p class="s-p" style="margin:0 auto;">Every inference follows a hardened pipeline — from sensor capture
+                <p class="s-p" style="margin:0 auto;">Every inference follows a hardened pipeline  from sensor capture
                     to actionable output.</p>
             </div>
             <div class="pipe-flow reveal">
@@ -1145,7 +1165,7 @@
         </div>
     </section>
 
-    <!-- USE CASES — full-width list with hover reveal -->
+    <!-- USE CASES  full-width list with hover reveal -->
     <section class="uc-section">
         <div class="container">
             <div class="uc-section__header reveal">
@@ -1222,7 +1242,7 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-col brand-col">
-                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png"
+                <div class="logo"><a href="/"><img src="../../assets/images/aerovania-logo.png"
                             alt="Aerovania Logo" class="footer-logo"></a>
                     <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
                     </div>
@@ -1341,4 +1361,8 @@
 </body>
 
 </html>
+
+
+
+
 

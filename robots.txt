@@ -1,0 +1,45 @@
+User-agent: *
+Allow: /
+
+# Block backend and admin
+Disallow: /backend/
+Disallow: /backend/admin/
+Disallow: /backend/data/
+
+# Block any staging or test files
+Disallow: /*.env
+Disallow: /node_modules/
+
+#User-agent: *
+#Disallow: /404
+#Disallow: /error
+#Disallow: /scripts/
+#Disallow: /media/
+#Disallow: /brochures/
+#Disallow: /*.pdf$
+#Disallow: /*.doc$
+#Disallow: /*.js$
+
+User-agent: *
+
+# Utility pages
+Disallow: /404
+Disallow: /error
+# Internal folders
+Disallow: /scripts/
+# Private assets (optional)
+Disallow: /brochures/
+# File restrictions
+Disallow: /*.zip$
+# Allow rendering files
+Allow: /*.css$
+Allow: /*.js$
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://www.aerovania.com/sitemap.xml

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/mobile.css">
     <style>
@@ -539,14 +539,24 @@
             }
         }
     </style>
-</head>
+    <link rel="icon" type="image/png" href="../../assets/images/Aero.png">
+    <link rel="apple-touch-icon" href="../../assets/images/Aero.png">
+    <link rel="canonical" href="https://www.aerovania.com/pages/technology/ai-aerial-intelligence-stack.html">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script></head>
 
 <body>
     <!-- Header -->
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
+                <a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
                 <div class="nav-contact-info" style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
@@ -718,7 +728,7 @@
                 <div class="tab-panels">
                     <div class="tab-panel active" id="t1">
                         <div class="tab-panel-inner">
-                            <div class="tab-panel-img"><img src="../../assets/images/hero_drone_survey.png"
+                            <div class="tab-panel-img"><img loading="lazy" src="../../assets/images/hero_drone_survey.png"
                                     alt="Edge AI">
                                 <div class="panel-badge"><i class="ph ph-cpu"></i><span>Edge AI Active</span></div>
                             </div>
@@ -742,7 +752,7 @@
                     </div>
                     <div class="tab-panel" id="t2">
                         <div class="tab-panel-inner">
-                            <div class="tab-panel-img"><img src="../../assets/images/hero_ai_monitoring.png"
+                            <div class="tab-panel-img"><img loading="lazy" src="../../assets/images/hero_ai_monitoring.png"
                                     alt="Computer Vision">
                                 <div class="panel-badge"><i class="ph ph-eye"></i><span>Vision Models Active</span>
                                 </div>
@@ -766,7 +776,7 @@
                     </div>
                     <div class="tab-panel" id="t3">
                         <div class="tab-panel-inner">
-                            <div class="tab-panel-img"><img src="../../assets/images/hero_lidar_terrain.png"
+                            <div class="tab-panel-img"><img loading="lazy" src="../../assets/images/hero_lidar_terrain.png"
                                     alt="Change Detection">
                                 <div class="panel-badge"><i class="ph ph-arrows-clockwise"></i><span>Change
                                         Detection</span></div>
@@ -791,7 +801,7 @@
                     </div>
                     <div class="tab-panel" id="t4">
                         <div class="tab-panel-inner">
-                            <div class="tab-panel-img"><img src="../../assets/images/hero_ai_dashboard.png"
+                            <div class="tab-panel-img"><img loading="lazy" src="../../assets/images/hero_ai_dashboard.png"
                                     alt="Predictive Analytics">
                                 <div class="panel-badge"><i class="ph ph-chart-line-up"></i><span>Predictive
                                         Analytics</span></div>
@@ -908,7 +918,7 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-col brand-col">
-                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png"
+                <div class="logo"><a href="/"><img src="../../assets/images/aerovania-logo.png"
                             alt="Aerovania Logo" class="footer-logo"></a>
                     <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
                     </div>
@@ -1019,4 +1029,9 @@
 </body>
 
 </html>
+
+
+
+
+
 

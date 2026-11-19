@@ -1,17 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Aerial Monitoring | Aerovania</title>
-    <meta name="description" content="AI-driven aerial monitoring and analytics system for mine operations.">
+    <title>AI Mines Analytics Platform | Aerovania  Real-Time Mine Monitoring</title>
+    <meta name="description" content="AI-powered aerial monitoring detecting 23+ mine safety violations in real time. Live KPIs, geospatial intelligence, and ATR reports for Coal India.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/mobile.css">
     <style>
@@ -131,6 +131,51 @@
         .clay-btn-outline:active {
             transform: translateY(4px);
             box-shadow: 0 4px 0 #c7d2fe;
+        }
+
+        /* Live Platform button */
+        .clay-btn-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #10b981;
+            color: #fff;
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.85rem 2.2rem;
+            border-radius: 16px;
+            border: none;
+            transition: transform 0.15s, box-shadow 0.15s;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 8px 0 #047857;
+        }
+
+        .clay-btn-live:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 11px 0 #047857;
+            color: #fff;
+        }
+
+        .clay-btn-live:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #047857;
+        }
+
+        .clay-btn-live .live-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 0 0 rgba(255,255,255,0.6);
+            animation: live-pulse 1.6s infinite;
+        }
+
+        @keyframes live-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.55); }
+            70% { box-shadow: 0 0 0 8px rgba(255,255,255,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
         }
 
         /* Sections */
@@ -471,12 +516,54 @@
             box-shadow: 0 4px 0 #4338ca;
         }
 
+        /* CTA outline button (live platform on dark gradient) */
+        .clay-btn-cta-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: #fff;
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.9rem 2.5rem;
+            border-radius: 16px;
+            border: 2px solid #fff;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        .clay-btn-cta-outline:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+
+        .clay-btn-cta-outline:active {
+            transform: translateY(1px);
+        }
+
         /* Section title center helper */
         .clay-center {
             text-align: center;
         }
     </style>
-</head>
+    <link rel="icon" type="image/png" href="../../assets/images/Aero.png">
+    <link rel="apple-touch-icon" href="../../assets/images/Aero.png">
+    <link rel="canonical" href="https://www.aerovania.com/pages/platform/ai-aerial-monitoring.html">
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aerovania">
+    <meta property="og:title" content="AI Mines Analytics | Aerovania  Real-Time Mine Monitoring & Compliance">
+    <meta property="og:description" content="AI-powered aerial monitoring platform detecting 23+ mine safety violations in real time. Live KPIs, ATR reports, and geospatial intelligence.">
+    <meta property="og:image" content="https://www.aerovania.com/assets/images/AI-mines/analytics-dashboard.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Mines Analytics | Aerovania  Real-Time Mine Monitoring & Compliance">
+    <meta name="twitter:description" content="AI-powered aerial monitoring platform detecting 23+ mine safety violations in real time. Live KPIs, ATR reports, and geospatial intelligence.">
+    <meta name="twitter:image" content="https://www.aerovania.com/assets/images/AI-mines/analytics-dashboard.png"></head>
 
 <body>
 
@@ -485,7 +572,7 @@
     <header id="header" class="glass-header white-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="../../index.html"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
+                <a href="/"><img src="../../assets/images/aerovania-logo.png" alt="Aerovania Logo" class="nav-logo"></a>
             </div>
             <nav class="desktop-nav" style="display: flex; flex-direction: column; height: auto;">
                 <div class="nav-contact-info" style="display: flex; justify-content: flex-end; padding: 5px 20px; font-size: 12px;">
@@ -619,6 +706,7 @@
             <p>A comprehensive analytics dashboard for monitoring mine operations with real-time violation detection,
                 geospatial site management, video intelligence, and role-based access control.</p>
             <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                <a href="http://aiminesanalytics.com" target="_blank" rel="noopener noreferrer" class="clay-btn-live"><span class="live-dot"></span> View Live Platform</a>
                 <a href="../../pages/company/contact-us.html" class="clay-btn-primary"><i
                         class="ph ph-rocket-launch"></i> Request a Demo</a>
                 <a href="#features" class="clay-btn-outline"><i class="ph ph-arrow-down"></i> Platform Features</a>
@@ -633,7 +721,7 @@
         <div class="container">
             <div class="clay-split">
                 <div class="clay-img-card reveal stagger-1">
-                    <img src="../../assets/images/AI-mines/analytics-dashboard.png" alt="Analytics Dashboard"
+                    <img loading="lazy" src="../../assets/images/AI-mines/analytics-dashboard.png" alt="Analytics Dashboard"
                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                     <div class="clay-icon-fallback"
                         style="display:none;width:100%;height:360px;align-items:center;justify-content:center;">
@@ -644,7 +732,7 @@
                     <span class="clay-label">Analytics & Monitoring</span>
                     <h2 class="clay-title">Real-Time Dashboard & KPI Intelligence</h2>
                     <p class="clay-desc">Get a complete operational picture with live KPIs, violation statistics, and
-                        time-series trend charts — all in one unified dashboard.</p>
+                        time-series trend charts  all in one unified dashboard.</p>
                     <ul class="clay-check-list">
                         <li>
                             <div class="clay-check-icon"><i class="ph ph-check"></i></div> Live KPIs, charts, and
@@ -690,7 +778,7 @@
                     </ul>
                 </div>
                 <div class="clay-img-card reveal stagger-2">
-                    <img src="../../assets/images/AI-mines/map-intelligence.png" alt="Map Intelligence"
+                    <img loading="lazy" src="../../assets/images/AI-mines/map-intelligence.png" alt="Map Intelligence"
                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                     <div class="clay-icon-fallback"
                         style="display:none;width:100%;height:360px;align-items:center;justify-content:center;">
@@ -701,117 +789,6 @@
         </div>
     </section>
 
-    <!-- SECTION B: Site Management -->
-    <!-- <section class="clay-section clay-section-c">
-        <div class="clay-blob" style="width:380px;height:380px;background:#6ee7b7;bottom:-80px;right:-60px;"></div>
-        <div class="container">
-            <div class="clay-split">
-                <div class="clay-img-card reveal stagger-1">
-                    <img src="../../assets/images/AI-mines/site-management.png" alt="Site Management"
-                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                    <div class="clay-icon-fallback"
-                        style="display:none;width:100%;height:360px;align-items:center;justify-content:center;color:#6ee7b7;">
-                        <i class="ph ph-buildings"></i>
-                    </div>
-                </div>
-                <div class="reveal stagger-2">
-                    <span class="clay-label">Site Management</span>
-                    <h2 class="clay-title">Manage Mining Sites &amp; Features</h2>
-                    <p class="clay-desc">Dynamically create and manage mining sites with built-in duplicate prevention.
-                        Pre-loaded with BNK Mines, Dhori, Kathara, and Bukaro.</p>
-                    <ul class="clay-check-list">
-                        <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Add, edit, and delete sites
-                            with validation
-                        </li>
-                        <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Built-in duplicate site
-                            prevention
-                        </li>
-                        <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Admin-only creation,
-                            read-only for regular users
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- SECTION B2: Video Management -->
-    <!-- <section class="clay-section clay-section-d">
-        <div class="clay-blob" style="width:380px;height:380px;background:#f9a8d4;bottom:-80px;left:-60px;"></div>
-        <div class="container">
-            <div class="clay-split">
-                <div class="reveal stagger-1">
-                    <span class="clay-label">Video Management</span>
-                    <h2 class="clay-title">Surveillance Video Library by Site</h2>
-                    <p class="clay-desc">Link surveillance videos to specific sites and features — with YouTube
-                        thumbnail generation, search and filter, and role-based access.</p>
-                    <ul class="clay-check-list">
-                        <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Video links organised by site
-                            and feature
-                        </li>
-                        <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> YouTube thumbnail
-                            auto-generation
-                        </li>
-                        <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Search and filter across all
-                            linked videos
-                        </li>
-                    </ul>
-                </div>
-                <div class="clay-img-card reveal stagger-2">
-                    <img src="../../assets/images/video-management.jpeg" alt="Video Management"
-                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                    <div class="clay-icon-fallback"
-                        style="display:none;width:100%;height:360px;align-items:center;justify-content:center;color:#f9a8d4;">
-                        <i class="ph ph-video-camera"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- SECTION C: Security & Access -->
-    <!-- <section class="clay-section clay-section-a">
-        <div class="clay-blob" style="width:350px;height:350px;background:#6ee7b7;top:-80px;right:-60px;"></div>
-        <div class="container">
-            <div class="clay-split">
-                <div class="clay-img-card reveal stagger-1">
-                    <img src="../../assets/images/security-access.jpeg" alt="Security & Access Control"
-                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                    <div class="clay-icon-fallback"
-                        style="display:none;width:100%;height:360px;align-items:center;justify-content:center;color:#6ee7b7;">
-                        <i class="ph ph-shield-check"></i>
-                    </div>
-                </div>
-                <div class="reveal stagger-2">
-                    <span class="clay-label">Security</span>
-                    <h2 class="clay-title">Role-Based Access Control</h2>
-                    <p class="clay-desc">JWT-secured authentication with separate admin and user roles, ensuring the
-                        right people have access to the right data at all times.</p>
-                    <ul class="clay-check-list">
-                        <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> JWT authentication with
-                            role-based access control
-                        </li>
-                        <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Admin cross-department access
-                            with colour-coded badges
-                        </li>
-                        <li>
-                            <div class="clay-check-icon"><i class="ph ph-check"></i></div> Departments: E&amp;T,
-                            Security, Operation, Survey, Safety
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- SECTION C2: ATR Document Management -->
     <section class="clay-section clay-section-c">
         <div class="clay-blob" style="width:350px;height:350px;background:#6ee7b7;bottom:-80px;left:-60px;"></div>
@@ -819,7 +796,7 @@
             <div class="clay-split">
                                 <div class="clay-img-card reveal stagger-2"
                     style="box-shadow: 0px 20px 20px #bbf7d0, 0 20px 40px rgba(34, 197, 94, 0.1);">
-                    <img src="../../assets/images/AI-mines/ATR-Report.png" alt="ATR Document Management"
+                    <img loading="lazy" src="../../assets/images/AI-mines/ATR-Report.png" alt="ATR Document Management"
                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                     <div class="clay-icon-fallback"
                         style="display:none;width:100%;height:360px;align-items:center;justify-content:center;color:#6ee7b7;">
@@ -927,8 +904,11 @@
             <h2>See the Platform in Action</h2>
             <p>Book a live demonstration and see how our AI aerial monitoring and analytics platform can transform your
                 mine operations.</p>
-            <a href="../../pages/company/contact-us.html" class="clay-btn-white"><i class="ph ph-calendar-check"></i>
-                Book a Demo</a>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+                <a href="https://platform.aerovania.com" target="_blank" rel="noopener noreferrer" class="clay-btn-cta-outline"><i class="ph ph-arrow-square-out"></i> View Live Platform</a>
+                <a href="../../pages/company/contact-us.html" class="clay-btn-white"><i class="ph ph-calendar-check"></i>
+                    Book a Demo</a>
+            </div>
         </div>
     </section>
 
@@ -936,7 +916,7 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-col brand-col">
-                <div class="logo"><a href="../../index.html"><img src="../../assets/images/aerovania-logo.png"
+                <div class="logo"><a href="/"><img src="../../assets/images/aerovania-logo.png"
                             alt="Aerovania Logo" class="footer-logo"></a>
                     <div style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">Turning Vision into Verified Reality
                     </div>
@@ -1047,6 +1027,3 @@
 </body>
 
 </html>
-
-
-
