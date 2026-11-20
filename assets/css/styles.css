@@ -318,7 +318,7 @@ ul {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* Dropdown Menus � card style */
+/* Dropdown Menus — card style */
 .desktop-nav .has-dropdown {
     position: relative;
 }
@@ -511,7 +511,7 @@ ul {
 }
 
 ﻿/* =========================================================================
-   HERO CAROUSEL � Reference slide style
+   HERO CAROUSEL — Reference slide style
    ========================================================================= */
 .aero-hero {
     position: relative;
@@ -2045,7 +2045,7 @@ ul {
 }
 
 ﻿/* =========================================================================
-   INNER PAGE � ALTERNATING DARK / LIGHT SECTION SYSTEM
+   INNER PAGE — ALTERNATING DARK / LIGHT SECTION SYSTEM
    ========================================================================= */
 
 /* Page Hero (dark) */
@@ -2533,7 +2533,7 @@ ul {
 }
 
 ﻿/* =========================================================================
-   MOBILE RESPONSIVE � COMPREHENSIVE
+   MOBILE RESPONSIVE — COMPREHENSIVE
    ========================================================================= */
 
 /* -- NAV / HEADER -- */
@@ -2697,7 +2697,7 @@ ul {
     .brand-col { grid-column: 1; }
 }
 
-/* -- MEGA MENU � hide on mobile (handled by mobile panel) -- */
+/* -- MEGA MENU — hide on mobile (handled by mobile panel) -- */
 @media(max-width:900px) {
     .mega-menu, .dropdown-menu { display: none !important; }
 }
