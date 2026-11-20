@@ -5,6 +5,17 @@ RewriteEngine On
 # Block hidden files and folders (.git, .vscode, .env), except .well-known
 RewriteRule (^|/)\.(?!well-known/) - [F,L]
 
+# Old WordPress URLs: 301 to the closest new page (Search Console 404 list, Nov 2026)
+RewriteRule ^(home|home-2|services|products|projects|elementor-4528|under-maintenance)/?$ https://www.aerovania.com/ [R=301,L,NC]
+RewriteRule ^(drones-and-uavs|robotics-automation|r-d|designing-solutions|simulator-development|lab-setup)/?$ https://www.aerovania.com/pages/technology/technology [R=301,L,NC]
+RewriteRule ^aerial-mapping-and-surveying/?$ https://www.aerovania.com/pages/solutions/geospatial-ai [R=301,L,NC]
+RewriteRule ^(blogs|feed|author/aerovania|author/aerovania/feed)/?$ https://www.aerovania.com/pages/company/insights [R=301,L,NC]
+RewriteRule ^(training|mechanical-design-internship-program-imagine-create-analyse-innovate(-2)?|static-aeromodelling-training-make-and-fly|composite-material-training-the-advance-material|fundamental-of-robotics-internship-cum-training-program-the-basics-of-robotics)/?$ https://www.aerovania.com/pages/company/careers [R=301,L,NC]
+RewriteRule ^aircraft-parts-supply/?$ https://www.aerovania.com/pages/solutions/composite-engineering [R=301,L,NC]
+
+# Removed spam page: 410 Gone
+RewriteRule ^l0-autocad-crack/?$ - [G,L,NC]
+
 # Redirect index.html to root
 RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
